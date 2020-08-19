@@ -1,9 +1,12 @@
-<mxfile host="www.draw.io" modified="2020-08-19T20:09:05.527Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36" etag="p-2V9e6q41RAuO0i6Zyp" version="13.6.2" type="gitlab">
+<mxfile host="www.draw.io" modified="2020-08-19T22:41:20.625Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36" etag="jhkODxezFGQGs6M_1Ufi" version="13.6.2" type="gitlab">
   <diagram id="OpShXmH8Ql0zc2l8n3LG" name="Page-1">
     <mxGraphModel dx="1259" dy="568" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="BxSZd1oOKs2nxdDxDw3N-108" value="opt" style="shape=umlFrame;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="206.5" y="516" width="457" height="94" as="geometry" />
+        </mxCell>
         <mxCell id="oXWvmlGvXetgooccEpqr-32" value="Alta Usuario (con memoria)&lt;br&gt;" style="shape=umlFrame;whiteSpace=wrap;html=1;width=111;height=59;" parent="1" vertex="1">
           <mxGeometry x="66" y="40" width="1077" height="740" as="geometry" />
         </mxCell>
@@ -206,16 +209,13 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="oXWvmlGvXetgooccEpqr-29" value="El sistema libera de la memoria los datos ingresados." style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=18;" parent="1" vertex="1">
-          <mxGeometry x="754" y="613" width="80" height="100" as="geometry" />
+          <mxGeometry x="768" y="522" width="80" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="oXWvmlGvXetgooccEpqr-30" value="" style="endArrow=none;dashed=1;html=1;" parent="1" target="oXWvmlGvXetgooccEpqr-31" edge="1">
+        <mxCell id="oXWvmlGvXetgooccEpqr-30" value="" style="endArrow=none;dashed=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="oXWvmlGvXetgooccEpqr-29" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="616" y="565" as="sourcePoint" />
-            <mxPoint x="761" y="499" as="targetPoint" />
+            <mxPoint x="747" y="528.2280701754387" as="targetPoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="oXWvmlGvXetgooccEpqr-31" value="El sistema recuerda los datos ingresados." style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=16;" parent="1" vertex="1">
-          <mxGeometry x="747" y="467.0000000000001" width="80" height="100" as="geometry" />
         </mxCell>
         <mxCell id="oXWvmlGvXetgooccEpqr-47" value="&lt;&lt;DataType&gt;&gt;&#xa;DtFecha" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=33;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
           <mxGeometry x="924" y="537" width="140" height="111" as="geometry" />
@@ -271,7 +271,7 @@
         <mxCell id="oXWvmlGvXetgooccEpqr-101" value="Admin" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="198" y="876" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="oXWvmlGvXetgooccEpqr-103" value="&amp;nbsp;existe :=&lt;br&gt;agregarCurso(instituto: string, curso: DtCurso): bool" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="oXWvmlGvXetgooccEpqr-103" value="&amp;nbsp;existe :=&lt;br&gt;ingresarCurso(instituto: string, curso: DtCurso): bool" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="283" y="1057" width="208" height="20" as="geometry" />
         </mxCell>
         <mxCell id="oXWvmlGvXetgooccEpqr-104" value="" style="endArrow=none;dashed=1;html=1;" parent="1" target="oXWvmlGvXetgooccEpqr-105" edge="1">
@@ -609,9 +609,6 @@
         </mxCell>
         <mxCell id="BxSZd1oOKs2nxdDxDw3N-106" value="existeInscripcion:=ingresarEstudiante(nick:string, fecha: DtFecha): bool" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="287" y="4467" width="288" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="BxSZd1oOKs2nxdDxDw3N-108" value="opt" style="shape=umlFrame;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="206.5" y="516" width="457" height="94" as="geometry" />
         </mxCell>
         <mxCell id="BxSZd1oOKs2nxdDxDw3N-109" value="[!existe]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="270" y="525" width="40" height="20" as="geometry" />
