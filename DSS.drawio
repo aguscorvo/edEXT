@@ -1,9 +1,12 @@
-<mxfile host="app.diagrams.net" modified="2020-08-20T22:15:48.213Z" agent="5.0 (X11)" etag="qhBJnhdUAuTmePtvbRsR" version="13.6.4" type="gitlab">
+<mxfile host="app.diagrams.net" modified="2020-08-20T23:45:07.963Z" agent="5.0 (X11)" etag="Vu4seKDHMcdP3IZmQLQG" version="13.6.4" type="gitlab">
   <diagram id="OpShXmH8Ql0zc2l8n3LG" name="Page-1">
     <mxGraphModel dx="1422" dy="738" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="4k3td52Sg-qSRhUa-TWR-70" value="opt" style="shape=umlFrame;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="249" y="7824" width="442.75" height="82" as="geometry" />
+        </mxCell>
         <mxCell id="BxSZd1oOKs2nxdDxDw3N-108" value="opt" style="shape=umlFrame;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="206.5" y="516" width="457" height="94" as="geometry" />
         </mxCell>
@@ -50,13 +53,13 @@
           <mxGeometry x="190" y="7794" width="582" height="217" as="geometry" />
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-39" value="Modificar datos de Usuario (con memoria)" style="shape=umlFrame;whiteSpace=wrap;html=1;width=111;height=59;" parent="1" vertex="1">
-          <mxGeometry x="41" y="6642" width="1063" height="725" as="geometry" />
+          <mxGeometry x="41" y="6642" width="1063" height="495" as="geometry" />
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-27" value="opt" style="shape=umlFrame;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="159.5" y="6073" width="545.5" height="200" as="geometry" />
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-6" value="Consulta de Programa de Formacion (sin memoria)" style="shape=umlFrame;whiteSpace=wrap;html=1;width=123;height=71;" parent="1" vertex="1">
-          <mxGeometry x="60" y="5830" width="1063" height="725" as="geometry" />
+          <mxGeometry x="60" y="5830" width="1063" height="636" as="geometry" />
         </mxCell>
         <mxCell id="BxSZd1oOKs2nxdDxDw3N-160" value="opt" style="shape=umlFrame;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="221.75" y="5284" width="448" height="82" as="geometry" />
@@ -799,10 +802,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-7" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;size=35;" parent="1" vertex="1">
-          <mxGeometry x="222" y="5876" width="20" height="676" as="geometry" />
+          <mxGeometry x="222" y="5876" width="20" height="591" as="geometry" />
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-8" value="&lt;u&gt;:Sistema&lt;/u&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
-          <mxGeometry x="556" y="5870" width="100" height="686" as="geometry" />
+          <mxGeometry x="556" y="5870" width="100" height="597" as="geometry" />
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-9" value="Admin" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="212" y="5854" width="40" height="20" as="geometry" />
@@ -862,10 +865,10 @@
           <mxGeometry y="88" width="200" height="92" as="geometry" />
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-40" value="" style="shape=umlLifeline;participant=umlActor;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;verticalAlign=top;spacingTop=36;outlineConnect=0;size=35;" parent="1" vertex="1">
-          <mxGeometry x="203" y="6688" width="20" height="676" as="geometry" />
+          <mxGeometry x="203" y="6688" width="20" height="447" as="geometry" />
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-41" value="&lt;u&gt;:Sistema&lt;/u&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
-          <mxGeometry x="537" y="6682" width="100" height="686" as="geometry" />
+          <mxGeometry x="537" y="6682" width="100" height="457" as="geometry" />
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-42" value="Admin" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="193" y="6666" width="40" height="20" as="geometry" />
@@ -975,7 +978,7 @@
             <mxPoint x="640.25" y="7884" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4k3td52Sg-qSRhUa-TWR-83" value="confirmarAltaInstituto()" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="4k3td52Sg-qSRhUa-TWR-83" value="confirmarAltaPrograma()" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="436" y="7859" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-84" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
@@ -984,7 +987,7 @@
             <mxPoint x="643.2499999999998" y="7983.380000000001" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4k3td52Sg-qSRhUa-TWR-85" value="cancelarAltaInstituto()" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="4k3td52Sg-qSRhUa-TWR-85" value="cancelarAltaPrograma()" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="431" y="7957" width="40" height="20" as="geometry" />
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-86" value="[cancelar]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
@@ -1027,9 +1030,6 @@
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-98" value="fechaI: DtFecha&#xa;&#xa;fechaF: DtFecha&#xa;&#xa;fechaAlta: DtFecha" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4k3td52Sg-qSRhUa-TWR-95" vertex="1">
           <mxGeometry y="88" width="200" height="92" as="geometry" />
-        </mxCell>
-        <mxCell id="4k3td52Sg-qSRhUa-TWR-70" value="opt" style="shape=umlFrame;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="249" y="7824" width="442.75" height="82" as="geometry" />
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-99" value="Agregar curso a programa de formación (con memoria)" style="shape=umlFrame;whiteSpace=wrap;html=1;width=111;height=59;" parent="1" vertex="1">
           <mxGeometry x="58.5" y="8296" width="1063" height="725" as="geometry" />
