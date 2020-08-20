@@ -1,6 +1,6 @@
-<mxfile host="www.draw.io" modified="2020-08-20T18:17:25.339Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36" etag="ngzhjJ9Gj2MNBsOf4IeC" version="13.6.4" type="gitlab">
+<mxfile host="app.diagrams.net" modified="2020-08-20T22:15:48.213Z" agent="5.0 (X11)" etag="qhBJnhdUAuTmePtvbRsR" version="13.6.4" type="gitlab">
   <diagram id="OpShXmH8Ql0zc2l8n3LG" name="Page-1">
-    <mxGraphModel dx="1199" dy="668" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1422" dy="738" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1203,20 +1203,6 @@
         <mxCell id="4k3td52Sg-qSRhUa-TWR-161" value="duracion: string&#xa;&#xa;cantHoras: DtTime&#xa;&#xa;creditos: int&#xa;&#xa;fechaR: DtFecha&#xa;&#xa;url: string&#xa;&#xa;ediciones: set(string)&#xa;&#xa;programas: set(string)&#xa;&#xa;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4k3td52Sg-qSRhUa-TWR-158" vertex="1">
           <mxGeometry y="84" width="108" height="199" as="geometry" />
         </mxCell>
-        <mxCell id="4k3td52Sg-qSRhUa-TWR-162" value="&lt;&lt;DataType&gt;&gt;&#xa;DtEdicion" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=32;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1" collapsed="1">
-          <mxGeometry x="781" y="9694" width="108" height="32" as="geometry">
-            <mxRectangle x="745.5" y="9513" width="200" height="177" as="alternateBounds" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="4k3td52Sg-qSRhUa-TWR-163" value="nombre: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4k3td52Sg-qSRhUa-TWR-162" vertex="1">
-          <mxGeometry y="32" width="108" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="4k3td52Sg-qSRhUa-TWR-164" value="fechaI: DtFecha" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4k3td52Sg-qSRhUa-TWR-162" vertex="1">
-          <mxGeometry y="58" width="108" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="4k3td52Sg-qSRhUa-TWR-165" value="fechaF: DtFecha&#xa;&#xa;cupo: int&#xa;&#xa;docentes: set(string)&#xa;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4k3td52Sg-qSRhUa-TWR-162" vertex="1">
-          <mxGeometry y="84" width="108" height="93" as="geometry" />
-        </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-185" value="" style="triangle;whiteSpace=wrap;html=1;rotation=-90;" parent="1" vertex="1">
           <mxGeometry x="912.5" y="9308" width="29" height="37" as="geometry" />
         </mxCell>
@@ -1242,16 +1228,33 @@
           <mxGeometry y="30" width="196" height="85" as="geometry" />
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-183" value="&lt;&lt;DataType&gt;&gt;&#xa;DtDocente" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-          <mxGeometry x="733" y="9361" width="192" height="117" as="geometry" />
+          <mxGeometry x="733" y="9361" width="186" height="67" as="geometry" />
         </mxCell>
-        <mxCell id="4k3td52Sg-qSRhUa-TWR-184" value="cursos: set(DtCurso)&#xa;&#xa;ediciones: set(DtEdicion)&#xa;&#xa;programas: set(DtProgFormacion)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4k3td52Sg-qSRhUa-TWR-183" vertex="1">
-          <mxGeometry y="30" width="192" height="87" as="geometry" />
+        <mxCell id="4k3td52Sg-qSRhUa-TWR-184" value="ediciones: set(DtEdicion)&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4k3td52Sg-qSRhUa-TWR-183" vertex="1">
+          <mxGeometry y="30" width="186" height="37" as="geometry" />
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-190" value="" style="triangle;whiteSpace=wrap;html=1;rotation=-90;" parent="1" vertex="1">
           <mxGeometry x="900.5" y="262" width="29" height="37" as="geometry" />
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-195" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;rotation=90;" parent="1" vertex="1">
           <mxGeometry x="905" y="202" width="20" height="202" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3td52Sg-qSRhUa-TWR-162" value="&lt;&lt;DataType&gt;&gt;&#xa;DtEdicion" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=32;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1" collapsed="1">
+          <mxGeometry x="772" y="9670" width="108" height="32" as="geometry">
+            <mxRectangle x="745.5" y="9508" width="200" height="177" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4k3td52Sg-qSRhUa-TWR-163" value="nombre: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4k3td52Sg-qSRhUa-TWR-162" vertex="1">
+          <mxGeometry y="32" width="108" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3td52Sg-qSRhUa-TWR-164" value="fechaI: DtFecha" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4k3td52Sg-qSRhUa-TWR-162" vertex="1">
+          <mxGeometry y="58" width="108" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="4k3td52Sg-qSRhUa-TWR-165" value="fechaF: DtFecha&#xa;&#xa;cupo: int&#xa;&#xa;docentes: set(string)&#xa;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4k3td52Sg-qSRhUa-TWR-162" vertex="1">
+          <mxGeometry y="84" width="108" height="93" as="geometry" />
+        </mxCell>
+        <mxCell id="hvykpULWGcsdQwUnMB8I-1" value="&lt;font color=&quot;#FF350D&quot;&gt;&lt;b&gt;falta actualizar Dt minimos y expandidos par este caso&lt;/b&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="879" y="9562" width="168" height="59" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
