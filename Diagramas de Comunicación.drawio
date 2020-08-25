@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-08-25T00:49:16.485Z" agent="5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36" etag="dsHG9OyYmyzC4a_VZVG4" version="13.6.4" type="gitlab">
+<mxfile host="app.diagrams.net" modified="2020-08-25T20:13:51.379Z" agent="5.0 (X11)" etag="nQpObX6mHCAZqHAenD54" version="13.6.4" type="gitlab">
   <diagram id="NdK-Iwu1NELwD2D8BtvP" name="Page-1">
-    <mxGraphModel dx="1157" dy="600" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1673" dy="868" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1467,13 +1467,13 @@
           <mxGeometry x="1331" y="6219" width="99" height="17" as="geometry" />
         </mxCell>
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-144" value="&lt;u&gt;e: Edicion&lt;/u&gt;" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="1293.9969885253906" y="6424.995091552734" width="120" height="60" as="geometry" />
+          <mxGeometry x="1460.5369885253906" y="6332.995091552734" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-145" value="2:&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="1180" y="6273" width="23" height="17" as="geometry" />
         </mxCell>
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-146" value="&amp;lt;&amp;lt;local&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="1284" y="6402" width="62" height="17" as="geometry" />
+          <mxGeometry x="1395.45" y="6342" width="62" height="17" as="geometry" />
         </mxCell>
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-147" value="obtenerDatosEdicion()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="1203.5" y="6325" width="148" height="18" as="geometry" />
@@ -1482,7 +1482,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-149" value="2.1: n := getNombre(): string&lt;br&gt;2.2: fi := get&lt;span&gt;fechaI(): DtFecha&lt;br&gt;&lt;/span&gt;2.3: ff := fechaF(): DtFecha&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;2.4: c := getCupo(): int&lt;br&gt;&lt;div style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;/div&gt;&lt;div style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;/div&gt;&lt;div style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="1443" y="6452" width="166" height="97" as="geometry" />
+          <mxGeometry x="1479" y="6422" width="166" height="97" as="geometry" />
         </mxCell>
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-153" value="&lt;font style=&quot;font-size: 35px&quot;&gt;&lt;b&gt;Agregar Curso a Programa de Formación&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="69" y="7054" width="697" height="25" as="geometry" />
@@ -1657,8 +1657,8 @@
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-196" value="&lt;u&gt;c: Curso&lt;/u&gt;" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="1200.0018230124083" y="7619.001625402114" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="lOrDqN2-XtBd8qI9W4t5-197" value="2:&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="1018.5" y="7489" width="23" height="17" as="geometry" />
+        <mxCell id="lOrDqN2-XtBd8qI9W4t5-197" value="3:&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="1018.5" y="7489" width="23" height="18" as="geometry" />
         </mxCell>
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-198" value="&amp;lt;&amp;lt;local&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="1130" y="7656" width="62" height="17" as="geometry" />
@@ -1669,8 +1669,8 @@
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-200" value=":&lt;u&gt;ProgFormacion&lt;/u&gt;" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="1501" y="7619" width="133" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="lOrDqN2-XtBd8qI9W4t5-201" value="2.1:" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="1324" y="7619" width="30" height="17" as="geometry" />
+        <mxCell id="lOrDqN2-XtBd8qI9W4t5-201" value="3.1:" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="1324" y="7619" width="30" height="18" as="geometry" />
         </mxCell>
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-202" value="&amp;lt;&amp;lt;association&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="1399" y="7656" width="98" height="17" as="geometry" />
@@ -3597,13 +3597,13 @@
           <mxGeometry x="1054.03" y="6276" width="74" height="18" as="geometry" />
         </mxCell>
         <mxCell id="VdO09RFW267fVMQAMXUd-10" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1023.895965576171" y="6554.791717529297" width="120" height="60" as="geometry" />
+          <mxGeometry x="983.785965576171" y="6546.501717529297" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="VdO09RFW267fVMQAMXUd-11" value=":Curso" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1033.895965576171" y="6564.791717529297" width="120" height="60" as="geometry" />
+          <mxGeometry x="993.785965576171" y="6556.501717529297" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="VdO09RFW267fVMQAMXUd-12" value="&amp;lt;&amp;lt;global&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
-          <mxGeometry x="1096.03" y="6524" width="88" height="18" as="geometry" />
+          <mxGeometry x="1039.3" y="6521" width="88" height="18" as="geometry" />
         </mxCell>
         <mxCell id="VdO09RFW267fVMQAMXUd-14" value="c := next()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
           <mxGeometry x="1041" y="6378" width="74" height="18" as="geometry" />
@@ -3627,17 +3627,14 @@
         <mxCell id="VdO09RFW267fVMQAMXUd-18" value="&amp;lt;&amp;lt;local&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
           <mxGeometry x="1184.03" y="6584" width="79" height="18" as="geometry" />
         </mxCell>
-        <mxCell id="VdO09RFW267fVMQAMXUd-19" value="buscarEdicion():set(string)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
-          <mxGeometry x="1091" y="6456" width="174" height="18" as="geometry" />
-        </mxCell>
         <mxCell id="VdO09RFW267fVMQAMXUd-21" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="943.0000000000005" y="6830.285714285715" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="VdO09RFW267fVMQAMXUd-22" value=":Ediciones" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="953.0000000000005" y="6840.285714285715" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="VdO09RFW267fVMQAMXUd-23" value="4.1*foreach:" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
-          <mxGeometry x="1139" y="6629.86" width="85" height="18" as="geometry" />
+        <mxCell id="VdO09RFW267fVMQAMXUd-23" value="4.1*[foreach]:" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+          <mxGeometry x="1117" y="6629.86" width="81" height="18" as="geometry" />
         </mxCell>
         <mxCell id="VdO09RFW267fVMQAMXUd-24" value="e := next()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
           <mxGeometry x="1019.45" y="6662" width="75" height="18" as="geometry" />
@@ -3654,29 +3651,14 @@
         <mxCell id="VdO09RFW267fVMQAMXUd-31" value="&amp;lt;&amp;lt;local&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
           <mxGeometry x="1328.5" y="6802.5" width="79" height="18" as="geometry" />
         </mxCell>
-        <mxCell id="VdO09RFW267fVMQAMXUd-33" value="esCurso := obtenerNombre(): bool" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
-          <mxGeometry x="1268" y="6726" width="221" height="18" as="geometry" />
+        <mxCell id="VdO09RFW267fVMQAMXUd-35" value="ne := getNombre(): string" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
+          <mxGeometry x="1305.8700000000001" y="6699" width="143" height="18" as="geometry" />
         </mxCell>
-        <mxCell id="VdO09RFW267fVMQAMXUd-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="VdO09RFW267fVMQAMXUd-29" target="VdO09RFW267fVMQAMXUd-29" edge="1">
+        <mxCell id="UgW7OSYlFZmc449s9rFn-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="VdO09RFW267fVMQAMXUd-39" target="VdO09RFW267fVMQAMXUd-17">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="VdO09RFW267fVMQAMXUd-35" value="4.2.1*: ne := getNombre(): string" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
-          <mxGeometry x="1398.5" y="6912" width="213" height="18" as="geometry" />
-        </mxCell>
-        <mxCell id="VdO09RFW267fVMQAMXUd-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="VdO09RFW267fVMQAMXUd-17" target="VdO09RFW267fVMQAMXUd-17" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="VdO09RFW267fVMQAMXUd-37" value="5*: [esCurso] nc := getNombre(): string" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
-          <mxGeometry x="1354.03" y="6602" width="253" height="18" as="geometry" />
-        </mxCell>
-        <mxCell id="VdO09RFW267fVMQAMXUd-38" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="1" source="VdO09RFW267fVMQAMXUd-17" target="VdO09RFW267fVMQAMXUd-39" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="1180.45" y="6716.5" as="sourcePoint" />
-            <mxPoint x="1230.45" y="6666.5" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="VdO09RFW267fVMQAMXUd-39" value="construye y retorna set(string) con todos los nc." style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=11;" parent="1" vertex="1">
-          <mxGeometry x="1152.9999999999998" y="6769" width="80" height="100" as="geometry" />
+        <mxCell id="VdO09RFW267fVMQAMXUd-39" value="return: ne== edicion" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=11;" parent="1" vertex="1">
+          <mxGeometry x="1399" y="6571" width="123" height="62" as="geometry" />
         </mxCell>
         <mxCell id="VdO09RFW267fVMQAMXUd-40" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="lOrDqN2-XtBd8qI9W4t5-138" target="VdO09RFW267fVMQAMXUd-41" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -3687,13 +3669,10 @@
         <mxCell id="VdO09RFW267fVMQAMXUd-41" value="construye y retorna un DtEdicion con los datos obtenidos." style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=13;" parent="1" vertex="1">
           <mxGeometry x="1180" y="6017" width="133" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="VdO09RFW267fVMQAMXUd-44" value="" style="shape=xor;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="534" y="7677" width="60" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="X89R2pl8ABEkL9FcxSxx-2" value="5*[existe]: nomCurso:= getNombre(): string" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" vertex="1" parent="1">
+        <mxCell id="X89R2pl8ABEkL9FcxSxx-2" value="5*[existe]: nomCurso:= getNombre(): string" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="308" y="4355" width="252" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="X89R2pl8ABEkL9FcxSxx-3" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=167;entryDy=7;entryPerimeter=0;dashed=1;endArrow=none;endFill=0;" edge="1" target="X89R2pl8ABEkL9FcxSxx-4" parent="1">
+        <mxCell id="X89R2pl8ABEkL9FcxSxx-3" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=167;entryDy=7;entryPerimeter=0;dashed=1;endArrow=none;endFill=0;" parent="1" target="X89R2pl8ABEkL9FcxSxx-4" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="612.75" y="10033" as="sourcePoint" />
             <Array as="points">
@@ -3702,8 +3681,11 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="X89R2pl8ABEkL9FcxSxx-4" value="Construye y retorna un DtEdicion con&lt;br&gt;los datos obtenidos de la instancia pf y el set de strings formado por los &quot;docente&quot; obtenidos." style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;rounded=1;" vertex="1" parent="1">
+        <mxCell id="X89R2pl8ABEkL9FcxSxx-4" value="Construye y retorna un DtEdicion con&lt;br&gt;los datos obtenidos de la instancia pf y el set de strings formado por los &quot;docente&quot; obtenidos." style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="393.25" y="10109" width="174" height="97.5" as="geometry" />
+        </mxCell>
+        <mxCell id="UgW7OSYlFZmc449s9rFn-1" value="&lt;div align=&quot;left&quot;&gt;4*: tieneEdicion:= buscarCursoAsociado(edicion):bool&lt;br&gt;5* [tieneEdicion]: nc:= getNombre():string&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1154.03" y="6404" width="311.97" height="38" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
