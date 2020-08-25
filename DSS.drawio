@@ -1,6 +1,6 @@
-<mxfile host="www.draw.io" modified="2020-08-21T19:07:53.700Z" agent="5.0 (X11)" etag="rVrLpBV4Cpr3wK39Gsbb" version="13.6.4" type="gitlab">
+<mxfile host="www.draw.io" modified="2020-08-25T22:54:03.251Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36" etag="xpHrxioMS6OjkwbZ8yZX" version="13.6.5" type="gitlab">
   <diagram id="OpShXmH8Ql0zc2l8n3LG" name="Page-1">
-    <mxGraphModel dx="1422" dy="738" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1287" dy="562" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -508,7 +508,7 @@
             <mxPoint x="773" y="3102" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="BxSZd1oOKs2nxdDxDw3N-1" value="&lt;&lt;DataType&gt;&gt;&#xa;DtEdicion" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=32;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+        <mxCell id="BxSZd1oOKs2nxdDxDw3N-1" value="&lt;&lt;DataType&gt;&gt;&#xa;DtEdicionExp" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=32;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
           <mxGeometry x="897" y="2606" width="196" height="196" as="geometry" />
         </mxCell>
         <mxCell id="BxSZd1oOKs2nxdDxDw3N-2" value="nombre: string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="BxSZd1oOKs2nxdDxDw3N-1" vertex="1">
@@ -634,7 +634,7 @@
         <mxCell id="BxSZd1oOKs2nxdDxDw3N-114" value="[!existe]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="236" y="1214" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="BxSZd1oOKs2nxdDxDw3N-116" value="existe:= ingresarDtEdicion(edicion: DtEdicion): bool" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="BxSZd1oOKs2nxdDxDw3N-116" value="existe:= ingresarDtEdicion(edicion: DtEdicionExp): bool" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="271" y="2907" width="295" height="20" as="geometry" />
         </mxCell>
         <mxCell id="BxSZd1oOKs2nxdDxDw3N-119" value="!existe" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
@@ -1154,7 +1154,7 @@
         <mxCell id="4k3td52Sg-qSRhUa-TWR-147" value="[si quiere consultar edicion]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="231.5" y="9572" width="141" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="4k3td52Sg-qSRhUa-TWR-148" value="seleccionarEdicion(nombre:string): DtEdicion" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="4k3td52Sg-qSRhUa-TWR-148" value="seleccionarEdicion(nombre:string): DtEdicionExp" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="265" y="9625" width="286" height="20" as="geometry" />
         </mxCell>
         <mxCell id="4k3td52Sg-qSRhUa-TWR-149" value="[si quiere consultar programa]" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
@@ -1216,7 +1216,7 @@
         <mxCell id="4k3td52Sg-qSRhUa-TWR-157" value="fechaI: DtFecha&#xa;&#xa;fechaF: DtFecha&#xa;&#xa;cursos: set(string)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="4k3td52Sg-qSRhUa-TWR-154" vertex="1">
           <mxGeometry y="88" width="150" height="92" as="geometry" />
         </mxCell>
-        <mxCell id="4k3td52Sg-qSRhUa-TWR-162" value="&lt;&lt;DataType&gt;&gt;&#xa;DtEdicion" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=32;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1" collapsed="1">
+        <mxCell id="4k3td52Sg-qSRhUa-TWR-162" value="&lt;&lt;DataType&gt;&gt;&#xa;DtEdicionExp" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=32;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1" collapsed="1">
           <mxGeometry x="772" y="9728" width="108" height="32" as="geometry">
             <mxRectangle x="772" y="9728" width="200" height="206" as="alternateBounds" />
           </mxGeometry>
