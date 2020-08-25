@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-08-25T20:13:51.379Z" agent="5.0 (X11)" etag="nQpObX6mHCAZqHAenD54" version="13.6.4" type="gitlab">
+<mxfile host="www.draw.io" modified="2020-08-25T22:54:09.978Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36" etag="oa7Dnef59oHIfBhvwycO" version="13.6.5" type="gitlab">
   <diagram id="NdK-Iwu1NELwD2D8BtvP" name="Page-1">
-    <mxGraphModel dx="1673" dy="868" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1563" dy="683" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -753,7 +753,7 @@
           <mxGeometry x="552" y="3688" width="20" height="17" as="geometry" />
         </mxCell>
         <mxCell id="WGax3jqfb48JsYN1dhlF-213" value="obtenerDatos(): DtEdicion" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="679" y="3827" width="148" height="17" as="geometry" />
+          <mxGeometry x="687" y="3827" width="148" height="18" as="geometry" />
         </mxCell>
         <mxCell id="WGax3jqfb48JsYN1dhlF-214" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;endArrow=classic;endFill=1;" parent="1" source="WGax3jqfb48JsYN1dhlF-211" target="WGax3jqfb48JsYN1dhlF-211" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -874,7 +874,7 @@
           <mxGeometry x="186.95000000000005" y="1264" width="187" height="24" as="geometry" />
         </mxCell>
         <mxCell id="WGax3jqfb48JsYN1dhlF-253" value="&lt;font style=&quot;font-size: 35px&quot;&gt;&lt;b&gt;Consulta de Curso&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="102.99999999999994" y="2392" width="321" height="24" as="geometry" />
+          <mxGeometry x="84.99999999999994" y="2391" width="321" height="24" as="geometry" />
         </mxCell>
         <mxCell id="ERN3U17185KaFVGdUrSm-3" value="4*: existe:= tieneProgFormacion(progFormacion): bool" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="307" y="4323.8" width="232.93" height="19" as="geometry" />
@@ -1069,8 +1069,8 @@
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-41" value="El sistema recuerda el curso ingresado." style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=16;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="1382" y="4891" width="80" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="lOrDqN2-XtBd8qI9W4t5-42" value="existe:= ingresarDtEdicion(edicion: DtEdicion): bool" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="88" y="5403" width="295" height="20" as="geometry" />
+        <mxCell id="lOrDqN2-XtBd8qI9W4t5-42" value="existe:= ingresarDtEdicion(edicion: DtEdicionExp): bool" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="72.32" y="5403" width="295" height="20" as="geometry" />
         </mxCell>
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-43" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;startArrow=classic;startFill=1;endArrow=none;endFill=0;" parent="1" source="lOrDqN2-XtBd8qI9W4t5-46" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -1475,14 +1475,8 @@
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-146" value="&amp;lt;&amp;lt;local&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="1395.45" y="6342" width="62" height="17" as="geometry" />
         </mxCell>
-        <mxCell id="lOrDqN2-XtBd8qI9W4t5-147" value="obtenerDatosEdicion()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="1203.5" y="6325" width="148" height="18" as="geometry" />
-        </mxCell>
-        <mxCell id="lOrDqN2-XtBd8qI9W4t5-148" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" parent="1" source="lOrDqN2-XtBd8qI9W4t5-144" target="lOrDqN2-XtBd8qI9W4t5-144" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-149" value="2.1: n := getNombre(): string&lt;br&gt;2.2: fi := get&lt;span&gt;fechaI(): DtFecha&lt;br&gt;&lt;/span&gt;2.3: ff := fechaF(): DtFecha&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;2.4: c := getCupo(): int&lt;br&gt;&lt;div style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;/div&gt;&lt;div style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;/div&gt;&lt;div style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;br style=&quot;padding: 0px ; margin: 0px&quot;&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="1479" y="6422" width="166" height="97" as="geometry" />
+          <mxGeometry x="1231.79" y="6307" width="166" height="97" as="geometry" />
         </mxCell>
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-153" value="&lt;font style=&quot;font-size: 35px&quot;&gt;&lt;b&gt;Agregar Curso a Programa de Formación&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="69" y="7054" width="697" height="25" as="geometry" />
@@ -1663,8 +1657,8 @@
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-198" value="&amp;lt;&amp;lt;local&amp;gt;&amp;gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="1130" y="7656" width="62" height="17" as="geometry" />
         </mxCell>
-        <mxCell id="lOrDqN2-XtBd8qI9W4t5-199" value="agregarAPf()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="1063" y="7619" width="79" height="17" as="geometry" />
+        <mxCell id="lOrDqN2-XtBd8qI9W4t5-199" value="agregarAPf(pf)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="1058" y="7619" width="89" height="18" as="geometry" />
         </mxCell>
         <mxCell id="lOrDqN2-XtBd8qI9W4t5-200" value=":&lt;u&gt;ProgFormacion&lt;/u&gt;" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="1501" y="7619" width="133" height="60" as="geometry" />
@@ -1869,16 +1863,6 @@
             <mxPoint x="376.5" y="8767.5" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="xgX5yPcrdEH57rq5UHXf-55" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.162;entryY=1.001;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;endArrow=classicThin;endFill=1;" parent="1" source="xgX5yPcrdEH57rq5UHXf-52" target="xgX5yPcrdEH57rq5UHXf-52" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="376.5" y="8783.5" />
-              <mxPoint x="308.5" y="8783.5" />
-              <mxPoint x="308.5" y="8816.5" />
-              <mxPoint x="394.5" y="8816.5" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
         <mxCell id="xgX5yPcrdEH57rq5UHXf-56" value="Object" style="html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="99.5" y="8946.5" width="110" height="50" as="geometry" />
         </mxCell>
@@ -1954,7 +1938,7 @@
         <mxCell id="xgX5yPcrdEH57rq5UHXf-80" value="&amp;lt;&amp;lt;association&amp;gt;&amp;gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="814.5" y="8986.5" width="40" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="xgX5yPcrdEH57rq5UHXf-81" value="&lt;div align=&quot;left&quot;&gt;9*.1: datos:= obtenerDtpm(): DtProgFormacionMin&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+        <mxCell id="xgX5yPcrdEH57rq5UHXf-81" value="&lt;div align=&quot;left&quot;&gt;9*.1: datos:= obtenerDtPM(): DtProgFormacionMin&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="546.5" y="8895.5" width="306.5" height="9" as="geometry" />
         </mxCell>
         <mxCell id="xgX5yPcrdEH57rq5UHXf-83" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.003;entryY=0.41;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;endArrow=classicThin;endFill=1;" parent="1" source="xgX5yPcrdEH57rq5UHXf-85" target="xgX5yPcrdEH57rq5UHXf-89" edge="1">
@@ -2122,7 +2106,13 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="xgX5yPcrdEH57rq5UHXf-124" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.417;entryY=0.01;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=classicThin;endFill=1;" parent="1" source="xgX5yPcrdEH57rq5UHXf-127" target="xgX5yPcrdEH57rq5UHXf-133" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="10033" />
+              <mxPoint x="480" y="10116" />
+              <mxPoint x="206" y="10116" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="xgX5yPcrdEH57rq5UHXf-125" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=classicThin;endFill=1;" parent="1" source="xgX5yPcrdEH57rq5UHXf-127" target="xgX5yPcrdEH57rq5UHXf-138" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -2143,7 +2133,7 @@
         <mxCell id="xgX5yPcrdEH57rq5UHXf-127" value="&lt;u&gt;:ControladorConsultaDeUsuario&lt;/u&gt;" style="html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="501" y="9984" width="200" height="49" as="geometry" />
         </mxCell>
-        <mxCell id="xgX5yPcrdEH57rq5UHXf-128" value="seleccionarEdicion(nombre: string): DtEdicion" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+        <mxCell id="xgX5yPcrdEH57rq5UHXf-128" value="seleccionarEdicion(nombre: string): DtEdicionExp" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="171.5" y="9984" width="301" height="20" as="geometry" />
         </mxCell>
         <mxCell id="xgX5yPcrdEH57rq5UHXf-129" value="Object" style="html=1;rounded=1;" parent="1" vertex="1">
@@ -2156,16 +2146,10 @@
           <mxGeometry x="710" y="9994" width="207" height="10" as="geometry" />
         </mxCell>
         <mxCell id="xgX5yPcrdEH57rq5UHXf-133" value="&lt;u&gt;e:Edicion&lt;/u&gt;" style="html=1;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="214" y="10108" width="110" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="xgX5yPcrdEH57rq5UHXf-134" value="2: dt:=obtenerDtEdicion(): DtEdicion" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="300" y="10044" width="203" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="xgX5yPcrdEH57rq5UHXf-135" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.356;entryY=0.993;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=classicThin;endFill=1;" parent="1" source="xgX5yPcrdEH57rq5UHXf-133" target="xgX5yPcrdEH57rq5UHXf-133" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry x="159.79" y="10158" width="110" height="50" as="geometry" />
         </mxCell>
         <mxCell id="xgX5yPcrdEH57rq5UHXf-136" value="&lt;div align=&quot;left&quot;&gt;2.1: nombre:= getNombre(): string&lt;br&gt;2.2: fechaI:= getFechaI(): DtFecha&lt;br&gt;2.3: fechaF:= getFechaF(): DtFecha&lt;br&gt;2.4: cupo:= getCupo(): int&lt;br&gt;2.5: fechaP:= getFechaPub: DtFecha&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="138" y="10191" width="218" height="89" as="geometry" />
+          <mxGeometry x="230" y="10026" width="218" height="89" as="geometry" />
         </mxCell>
         <mxCell id="xgX5yPcrdEH57rq5UHXf-137" value="Object" style="html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="955" y="10079" width="110" height="50" as="geometry" />
@@ -2342,7 +2326,7 @@
         <mxCell id="xgX5yPcrdEH57rq5UHXf-191" value="&lt;u&gt;p:ProgFormacion&lt;/u&gt;" style="html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="436.5" y="11043.5" width="110" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="xgX5yPcrdEH57rq5UHXf-192" value="4*.2*: es:= esPrograma(nombre): bool" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+        <mxCell id="xgX5yPcrdEH57rq5UHXf-192" value="4*.2*: es:= esProgFormacion(nombre): bool" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="577.5" y="10987.5" width="210" height="20" as="geometry" />
         </mxCell>
         <mxCell id="xgX5yPcrdEH57rq5UHXf-193" value="4*.2*.1: nomPF: getNombre(): string" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
@@ -2508,7 +2492,7 @@
         <mxCell id="xgX5yPcrdEH57rq5UHXf-243" value="&lt;u&gt;:ControladorModificarDatosUsuario&lt;/u&gt;" style="html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="453.12" y="12333" width="200" height="49" as="geometry" />
         </mxCell>
-        <mxCell id="xgX5yPcrdEH57rq5UHXf-244" value="editarDatosUsuario(datos: DtUsuario)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+        <mxCell id="xgX5yPcrdEH57rq5UHXf-244" value="modificarDatosUsuario(datos: DtUsuario)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="148.87" y="12331" width="271.82" height="20" as="geometry" />
         </mxCell>
         <mxCell id="xgX5yPcrdEH57rq5UHXf-245" value="Object" style="html=1;rounded=1;" parent="1" vertex="1">
@@ -2598,7 +2582,7 @@
         <mxCell id="xgX5yPcrdEH57rq5UHXf-270" value="&lt;u&gt;pf:ProgFormacion&lt;/u&gt;" style="html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="186.5" y="13353" width="110" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="xgX5yPcrdEH57rq5UHXf-271" value="2*: es:= esPrograma(programa.nombre): bool" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
+        <mxCell id="xgX5yPcrdEH57rq5UHXf-271" value="2*: es:= esProgFormacion(programa.nombre): bool" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="265.5" y="13301" width="254" height="20" as="geometry" />
         </mxCell>
         <mxCell id="xgX5yPcrdEH57rq5UHXf-272" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.655;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=classicThin;endFill=1;" parent="1" source="xgX5yPcrdEH57rq5UHXf-270" target="xgX5yPcrdEH57rq5UHXf-270" edge="1">
@@ -2933,8 +2917,8 @@
         <mxCell id="EkwV8A_-666xxIi-1zEt-78" value="&lt;span&gt;i:Instituto&lt;/span&gt;" style="whiteSpace=wrap;html=1;fontSize=12;align=center;fontStyle=4;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="1115.77" y="16675" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="EkwV8A_-666xxIi-1zEt-79" value="&lt;span style=&quot;font-size: 11px&quot;&gt;ca:= cursosAsociados ():set(string)&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=12;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="887.77" y="16675" width="180" height="18" as="geometry" />
+        <mxCell id="EkwV8A_-666xxIi-1zEt-79" value="&lt;span style=&quot;font-size: 11px&quot;&gt;ca:= obtenerCursos():set(string)&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=12;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="894.77" y="16675" width="166" height="18" as="geometry" />
         </mxCell>
         <mxCell id="EkwV8A_-666xxIi-1zEt-80" value="&lt;font style=&quot;font-size: 10px&quot;&gt;2:&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=12;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="831.77" y="16628" width="18" height="19" as="geometry" />
@@ -3181,7 +3165,7 @@
         <mxCell id="EkwV8A_-666xxIi-1zEt-152" value="" style="whiteSpace=wrap;html=1;fontSize=10;align=center;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="793.38" y="18218" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="EkwV8A_-666xxIi-1zEt-153" value="&lt;span style=&quot;font-size: 12px; text-align: center;&quot;&gt;confirmarInscripcionCurso()&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;fontSize=12;rounded=1;" parent="1" vertex="1">
+        <mxCell id="EkwV8A_-666xxIi-1zEt-153" value="&lt;span style=&quot;font-size: 12px ; text-align: center&quot;&gt;confirmarInscripcionAEdicion()&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;fontSize=12;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="228.34" y="18227" width="209" height="30" as="geometry" />
         </mxCell>
         <mxCell id="EkwV8A_-666xxIi-1zEt-154" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=10;" parent="1" source="EkwV8A_-666xxIi-1zEt-158" target="EkwV8A_-666xxIi-1zEt-160" edge="1">
@@ -3654,7 +3638,7 @@
         <mxCell id="VdO09RFW267fVMQAMXUd-35" value="ne := getNombre(): string" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
           <mxGeometry x="1305.8700000000001" y="6699" width="143" height="18" as="geometry" />
         </mxCell>
-        <mxCell id="UgW7OSYlFZmc449s9rFn-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="VdO09RFW267fVMQAMXUd-39" target="VdO09RFW267fVMQAMXUd-17">
+        <mxCell id="UgW7OSYlFZmc449s9rFn-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1;endArrow=none;endFill=0;" parent="1" source="VdO09RFW267fVMQAMXUd-39" target="VdO09RFW267fVMQAMXUd-17" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="VdO09RFW267fVMQAMXUd-39" value="return: ne== edicion" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=11;" parent="1" vertex="1">
@@ -3682,10 +3666,13 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="X89R2pl8ABEkL9FcxSxx-4" value="Construye y retorna un DtEdicion con&lt;br&gt;los datos obtenidos de la instancia pf y el set de strings formado por los &quot;docente&quot; obtenidos." style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;rounded=1;" parent="1" vertex="1">
-          <mxGeometry x="393.25" y="10109" width="174" height="97.5" as="geometry" />
+          <mxGeometry x="512" y="10095" width="148.25" height="104.5" as="geometry" />
         </mxCell>
-        <mxCell id="UgW7OSYlFZmc449s9rFn-1" value="&lt;div align=&quot;left&quot;&gt;4*: tieneEdicion:= buscarCursoAsociado(edicion):bool&lt;br&gt;5* [tieneEdicion]: nc:= getNombre():string&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="UgW7OSYlFZmc449s9rFn-1" value="&lt;div align=&quot;left&quot;&gt;4*: tieneEdicion:= existeCursoAsociado(edicion):bool&lt;br&gt;5* [tieneEdicion]: nc:= getNombre():string&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="1154.03" y="6404" width="311.97" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="QQvSLfDwOlX_w1zdFh3M-1" value="existe := ingresarProgFormacion(programa:DtProgFormacion): bool" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="88.00000000000001" y="13096" width="371" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
