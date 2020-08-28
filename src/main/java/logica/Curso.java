@@ -20,12 +20,12 @@ public class Curso {
 	public boolean existeCurso(String curso) {};
 	public DtCursoExp obtenerDatos() {};
 	public boolean tieneProgFormacion(String progFormacion) {};
-	public List<String> obtenerEdiciones(){}
+	public List<String> obtenerEdiciones(){};
 	public boolean existeCursoAsociado(String edicion) {};
 	public void agregarAPF(ProgFormacion pf) {};
 	public boolean estaAsociado(String nombre) {};
 	public boolean tieneLink(String programa) {};
-	public String obtenerNombreEdicionVigente() {}
+	public String obtenerNombreEdicionVigente() {};
 	
 	public Curso() {
 		super();

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ManejadorUsuario {
 	private static ManejadorUsuario instancia = null;
-	private List<Usuario> usuarios = new ArrayList<>();
+	private List<Usuario> usuarios = new ArrayList<Usuario>();
 	
 	private ManejadorUsuario(){}
 	
@@ -22,7 +22,7 @@ public class ManejadorUsuario {
 	public Usuario getUsuario(String nick) {
 		Usuario aretornar=null;
 		for(Usuario u: usuarios){
-			if (u.getNick() == nick)
+			if (u.getNick().equals(nick))
 				aretornar=u;
 		}
 		return aretornar;

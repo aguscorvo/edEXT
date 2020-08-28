@@ -1,6 +1,6 @@
 package interfaces;
+import logica.*;
 
-//import logica.*;
 public class Fabrica {
 	private static Fabrica instancia = null;
 	
@@ -10,6 +10,10 @@ public class Fabrica {
 		if (instancia == null)
 			instancia = new Fabrica();
 		return instancia;
+	}
+	
+	public IControladorAltaInstituto getIControladorAltaInstituto() {
+		return new ControladorAltaInstituto();		
 	}
 	
 	/*
@@ -28,11 +32,7 @@ public class Fabrica {
 		
 		
 	}
-	public IControladorAltaInstituto getIControladorAltaInstituto() {
-		return new ControladorAltaInstituto();
-		
-		
-	}
+	
 	public IControladorAltaProgFormacion getIControladorAltaProgFormacion() {
 		return new ControladorAltaProgFormacion();
 		

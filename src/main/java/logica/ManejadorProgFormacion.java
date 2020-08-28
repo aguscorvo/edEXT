@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ManejadorProgFormacion {
 	private static ManejadorProgFormacion instancia = null;
-	private List<ProgFormacion> progFormaciones = new ArrayList<>();
+	private List<ProgFormacion> progFormaciones = new ArrayList<ProgFormacion>();
 	
 	private ManejadorProgFormacion(){}
 	
@@ -22,7 +22,7 @@ public class ManejadorProgFormacion {
 	public ProgFormacion getProgFormacion(String nombre) {
 		ProgFormacion aretornar=null;
 		for(ProgFormacion pf: progFormaciones){
-			if (pf.getNombre() == nombre)
+			if (pf.getNombre().equals(nombre))
 				aretornar=pf;
 		}
 		return aretornar;

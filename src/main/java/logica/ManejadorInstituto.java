@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ManejadorInstituto {
 	private static ManejadorInstituto instancia = null;
-	private List<Instituto> institutos = new ArrayList<>();
+	private List<Instituto> institutos = new ArrayList<Instituto>();
 	
 	private ManejadorInstituto(){}
 	
@@ -22,13 +22,27 @@ public class ManejadorInstituto {
 	public Instituto getInstituto(String nombre) {
 		Instituto aretornar=null;
 		for(Instituto i: institutos){
-			if (i.getNombre() == nombre)
+			if (i.getNombre().equals(nombre))
 				aretornar=i;
 		}
 		return aretornar;
 	}
 	
-	public List<Institutos> getInstitutos(){}
+	public List<Instituto> getInstitutos(){
+		List<Instituto> aux= new ArrayList<Instituto>(institutos); // preguntar si se puede sacar el new
+		return aux;
+	}
 	public void removerInstituto(Instituto instituto){}
-	public boolean existeInstituto(String nombre){}
+	
+	public boolean existeInstituto(String nombre){
+		boolean existe=false;
+		for(Instituto i: institutos){
+			if(i.getNombre().equals(nombre))
+				existe=true;
+		}
+		return existe;
+	}
+			
+		
+	
 }

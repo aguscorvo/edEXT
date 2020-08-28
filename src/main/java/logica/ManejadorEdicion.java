@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ManejadorEdicion {
 	private static ManejadorEdicion instancia = null;
-	private List<Edicion> ediciones = new ArrayList<>();
+	private List<Edicion> ediciones = new ArrayList<Edicion>();
 	
 	private ManejadorEdicion(){}
 	
@@ -22,7 +22,7 @@ public class ManejadorEdicion {
 	public Edicion getEdicion(String nombre) {
 		Edicion aretornar=null;
 		for(Edicion e: ediciones){
-			if (e.getNombre() == nombre)
+			if (e.getNombre().equals(nombre))
 				aretornar=e;
 		}
 		return aretornar;
