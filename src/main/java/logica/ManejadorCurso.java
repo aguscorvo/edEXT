@@ -28,7 +28,7 @@ public class ManejadorCurso {
 		return aretornar;
 	}
 	
-	public List<Curso> getCursos(){}
+	//public List<Curso> getCursos(){}
 	public void removerCurso(Curso curso){}
-	public boolean existeCurso(String nombre){}
+	//public boolean existeCurso(String nombre){}
 }

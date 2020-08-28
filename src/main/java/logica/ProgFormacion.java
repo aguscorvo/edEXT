@@ -10,9 +10,9 @@ public class ProgFormacion {
 	private DtFecha fechaI;
 	private DtFecha fechaF;
 	private DtFecha fechaAlta;
-	public DtProgFormacionExp obtenerDatos() {};
-	public boolean esProgFormacion(String progFormacion) {};
-	public DtProgFormacionMin obtenerDtPM() {};
+	//public DtProgFormacionExp obtenerDatos() {};
+	//public boolean esProgFormacion(String progFormacion) {};
+	//public DtProgFormacionMin obtenerDtPM() {};
 	
 	public ProgFormacion() {
 		super();

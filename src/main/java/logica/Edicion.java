@@ -9,10 +9,10 @@ public class Edicion {
 	private DtFecha fechaF;
 	private int cupo;
 	private DtFecha fechaPub;
-	public DtEdicion obtenerDatos() {};
-	public boolean existeEdicion(DtEdicionExp edicion) {};
-	public boolean esEdicion(String nombre) {};
-	public boolean esEdicionVigente() {};
+	//public DtEdicion obtenerDatos() {};
+	//public boolean existeEdicion(DtEdicionExp edicion) {};
+	//public boolean esEdicion(String nombre) {};
+	//public boolean esEdicionVigente() {};
 	
 	public Edicion() {
 		super();

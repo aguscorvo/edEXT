@@ -9,7 +9,7 @@ public class Instituto {
 	private List<Curso> cursos = new ArrayList<Curso>();
 
 	
-	public List<String> obtenerCursos(){}
+	//public List<String> obtenerCursos(){}
 
 
 	public Instituto() {

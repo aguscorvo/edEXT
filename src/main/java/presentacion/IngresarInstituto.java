@@ -8,10 +8,16 @@ import javax.swing.JInternalFrame;
 import interfaces.IControladorAltaInstituto;
 
 public class IngresarInstituto extends JInternalFrame {
-
-	private static final long serialVersionUID = 1L;
-
 	
+	private static final long serialVersionUID = 1L;
+	private IControladorAltaInstituto iConAltInst;
+
+		
+	public IngresarInstituto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -29,7 +35,7 @@ public class IngresarInstituto extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public IngresarInstituto(IControladorAltaInstituto iConAltInst) {
-		this.icon = icon; //revisar
+		this.iConAltInst = iConAltInst; //revisar
 		setResizable(true);
         setIconifiable(true);
         setMaximizable(true);

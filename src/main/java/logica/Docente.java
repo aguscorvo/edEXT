@@ -9,10 +9,10 @@ public class Docente extends Usuario {
 	private Instituto instituto;
 	private List<Edicion> ediciones = new ArrayList<Edicion>();
 
-	@Override
-	public DtDocente obtenerDtUsuario() {}
+	//@Override
+	//public DtDocente obtenerDtUsuario() {}
 	
-	public boolean estaAsociado(String nombre) {}
+	//public boolean estaAsociado(String nombre) {}
 
 	public Docente(String nick, String nombre, String apellido, String correo, DtFecha fechaNac, Instituto instituto,
 			List<Edicion> ediciones) {

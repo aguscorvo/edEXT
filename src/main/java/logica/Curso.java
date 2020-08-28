@@ -17,7 +17,7 @@ public class Curso {
 	private List<Edicion> ediciones = new ArrayList<Edicion>();
 	private List<ProgFormacion> programas = new ArrayList<ProgFormacion>();
 	
-	public boolean existeCurso(String curso) {};
+	/*public boolean existeCurso(String curso) {};
 	public DtCursoExp obtenerDatos() {};
 	public boolean tieneProgFormacion(String progFormacion) {};
 	public List<String> obtenerEdiciones(){};
@@ -25,7 +25,7 @@ public class Curso {
 	public void agregarAPF(ProgFormacion pf) {};
 	public boolean estaAsociado(String nombre) {};
 	public boolean tieneLink(String programa) {};
-	public String obtenerNombreEdicionVigente() {};
+	public String obtenerNombreEdicionVigente() {};*/
 	
 	public Curso() {
 		super();

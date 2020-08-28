@@ -28,7 +28,7 @@ public class ManejadorEdicion {
 		return aretornar;
 	}
 	
-	public List<Edicion> getEdiciones(){}
+	//public List<Edicion> getEdiciones(){}
 	public void removerEdicion(Edicion edicion){}
-	public boolean existeEdicion(String nombre){}
+	//public boolean existeEdicion(String nombre){}
 }

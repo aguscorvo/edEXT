@@ -28,7 +28,7 @@ public class ManejadorProgFormacion {
 		return aretornar;
 	}
 	
-	public List<ProgFormacion> getProgFormacion(){}
+	//public List<ProgFormacion> getProgFormacion(){}
 	public void removerProgFormacion(ProgFormacion progFormacion){}
-	public boolean existeProgFormacion(String nombre){}
+	//public boolean existeProgFormacion(String nombre){}
 }

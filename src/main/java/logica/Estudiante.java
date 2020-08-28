@@ -10,10 +10,10 @@ public class Estudiante extends Usuario {
 	private List<InscripcionEd> inscripcionesEd = new ArrayList<InscripcionEd>();
 	private List<InscripcionPF> inscripcionesPF = new ArrayList<InscripcionPF>();
 	
-	@Override
-	public DtEstudiante obtenerDtUsuario() {}
+	//@Override
+	//public DtEstudiante obtenerDtUsuario() {}
 	
-	public boolean existeInscEdicion(String edicion) {}
+	//public boolean existeInscEdicion(String edicion) {}
 	
 	public void agregarInscripcion(InscripcionEd ie) {}
 

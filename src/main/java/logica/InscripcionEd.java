@@ -7,7 +7,7 @@ public class InscripcionEd {
 	
 	private Edicion edicion;
 	
-	public String obtenerEdicion() {}
+	//public String obtenerEdicion() {}
 
 	public InscripcionEd() {
 		super();

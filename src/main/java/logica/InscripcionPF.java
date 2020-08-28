@@ -9,7 +9,7 @@ public class InscripcionPF {
 	
 	private ProgFormacion progFormacion;
 	
-	public DtProgFormacionMin obtenerDtProgFormacionMin() {}
+	//public DtProgFormacionMin obtenerDtProgFormacionMin() {}
 
 	public InscripcionPF() {
 		super();

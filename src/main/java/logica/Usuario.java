@@ -11,7 +11,7 @@ public abstract class Usuario {
 	private DtFecha fechaNac; 
 
 
-	public abstract DtUsuario obtenerDtUsuario();
+	//public abstract DtUsuario obtenerDtUsuario();
 	public boolean existeUsuario(DtUsuario usuario) {
 		return false;}
 	public void compararDatos(DtUsuario datos) {}

@@ -28,7 +28,7 @@ public class ManejadorUsuario {
 		return aretornar;
 	}
 	
-	public List<Usuario> getUsuarios(){}
+	//public List<Usuario> getUsuarios(){}
 	public void removerUsuario(Usuario usuario){}
-	public boolean existeUsuario(String nick){}
+	//public boolean existeUsuario(String nick){}
 }
