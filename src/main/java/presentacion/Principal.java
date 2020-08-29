@@ -9,14 +9,21 @@ import javax.swing.JMenuItem;
 
 import interfaces.Fabrica;
 import interfaces.IControladorAltaInstituto;
+import interfaces.IControladorAltaUsuario;
 
 import javax.swing.JMenu;
 import java.awt.event.ActionListener;
+import java.beans.PropertyVetoException;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JPanel;
+import javax.swing.JButton;
 
 public class Principal {
 	private JFrame frame;
 	private IngresarInstituto ingresarInstitutoInternalFrame;
+	private IngresarUsuario ingresarUsuarioInternalFrame;
 
 	
 	/**
@@ -37,17 +44,19 @@ public class Principal {
 
 	/**
 	 * Create the application.
+	 * @throws PropertyVetoException 
 	 */
-	public Principal() {
+	public Principal() throws PropertyVetoException {
 		initialize();
 		
 		Fabrica f = Fabrica.getInstancia();
-		IControladorAltaInstituto IConAltInst = f.getIControladorAltaInstituto(); 
+		IControladorAltaInstituto IConAltInst = f.getIControladorAltaInstituto();
 		
 		Dimension desktopSize = frame.getSize();
 		Dimension jInternalFrameSize;
 		
 		ingresarInstitutoInternalFrame = new IngresarInstituto(IConAltInst);
+		//ingresarUsuario
 		
 		//dejamos el jInternalFrame en el medio de la pantalla
 		jInternalFrameSize = ingresarInstitutoInternalFrame.getSize();
@@ -56,6 +65,7 @@ public class Principal {
 		
 		ingresarInstitutoInternalFrame.setVisible(false);
 		frame.getContentPane().add(ingresarInstitutoInternalFrame);
+		ingresarInstitutoInternalFrame.getContentPane().setLayout(null);
 		
 	}
 
@@ -64,7 +74,7 @@ public class Principal {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 628, 425);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -81,8 +91,10 @@ public class Principal {
 		});
 		mnAltas.add(mntmInstitutos);
 		
+		JMenuItem mntmUsuario = new JMenuItem("Usuario");
+		mnAltas.add(mntmUsuario);
+		
 		JMenu mnConsultas = new JMenu("Consultas");
 		menuBar.add(mnConsultas);
 	}
-
 }
