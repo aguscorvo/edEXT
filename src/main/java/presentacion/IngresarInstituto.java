@@ -15,6 +15,7 @@ public class IngresarInstituto extends JInternalFrame {
 		
 	public IngresarInstituto() {
 		super();
+		getContentPane().setLayout(null);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -36,12 +37,14 @@ public class IngresarInstituto extends JInternalFrame {
 	 */
 	public IngresarInstituto(IControladorAltaInstituto iConAltInst) {
 		this.iConAltInst = iConAltInst; //revisar
+		
+		//Cerrar, maximizar, mover
 		setResizable(true);
         setIconifiable(true);
         setMaximizable(true);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         setClosable(true);
-        setTitle("Alta de un Socio");
+        setTitle("Ingresar un instituto");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 		

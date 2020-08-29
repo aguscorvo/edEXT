@@ -1,5 +1,6 @@
 package presentacion;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -14,12 +15,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Principal {
-	
-	Fabrica f = Fabrica.getInstancia();
-	IControladorAltaInstituto IConAltInst = f.getIControladorAltaInstituto(); 
-	
 	private JFrame frame;
+	private IngresarInstituto ingresarInstitutoInternalFrame;
 
+	
 	/**
 	 * Launch the application.
 	 */
@@ -41,6 +40,23 @@ public class Principal {
 	 */
 	public Principal() {
 		initialize();
+		
+		Fabrica f = Fabrica.getInstancia();
+		IControladorAltaInstituto IConAltInst = f.getIControladorAltaInstituto(); 
+		
+		Dimension desktopSize = frame.getSize();
+		Dimension jInternalFrameSize;
+		
+		ingresarInstitutoInternalFrame = new IngresarInstituto(IConAltInst);
+		
+		//dejamos el jInternalFrame en el medio de la pantalla
+		jInternalFrameSize = ingresarInstitutoInternalFrame.getSize();
+		ingresarInstitutoInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
+		    (desktopSize.height- jInternalFrameSize.height)/2);
+		
+		ingresarInstitutoInternalFrame.setVisible(false);
+		frame.getContentPane().add(ingresarInstitutoInternalFrame);
+		
 	}
 
 	/**
@@ -57,9 +73,10 @@ public class Principal {
 		JMenu mnAltas = new JMenu("Altas");
 		menuBar.add(mnAltas);
 		
-		JMenuItem mntmInstitutos = new JMenuItem("Institutos");
+		JMenuItem mntmInstitutos = new JMenuItem("Instituto");
 		mntmInstitutos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				ingresarInstitutoInternalFrame.setVisible(true);
 			}
 		});
 		mnAltas.add(mntmInstitutos);

@@ -18,9 +18,8 @@ public class ControladorAltaInstituto implements IControladorAltaInstituto {
 	public void ingresarInstituto(String nombre) throws InstitucionRepetidaException{
 		ManejadorInstituto mi = ManejadorInstituto.getInstancia();
 		if(mi.existeInstituto(instituto))
-			throw new InstitucionRepetidaException("Ya existe una institucion con ese nombre en el sistema.");
-		instituto=nombre;	
-		
+			throw new InstitucionRepetidaException("El instituto '" + nombre +"' ya se encuentra registrado en el sistema.\n");
+		instituto=nombre;		
 	}
 	
 	@Override
