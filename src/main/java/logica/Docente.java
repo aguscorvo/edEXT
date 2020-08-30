@@ -14,8 +14,7 @@ public class Docente extends Usuario {
 	
 	//public boolean estaAsociado(String nombre) {}
 
-	public Docente(String nick, String nombre, String apellido, String correo, DtFecha fechaNac, Instituto instituto,
-			List<Edicion> ediciones) {
+	public Docente(String nick, String nombre, String apellido, String correo, DtFecha fechaNac, Instituto instituto, List<Edicion> ediciones) {
 		super(nick, nombre, apellido, correo, fechaNac);
 		this.instituto = instituto;
 		this.ediciones = ediciones;

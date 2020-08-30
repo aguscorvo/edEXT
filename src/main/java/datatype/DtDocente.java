@@ -1,5 +1,9 @@
 package datatype;
 
+import java.util.List;
+
+import logica.Edicion;
+
 public class DtDocente extends DtUsuario{
 	private String instituto;
 	
@@ -20,6 +24,9 @@ public class DtDocente extends DtUsuario{
 	public void setInstituto(String instituto) {
 		this.instituto = instituto;
 	}
+
+	
+	
 
 	
 	

@@ -16,6 +16,11 @@ public class Fabrica {
 		return new ControladorAltaInstituto();		
 	}
 	
+	public IControladorAltaUsuario getIControladorAltaUsuario() {
+		return new ControladorAltaUsuario();	
+		
+	}
+	
 	/*
 	public IControladorAgregarCursoAPF getIControladorAgregarCursoAPF() {
 		return new ControladorAgregarCursoAPF();
@@ -38,11 +43,7 @@ public class Fabrica {
 		
 		
 	}
-	public IControladorAltaUsuario getIControladorAltaUsuario() {
-		return new ControladorAltaUsuario();
-		
-		
-	}
+	
 	public IControladorConsultaCurso getIControladorConsultaCurso() {
 		return new ControladorConsultaCurso();
 		

@@ -28,7 +28,30 @@ public class ManejadorUsuario {
 		return aretornar;
 	}
 	
-	//public List<Usuario> getUsuarios(){}
+	public List<Usuario> getUsuarios(){
+		List <Usuario> aux = new ArrayList<Usuario>(usuarios);
+		return aux;
+	}
 	public void removerUsuario(Usuario usuario){}
-	//public boolean existeUsuario(String nick){}
+	
+	public boolean existeUsuarioNick(String nick){
+		boolean existe = false;
+		for (Usuario u: usuarios) {
+			if(u.getNick().equals(nick)) {
+				existe= true;
+			}	
+		}
+		return existe;
+	}
+	
+	
+	public boolean existeUsuarioCorreo(String correo) {
+		boolean existe = false;
+		for (Usuario u: usuarios) {
+			if(u.getCorreo().equals(correo)) {
+				existe= true;
+			}	
+		}
+		return existe;
+	}
 }

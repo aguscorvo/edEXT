@@ -26,9 +26,6 @@ public class Principal {
 	private IngresarUsuario ingresarUsuarioInternalFrame;
 
 	
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -42,21 +39,19 @@ public class Principal {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 * @throws PropertyVetoException 
-	 */
 	public Principal() throws PropertyVetoException {
 		initialize();
 		
 		Fabrica f = Fabrica.getInstancia();
 		IControladorAltaInstituto IConAltInst = f.getIControladorAltaInstituto();
+		IControladorAltaUsuario IConAltUsu = f.getIControladorAltaUsuario();
 		
 		Dimension desktopSize = frame.getSize();
 		Dimension jInternalFrameSize;
 		
 		ingresarInstitutoInternalFrame = new IngresarInstituto(IConAltInst);
-		//ingresarUsuario
+		ingresarUsuarioInternalFrame = new IngresarUsuario(IConAltUsu);
+		
 		
 		//dejamos el jInternalFrame en el medio de la pantalla
 		jInternalFrameSize = ingresarInstitutoInternalFrame.getSize();
@@ -67,15 +62,22 @@ public class Principal {
 		frame.getContentPane().add(ingresarInstitutoInternalFrame);
 		ingresarInstitutoInternalFrame.getContentPane().setLayout(null);
 		
+		jInternalFrameSize = ingresarUsuarioInternalFrame.getSize();
+		ingresarUsuarioInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
+		    (desktopSize.height- jInternalFrameSize.height)/2);
+		
+		ingresarUsuarioInternalFrame.setVisible(false);
+		frame.getContentPane().add(ingresarUsuarioInternalFrame);
+		ingresarUsuarioInternalFrame.getContentPane().setLayout(null);
+		
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 628, 425);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+
 		
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
