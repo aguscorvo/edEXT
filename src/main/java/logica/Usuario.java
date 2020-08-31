@@ -1,5 +1,7 @@
 package logica;
 
+import java.util.Date;
+
 import datatype.DtFecha;
 import datatype.DtUsuario;
 
@@ -8,7 +10,7 @@ public abstract class Usuario {
 	private String nombre; 
 	private String apellido; 
 	private String correo; 
-	private DtFecha fechaNac; 
+	private Date fechaNac; 
 
 
 	//public abstract DtUsuario obtenerDtUsuario();
@@ -21,7 +23,7 @@ public abstract class Usuario {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Usuario(String nick, String nombre, String apellido, String correo, DtFecha fechaNac) {
+	public Usuario(String nick, String nombre, String apellido, String correo, Date fechaNac) {
 		super();
 		this.nick = nick;
 		this.nombre = nombre;
@@ -62,11 +64,11 @@ public abstract class Usuario {
 		this.correo = correo;
 	}
 	
-	public DtFecha getFechaNac() {
+	public Date getFechaNac() {
 		return fechaNac;
 	}
 	
-	public void setFechaNac(DtFecha fechaNac) {
+	public void setFechaNac(Date fechaNac) {
 		this.fechaNac = fechaNac;
 	}
 	

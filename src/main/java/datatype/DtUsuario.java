@@ -1,18 +1,19 @@
 package datatype;
 
+import java.util.Date;
+
 public class DtUsuario {
 	private String nick;
 	private String nombre;
 	private String apellido;
 	private String correo;
-	private DtFecha fechaNac;
+	private Date fechaNac;
 			
 	public DtUsuario() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
-	public DtUsuario(String nick, String nombre, String apellido, String correo, DtFecha fechaNac) {
+	public DtUsuario(String nick, String nombre, String apellido, String correo, Date fechaNac) {
 		super();
 		this.nick = nick;
 		this.nombre = nombre;
@@ -44,10 +45,10 @@ public class DtUsuario {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	public DtFecha getFechaNac() {
+	public Date getFechaNac() {
 		return fechaNac;
 	}
-	public void setFechaNac(DtFecha fechaNac) {
+	public void setFechaNac(Date fechaNac) {
 		this.fechaNac = fechaNac;
 	}
 	

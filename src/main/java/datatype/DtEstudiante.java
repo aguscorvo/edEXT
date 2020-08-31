@@ -1,12 +1,13 @@
 package datatype;
 
+import java.util.Date;
+
 public class DtEstudiante extends DtUsuario {
 	
 	public DtEstudiante() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	public DtEstudiante(String nick, String nombre, String apellido, String correo, DtFecha fechaNac) {
+	public DtEstudiante(String nick, String nombre, String apellido, String correo, Date fechaNac) {
 		super(nick, nombre, apellido, correo, fechaNac);
 	}	
 	

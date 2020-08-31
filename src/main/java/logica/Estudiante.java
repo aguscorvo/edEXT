@@ -1,6 +1,7 @@
 package logica;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import datatype.DtEstudiante;
 import datatype.DtFecha;
@@ -22,7 +23,7 @@ public class Estudiante extends Usuario {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Estudiante(String nick, String nombre, String apellido, String correo, DtFecha fechaNac,
+	public Estudiante(String nick, String nombre, String apellido, String correo, Date fechaNac,
 			List<InscripcionEd> inscripcionesEd, List<InscripcionPF> inscripcionesPF) {
 		super(nick, nombre, apellido, correo, fechaNac);
 		this.inscripcionesEd = inscripcionesEd;

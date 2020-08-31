@@ -21,7 +21,9 @@ import java.awt.event.ActionEvent;
 public class IngresarInstituto extends JInternalFrame {
 	
 	private static final long serialVersionUID = 1L;
+	
 	private IControladorAltaInstituto iConAltInst;
+	
 	private JTextField textFieldIngresarNombre;
 
 		
@@ -33,7 +35,7 @@ public class IngresarInstituto extends JInternalFrame {
 		setIconifiable(true);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setTitle("Ingresar Instituto");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 610, 385);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNombre = new JLabel("NOMBRE");
@@ -66,7 +68,6 @@ public class IngresarInstituto extends JInternalFrame {
 		JPanel panel = new JPanel();
 		panel.setBounds(131, 122, 342, 95);
 		getContentPane().add(panel);
-		// TODO Auto-generated constructor stub
 	}
 
 	
@@ -111,15 +112,13 @@ public class IngresarInstituto extends JInternalFrame {
 			return false;
 		}
 		
-		return true;
-		
-		
+		return true;			
 		
 	}
 	
 	private void limpiarFormulario() {
         textFieldIngresarNombre.setText("");
- }
+	}
 	
 	
  

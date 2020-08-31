@@ -1,111 +1,213 @@
 package presentacion;
 
-import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
 
 import interfaces.IControladorAltaUsuario;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import com.toedter.calendar.JDateChooser;
+
+import datatype.DtDocente;
+import datatype.DtEstudiante;
+import datatype.DtUsuario;
+import excepciones.UsuarioRepetidoException;
+
 import javax.swing.JRadioButton;
+
+import java.awt.event.ActionEvent;
+
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import java.awt.event.ActionListener;
+import java.util.Date;
 
 public class IngresarUsuario extends JInternalFrame {
+	
+	private static final long serialVersionUID = 1L;
+	
+	private IControladorAltaUsuario iConAltaUsu;
+
 	private JTextField textFieldNick;
 	private JTextField textFieldNombre;
 	private JTextField textFieldApellido;
 	private JTextField textFieldCorreo;
 	private JTextField textFieldInstituto;
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IngresarUsuario frame = new IngresarUsuario();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private JRadioButton rdbtnDocente;
+	private JRadioButton rdbtnEstudiante;
+	private JDateChooser dateChooserFechaNac;
 
 	
 	public IngresarUsuario(IControladorAltaUsuario iConAltUsu) {
+		this.iConAltaUsu=iConAltUsu;
+		setResizable(true);
 		setClosable(true);
+		setMaximizable(true);
+		setIconifiable(true);
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setTitle("Ingresar Usuario");
-		setBounds(100, 100, 680, 408);
+		setBounds(100, 100, 679, 264);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNick = new JLabel("NICK");
-		lblNick.setBounds(142, 34, 70, 15);
+		lblNick.setBounds(34, 34, 70, 15);
 		getContentPane().add(lblNick);
 		
 		textFieldNick = new JTextField();
-		textFieldNick.setBounds(234, 32, 114, 19);
+		textFieldNick.setBounds(111, 32, 181, 19);
 		getContentPane().add(textFieldNick);
 		textFieldNick.setColumns(10);
 		
 		JLabel lblNombre = new JLabel("NOMBRE");
-		lblNombre.setBounds(142, 81, 70, 15);
+		lblNombre.setBounds(34, 81, 70, 15);
 		getContentPane().add(lblNombre);
 		
 		textFieldNombre = new JTextField();
-		textFieldNombre.setBounds(234, 79, 114, 19);
+		textFieldNombre.setBounds(111, 79, 181, 19);
 		getContentPane().add(textFieldNombre);
 		textFieldNombre.setColumns(10);
 		
 		JLabel lblApellido = new JLabel("APELLIDO");
-		lblApellido.setBounds(142, 127, 70, 15);
+		lblApellido.setBounds(34, 127, 70, 15);
 		getContentPane().add(lblApellido);
 		
 		textFieldApellido = new JTextField();
-		textFieldApellido.setBounds(234, 125, 114, 19);
+		textFieldApellido.setBounds(111, 125, 181, 19);
 		getContentPane().add(textFieldApellido);
 		textFieldApellido.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("CORREO");
-		lblNewLabel.setBounds(142, 175, 70, 15);
-		getContentPane().add(lblNewLabel);
+		JLabel lblCorreo = new JLabel("CORREO");
+		lblCorreo.setBounds(34, 175, 70, 15);
+		getContentPane().add(lblCorreo);
 		
 		textFieldCorreo = new JTextField();
-		textFieldCorreo.setBounds(234, 173, 114, 19);
+		textFieldCorreo.setBounds(111, 173, 181, 19);
 		getContentPane().add(textFieldCorreo);
 		textFieldCorreo.setColumns(10);
 		
-		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setBounds(321, 223, 83, 19);
-		getContentPane().add(dateChooser);
+		dateChooserFechaNac = new JDateChooser();
+		dateChooserFechaNac.setBounds(496, 30, 162, 19);
+		getContentPane().add(dateChooserFechaNac);
 		
-		JLabel lblNewLabel_1 = new JLabel("FECHA DE NACIMIENTO");
-		lblNewLabel_1.setBounds(142, 227, 161, 15);
-		getContentPane().add(lblNewLabel_1);
+		JLabel lblFechaNac = new JLabel("FECHA DE NACIMIENTO");
+		lblFechaNac.setBounds(331, 34, 161, 15);
+		getContentPane().add(lblFechaNac);
 		
-		JRadioButton rdbtnDocente = new JRadioButton("Docente");
-		rdbtnDocente.setBounds(32, 267, 149, 23);
+		rdbtnDocente = new JRadioButton("Docente");
+		rdbtnDocente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				rdbtnDocente.setSelected(true);
+				rdbtnEstudiante.setSelected(false);
+				textFieldInstituto.setEnabled(true);
+			}
+		});
+		rdbtnDocente.setSelected(true);
+		rdbtnDocente.setBounds(375, 123, 95, 23);
 		getContentPane().add(rdbtnDocente);
 		
-		JRadioButton rdbtnEstudiante = new JRadioButton("Estudiante");
-		rdbtnEstudiante.setBounds(32, 302, 149, 23);
+		rdbtnEstudiante = new JRadioButton("Estudiante");
+		rdbtnEstudiante.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				rdbtnDocente.setSelected(false);
+				rdbtnEstudiante.setSelected(true);
+				textFieldInstituto.setText("");
+				textFieldInstituto.setEnabled(false);
+			}
+		});
+		rdbtnEstudiante.setSelected(false);
+		rdbtnEstudiante.setBounds(515, 123, 108, 23);
 		getContentPane().add(rdbtnEstudiante);
 		
 		JLabel lblInstituto = new JLabel("INSTITUTO");
-		lblInstituto.setBounds(195, 282, 108, 15);
+		lblInstituto.setBounds(331, 81, 108, 15);
 		getContentPane().add(lblInstituto);
 		
 		textFieldInstituto = new JTextField();
-		textFieldInstituto.setBounds(290, 280, 114, 19);
+		textFieldInstituto.setBounds(496, 81, 162, 19);
 		getContentPane().add(textFieldInstituto);
 		textFieldInstituto.setColumns(10);
 		
 		JButton btnConfirmar = new JButton("Confirmar");
-		btnConfirmar.setBounds(487, 29, 117, 25);
+		btnConfirmar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ingresarUsuarioAceptarActionPerformed(e);
+			}
+		});
+		btnConfirmar.setBounds(363, 170, 117, 25);
 		getContentPane().add(btnConfirmar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(487, 76, 117, 25);
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ingresarUsuarioCancelarActionPerformed(e);
+			}
+		});
+		btnCancelar.setBounds(515, 170, 117, 25);
 		getContentPane().add(btnCancelar);
 
 	}
+	
+	protected void ingresarUsuarioAceptarActionPerformed(ActionEvent e) {
+		String nick = this.textFieldNick.getText();
+		String nombre = this.textFieldNombre.getText();
+		String apellido = this.textFieldApellido.getText();
+		String correo = this.textFieldCorreo.getText();
+		Date fecha = this.dateChooserFechaNac.getDate();
+		DtUsuario dt=null;
+		
+		if(rdbtnDocente.isSelected()) {
+			String instituto = this.textFieldInstituto.getText();
+			if (checkTextField(instituto)) {
+				dt = new DtDocente(nick, nombre, apellido, correo, fecha, instituto);
+			}
+			else return;
+			
+		}
+		if(rdbtnEstudiante.isSelected()) {
+			dt= new DtEstudiante(nick, nombre, apellido, correo, fecha);
+		}
+		if(checkTextField(nick)& checkTextField(nombre)& checkTextField(apellido)&checkTextField(correo)) {
+			try {			
+					this.iConAltaUsu.ingresarDtUsuario(dt);
+					this.iConAltaUsu.confirmarAltaUsuario();
+					JOptionPane.showMessageDialog(this, "El usuario se ha creado con éxito", "Ingresar Usuario", JOptionPane.INFORMATION_MESSAGE);
+								
+				} catch(UsuarioRepetidoException ue) {
+	               JOptionPane.showMessageDialog(this, ue.getMessage(), "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
+	
+				}
+			limpiarFormulario();
+			setVisible(false);
+				
+			}
+		}
+		
+
+
+	protected void ingresarUsuarioCancelarActionPerformed(ActionEvent e) {		
+		limpiarFormulario();
+		setVisible(false);	
+	}
+	
+	private boolean checkTextField(String string) {
+		
+		if(string.isEmpty()) {
+			JOptionPane.showMessageDialog(this, "Ningún campo puede quedar vacío.", "Ingresar Usuario",
+                    JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		
+		return true;			
+		
+	}
+	
+	private void limpiarFormulario() {
+		textFieldNick.setText("");
+		textFieldNombre.setText("");
+		textFieldApellido.setText("");
+		textFieldCorreo.setText("");
+		textFieldInstituto.setText("");
+	}
+
 }

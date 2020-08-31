@@ -74,7 +74,7 @@ public class Principal {
 
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 628, 425);
+		frame.setBounds(100, 100, 846, 525);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -94,6 +94,11 @@ public class Principal {
 		mnAltas.add(mntmInstitutos);
 		
 		JMenuItem mntmUsuario = new JMenuItem("Usuario");
+		mntmUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ingresarUsuarioInternalFrame.setVisible(true);
+			}
+		});
 		mnAltas.add(mntmUsuario);
 		
 		JMenu mnConsultas = new JMenu("Consultas");
