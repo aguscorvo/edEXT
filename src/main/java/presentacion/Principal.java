@@ -8,6 +8,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import interfaces.Fabrica;
+import interfaces.IControladorAltaCurso;
 import interfaces.IControladorAltaInstituto;
 import interfaces.IControladorAltaUsuario;
 
@@ -24,6 +25,7 @@ public class Principal {
 	private JFrame frame;
 	private IngresarInstituto ingresarInstitutoInternalFrame;
 	private IngresarUsuario ingresarUsuarioInternalFrame;
+	private IngresarCurso ingresarCursoInternalFrame;
 
 	
 	public static void main(String[] args) {
@@ -45,12 +47,14 @@ public class Principal {
 		Fabrica f = Fabrica.getInstancia();
 		IControladorAltaInstituto IConAltInst = f.getIControladorAltaInstituto();
 		IControladorAltaUsuario IConAltUsu = f.getIControladorAltaUsuario();
+		IControladorAltaCurso IConAltCur = f.getIControladorAltaCurso();
 		
 		Dimension desktopSize = frame.getSize();
 		Dimension jInternalFrameSize;
 		
 		ingresarInstitutoInternalFrame = new IngresarInstituto(IConAltInst);
 		ingresarUsuarioInternalFrame = new IngresarUsuario(IConAltUsu);
+		ingresarCursoInternalFrame = new IngresarCurso(IConAltCur);
 		
 		
 		//dejamos el jInternalFrame en el medio de la pantalla
@@ -69,6 +73,14 @@ public class Principal {
 		ingresarUsuarioInternalFrame.setVisible(false);
 		frame.getContentPane().add(ingresarUsuarioInternalFrame);
 		ingresarUsuarioInternalFrame.getContentPane().setLayout(null);
+		
+		jInternalFrameSize = ingresarCursoInternalFrame.getSize();
+		ingresarCursoInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
+		    (desktopSize.height- jInternalFrameSize.height)/2);
+		
+		ingresarCursoInternalFrame.setVisible(false);
+		frame.getContentPane().add(ingresarCursoInternalFrame);
+		ingresarCursoInternalFrame.getContentPane().setLayout(null);
 		
 	}
 
@@ -100,6 +112,9 @@ public class Principal {
 			}
 		});
 		mnAltas.add(mntmUsuario);
+		
+		JMenuItem mntmCurso = new JMenuItem("Curso");
+		mnAltas.add(mntmCurso);
 		
 		JMenu mnConsultas = new JMenu("Consultas");
 		menuBar.add(mnConsultas);

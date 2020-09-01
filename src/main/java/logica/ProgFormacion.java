@@ -1,25 +1,25 @@
 package logica;
 
-import datatype.DtFecha;
+import java.util.Date;
+
 import datatype.DtProgFormacionExp;
 import datatype.DtProgFormacionMin;
 
 public class ProgFormacion {
 	private String nombre;
 	private String desc;
-	private DtFecha fechaI;
-	private DtFecha fechaF;
-	private DtFecha fechaAlta;
+	private Date fechaI;
+	private Date fechaF;
+	private Date fechaAlta;
 	//public DtProgFormacionExp obtenerDatos() {};
 	//public boolean esProgFormacion(String progFormacion) {};
 	//public DtProgFormacionMin obtenerDtPM() {};
 	
 	public ProgFormacion() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
-	public ProgFormacion(String nombre, String desc, DtFecha fechaI, DtFecha fechaF, DtFecha fechaAlta) {
+	public ProgFormacion(String nombre, String desc, Date fechaI, Date fechaF, Date fechaAlta) {
 		super();
 		this.nombre = nombre;
 		this.desc = desc;
@@ -43,27 +43,27 @@ public class ProgFormacion {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
-	public DtFecha getFechaI() {
+	public Date getFechaI() {
 		return fechaI;
 	}
 	
-	public void setFechaI(DtFecha fechaI) {
+	public void setFechaI(Date fechaI) {
 		this.fechaI = fechaI;
 	}
 	
-	public DtFecha getFechaF() {
+	public Date getFechaF() {
 		return fechaF;
 	}
 	
-	public void setFechaF(DtFecha fechaF) {
+	public void setFechaF(Date fechaF) {
 		this.fechaF = fechaF;
 	}
 	
-	public DtFecha getFechaAlta() {
+	public Date getFechaAlta() {
 		return fechaAlta;
 	}
 	
-	public void setFechaAlta(DtFecha fechaAlta) {
+	public void setFechaAlta(Date fechaAlta) {
 		this.fechaAlta = fechaAlta;
 	}
 	

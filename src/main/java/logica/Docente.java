@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import datatype.DtDocente;
-import datatype.DtFecha;
 
 public class Docente extends Usuario {
 	private Instituto instituto;
@@ -23,7 +22,6 @@ public class Docente extends Usuario {
 
 	public Docente() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Instituto getInstituto() {

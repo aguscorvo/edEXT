@@ -1,6 +1,7 @@
 package datatype;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DtProgFormacionExp extends DtProgFormacion{
@@ -8,10 +9,9 @@ public class DtProgFormacionExp extends DtProgFormacion{
 
 	public DtProgFormacionExp() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public DtProgFormacionExp(String nombre, String desc, DtFecha fechaI, DtFecha fechaF, DtFecha fechaAlta,
+	public DtProgFormacionExp(String nombre, String desc, Date fechaI, Date fechaF, Date fechaAlta,
 			List<String> cursos) {
 		super(nombre, desc, fechaI, fechaF, fechaAlta);
 		this.cursos = cursos;

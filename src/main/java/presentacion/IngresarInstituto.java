@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import excepciones.InstitucionRepetidaException;
+import excepciones.InstitutoRepetidaException;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -84,7 +84,7 @@ public class IngresarInstituto extends JInternalFrame {
                         JOptionPane.INFORMATION_MESSAGE);
 				
 				
-			} catch (InstitucionRepetidaException ie) {
+			} catch (InstitutoRepetidaException ie) {
 				
                 JOptionPane.showMessageDialog(this, ie.getMessage(), "Ingresar Instituto", JOptionPane.ERROR_MESSAGE);
 

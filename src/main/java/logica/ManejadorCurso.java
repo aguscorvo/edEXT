@@ -28,7 +28,21 @@ public class ManejadorCurso {
 		return aretornar;
 	}
 	
-	//public List<Curso> getCursos(){}
+	public List<Curso> getCursos(){
+		List<Curso> aux = new ArrayList<Curso>(cursos);
+		return aux;
+		
+	}
+	
+	
 	public void removerCurso(Curso curso){}
-	//public boolean existeCurso(String nombre){}
+	public boolean existeCurso(String nombre){
+		boolean existe = false;
+		for(Curso c: cursos) {
+			if(c.getNombre().equals(nombre))
+				existe = true;
+		}
+		return existe;
+		
+	}
 }

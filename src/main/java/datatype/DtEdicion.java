@@ -1,18 +1,20 @@
 package datatype;
 
+import java.util.Date;
+
 public class DtEdicion {
 	private String nombre;
-	private DtFecha fechaI;
-	private DtFecha fechaF;
+	private Date fechaI;
+	private Date fechaF;
 	private int cupo;
-	private DtFecha fechaPub;
+	private Date fechaPub;
 	
 	public DtEdicion() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public DtEdicion(String nombre, DtFecha fechaI, DtFecha fechaF, int cupo, DtFecha fechaPub) {
+	public DtEdicion(String nombre, Date fechaI, Date fechaF, int cupo, Date fechaPub) {
 		super();
 		this.nombre = nombre;
 		this.fechaI = fechaI;
@@ -29,19 +31,19 @@ public class DtEdicion {
 		this.nombre = nombre;
 	}
 
-	public DtFecha getFechaI() {
+	public Date getFechaI() {
 		return fechaI;
 	}
 
-	public void setFechaI(DtFecha fechaI) {
+	public void setFechaI(Date fechaI) {
 		this.fechaI = fechaI;
 	}
 
-	public DtFecha getFechaF() {
+	public Date getFechaF() {
 		return fechaF;
 	}
 
-	public void setFechaF(DtFecha fechaF) {
+	public void setFechaF(Date fechaF) {
 		this.fechaF = fechaF;
 	}
 
@@ -53,11 +55,11 @@ public class DtEdicion {
 		this.cupo = cupo;
 	}
 
-	public DtFecha getFechaPub() {
+	public Date getFechaPub() {
 		return fechaPub;
 	}
 
-	public void setFechaPub(DtFecha fechaPub) {
+	public void setFechaPub(Date fechaPub) {
 		this.fechaPub = fechaPub;
 	}
 	

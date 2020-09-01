@@ -1,6 +1,7 @@
 package datatype;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -10,7 +11,7 @@ public class DtCurso {
 	private String duracion;
 	private DtTime cantHoras;
 	private int creditos;
-	private DtFecha fechaR;
+	private Date fechaR;
 	private String url;	
 	private List<String> previas = new ArrayList<String>(); // ver distintos contenedores
 	
@@ -19,7 +20,7 @@ public class DtCurso {
 		// TODO Auto-generated constructor stub
 	}
 
-	public DtCurso(String nombre, String desc, String duracion, DtTime cantHoras, int creditos, DtFecha fechaR,
+	public DtCurso(String nombre, String desc, String duracion, DtTime cantHoras, int creditos, Date fechaR,
 			String url, List<String> previas) {
 		super();
 		this.nombre = nombre;
@@ -72,11 +73,11 @@ public class DtCurso {
 		this.creditos = creditos;
 	}
 
-	public DtFecha getFechaR() {
+	public Date getFechaR() {
 		return fechaR;
 	}
 
-	public void setFechaR(DtFecha fechaR) {
+	public void setFechaR(Date fechaR) {
 		this.fechaR = fechaR;
 	}
 

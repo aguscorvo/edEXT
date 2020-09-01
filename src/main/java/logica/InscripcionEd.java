@@ -1,9 +1,10 @@
 package logica;
 
-import datatype.DtFecha;
+import java.util.Date;
+
 
 public class InscripcionEd {
-	private DtFecha fecha;
+	private Date fecha;
 	
 	private Edicion edicion;
 	
@@ -14,17 +15,17 @@ public class InscripcionEd {
 		// TODO Auto-generated constructor stub
 	}
 
-	public InscripcionEd(DtFecha fecha, Edicion edicion) {
+	public InscripcionEd(Date fecha, Edicion edicion) {
 		super();
 		this.fecha = fecha;
 		this.edicion = edicion;
 	}
 
-	public DtFecha getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(DtFecha fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 

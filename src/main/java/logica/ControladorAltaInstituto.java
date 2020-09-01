@@ -3,7 +3,7 @@ package logica;
 import java.util.ArrayList;
 import java.util.List;
 
-import excepciones.InstitucionRepetidaException;
+import excepciones.InstitutoRepetidaException;
 import interfaces.IControladorAltaInstituto;
 
 public class ControladorAltaInstituto implements IControladorAltaInstituto {
@@ -15,10 +15,10 @@ public class ControladorAltaInstituto implements IControladorAltaInstituto {
 	}
 	
 	@Override
-	public void ingresarInstituto(String nombre) throws InstitucionRepetidaException{
+	public void ingresarInstituto(String nombre) throws InstitutoRepetidaException{
 		ManejadorInstituto mi = ManejadorInstituto.getInstancia();
 		if(mi.existeInstituto(instituto))
-			throw new InstitucionRepetidaException("El instituto '" + nombre +"' ya se encuentra registrado en el sistema.\n");
+			throw new InstitutoRepetidaException("El instituto '" + nombre +"' ya se encuentra registrado en el sistema.\n");
 		instituto=nombre;	
 	}
 	

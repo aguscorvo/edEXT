@@ -21,6 +21,12 @@ public class Fabrica {
 		
 	}
 	
+	public IControladorAltaCurso getIControladorAltaCurso() {
+		return new ControladorAltaCurso();
+		
+		
+	}
+
 	/*
 	public IControladorAgregarCursoAPF getIControladorAgregarCursoAPF() {
 		return new ControladorAgregarCursoAPF();

@@ -1,6 +1,7 @@
 package datatype;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DtCursoExp extends DtCurso {
@@ -11,7 +12,7 @@ public class DtCursoExp extends DtCurso {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public DtCursoExp(String nombre, String desc, String duracion, DtTime cantHoras, int creditos, DtFecha fechaR,
+	public DtCursoExp(String nombre, String desc, String duracion, DtTime cantHoras, int creditos, Date fechaR,
 			String url, List<String> previas) {
 		super(nombre, desc, duracion, cantHoras, creditos, fechaR, url, previas);
 		// TODO Auto-generated constructor stub

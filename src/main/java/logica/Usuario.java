@@ -2,7 +2,6 @@ package logica;
 
 import java.util.Date;
 
-import datatype.DtFecha;
 import datatype.DtUsuario;
 
 public abstract class Usuario {

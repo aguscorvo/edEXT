@@ -2,6 +2,7 @@ package logica;
 
 import datatype.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Curso {
@@ -10,10 +11,10 @@ public class Curso {
 	private String duracion;
 	private DtTime cantHoras;
 	private int creditos;
-	private DtFecha fechaR;
+	private Date fechaR;
 	private String url;
 	
-	private List<Curso> cursos = new ArrayList<Curso>();
+	private List<Curso> previas = new ArrayList<Curso>();
 	private List<Edicion> ediciones = new ArrayList<Edicion>();
 	private List<ProgFormacion> programas = new ArrayList<ProgFormacion>();
 	
@@ -32,8 +33,8 @@ public class Curso {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Curso(String nombre, String desc, String duracion, DtTime cantHoras, int creditos, DtFecha fechaR,
-			String url, List<Curso> cursos, List<Edicion> ediciones, List<ProgFormacion> programas) {
+	public Curso(String nombre, String desc, String duracion, DtTime cantHoras, int creditos, Date fechaR,
+			String url, List<Curso> previas, List<Edicion> ediciones, List<ProgFormacion> programas) {
 		super();
 		this.nombre = nombre;
 		this.desc = desc;
@@ -42,7 +43,7 @@ public class Curso {
 		this.creditos = creditos;
 		this.fechaR = fechaR;
 		this.url = url;
-		this.cursos = cursos;
+		this.previas = previas;
 		this.ediciones = ediciones;
 		this.programas = programas;
 	}
@@ -87,11 +88,11 @@ public class Curso {
 		this.creditos = creditos;
 	}
 	
-	public DtFecha getFechaR() {
+	public Date getFechaR() {
 		return fechaR;
 	}
 	
-	public void setFechaR(DtFecha fechaR) {
+	public void setFechaR(Date fechaR) {
 		this.fechaR = fechaR;
 	}
 	
@@ -103,12 +104,12 @@ public class Curso {
 		this.url = url;
 	}
 	
-	public List<Curso> getCursos() {
-		return cursos;
+	public List<Curso> getPrevias() {
+		return previas;
 	}
 	
-	public void setCursos(List<Curso> cursos) {
-		this.cursos = cursos;
+	public void setPrevias(List<Curso> cursos) {
+		this.previas = cursos;
 	}
 	
 	public List<Edicion> getEdiciones() {

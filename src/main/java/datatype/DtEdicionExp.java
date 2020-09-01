@@ -1,6 +1,7 @@
 package datatype;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DtEdicionExp extends DtEdicion{
@@ -8,10 +9,10 @@ public class DtEdicionExp extends DtEdicion{
 
 	public DtEdicionExp() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	public DtEdicionExp(String nombre, DtFecha fechaI, DtFecha fechaF, int cupo, DtFecha fechaPub,
+	public DtEdicionExp(String nombre, Date fechaI, Date fechaF, int cupo, Date fechaPub,
 			List<String> docentes) {
 		super(nombre, fechaI, fechaF, cupo, fechaPub);
 		this.docentes = docentes;

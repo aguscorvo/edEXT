@@ -18,10 +18,10 @@ public class ControladorAltaUsuario implements IControladorAltaUsuario {
 	public void ingresarDtUsuario(DtUsuario usuario) throws UsuarioRepetidoException{
 		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
 		if(mu.existeUsuarioCorreo(usuario.getCorreo())) {
-			throw new UsuarioRepetidoException ("El usuario con correo'" + usuario.getCorreo() + "' ya se encuentra registrado en el sistema.");			
+			throw new UsuarioRepetidoException ("El usuario con correo '" + usuario.getCorreo() + "' ya se encuentra registrado en el sistema.");			
 		}
 		if(mu.existeUsuarioNick(usuario.getNick())) {
-			throw new UsuarioRepetidoException ("El usuario con nick'" + usuario.getNick() + "' ya se encuentra registrado en el sistema.");
+			throw new UsuarioRepetidoException ("El usuario con nick '" + usuario.getNick() + "' ya se encuentra registrado en el sistema.");
 		}
 		this.usuario= usuario;			
 	}

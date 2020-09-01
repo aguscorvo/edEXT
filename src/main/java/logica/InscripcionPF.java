@@ -1,11 +1,12 @@
 package logica;
 
-import datatype.DtFecha; 
+import java.util.Date;
+
 import datatype.DtProgFormacionMin;
 
 public class InscripcionPF {
 	
-	private DtFecha fecha;
+	private Date fecha;
 	
 	private ProgFormacion progFormacion;
 	
@@ -13,20 +14,19 @@ public class InscripcionPF {
 
 	public InscripcionPF() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public InscripcionPF(DtFecha fecha, ProgFormacion progFormacion) {
+	public InscripcionPF(Date fecha, ProgFormacion progFormacion) {
 		super();
 		this.fecha = fecha;
 		this.progFormacion = progFormacion;
 	}
 
-	public DtFecha getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(DtFecha fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 

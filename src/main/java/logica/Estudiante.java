@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import datatype.DtEstudiante;
-import datatype.DtFecha;
 
 public class Estudiante extends Usuario {
 	
