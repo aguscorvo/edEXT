@@ -16,12 +16,14 @@ import excepciones.UsuarioRepetidoException;
 
 import javax.swing.JRadioButton;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import java.awt.event.ActionListener;
 import java.util.Date;
+import javax.swing.UIManager;
 
 public class IngresarUsuario extends JInternalFrame {
 	
@@ -129,6 +131,7 @@ public class IngresarUsuario extends JInternalFrame {
 		textFieldInstituto.setColumns(10);
 		
 		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.setBackground(UIManager.getColor("Button.darkShadow"));
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ingresarUsuarioAceptarActionPerformed(e);

@@ -3,7 +3,6 @@ package logica;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import datatype.DtDocente;
 
 public class Docente extends Usuario {
 	private Instituto instituto;

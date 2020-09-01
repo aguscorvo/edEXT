@@ -8,8 +8,8 @@ import java.util.List;
 public class DtCurso {
 	private String nombre;
 	private String desc;
-	private String duracion;
-	private DtTime cantHoras;
+	private int duracion;
+	private int cantHoras;
 	private int creditos;
 	private Date fechaR;
 	private String url;	
@@ -17,10 +17,9 @@ public class DtCurso {
 	
 	public DtCurso() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public DtCurso(String nombre, String desc, String duracion, DtTime cantHoras, int creditos, Date fechaR,
+	public DtCurso(String nombre, String desc, int duracion, int cantHoras, int creditos, Date fechaR,
 			String url, List<String> previas) {
 		super();
 		this.nombre = nombre;
@@ -49,19 +48,19 @@ public class DtCurso {
 		this.desc = desc;
 	}
 
-	public String getDuracion() {
+	public int getDuracion() {
 		return duracion;
 	}
 
-	public void setDuracion(String duracion) {
+	public void setDuracion(int duracion) {
 		this.duracion = duracion;
 	}
 
-	public DtTime getCantHoras() {
+	public int getCantHoras() {
 		return cantHoras;
 	}
 
-	public void setCantHoras(DtTime cantHoras) {
+	public void setCantHoras(int cantHoras) {
 		this.cantHoras = cantHoras;
 	}
 

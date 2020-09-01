@@ -114,6 +114,11 @@ public class Principal {
 		mnAltas.add(mntmUsuario);
 		
 		JMenuItem mntmCurso = new JMenuItem("Curso");
+		mntmCurso.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ingresarCursoInternalFrame.setVisible(true);
+			}
+		});
 		mnAltas.add(mntmCurso);
 		
 		JMenu mnConsultas = new JMenu("Consultas");
