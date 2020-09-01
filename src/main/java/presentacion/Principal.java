@@ -9,6 +9,7 @@ import javax.swing.JMenuItem;
 
 import interfaces.Fabrica;
 import interfaces.IControladorAltaCurso;
+import interfaces.IControladorAltaEdicion;
 import interfaces.IControladorAltaInstituto;
 import interfaces.IControladorAltaUsuario;
 
@@ -26,6 +27,7 @@ public class Principal {
 	private IngresarInstituto ingresarInstitutoInternalFrame;
 	private IngresarUsuario ingresarUsuarioInternalFrame;
 	private IngresarCurso ingresarCursoInternalFrame;
+	private IngresarEdicion	ingresarEdicionInternalFrame;
 
 	
 	public static void main(String[] args) {
@@ -48,6 +50,7 @@ public class Principal {
 		IControladorAltaInstituto IConAltInst = f.getIControladorAltaInstituto();
 		IControladorAltaUsuario IConAltUsu = f.getIControladorAltaUsuario();
 		IControladorAltaCurso IConAltCur = f.getIControladorAltaCurso();
+		IControladorAltaEdicion IConAltEd = f.getIControladorAltaEdicion();
 		
 		Dimension desktopSize = frame.getSize();
 		Dimension jInternalFrameSize;
@@ -55,6 +58,7 @@ public class Principal {
 		ingresarInstitutoInternalFrame = new IngresarInstituto(IConAltInst);
 		ingresarUsuarioInternalFrame = new IngresarUsuario(IConAltUsu);
 		ingresarCursoInternalFrame = new IngresarCurso(IConAltCur);
+		ingresarEdicionInternalFrame = new IngresarEdicion(IConAltEd);
 		
 		
 		//dejamos el jInternalFrame en el medio de la pantalla
@@ -81,6 +85,14 @@ public class Principal {
 		ingresarCursoInternalFrame.setVisible(false);
 		frame.getContentPane().add(ingresarCursoInternalFrame);
 		ingresarCursoInternalFrame.getContentPane().setLayout(null);
+		
+		jInternalFrameSize = ingresarEdicionInternalFrame.getSize();
+		ingresarEdicionInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
+		    (desktopSize.height- jInternalFrameSize.height)/2);
+		
+		ingresarEdicionInternalFrame.setVisible(false);
+		frame.getContentPane().add(ingresarEdicionInternalFrame);
+		ingresarEdicionInternalFrame.getContentPane().setLayout(null);
 		
 	}
 
@@ -120,6 +132,14 @@ public class Principal {
 			}
 		});
 		mnAltas.add(mntmCurso);
+		
+		JMenuItem mntmEdicionDeCurso = new JMenuItem("Edición de curso");
+		mntmEdicionDeCurso.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ingresarEdicionInternalFrame.setVisible(true);
+			}
+		});
+		mnAltas.add(mntmEdicionDeCurso);
 		
 		JMenu mnConsultas = new JMenu("Consultas");
 		menuBar.add(mnConsultas);

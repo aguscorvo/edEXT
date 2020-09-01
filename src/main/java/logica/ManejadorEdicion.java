@@ -28,7 +28,22 @@ public class ManejadorEdicion {
 		return aretornar;
 	}
 	
-	//public List<Edicion> getEdiciones(){}
+	public List<Edicion> getEdiciones(){
+		List<Edicion> aux = new ArrayList<Edicion>(ediciones);
+		return aux;
+	}
 	public void removerEdicion(Edicion edicion){}
-	//public boolean existeEdicion(String nombre){}
+	
+	public boolean existeEdicion(String nombre){
+		boolean existe = false;
+		for(Edicion e: ediciones) {
+			if(e.getNombre().equals(nombre)) {
+				existe = true;
+			}	
+		}
+		return existe;
+
+		
+		
+	}
 }
