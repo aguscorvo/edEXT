@@ -6,22 +6,30 @@ import javax.swing.JOptionPane;
 
 import interfaces.IControladorAltaEdicion;
 import logica.Curso;
+import logica.Instituto;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import excepciones.NoExisteInstitutoException;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.List;
-import java.awt.event.ActionEvent;;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.JComboBox;;
 
 public class IngresarEdicion extends JInternalFrame {
 	
 	private IControladorAltaEdicion iConAltEd;
 	private List<String> CursosInstituto;
 	private JTextField textFieldInstituto;
+	private JButton btnConfirmar;
+	private JButton btnCancelar;
+	private JComboBox <String>comboBoxCursos;
 
 	
 	
@@ -42,11 +50,19 @@ public class IngresarEdicion extends JInternalFrame {
 		getContentPane().add(lblInstituto);
 		
 		textFieldInstituto = new JTextField();
+		textFieldInstituto.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				habilitarBotonConfirmar();				
+				iniciarlizarComboBoxes();
+			}
+		});
 		textFieldInstituto.setBounds(201, 109, 159, 19);
 		getContentPane().add(textFieldInstituto);
 		textFieldInstituto.setColumns(10);
 		
-		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.setEnabled(false);
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ingresarEdicionConfirmarActionPerformed(e);
@@ -56,7 +72,7 @@ public class IngresarEdicion extends JInternalFrame {
 		btnConfirmar.setBounds(74, 194, 117, 25);
 		getContentPane().add(btnConfirmar);
 		
-		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ingresarEdicionCancelarActionPerformed(e);
@@ -64,6 +80,10 @@ public class IngresarEdicion extends JInternalFrame {
 		});
 		btnCancelar.setBounds(234, 194, 117, 25);
 		getContentPane().add(btnCancelar);
+		
+		comboBoxCursos = new JComboBox<String>();
+		comboBoxCursos.setBounds(201, 137, 159, 24);
+		getContentPane().add(comboBoxCursos);
 	}
 	
 	
@@ -117,4 +137,31 @@ public class IngresarEdicion extends JInternalFrame {
 		textFieldInstituto.setText("");
 		
 	}
+	
+	public void habilitarBotonConfirmar() {
+		if (!textFieldInstituto.getText().isEmpty()) {
+			btnConfirmar.setEnabled(true);
+		}
+		else {
+			btnConfirmar.setEnabled(false);
+		}
+	}
+	
+	public void iniciarlizarComboBoxes() {
+		if (!textFieldInstituto.getText().isEmpty()) {
+			if(iConAltEd.existeInstituto(textFieldInstituto.getText())){
+				Instituto inst = iConAltEd.getInstituto(textFieldInstituto.getText());
+				DefaultComboBoxModel<String> modelcursos = new DefaultComboBoxModel<String>(iConAltEd.getCursos(inst));		
+				comboBoxCursos.setModel(modelcursos);
+				comboBoxCursos.setEnabled(true);
+
+			}
+			else {
+				DefaultComboBoxModel<String> modelcursos = new DefaultComboBoxModel<String>();		
+				comboBoxCursos.setModel(modelcursos);
+				comboBoxCursos.setEnabled(false);
+			}
+		}
+		
+	}	
 }

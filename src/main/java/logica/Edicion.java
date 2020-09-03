@@ -2,8 +2,6 @@ package logica;
 
 import java.util.Date;
 
-import datatype.*;
-
 
 public class Edicion {
 	private String nombre;

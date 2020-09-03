@@ -1,5 +1,4 @@
 package interfaces;
-import java.util.List;
 
 import datatype.DtCurso;
 import excepciones.CursoRepetidoException;

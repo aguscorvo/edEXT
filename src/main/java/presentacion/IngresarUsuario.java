@@ -16,7 +16,6 @@ import excepciones.UsuarioRepetidoException;
 
 import javax.swing.JRadioButton;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JButton;
@@ -24,6 +23,8 @@ import javax.swing.JFrame;
 import java.awt.event.ActionListener;
 import java.util.Date;
 import javax.swing.UIManager;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class IngresarUsuario extends JInternalFrame {
 	
@@ -39,6 +40,8 @@ public class IngresarUsuario extends JInternalFrame {
 	private JRadioButton rdbtnDocente;
 	private JRadioButton rdbtnEstudiante;
 	private JDateChooser dateChooserFechaNac;
+	private JButton btnConfirmar;
+	private JButton btnCancelar;
 
 	
 	public IngresarUsuario(IControladorAltaUsuario iConAltUsu) {
@@ -57,6 +60,12 @@ public class IngresarUsuario extends JInternalFrame {
 		getContentPane().add(lblNick);
 		
 		textFieldNick = new JTextField();
+		textFieldNick.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				habilitarBotonConfirmar();
+			}
+		});
 		textFieldNick.setBounds(111, 32, 181, 19);
 		getContentPane().add(textFieldNick);
 		textFieldNick.setColumns(10);
@@ -66,6 +75,12 @@ public class IngresarUsuario extends JInternalFrame {
 		getContentPane().add(lblNombre);
 		
 		textFieldNombre = new JTextField();
+		textFieldNombre.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				habilitarBotonConfirmar();
+			}
+		});
 		textFieldNombre.setBounds(111, 79, 181, 19);
 		getContentPane().add(textFieldNombre);
 		textFieldNombre.setColumns(10);
@@ -75,6 +90,12 @@ public class IngresarUsuario extends JInternalFrame {
 		getContentPane().add(lblApellido);
 		
 		textFieldApellido = new JTextField();
+		textFieldApellido.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				habilitarBotonConfirmar();
+			}
+		});
 		textFieldApellido.setBounds(111, 125, 181, 19);
 		getContentPane().add(textFieldApellido);
 		textFieldApellido.setColumns(10);
@@ -84,11 +105,18 @@ public class IngresarUsuario extends JInternalFrame {
 		getContentPane().add(lblCorreo);
 		
 		textFieldCorreo = new JTextField();
+		textFieldCorreo.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				habilitarBotonConfirmar();
+			}
+		});
 		textFieldCorreo.setBounds(111, 173, 181, 19);
 		getContentPane().add(textFieldCorreo);
 		textFieldCorreo.setColumns(10);
 		
 		dateChooserFechaNac = new JDateChooser();
+		//dateChooserFechaNac.setDate(null);
 		dateChooserFechaNac.setBounds(496, 30, 162, 19);
 		getContentPane().add(dateChooserFechaNac);
 		
@@ -126,11 +154,18 @@ public class IngresarUsuario extends JInternalFrame {
 		getContentPane().add(lblInstituto);
 		
 		textFieldInstituto = new JTextField();
+		textFieldInstituto.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				habilitarBotonConfirmar();
+			}
+		});
 		textFieldInstituto.setBounds(496, 81, 162, 19);
 		getContentPane().add(textFieldInstituto);
 		textFieldInstituto.setColumns(10);
 		
-		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.setEnabled(false);
 		btnConfirmar.setBackground(UIManager.getColor("Button.darkShadow"));
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -140,7 +175,7 @@ public class IngresarUsuario extends JInternalFrame {
 		btnConfirmar.setBounds(363, 170, 117, 25);
 		getContentPane().add(btnConfirmar);
 		
-		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ingresarUsuarioCancelarActionPerformed(e);
@@ -213,4 +248,16 @@ public class IngresarUsuario extends JInternalFrame {
 		textFieldInstituto.setText("");
 	}
 
+	public void habilitarBotonConfirmar() {
+		if (!textFieldNick.getText().isEmpty() & !textFieldNombre.getText().isEmpty() & !textFieldApellido.getText().isEmpty() & !textFieldCorreo.getText().isEmpty()) {
+			if(rdbtnDocente.isSelected() & !textFieldInstituto.getText().isEmpty())
+				btnConfirmar.setEnabled(true);
+			else if (rdbtnEstudiante.isSelected())
+				btnConfirmar.setEnabled(true);
+
+		}
+		else {
+			btnConfirmar.setEnabled(false);
+		}
+	}
 }

@@ -29,8 +29,7 @@ public class ManejadorInstituto {
 	}
 	
 	public List<Instituto> getInstitutos(){
-		List<Instituto> aux= new ArrayList<Instituto>(institutos); // preguntar si se puede sacar el new
-		return aux;
+		return institutos;
 	}
 	public void removerInstituto(Instituto instituto){}
 	

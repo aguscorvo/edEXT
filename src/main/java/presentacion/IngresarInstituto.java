@@ -1,6 +1,5 @@
 package presentacion;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -17,6 +16,8 @@ import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class IngresarInstituto extends JInternalFrame {
 	
@@ -25,6 +26,7 @@ public class IngresarInstituto extends JInternalFrame {
 	private IControladorAltaInstituto iConAltInst;
 	
 	private JTextField textFieldIngresarNombre;
+	private JButton btnConfirmar;
 
 		
 	public IngresarInstituto(IControladorAltaInstituto iConAltInst) throws PropertyVetoException {
@@ -43,11 +45,18 @@ public class IngresarInstituto extends JInternalFrame {
 		getContentPane().add(lblNombre);
 		
 		textFieldIngresarNombre= new JTextField();
+		textFieldIngresarNombre.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				habilitarBotonConfirmar();
+			}
+		});
 		textFieldIngresarNombre.setBounds(287, 165, 114, 19);
 		getContentPane().add(textFieldIngresarNombre);
 		textFieldIngresarNombre.setColumns(10);
 		
-		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.setEnabled(false);
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ingresarInstitutoConfirmarActionPerformed(e);
@@ -120,7 +129,14 @@ public class IngresarInstituto extends JInternalFrame {
         textFieldIngresarNombre.setText("");
 	}
 	
-	
+	public void habilitarBotonConfirmar() {
+		if (!textFieldIngresarNombre.getText().isEmpty())
+				btnConfirmar.setEnabled(true);
+		
+		else 
+			btnConfirmar.setEnabled(false);
+		
+	}
  
 
 }

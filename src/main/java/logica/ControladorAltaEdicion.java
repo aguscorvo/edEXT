@@ -3,8 +3,6 @@ package logica;
 import java.util.ArrayList;
 import java.util.List;
 
-import datatype.DtCurso;
-import datatype.DtEdicion;
 import datatype.DtEdicionExp;
 import excepciones.EdicionRepetidaException;
 import excepciones.NoExisteCursoException;
@@ -16,6 +14,7 @@ public class ControladorAltaEdicion implements IControladorAltaEdicion{
 	private String instituto;
 	private String curso;
 	private DtEdicionExp edicion;
+	private Instituto inst;
 	
 	public List<String> ingresarInstituto(String instituto) throws NoExisteInstitutoException{
 		
@@ -81,4 +80,30 @@ public class ControladorAltaEdicion implements IControladorAltaEdicion{
 
 	public void cancelarAltaEdicion() {}
 	
+	
+	public boolean existeInstituto(String nombre) {
+		ManejadorInstituto mI = ManejadorInstituto.getInstancia();
+		inst=mI.getInstituto(nombre);
+		return (inst!=null);
+			
+		
 	}
+
+	public Instituto getInstituto(String nombre) {
+		ManejadorInstituto mI = ManejadorInstituto.getInstancia();
+		inst=mI.getInstituto(nombre);
+		return inst;
+		
+	}
+	
+	public String[] getCursos(Instituto nombre) {
+		List<Curso> cursos= new ArrayList<Curso>(inst.getCursos());
+		String [] arrCursos= new String [cursos.size()];
+		int i=0;
+		for(Curso c: cursos) {
+			arrCursos[i]=c.getNombre();
+			i++;
+		}
+		return arrCursos;
+	}
+}

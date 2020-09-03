@@ -1,9 +1,7 @@
 package datatype;
 
 import java.util.Date;
-import java.util.List;
 
-import logica.Edicion;
 
 public class DtDocente extends DtUsuario{
 	private String instituto;

@@ -16,7 +16,6 @@ import excepciones.NoExisteInstitutoException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
 
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -24,7 +23,8 @@ import java.util.Date;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
-import javax.swing.JList;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class IngresarCurso extends JInternalFrame {
 	
@@ -41,7 +41,7 @@ public class IngresarCurso extends JInternalFrame {
 	private JTextField textFieldCreditos;
 	private JComboBox<String> comboBoxPrevias;
 	private List<String> previasSeleccionadas = new ArrayList<String>();
-	private JButton btnAgregarPrevia;
+	private JButton btnConfirmar;
 	
 
 	
@@ -61,6 +61,12 @@ public class IngresarCurso extends JInternalFrame {
 		getContentPane().add(lblNombre);
 		
 		textFieldNombre = new JTextField();
+		textFieldNombre.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				habilitarBotonConfirmar();
+			}
+		});
 		textFieldNombre.setBounds(186, 72, 172, 19);
 		getContentPane().add(textFieldNombre);
 		textFieldNombre.setColumns(10);
@@ -70,11 +76,17 @@ public class IngresarCurso extends JInternalFrame {
 		getContentPane().add(lblDescripcion);
 		
 		textFieldDescripcion = new JTextField();
+		textFieldDescripcion.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				habilitarBotonConfirmar();
+			}
+		});
 		textFieldDescripcion.setBounds(186, 125, 172, 19);
 		getContentPane().add(textFieldDescripcion);
 		textFieldDescripcion.setColumns(10);
 		
-		JLabel lblDuracin = new JLabel("DURACIÓN");
+		JLabel lblDuracin = new JLabel("DURACIÓN");		
 		lblDuracin.setBounds(76, 176, 79, 15);
 		getContentPane().add(lblDuracin);
 		
@@ -83,11 +95,23 @@ public class IngresarCurso extends JInternalFrame {
 		getContentPane().add(lblCantidadDeHoras);
 		
 		textFieldCantHoras = new JTextField();
+		textFieldCantHoras.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				habilitarBotonConfirmar();
+			}
+		});
 		textFieldCantHoras.setBounds(279, 224, 79, 19);
 		getContentPane().add(textFieldCantHoras);
 		textFieldCantHoras.setColumns(10);
 		
 		textFieldDuracion = new JTextField();
+		textFieldDuracion.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				habilitarBotonConfirmar();
+			}
+		});
 		textFieldDuracion.setBounds(279, 174, 79, 19);
 		getContentPane().add(textFieldDuracion);
 		textFieldDuracion.setColumns(10);
@@ -97,6 +121,12 @@ public class IngresarCurso extends JInternalFrame {
 		getContentPane().add(lblUrl);
 		
 		textFieldURL = new JTextField();
+		textFieldURL.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				habilitarBotonConfirmar();
+			}
+		});
 		textFieldURL.setBounds(126, 323, 232, 19);
 		getContentPane().add(textFieldURL);
 		textFieldURL.setColumns(10);
@@ -105,7 +135,8 @@ public class IngresarCurso extends JInternalFrame {
 		lblPrevias.setBounds(76, 369, 62, 15);
 		getContentPane().add(lblPrevias);
 		
-		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.setEnabled(false);
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -133,6 +164,12 @@ public class IngresarCurso extends JInternalFrame {
 		getContentPane().add(lblInstituto);
 		
 		textFieldInstituto = new JTextField();
+		textFieldInstituto.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				habilitarBotonConfirmar();
+			}
+		});
 		textFieldInstituto.setBounds(186, 30, 172, 19);
 		getContentPane().add(textFieldInstituto);
 		textFieldInstituto.setColumns(10);
@@ -271,4 +308,14 @@ public class IngresarCurso extends JInternalFrame {
 		comboBoxPrevias.setModel(modelcursos);
 		
 	}	
+	
+	public void habilitarBotonConfirmar() {
+		if (!textFieldInstituto.getText().isEmpty() & !textFieldNombre.getText().isEmpty() & !textFieldDescripcion.getText().isEmpty() & !textFieldCantHoras.getText().isEmpty()
+				& !textFieldDuracion.getText().isEmpty() & !textFieldCreditos.getText().isEmpty() & !textFieldURL.getText().isEmpty()) {
+			btnConfirmar.setEnabled(true);
+		}
+		else {
+			btnConfirmar.setEnabled(false);
+		}
+	}
 }

@@ -19,7 +19,6 @@ public class Estudiante extends Usuario {
 
 	public Estudiante() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Estudiante(String nick, String nombre, String apellido, String correo, Date fechaNac,

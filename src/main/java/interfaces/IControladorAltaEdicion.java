@@ -5,6 +5,7 @@ import datatype.DtEdicionExp;
 import excepciones.EdicionRepetidaException;
 import excepciones.NoExisteCursoException;
 import excepciones.NoExisteInstitutoException;
+import logica.Instituto;
 
 public interface IControladorAltaEdicion {
 	
@@ -17,5 +18,10 @@ public interface IControladorAltaEdicion {
 	public void confirmarAltaEdicion();
 	
 	public void cancelarAltaEdicion();
+	
+	public Instituto getInstituto(String nombre);
 
+	public String[] getCursos(Instituto nombre);
+	
+	public boolean existeInstituto(String nombre);
 }
