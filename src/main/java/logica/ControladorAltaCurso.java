@@ -54,14 +54,23 @@ public class ControladorAltaCurso implements IControladorAltaCurso {
 		mc.agregarCurso(nuevo);
 	
 	};
-		
-		
-
-		
-		
+			
 	
 	
 	public void cancelarAltaCurso() {};
+	
+	public String[] getCursos() {
+		List<Curso> cursos;
+		ManejadorCurso mC = ManejadorCurso.getInstancia();
+		cursos = mC.getCursos();
+		String[] cursos_ret = new String[cursos.size()];
+        int i=0;
+        for(Curso c:cursos) {
+        	cursos_ret[i]=c.getNombre();
+        	i++;
+        }
+        return cursos_ret;
+	}
 	
 	
 		

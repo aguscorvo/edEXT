@@ -129,6 +129,7 @@ public class Principal {
 		mntmCurso.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ingresarCursoInternalFrame.setVisible(true);
+				ingresarCursoInternalFrame.iniciarlizarComboBoxes();
 			}
 		});
 		mnAltas.add(mntmCurso);

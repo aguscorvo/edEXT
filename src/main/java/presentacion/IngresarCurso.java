@@ -13,14 +13,18 @@ import excepciones.CursoRepetidoException;
 import excepciones.NoExisteCursoException;
 import excepciones.NoExisteInstitutoException;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
+import javax.swing.JList;
 
 public class IngresarCurso extends JInternalFrame {
 	
@@ -35,6 +39,9 @@ public class IngresarCurso extends JInternalFrame {
 	private JTextField textFieldURL;
 	private JTextField textFieldInstituto;
 	private JTextField textFieldCreditos;
+	private JComboBox<String> comboBoxPrevias;
+	private List<String> previasSeleccionadas = new ArrayList<String>();
+	private JButton btnAgregarPrevia;
 	
 
 	
@@ -95,13 +102,18 @@ public class IngresarCurso extends JInternalFrame {
 		textFieldURL.setColumns(10);
 		
 		JLabel lblPrevias = new JLabel("PREVIAS");
-		lblPrevias.setBounds(76, 364, 62, 15);
+		lblPrevias.setBounds(76, 369, 62, 15);
 		getContentPane().add(lblPrevias);
 		
 		JButton btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				ingresarCursoConfirmarActionPerformed(e);
+				/*if (iConAltCur.getCursos().length!=0) {
+					btnAgregarPrevia.setEnabled(true);
+					comboBoxPrevias.setEnabled(true);
+				}*/
 			}
 		});
 		btnConfirmar.setBounds(454, 140, 117, 25);
@@ -133,9 +145,39 @@ public class IngresarCurso extends JInternalFrame {
 		textFieldCreditos.setBounds(279, 269, 79, 19);
 		getContentPane().add(textFieldCreditos);
 		textFieldCreditos.setColumns(10);
+		
+		comboBoxPrevias = new JComboBox<String>();
+		comboBoxPrevias.setBounds(175, 364, 183, 24);
+		getContentPane().add(comboBoxPrevias);
+		
+		JButton btnAgregarPrevia = new JButton("Agregar");
+		if (iConAltCur.getCursos().length ==0) {
+			btnAgregarPrevia.setEnabled(false);
+			comboBoxPrevias.setEnabled(false);
+		}		
+		btnAgregarPrevia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				agregarPreviaActionPerformed(e);
+				
+			}
+		});
+		btnAgregarPrevia.setBounds(391, 364, 150, 25);
+		getContentPane().add(btnAgregarPrevia);
+		
+	
+		
 
 
 	}
+	
+	protected void agregarPreviaActionPerformed(ActionEvent e) {
+		String curso = comboBoxPrevias.getSelectedItem().toString();
+		previasSeleccionadas.add(curso);
+		JOptionPane.showMessageDialog(this, "El curso '" +curso+ "' fue agregado con éxito a la lista de previas.", "Ingresar Curso", JOptionPane.INFORMATION_MESSAGE);
+		
+	}
+	
+	
 	protected void ingresarCursoConfirmarActionPerformed(ActionEvent e) {
 		String instituto= textFieldInstituto.getText();
 		String nombre = textFieldNombre.getText();
@@ -145,7 +187,7 @@ public class IngresarCurso extends JInternalFrame {
 		String cred = textFieldCreditos.getText();
 		Date fechaR = new Date();
 		String url = textFieldURL.getText();
-		List <String> previas = new ArrayList<String>();
+		List <String> previas = new ArrayList<String>(previasSeleccionadas);
 		if (checkTextField(instituto) & checkTextField(nombre)& checkTextField(desc) & checkTextFieldInt(cHoras) & checkTextFieldInt(cred) & checkTextFieldInt(d) & checkTextField(url)) {
 			
 			int duracion = Integer.parseInt(d);
@@ -155,6 +197,7 @@ public class IngresarCurso extends JInternalFrame {
 			try {
 				iConAltCur.ingresarCurso(instituto, dt);
 				iConAltCur.confirmarAltaCurso();
+				
 				JOptionPane.showMessageDialog(this, "El curso se ha creado con éxito", "Ingresar Curso", JOptionPane.INFORMATION_MESSAGE);
 
 			}catch (NoExisteInstitutoException neie) {
@@ -168,6 +211,8 @@ public class IngresarCurso extends JInternalFrame {
 
 			}
 		}
+			
+		
 		limpiarFormulario();
         setVisible(false);
 	
@@ -219,4 +264,11 @@ public class IngresarCurso extends JInternalFrame {
 		textFieldCreditos.setText("");
 		textFieldURL.setText("");
 	}
+	
+	public void iniciarlizarComboBoxes() {
+		
+		DefaultComboBoxModel<String> modelcursos = new DefaultComboBoxModel<String>(iConAltCur.getCursos());		
+		comboBoxPrevias.setModel(modelcursos);
+		
+	}	
 }

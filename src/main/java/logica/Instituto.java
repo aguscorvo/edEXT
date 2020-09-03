@@ -9,9 +9,6 @@ public class Instituto {
 	private List<Curso> cursos = new ArrayList<Curso>();
 
 	
-	//public List<String> obtenerCursos(){}
-
-
 	public Instituto() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -39,10 +36,18 @@ public class Instituto {
 		return cursos;
 	}
 
+	public List<String> getCursosString(){
+		List<String> aux = new ArrayList<String>();
+		for (Curso c: cursos) {
+			aux.add(c.getNombre());			
+		}
+		return aux;
+	}
 
 	public void setCursos(List<Curso> cursos) {
 		this.cursos = cursos;
 	}
+	
 	
 	
 }
