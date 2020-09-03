@@ -24,4 +24,6 @@ public interface IControladorAltaEdicion {
 	public String[] getCursos(Instituto nombre);
 	
 	public boolean existeInstituto(String nombre);
+	
+	public String [] getDocentes();
 }

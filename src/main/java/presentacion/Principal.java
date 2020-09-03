@@ -98,7 +98,7 @@ public class Principal {
 
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 846, 525);
+		frame.setBounds(100, 100, 923, 578);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -138,6 +138,8 @@ public class Principal {
 		mntmEdicionDeCurso.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ingresarEdicionInternalFrame.setVisible(true);
+				ingresarEdicionInternalFrame.iniciarlizarComboBoxCurso();
+				ingresarEdicionInternalFrame.iniciarlizarComboBoxDocentes();
 			}
 		});
 		mnAltas.add(mntmEdicionDeCurso);

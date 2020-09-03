@@ -25,6 +25,7 @@ import java.util.Date;
 import javax.swing.UIManager;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JPanel;
 
 public class IngresarUsuario extends JInternalFrame {
 	
@@ -52,7 +53,7 @@ public class IngresarUsuario extends JInternalFrame {
 		setIconifiable(true);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setTitle("Ingresar Usuario");
-		setBounds(100, 100, 679, 264);
+		setBounds(100, 100, 699, 265);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNick = new JLabel("NICK");
@@ -183,6 +184,14 @@ public class IngresarUsuario extends JInternalFrame {
 		});
 		btnCancelar.setBounds(515, 170, 117, 25);
 		getContentPane().add(btnCancelar);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(363, 120, 269, 30);
+		getContentPane().add(panel);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(12, 12, 665, 209);
+		getContentPane().add(panel_1);
 
 	}
 	
@@ -254,7 +263,6 @@ public class IngresarUsuario extends JInternalFrame {
 				btnConfirmar.setEnabled(true);
 			else if (rdbtnEstudiante.isSelected())
 				btnConfirmar.setEnabled(true);
-
 		}
 		else {
 			btnConfirmar.setEnabled(false);

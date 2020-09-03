@@ -25,6 +25,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JPanel;
 
 public class IngresarCurso extends JInternalFrame {
 	
@@ -42,6 +43,7 @@ public class IngresarCurso extends JInternalFrame {
 	private JComboBox<String> comboBoxPrevias;
 	private List<String> previasSeleccionadas = new ArrayList<String>();
 	private JButton btnConfirmar;
+	private JButton btnAgregarPrevia;
 	
 
 	
@@ -53,11 +55,11 @@ public class IngresarCurso extends JInternalFrame {
 		setIconifiable(true);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setTitle("Ingresar Curso");
-		setBounds(100, 100, 809, 483);
+		setBounds(100, 100, 766, 371);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNombre = new JLabel("NOMBRE");
-		lblNombre.setBounds(76, 74, 70, 15);
+		lblNombre.setBounds(36, 84, 70, 15);
 		getContentPane().add(lblNombre);
 		
 		textFieldNombre = new JTextField();
@@ -67,12 +69,12 @@ public class IngresarCurso extends JInternalFrame {
 				habilitarBotonConfirmar();
 			}
 		});
-		textFieldNombre.setBounds(186, 72, 172, 19);
+		textFieldNombre.setBounds(142, 82, 231, 19);
 		getContentPane().add(textFieldNombre);
 		textFieldNombre.setColumns(10);
 		
 		JLabel lblDescripcion = new JLabel("DESCRIPCIÓN");
-		lblDescripcion.setBounds(76, 127, 92, 15);
+		lblDescripcion.setBounds(36, 125, 92, 15);
 		getContentPane().add(lblDescripcion);
 		
 		textFieldDescripcion = new JTextField();
@@ -82,16 +84,16 @@ public class IngresarCurso extends JInternalFrame {
 				habilitarBotonConfirmar();
 			}
 		});
-		textFieldDescripcion.setBounds(186, 125, 172, 19);
+		textFieldDescripcion.setBounds(142, 123, 231, 19);
 		getContentPane().add(textFieldDescripcion);
 		textFieldDescripcion.setColumns(10);
 		
 		JLabel lblDuracin = new JLabel("DURACIÓN");		
-		lblDuracin.setBounds(76, 176, 79, 15);
+		lblDuracin.setBounds(431, 42, 79, 15);
 		getContentPane().add(lblDuracin);
 		
 		JLabel lblCantidadDeHoras = new JLabel("CANTIDAD DE HORAS");
-		lblCantidadDeHoras.setBounds(76, 224, 150, 15);
+		lblCantidadDeHoras.setBounds(431, 84, 150, 15);
 		getContentPane().add(lblCantidadDeHoras);
 		
 		textFieldCantHoras = new JTextField();
@@ -101,7 +103,7 @@ public class IngresarCurso extends JInternalFrame {
 				habilitarBotonConfirmar();
 			}
 		});
-		textFieldCantHoras.setBounds(279, 224, 79, 19);
+		textFieldCantHoras.setBounds(608, 82, 79, 19);
 		getContentPane().add(textFieldCantHoras);
 		textFieldCantHoras.setColumns(10);
 		
@@ -112,12 +114,12 @@ public class IngresarCurso extends JInternalFrame {
 				habilitarBotonConfirmar();
 			}
 		});
-		textFieldDuracion.setBounds(279, 174, 79, 19);
+		textFieldDuracion.setBounds(608, 40, 79, 19);
 		getContentPane().add(textFieldDuracion);
 		textFieldDuracion.setColumns(10);
 		
 		JLabel lblUrl = new JLabel("URL");
-		lblUrl.setBounds(77, 325, 32, 15);
+		lblUrl.setBounds(431, 170, 32, 15);
 		getContentPane().add(lblUrl);
 		
 		textFieldURL = new JTextField();
@@ -127,12 +129,12 @@ public class IngresarCurso extends JInternalFrame {
 				habilitarBotonConfirmar();
 			}
 		});
-		textFieldURL.setBounds(126, 323, 232, 19);
+		textFieldURL.setBounds(474, 168, 236, 19);
 		getContentPane().add(textFieldURL);
 		textFieldURL.setColumns(10);
 		
 		JLabel lblPrevias = new JLabel("PREVIAS");
-		lblPrevias.setBounds(76, 369, 62, 15);
+		lblPrevias.setBounds(36, 170, 62, 15);
 		getContentPane().add(lblPrevias);
 		
 		btnConfirmar = new JButton("Confirmar");
@@ -141,13 +143,13 @@ public class IngresarCurso extends JInternalFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				ingresarCursoConfirmarActionPerformed(e);
-				/*if (iConAltCur.getCursos().length!=0) {
+				 if (iConAltCur.getCursos().length!=0) {
 					btnAgregarPrevia.setEnabled(true);
 					comboBoxPrevias.setEnabled(true);
-				}*/
+				}
 			}
 		});
-		btnConfirmar.setBounds(454, 140, 117, 25);
+		btnConfirmar.setBounds(224, 275, 117, 25);
 		getContentPane().add(btnConfirmar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
@@ -156,11 +158,11 @@ public class IngresarCurso extends JInternalFrame {
 				ingresarCursoCancelarActionPerformed(e);
 			}
 		});
-		btnCancelar.setBounds(454, 202, 117, 25);
+		btnCancelar.setBounds(393, 275, 117, 25);
 		getContentPane().add(btnCancelar);
 		
 		JLabel lblInstituto = new JLabel("INSTITUTO");
-		lblInstituto.setBounds(76, 32, 85, 15);
+		lblInstituto.setBounds(36, 42, 85, 15);
 		getContentPane().add(lblInstituto);
 		
 		textFieldInstituto = new JTextField();
@@ -170,40 +172,42 @@ public class IngresarCurso extends JInternalFrame {
 				habilitarBotonConfirmar();
 			}
 		});
-		textFieldInstituto.setBounds(186, 30, 172, 19);
+		textFieldInstituto.setBounds(142, 40, 231, 19);
 		getContentPane().add(textFieldInstituto);
 		textFieldInstituto.setColumns(10);
 		
 		JLabel lblCrditos = new JLabel("CRÉDITOS");
-		lblCrditos.setBounds(76, 271, 70, 15);
+		lblCrditos.setBounds(431, 125, 70, 15);
 		getContentPane().add(lblCrditos);
 		
 		textFieldCreditos = new JTextField();
-		textFieldCreditos.setBounds(279, 269, 79, 19);
+		textFieldCreditos.setBounds(608, 123, 79, 19);
 		getContentPane().add(textFieldCreditos);
 		textFieldCreditos.setColumns(10);
 		
-		comboBoxPrevias = new JComboBox<String>();
-		comboBoxPrevias.setBounds(175, 364, 183, 24);
-		getContentPane().add(comboBoxPrevias);
+		btnAgregarPrevia = new JButton("Agregar");
+		btnAgregarPrevia.setBounds(282, 201, 91, 25);
+		getContentPane().add(btnAgregarPrevia);
 		
-		JButton btnAgregarPrevia = new JButton("Agregar");
-		if (iConAltCur.getCursos().length ==0) {
-			btnAgregarPrevia.setEnabled(false);
-			comboBoxPrevias.setEnabled(false);
-		}		
 		btnAgregarPrevia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				agregarPreviaActionPerformed(e);
 				
 			}
 		});
-		btnAgregarPrevia.setBounds(391, 364, 150, 25);
-		getContentPane().add(btnAgregarPrevia);
+
+		
+		comboBoxPrevias = new JComboBox<String>();
+		comboBoxPrevias.setBounds(142, 165, 231, 24);
+		getContentPane().add(comboBoxPrevias);
+		
+		
+		if (iConAltCur.getCursos().length ==0) {
+			btnAgregarPrevia.setEnabled(false);
+			comboBoxPrevias.setEnabled(false);
+		}
 		
 	
-		
-
 
 	}
 	
@@ -213,7 +217,7 @@ public class IngresarCurso extends JInternalFrame {
 		JOptionPane.showMessageDialog(this, "El curso '" +curso+ "' fue agregado con éxito a la lista de previas.", "Ingresar Curso", JOptionPane.INFORMATION_MESSAGE);
 		
 	}
-	
+
 	
 	protected void ingresarCursoConfirmarActionPerformed(ActionEvent e) {
 		String instituto= textFieldInstituto.getText();
@@ -235,7 +239,7 @@ public class IngresarCurso extends JInternalFrame {
 				iConAltCur.ingresarCurso(instituto, dt);
 				iConAltCur.confirmarAltaCurso();
 				
-				JOptionPane.showMessageDialog(this, "El curso se ha creado con éxito", "Ingresar Curso", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this, "El curso '"+nombre+"' se ha creado con éxito", "Ingresar Curso", JOptionPane.INFORMATION_MESSAGE);
 
 			}catch (NoExisteInstitutoException neie) {
 	              JOptionPane.showMessageDialog(this, neie.getMessage(), "Ingresar Curso", JOptionPane.ERROR_MESSAGE);

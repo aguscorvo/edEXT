@@ -18,6 +18,12 @@ import java.beans.PropertyVetoException;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.TitledBorder;
 
 public class IngresarInstituto extends JInternalFrame {
 	
@@ -37,23 +43,8 @@ public class IngresarInstituto extends JInternalFrame {
 		setIconifiable(true);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setTitle("Ingresar Instituto");
-		setBounds(100, 100, 610, 385);
+		setBounds(100, 100, 503, 234);
 		getContentPane().setLayout(null);
-		
-		JLabel lblNombre = new JLabel("NOMBRE");
-		lblNombre.setBounds(199, 167, 70, 15);
-		getContentPane().add(lblNombre);
-		
-		textFieldIngresarNombre= new JTextField();
-		textFieldIngresarNombre.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyReleased(KeyEvent e) {
-				habilitarBotonConfirmar();
-			}
-		});
-		textFieldIngresarNombre.setBounds(287, 165, 114, 19);
-		getContentPane().add(textFieldIngresarNombre);
-		textFieldIngresarNombre.setColumns(10);
 		
 		btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.setEnabled(false);
@@ -62,7 +53,7 @@ public class IngresarInstituto extends JInternalFrame {
 				ingresarInstitutoConfirmarActionPerformed(e);
 			}
 		});
-		btnConfirmar.setBounds(149, 235, 117, 25);
+		btnConfirmar.setBounds(106, 139, 117, 25);
 		getContentPane().add(btnConfirmar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
@@ -71,12 +62,29 @@ public class IngresarInstituto extends JInternalFrame {
 				ingresarInstitutoCancelarActionPerformed(e);
 			}
 		});
-		btnCancelar.setBounds(336, 235, 117, 25);
+		btnCancelar.setBounds(278, 139, 117, 25);
 		getContentPane().add(btnCancelar);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(131, 122, 342, 95);
+		panel.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel.setBounds(52, 26, 384, 79);
 		getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		textFieldIngresarNombre= new JTextField();
+		textFieldIngresarNombre.setBounds(126, 31, 228, 19);
+		panel.add(textFieldIngresarNombre);
+		textFieldIngresarNombre.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				habilitarBotonConfirmar();
+			}
+		});
+		textFieldIngresarNombre.setColumns(10);
+		
+		JLabel lblNombre = new JLabel("NOMBRE");
+		lblNombre.setBounds(30, 33, 59, 15);
+		panel.add(lblNombre);
 	}
 
 	
