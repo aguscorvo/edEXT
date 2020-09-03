@@ -53,7 +53,7 @@ public class IngresarUsuario extends JInternalFrame {
 		setIconifiable(true);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setTitle("Ingresar Usuario");
-		setBounds(100, 100, 699, 265);
+		setBounds(100, 100, 719, 284);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNick = new JLabel("NICK");
@@ -117,8 +117,9 @@ public class IngresarUsuario extends JInternalFrame {
 		textFieldCorreo.setColumns(10);
 		
 		dateChooserFechaNac = new JDateChooser();
-		//dateChooserFechaNac.setDate(null);
 		dateChooserFechaNac.setBounds(496, 30, 162, 19);
+		Date aux = new Date();
+		dateChooserFechaNac.setDate(aux);
 		getContentPane().add(dateChooserFechaNac);
 		
 		JLabel lblFechaNac = new JLabel("FECHA DE NACIMIENTO");

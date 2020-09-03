@@ -60,7 +60,7 @@ public class ControladorAltaEdicion implements IControladorAltaEdicion{
 		
 		ManejadorCurso mc = ManejadorCurso.getInstancia();
 		Curso auxCurso = mc.getCurso(this.curso);
-		auxCurso.getEdiciones().add(nuevaEdicion);
+		auxCurso.agregarEdicion(nuevaEdicion);
 		
 		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
 		List<String> auxDocentes = new ArrayList<String>(this.edicion.getDocentes()); 

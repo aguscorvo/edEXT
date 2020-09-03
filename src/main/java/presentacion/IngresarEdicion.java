@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import excepciones.EdicionRepetidaException;
+import excepciones.NoExisteCursoException;
 import excepciones.NoExisteInstitutoException;
 
 import javax.swing.DefaultComboBoxModel;
@@ -72,7 +73,6 @@ public class IngresarEdicion extends JInternalFrame {
 		comboBoxDocentes = new JComboBox<String>();
 		comboBoxDocentes.setBounds(139, 175, 231, 24);
 		getContentPane().add(comboBoxDocentes);
-		comboBoxDocentes.setEnabled(false);
 		
 		textFieldCupo = new JTextField();
 		textFieldCupo.setEnabled(false);
@@ -111,8 +111,11 @@ public class IngresarEdicion extends JInternalFrame {
 		getContentPane().add(lblNombre);
 		
 		dateChooserInicia = new JDateChooser();
+		Date aux1 = new Date();
+		dateChooserInicia.setDate(aux1);
 		dateChooserInicia.setBounds(531, 42, 160, 19);
 		getContentPane().add(dateChooserInicia);
+		
 		
 		btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.setEnabled(false);
@@ -134,6 +137,8 @@ public class IngresarEdicion extends JInternalFrame {
 		getContentPane().add(lblDocentes);
 		
 		dateChooserFinaliza = new JDateChooser();
+		Date aux2 = new Date();
+		dateChooserFinaliza.setDate(aux2);
 		dateChooserFinaliza.setBounds(531, 85, 160, 19);
 		getContentPane().add(dateChooserFinaliza);
 		
@@ -203,6 +208,7 @@ public class IngresarEdicion extends JInternalFrame {
 			try {
 				
 				this.CursosInstituto = iConAltEd.ingresarInstituto(instituto);
+				iConAltEd.seleccionarCurso(cursoSeleccionado);
 				iConAltEd.ingresarDtEdicion(edicion);
 				iConAltEd.confirmarAltaEdicion();
 				JOptionPane.showMessageDialog(this, "La edición ' " + nombre + "' del curso '" + cursoSeleccionado + "' se ha creado con éxito", "Ingresar Edición", JOptionPane.INFORMATION_MESSAGE);
@@ -216,6 +222,12 @@ public class IngresarEdicion extends JInternalFrame {
 			}catch(EdicionRepetidaException ere) {
 				
 				JOptionPane.showMessageDialog(this, ere.getMessage(), "Ingresar Edicion", JOptionPane.ERROR_MESSAGE);
+			
+			}catch(NoExisteCursoException nece) {
+				
+                JOptionPane.showMessageDialog(this, nece.getMessage(), "Ingresar Edicion", JOptionPane.ERROR_MESSAGE);
+
+				
 			}
 			
 		}

@@ -30,7 +30,6 @@ public class Curso {
 	
 	public Curso() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Curso(String nombre, String desc, int duracion, int cantHoras, int creditos, Date fechaR,
@@ -119,6 +118,11 @@ public class Curso {
 	public void setEdiciones(List<Edicion> ediciones) {
 		this.ediciones = ediciones;
 	}
+	
+	public void agregarEdicion(Edicion aux) {
+		this.ediciones.add(aux);
+	}
+	
 	
 	public List<ProgFormacion> getProgramas() {
 		return programas;
