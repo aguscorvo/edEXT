@@ -72,6 +72,7 @@ public class IngresarEdicion extends JInternalFrame {
 		comboBoxDocentes = new JComboBox<String>();
 		comboBoxDocentes.setBounds(139, 175, 231, 24);
 		getContentPane().add(comboBoxDocentes);
+		comboBoxDocentes.setEnabled(false);
 		
 		textFieldCupo = new JTextField();
 		textFieldCupo.setEnabled(false);

@@ -110,14 +110,19 @@ public class ControladorAltaEdicion implements IControladorAltaEdicion{
 	public String [] getDocentes() {
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
 		List <Usuario> usuarios = mU.getUsuarios();
-		String [] arrDocentes = new String[usuarios.size()];
-		int cantD=0;
+		List<Docente> docentes = new ArrayList<Docente>();
 		for(Usuario d: usuarios) {
 			if(d instanceof Docente) {
-				arrDocentes[cantD]=d.getNick();
-				cantD++;
+				docentes.add((Docente) d);
 			}
-		}
+		}		
+		String [] arrDocentes = new String[docentes.size()];
+		int i=0;
+		for(Docente d: docentes) {
+			arrDocentes[i]=d.getNick();
+			i++;
+		}		
+		
 		return arrDocentes;
 		
 	}
