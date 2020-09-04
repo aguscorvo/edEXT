@@ -219,15 +219,15 @@ public class IngresarUsuario extends JInternalFrame {
 			try {			
 					this.iConAltaUsu.ingresarDtUsuario(dt);
 					this.iConAltaUsu.confirmarAltaUsuario();
-					JOptionPane.showMessageDialog(this, "El usuario se ha creado con éxito", "Ingresar Usuario", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(this, "El usuario '" + nick + "'se ha creado con éxito", "Ingresar Usuario", JOptionPane.INFORMATION_MESSAGE);
 								
 				} catch(UsuarioRepetidoException ue) {
 	               JOptionPane.showMessageDialog(this, ue.getMessage(), "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
 	
 				}
 			limpiarFormulario();
-			setVisible(false);
-				
+			btnConfirmar.setEnabled(false);
+			setVisible(false);				
 			}
 		}
 		
@@ -235,6 +235,7 @@ public class IngresarUsuario extends JInternalFrame {
 
 	protected void ingresarUsuarioCancelarActionPerformed(ActionEvent e) {		
 		limpiarFormulario();
+		btnConfirmar.setEnabled(false);
 		setVisible(false);	
 	}
 	

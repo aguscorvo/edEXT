@@ -253,7 +253,7 @@ public class IngresarCurso extends JInternalFrame {
 			}
 		}
 			
-		
+		btnConfirmar.setEnabled(false);
 		limpiarFormulario();
         setVisible(false);
 	

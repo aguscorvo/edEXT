@@ -211,7 +211,7 @@ public class IngresarEdicion extends JInternalFrame {
 				iConAltEd.seleccionarCurso(cursoSeleccionado);
 				iConAltEd.ingresarDtEdicion(edicion);
 				iConAltEd.confirmarAltaEdicion();
-				JOptionPane.showMessageDialog(this, "La edición ' " + nombre + "' del curso '" + cursoSeleccionado + "' se ha creado con éxito", "Ingresar Edición", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this, "La edición '" + nombre + "' del curso '" + cursoSeleccionado + "' se ha creado con éxito", "Ingresar Edición", JOptionPane.INFORMATION_MESSAGE);
 
 				
 			}catch (NoExisteInstitutoException neie) {
@@ -231,7 +231,10 @@ public class IngresarEdicion extends JInternalFrame {
 			}
 			
 		}
-		
+		btnConfirmar.setEnabled(false);
+		comboBoxCursos.setEnabled(false);
+		limpiarComboBox(comboBoxDocentes);
+		limpiarComboBox(comboBoxCursos);
 		limpiarFormulario();
 		setVisible(false); 
 		
@@ -352,6 +355,16 @@ public class IngresarEdicion extends JInternalFrame {
 	public void iniciarlizarComboBoxDocentes() {
 		DefaultComboBoxModel<String> modelcursos = new DefaultComboBoxModel<String>(iConAltEd.getDocentes());		
 		comboBoxDocentes.setModel(modelcursos);
+		
+		if (iConAltEd.getDocentes().toString().isEmpty())
+			comboBoxDocentes.setEnabled(false);
+		else  comboBoxDocentes.setEnabled(true);
+
+	}
+	
+	public void limpiarComboBox(JComboBox<String> comboBox) {
+		DefaultComboBoxModel<String> modelcursos = new DefaultComboBoxModel<String>();		
+		comboBox.setModel(modelcursos);
 	}
 		
 	

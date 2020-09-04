@@ -97,7 +97,7 @@ public class IngresarInstituto extends JInternalFrame {
 				
 				this.iConAltInst.ingresarInstituto(nombre);
 				this.iConAltInst.confirmarAltaInstituto(); 
-				JOptionPane.showMessageDialog(this, "El instituto se ha creado con éxito", "Ingresar Instituto",
+				JOptionPane.showMessageDialog(this, "El instituto '" + nombre + "' se ha creado con éxito", "Ingresar Instituto",
                         JOptionPane.INFORMATION_MESSAGE);
 				
 				
@@ -110,6 +110,7 @@ public class IngresarInstituto extends JInternalFrame {
 			
 		}
 		limpiarFormulario();
+		btnConfirmar.setEnabled(false);
 		setVisible(false);
 		
 	}
