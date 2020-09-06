@@ -49,7 +49,7 @@ public class ManejadorInstituto {
 		Conexion c = Conexion.getInstancia();
 		EntityManager em= c.getEntityManager();
 		
-		Query query = em.createQuery("select i from Instituto i");
+		Query query = em.createQuery("SELECT i FROM Instituto i");
 		List<Instituto> listaInst = (List<Instituto>) query.getResultList();
 		
 		ArrayList<Instituto> aRetornar = new ArrayList<>();

@@ -4,7 +4,13 @@
 	
 	<class>logica.Instituto</class>
 	<class>logica.Curso</class>
-	
+	<class>logica.Edicion</class>
+	<class>logica.ProgFormacion</class>
+	<class>logica.Usuario</class>
+	<class>logica.Estudiante</class>
+	<class>logica.Docente</class>	
+	<class>logica.InscripcionPF</class>
+	<class>logica.InscripcionEd</class>	
 	
 	<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />

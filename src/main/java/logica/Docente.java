@@ -4,8 +4,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("Docente")
+
 public class Docente extends Usuario {
 	private Instituto instituto;
+	
 	private List<Edicion> ediciones = new ArrayList<Edicion>();
 
 	//@Override

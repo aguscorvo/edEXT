@@ -3,9 +3,17 @@ package logica;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
 import datatype.DtEstudiante;
 
+@Entity
+@DiscriminatorValue("Estudiante")
+
 public class Estudiante extends Usuario {
+	
 	
 	private List<InscripcionEd> inscripcionesEd = new ArrayList<InscripcionEd>();
 	private List<InscripcionPF> inscripcionesPF = new ArrayList<InscripcionPF>();

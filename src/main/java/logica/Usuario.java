@@ -2,15 +2,23 @@ package logica;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 import datatype.DtUsuario;
 
+@Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+
 public abstract class Usuario {
+	@Id
 	private String nick; 
 	private String nombre; 
 	private String apellido; 
-	private String correo; 
+	private String correo; // podria ser Id tambien?
 	private Date fechaNac; 
-
 
 	//public abstract DtUsuario obtenerDtUsuario();
 	public boolean existeUsuario(DtUsuario usuario) {

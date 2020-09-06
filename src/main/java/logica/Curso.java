@@ -5,8 +5,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Curso {
@@ -19,8 +22,14 @@ public class Curso {
 	private Date fechaR;
 	private String url;
 	
+	
+	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Curso> previas = new ArrayList<Curso>();
+	
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Edicion> ediciones = new ArrayList<Edicion>();
+	
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<ProgFormacion> programas = new ArrayList<ProgFormacion>();
 	
 	/*public boolean existeCurso(String curso) {};

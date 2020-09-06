@@ -2,11 +2,30 @@ package logica;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+import persistencia.InscripcionIdEd;
+
+@Entity
+@IdClass(InscripcionIdEd.class)
 public class InscripcionEd {
+	
+	@Temporal(TemporalType.DATE)
 	private Date fecha;
 	
+	@Id 
+	@ManyToOne
 	private Edicion edicion;
+	
+	@Id 
+	@ManyToOne
+	private Estudiante estudiante;
+	
 	
 	//public String obtenerEdicion() {}
 

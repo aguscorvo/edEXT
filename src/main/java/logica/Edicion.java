@@ -1,14 +1,26 @@
 package logica;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+@Entity
 public class Edicion {
+	@Id
 	private String nombre;
 	private Date fechaI;
 	private Date fechaF;
 	private int cupo;
 	private Date fechaPub;
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	private List<InscripcionEd> inscripcionesEd = new ArrayList<InscripcionEd>();
+	
 	//public DtEdicion obtenerDatos() {};
 	//public boolean existeEdicion(DtEdicionExp edicion) {};
 	//public boolean esEdicion(String nombre) {};
