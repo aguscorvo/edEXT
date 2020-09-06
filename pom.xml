@@ -27,6 +27,7 @@
 		<version>${hibernate.version}</version>
 	</dependency>
 	
+		
 	
 </dependencies>
   
