@@ -311,7 +311,7 @@ public class IngresarCurso extends JInternalFrame {
 		DefaultComboBoxModel<String> modelcursos = new DefaultComboBoxModel<String>(iConAltCur.getCursos());		
 		comboBoxPrevias.setModel(modelcursos);
 		
-	}	
+	}
 	
 	public void habilitarBotonConfirmar() {
 		if (!textFieldInstituto.getText().isEmpty() & !textFieldNombre.getText().isEmpty() & !textFieldDescripcion.getText().isEmpty() & !textFieldCantHoras.getText().isEmpty()
