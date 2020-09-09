@@ -22,8 +22,9 @@ public class ManejadorCurso {
 	public Curso getCurso(String nombre) {
 		Curso aretornar=null;
 		for(Curso c: cursos){
-			if (c.getNombre().equals(nombre))
-				aretornar=c;
+			if (c.getNombre().equals(nombre)) 
+				return aretornar=c;
+			
 		}
 		return aretornar;
 	}

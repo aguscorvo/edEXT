@@ -38,6 +38,12 @@ public class Fabrica {
 		
 		
 	}
+	
+	public IControladorInscripcionAEdicion getIControladorInscripcionAEdicion() {
+		return new ControladorInscripcionAEdicion();
+		
+		
+	}
 	/*
 	public IControladorAgregarCursoAPF getIControladorAgregarCursoAPF() {
 		return new ControladorAgregarCursoAPF();
@@ -82,11 +88,7 @@ public class Fabrica {
 		
 		
 	}
-	public IControladorInscripcionAEdicion getIControladorInscripcionAEdicion() {
-		return new ControladorInscripcionAEdicion();
-		
-		
-	}
+	
 	public IControladorModificarDatosUsuario getIControladorModificarDatosUsuario() {
 		return new ControladorModificarDatosUsuario();
 		

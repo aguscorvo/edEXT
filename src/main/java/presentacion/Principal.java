@@ -13,6 +13,7 @@ import interfaces.IControladorAltaEdicion;
 import interfaces.IControladorAltaInstituto;
 import interfaces.IControladorAltaUsuario;
 import interfaces.IControladorConsultaEdicion;
+import interfaces.IControladorInscripcionAEdicion;
 
 import javax.swing.JMenu;
 import java.awt.event.ActionListener;
@@ -30,6 +31,7 @@ public class Principal {
 	private IngresarCurso ingresarCursoInternalFrame;
 	private IngresarEdicion	ingresarEdicionInternalFrame;
 	private ConsultaEdicion consultarEdicionInternalFrame;
+	private InscripcionAEdicion inscribirAEdicionInternalFrame;
 	
 
 	
@@ -55,7 +57,8 @@ public class Principal {
 		IControladorAltaCurso IConAltCur = f.getIControladorAltaCurso();
 		IControladorAltaEdicion IConAltEd = f.getIControladorAltaEdicion();
 		IControladorConsultaEdicion IConConEdi = f.getIControladorConsultaEdicion();
-		
+		IControladorInscripcionAEdicion IConInsEd = f.getIControladorInscripcionAEdicion();
+				
 		Dimension desktopSize = frame.getSize();
 		Dimension jInternalFrameSize;
 		
@@ -64,6 +67,8 @@ public class Principal {
 		ingresarCursoInternalFrame = new IngresarCurso(IConAltCur);
 		ingresarEdicionInternalFrame = new IngresarEdicion(IConAltEd);
 		consultarEdicionInternalFrame = new ConsultaEdicion(IConConEdi);
+		inscribirAEdicionInternalFrame = new InscripcionAEdicion(IConInsEd);
+		
 		
 		
 		//dejamos el jInternalFrame en el medio de la pantalla
@@ -106,6 +111,14 @@ public class Principal {
 		consultarEdicionInternalFrame.setVisible(false);
 		frame.getContentPane().add(consultarEdicionInternalFrame);
 		consultarEdicionInternalFrame.getContentPane().setLayout(null);
+		
+		jInternalFrameSize =inscribirAEdicionInternalFrame.getSize();
+		inscribirAEdicionInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
+		    (desktopSize.height- jInternalFrameSize.height)/2);
+		
+		inscribirAEdicionInternalFrame.setVisible(false);
+		frame.getContentPane().add(inscribirAEdicionInternalFrame);
+		inscribirAEdicionInternalFrame.getContentPane().setLayout(null);
 		
 	}
 
@@ -170,5 +183,17 @@ public class Principal {
 			}
 		});
 		mnConsultas.add(mntmEdicionDeCurso_1);
+		
+		JMenu mnInscripciones = new JMenu("Inscripciones");
+		menuBar.add(mnInscripciones);
+		
+		JMenuItem mntmAEdicion = new JMenuItem("a edición");
+		mntmAEdicion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				inscribirAEdicionInternalFrame.setVisible(true);
+				//inicializarComboBoxes
+			}
+		});
+		mnInscripciones.add(mntmAEdicion);
 	}
 }

@@ -23,7 +23,7 @@ public class ManejadorUsuario {
 		Usuario aretornar=null;
 		for(Usuario u: usuarios){
 			if (u.getNick().equals(nick))
-				aretornar=u;
+				return aretornar=u;
 		}
 		return aretornar;
 	}

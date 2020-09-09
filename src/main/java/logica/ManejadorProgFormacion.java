@@ -23,7 +23,7 @@ public class ManejadorProgFormacion {
 		ProgFormacion aretornar=null;
 		for(ProgFormacion pf: progFormaciones){
 			if (pf.getNombre().equals(nombre))
-				aretornar=pf;
+				return aretornar=pf;
 		}
 		return aretornar;
 	}
