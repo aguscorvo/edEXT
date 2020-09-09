@@ -42,6 +42,7 @@ public class ControladorAltaUsuario implements IControladorAltaUsuario {
 			Estudiante e= new Estudiante(usuario.getNick(), usuario.getNombre(), usuario.getApellido(), usuario.getCorreo(), usuario.getFechaNac(), ie, ip);
 			mu.agregarUsuario(e);
 		}		
+		
 	};
 	
 	public void cancelarAltaUsuario(){};

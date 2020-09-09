@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import interfaces.IControladorAltaEdicion;
 import logica.Curso;
 import logica.Instituto;
+import logica.funcionesAux;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;

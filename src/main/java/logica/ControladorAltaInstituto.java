@@ -14,7 +14,6 @@ public class ControladorAltaInstituto implements IControladorAltaInstituto {
 		super();
 	}
 	
-	@Override
 	public void ingresarInstituto(String nombre) throws InstitutoRepetidaException{
 		ManejadorInstituto mi = ManejadorInstituto.getInstancia();
 		if(mi.existeInstituto(nombre))
@@ -22,15 +21,13 @@ public class ControladorAltaInstituto implements IControladorAltaInstituto {
 		instituto=nombre;	
 	}
 	
-	@Override
 	public void confirmarAltaInstituto() {
-		List<Curso> cursos = new ArrayList<>();
+		List<Curso> cursos = new ArrayList<Curso>();
 		Instituto i= new Instituto(instituto, cursos);
 		ManejadorInstituto mi = ManejadorInstituto.getInstancia();
 		mi.agregarInstituto(i);
 	}
 	
-	@Override
 	public void cancelarAltaInstituto() {}
 	
 }

@@ -47,7 +47,7 @@ public class IngresarCurso extends JInternalFrame {
 	
 
 	
-	public IngresarCurso(IControladorAltaCurso iConAltCur) {
+	public IngresarCurso(final IControladorAltaCurso iConAltCur) {
 		this.iConAltCur = iConAltCur;
 		setResizable(true);
 		setClosable(true);

@@ -1,5 +1,6 @@
 package logica;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +50,7 @@ public class ControladorConsultaEdicion implements IControladorConsultaEdicion{
 		
 		ManejadorEdicion me = ManejadorEdicion.getInstancia();
 		Edicion auxEdicion = me.getEdicion(edicion);
+		
 		DtEdicion auxDT = new DtEdicion(auxEdicion.getNombre(), auxEdicion.getFechaI(), auxEdicion.getFechaF(), auxEdicion.getCupo(), auxEdicion.getFechaPub());
 		
 		this.datosEdicion = auxDT;
@@ -58,15 +60,18 @@ public class ControladorConsultaEdicion implements IControladorConsultaEdicion{
 	};
 	
 	public String[] getInstitutos(){
-		
 		ManejadorInstituto mi = ManejadorInstituto.getInstancia();
+		
 		List<Instituto> institutos = mi.getInstitutos();
+
 		String [] arrInstitutos = new String [institutos.size()];
+		
+		
 		
 		int i=0;
 		
 		for(Instituto ins: institutos) {
-			
+
 			arrInstitutos[i] = ins.getNombre();
 			i++;
 		}
@@ -79,49 +84,72 @@ public class ControladorConsultaEdicion implements IControladorConsultaEdicion{
 		
 
 		ManejadorInstituto mi = ManejadorInstituto.getInstancia();
-		Instituto auxInst = mi.getInstituto(instituto);
-		List<Curso> auxCursos = auxInst.getCursos();
-		String [] arrCursos = new String [auxCursos.size()];
-		
-		int i=0;
-		
-		for(Curso c: auxCursos) {
+		String [] arrCursosVacio = {""};
+		if(mi.existeInstituto(instituto)) {
+			Instituto auxInst = mi.getInstituto(instituto);
+			List<String> auxCursos = auxInst.getCursosString();
+			String [] arrCursos = new String [auxCursos.size()];
 			
-			arrCursos[i] = c.getNombre();
-			i++;
+			int i=0;
+			
+			for(String c: auxCursos) {
+				
+				arrCursos[i] = c;
+				i++;
+			}
+			
+			return arrCursos;
 		}
 		
-		return arrCursos;
-		
-		
+		return arrCursosVacio;
 		
 	}
 	
 	public String[] getEdiciones(String curso){
 		
 		ManejadorCurso mc = ManejadorCurso.getInstancia();
-		Curso auxCurso = mc.getCurso(curso);
-		List<Edicion> ediciones = auxCurso.getEdiciones();
-		String [] arrEdiciones = new String [ediciones.size()];
-		
-		int i=0;
-		
-		for(Edicion e: ediciones) {
+		if(mc.existeCurso(curso)) {
+			Curso auxCurso = mc.getCurso(curso);
+			List<Edicion> ediciones = auxCurso.getEdiciones();
+			String [] arrEdiciones = new String [ediciones.size()];
 			
-			arrEdiciones[i] = e.getNombre();
-			i++;
+			int i=0;
+			
+			for(Edicion e: ediciones) {
+				
+				arrEdiciones[i] = e.getNombre();
+				i++;
+			}
+			return arrEdiciones;
+
 		}
 		
-		return arrEdiciones;
-		
+		String[] arrEdicionesVacio =  {""};
+		return arrEdicionesVacio;
 	}
 	
 	
-	public List<String> obtenerDatosEdicion (DtEdicion Edicion){
+	public String obtenerDatosEdicion(DtEdicion edicion) {
+		String fechaI = funcionesAux.convertirAString(edicion.getFechaI());
+		String fechaF = funcionesAux.convertirAString(edicion.getFechaF());
+		String fechaP = funcionesAux.convertirAString(edicion.getFechaPub());
+		String cupo = String.valueOf(edicion.getCupo());
 		
-		List<String>
+		String auxDatos = "Nombre: " + edicion.getNombre() + "\n\nFecha inicio: " + fechaI + "\n\nFecha fin: " + fechaF + "\n\nCupo: " + cupo + "\n\nFecha de publicación: " + fechaP;
+		return auxDatos;
 		
 	}
+
+
+	public DtEdicion getDatosEdicion() {
+		return datosEdicion;
+	}
+
+
+	public void setDatosEdicion(DtEdicion datosEdicion) {
+		this.datosEdicion = datosEdicion;
+	}
+	
 	
 	
 	
