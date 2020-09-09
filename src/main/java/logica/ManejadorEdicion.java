@@ -20,10 +20,11 @@ public class ManejadorEdicion {
 	}
 	
 	public Edicion getEdicion(String nombre) {
-		Edicion aretornar=null;
+		Edicion aretornar = null;
 		for(Edicion e: ediciones){
-			if (e.getNombre().equals(nombre))
-				aretornar=e;
+			if (e.getNombre().equals(nombre)) 
+				return aretornar=e;				
+			
 		}
 		return aretornar;
 	}
@@ -41,9 +42,10 @@ public class ManejadorEdicion {
 				existe = true;
 			}	
 		}
-		return existe;
-
-		
-		
+		return existe;		
 	}
+	
+		
+	
+	
 }

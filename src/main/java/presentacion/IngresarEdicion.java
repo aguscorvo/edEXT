@@ -5,8 +5,11 @@ import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 import interfaces.IControladorAltaEdicion;
+import interfaces.IControladorConsultaEdicion;
 import logica.Curso;
+import logica.Edicion;
 import logica.Instituto;
+import logica.ManejadorEdicion;
 import logica.funcionesAux;
 
 import javax.swing.JLabel;
@@ -202,8 +205,9 @@ public class IngresarEdicion extends JInternalFrame {
 		Date fechaPub = new Date();
 		
 		if(checkTextField(instituto) & checkTextField(nombre) &checkTextFieldInt(c)) {
-			if (chckbxCupo.isSelected())
+			if (chckbxCupo.isSelected()) 
 				cupo = Integer.parseInt(c);
+			
 			DtEdicionExp edicion = new DtEdicionExp(nombre, fechaI, fechaF, cupo, fechaPub, docentesSeleccionados);
 			
 			try {
@@ -212,6 +216,18 @@ public class IngresarEdicion extends JInternalFrame {
 				iConAltEd.seleccionarCurso(cursoSeleccionado);
 				iConAltEd.ingresarDtEdicion(edicion);
 				iConAltEd.confirmarAltaEdicion();
+				
+				
+				/*ManejadorEdicion me = ManejadorEdicion.getInstancia();
+				Edicion auxEd= me.getEdicion(nombre);
+				System.out.println(auxEd.getNombre());
+				System.out.println(auxEd.getFechaI());
+				System.out.println(auxEd.getFechaF());
+				System.out.println(auxEd.getCupo());
+				System.out.println(auxEd.getFechaPub());*/
+
+				
+				
 				JOptionPane.showMessageDialog(this, "La edición '" + nombre + "' del curso '" + cursoSeleccionado + "' se ha creado con éxito", "Ingresar Edición", JOptionPane.INFORMATION_MESSAGE);
 
 				

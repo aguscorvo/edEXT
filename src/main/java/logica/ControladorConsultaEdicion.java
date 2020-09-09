@@ -50,7 +50,6 @@ public class ControladorConsultaEdicion implements IControladorConsultaEdicion{
 		
 		ManejadorEdicion me = ManejadorEdicion.getInstancia();
 		Edicion auxEdicion = me.getEdicion(edicion);
-		
 		DtEdicion auxDT = new DtEdicion(auxEdicion.getNombre(), auxEdicion.getFechaI(), auxEdicion.getFechaF(), auxEdicion.getCupo(), auxEdicion.getFechaPub());
 		
 		this.datosEdicion = auxDT;

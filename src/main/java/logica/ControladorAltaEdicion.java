@@ -73,7 +73,21 @@ public class ControladorAltaEdicion implements IControladorAltaEdicion{
 		}
 		
 		ManejadorEdicion me = ManejadorEdicion.getInstancia();
-		me.getEdiciones().add(nuevaEdicion);
+		me.agregarEdicion(nuevaEdicion);
+		
+		System.out.println(nuevaEdicion.getNombre());
+
+		
+		if (me.existeEdicion(nuevaEdicion.getNombre()))
+			System.out.println("Existe edicion");
+			else System.out.println("NO EXISTE");
+
+		Edicion auxEd = me.getEdicion(edicion.getNombre());
+		System.out.println(auxEd.getNombre());
+		System.out.println(auxEd.getFechaI());
+		System.out.println(auxEd.getFechaF());
+		System.out.println(auxEd.getCupo());
+		System.out.println(auxEd.getFechaPub());
 		
 		
 	}

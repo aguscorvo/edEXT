@@ -59,15 +59,15 @@ public class ConsultaEdicion extends JInternalFrame {
 		lblInstituto.setBounds(67, 52, 81, 15);
 		getContentPane().add(lblInstituto);
 		
-		comboBoxEdicion = new JComboBox();
+		comboBoxEdicion = new JComboBox<String>();
 		comboBoxEdicion.setBounds(152, 212, 194, 24);
 		getContentPane().add(comboBoxEdicion);
 		
-		comboBoxCurso = new JComboBox();
+		comboBoxCurso = new JComboBox<String>();
 		comboBoxCurso.setBounds(152, 126, 194, 24);
 		getContentPane().add(comboBoxCurso);
 		
-		comboBoxInstituto = new JComboBox();
+		comboBoxInstituto = new JComboBox<String>();
 		comboBoxInstituto.setBounds(152, 47, 194, 24);
 		getContentPane().add(comboBoxInstituto);
 		
