@@ -171,13 +171,15 @@ public class ConsultaEdicion extends JInternalFrame {
 	
 	public void iniciarlizarComboBoxCurso() {
 		
-		this.institutoSeleccionado =  comboBoxInstituto.getSelectedItem().toString();
-		if(iConConEdi.getCursos(this.institutoSeleccionado).length != 0){
-			DefaultComboBoxModel<String> modelCurso = new DefaultComboBoxModel<String>(iConConEdi.getCursos(this.institutoSeleccionado));		
-			comboBoxCurso.setModel(modelCurso);		
+		if(iConConEdi.getInstitutos().length != 0) {
+			this.institutoSeleccionado =  comboBoxInstituto.getSelectedItem().toString();
+			if(iConConEdi.getCursos(this.institutoSeleccionado).length != 0){
+				DefaultComboBoxModel<String> modelCurso = new DefaultComboBoxModel<String>(iConConEdi.getCursos(this.institutoSeleccionado));		
+				comboBoxCurso.setModel(modelCurso);		
+			}
+
 		}
-		
-	}
+	}	
 	
 	public void iniciarlizarComboBoxEdicion() {
 		

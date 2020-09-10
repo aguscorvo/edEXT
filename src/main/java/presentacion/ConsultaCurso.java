@@ -9,6 +9,9 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
 
+import datatype.DtCursoExp;
+import datatype.DtEdicion;
+import datatype.DtProgFormacionExp;
 import interfaces.IControladorConsultaCurso;
 import interfaces.IControladorConsultaEdicion;
 
@@ -28,6 +31,10 @@ public class ConsultaCurso extends JInternalFrame {
 	private JButton btnVerPrograma;
 	private JButton btnSalir;
 	private JTextPane textPaneDatos;
+	private String institutoSeleccionado;
+	private String cursoSeleccionado;
+	private String edicionSeleccionada; 
+	private String progFormacionSeleccionado;
 
 
 	
@@ -114,30 +121,110 @@ public class ConsultaCurso extends JInternalFrame {
 
 	}
 	
-	protected void verCursoActionPerformed(ActionEvent e) {}
+	protected void verCursoActionPerformed(ActionEvent e) {
+		
+		textPaneDatos.setText("");
+		this.cursoSeleccionado = comboBoxCurso.getSelectedItem().toString();
+		comboBoxEdiciones.setEnabled(true);
+		comboBoxProgramas.setEnabled(true);
+		inicializarComboBoxEdiciones();
+		inicializarComboBoxProgramas();
+		DtCursoExp auxDTCE = iConConCur.seleccionarCurso(cursoSeleccionado);
+		textPaneDatos.setText(iConConCur.obtenerDatosCurso(auxDTCE));
+		
+	}
 	
-	protected void verEdicionActionPerformed(ActionEvent e) {}
+	protected void verEdicionActionPerformed(ActionEvent e) {
+		
+		textPaneDatos.setText("");
+		this.edicionSeleccionada = comboBoxEdiciones.getSelectedItem().toString();
+		DtEdicion auxDTE = iConConCur.seleccionarEdicion(edicionSeleccionada);
+		textPaneDatos.setText(iConConCur.obtenerDatosEdicion(auxDTE));
+		
+
+		
+		
+	}
 	
-	protected void verProgramaActionPerformed(ActionEvent e) {}
-	
-	protected void salirActionPerformed(ActionEvent e) {
-		//limpiar comboBoxes y textPane
-		setVisible(false);
+	protected void verProgramaActionPerformed(ActionEvent e) {
+		
+		textPaneDatos.setText("");
+		this.progFormacionSeleccionado = comboBoxProgramas.getSelectedItem().toString();
+		DtProgFormacionExp auxDTPFE = iConConCur.seleccionarProgFormacion(progFormacionSeleccionado);
+		textPaneDatos.setText(iConConCur.obtenerDatosPrograma(auxDTPFE));
+		
+		
 	}
 	
 	
-	/*public void iniciarlizarComboBoxInstituto() {		
-		if(iConConEdi.getInstitutos().length != 0) {
-			DefaultComboBoxModel<String> modelInstituto = new DefaultComboBoxModel<String>(iConConEdi.getInstitutos());		
-			comboBoxInstituto.setModel(modelInstituto);
-		}		
-	}*/
 	
-	/*public void iniciarlizarComboBoxCurso() {		
-		this.institutoSeleccionado =  comboBoxInstituto.getSelectedItem().toString();
-		if(iConConEdi.getCursos(this.institutoSeleccionado).length != 0){
-			DefaultComboBoxModel<String> modelCurso = new DefaultComboBoxModel<String>(iConConEdi.getCursos(this.institutoSeleccionado));		
-			comboBoxCurso.setModel(modelCurso);	
+	
+	protected void salirActionPerformed(ActionEvent e) {
+		
+		limpiar();
+		setVisible(false);
+	
+	}
+	
+	
+	public void inicializarComboBoxInstituto() {		
+		
+		
+		if(iConConCur.getInstitutos().length != 0) {
+			DefaultComboBoxModel<String> modelInstituto = new DefaultComboBoxModel<String>(iConConCur.getInstitutos());		
+			comboBoxInstituto.setModel(modelInstituto);
+		}
+
+	
+	}
+	
+	public void inicializarComboBoxCurso() {		
+		
+		if(iConConCur.getInstitutos().length != 0) {
+			this.institutoSeleccionado =  comboBoxInstituto.getSelectedItem().toString();
+		
+		
+			if(iConConCur.ingresarInstituto(institutoSeleccionado).length != 0) {
+				DefaultComboBoxModel<String> modelCurso = new DefaultComboBoxModel<String>(iConConCur.ingresarInstituto(institutoSeleccionado));		
+				comboBoxCurso.setModel(modelCurso);
+			}		
+		}
+	}	
+	
+
+	public void inicializarComboBoxEdiciones() {		
+		
+		if(iConConCur.getEdiciones(cursoSeleccionado).length != 0) {
+			DefaultComboBoxModel<String> modelEdiciones = new DefaultComboBoxModel<String>(iConConCur.getEdiciones(cursoSeleccionado));		
+			comboBoxEdiciones.setModel(modelEdiciones);
 		}		
-	}*/
+	}
+	
+	public void inicializarComboBoxProgramas() {		
+		
+		if(iConConCur.getPFs(cursoSeleccionado).length != 0) {
+			DefaultComboBoxModel<String> modelProgramas = new DefaultComboBoxModel<String>(iConConCur.getPFs(cursoSeleccionado));		
+			comboBoxProgramas.setModel(modelProgramas);
+		}		
+	}
+	
+	public void limpiar() {
+		
+		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();		
+
+		comboBoxCurso.setModel(model);
+		comboBoxCurso.setEnabled(false);
+		comboBoxEdiciones.setModel(model);
+		comboBoxEdiciones.setEnabled(false);
+		comboBoxProgramas.setModel(model);
+		comboBoxProgramas.setEnabled(false);
+		textPaneDatos.setText("");
+		
+	}
+
 }
+		
+	
+
+
+	

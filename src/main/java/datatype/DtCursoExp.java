@@ -12,11 +12,17 @@ public class DtCursoExp extends DtCurso {
 		super();
 	}
 	
-	public DtCursoExp(String nombre, String desc, int duracion, int cantHoras, int creditos, Date fechaR,
-			String url, List<String> previas) {
-		super(nombre, desc, duracion, cantHoras, creditos, fechaR, url, previas);
-	}
 	
+	public DtCursoExp(String nombre, String desc, int duracion, int cantHoras, int creditos, Date fechaR, 
+					String url, List<String> previas, List<String> ediciones, List<String> programas) {
+		
+		super(nombre, desc, duracion, cantHoras, creditos, fechaR, url, previas);
+		this.ediciones = ediciones;
+		this.programas = programas;
+		
+	}
+
+
 	public List<String> getEdiciones() {
 		return ediciones;
 	}

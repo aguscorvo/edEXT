@@ -182,6 +182,7 @@ public class InscripcionAEdicion extends JInternalFrame {
 		
 	}
 	public void limpiarComboBoxEstudiante() {
+		
 		DefaultComboBoxModel<String> modelEstudiante = new DefaultComboBoxModel<String>();		
 		comboBoxEstudiante.setModel(modelEstudiante);
 		comboBoxEstudiante.setEnabled(false);
