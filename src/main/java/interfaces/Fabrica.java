@@ -44,6 +44,12 @@ public class Fabrica {
 		
 		
 	}
+	
+	public IControladorConsultaCurso getIControladorConsultaCurso() {
+		return new ControladorConsultaCurso();
+		
+		
+	}
 	/*
 	public IControladorAgregarCursoAPF getIControladorAgregarCursoAPF() {
 		return new ControladorAgregarCursoAPF();

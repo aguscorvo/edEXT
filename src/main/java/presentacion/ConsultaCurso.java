@@ -5,105 +5,139 @@ import java.awt.EventQueue;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
+
+import interfaces.IControladorConsultaCurso;
+import interfaces.IControladorConsultaEdicion;
+
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class ConsultaCurso extends JInternalFrame {
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ConsultaCurso frame = new ConsultaCurso();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private IControladorConsultaCurso iConConCur;
+	private JComboBox<String> comboBoxInstituto;
+	private JComboBox<String> comboBoxCurso;
+	private JComboBox<String> comboBoxEdiciones;
+	private JComboBox<String> comboBoxProgramas;
+	private JButton btnVerCurso;
+	private JButton btnVerEdicion;
+	private JButton btnVerPrograma;
+	private JButton btnSalir;
+	private JTextPane textPaneDatos;
 
-	/**
-	 * Create the frame.
-	 */
-	public ConsultaCurso() {
+
+	
+	public ConsultaCurso(IControladorConsultaCurso iConConCur) {
+		this.iConConCur=iConConCur;
 		setMaximizable(true);
 		setIconifiable(true);
-		setClosed(true);
 		setClosable(true);
 		setTitle("Consulta de Curso");
-		setBounds(100, 100, 623, 318);
+		setBounds(100, 100, 811, 372);
 		getContentPane().setLayout(null);
 		
 		JLabel lblInstituto = new JLabel("INSTITUTO");
 		lblInstituto.setBounds(27, 49, 73, 14);
 		getContentPane().add(lblInstituto);
 		
-		JComboBox comboBoxInstituto = new JComboBox();
-		comboBoxInstituto.setBounds(110, 46, 106, 20);
+		comboBoxInstituto = new JComboBox<String>();
+		comboBoxInstituto.setBounds(148, 49, 190, 20);
 		getContentPane().add(comboBoxInstituto);
 		
 		JLabel lblCurso = new JLabel("CURSO");
-		lblCurso.setBounds(27, 93, 46, 14);
+		lblCurso.setBounds(27, 96, 73, 14);
 		getContentPane().add(lblCurso);
 		
-		JComboBox comboBoxCurso = new JComboBox();
-		comboBoxCurso.setBounds(110, 90, 106, 20);
+		comboBoxCurso = new JComboBox<String>();
+		comboBoxCurso.setBounds(148, 93, 190, 20);
 		getContentPane().add(comboBoxCurso);
 		
-		JButton btnVerCurso = new JButton("VER");
+		btnVerCurso = new JButton("VER");
 		btnVerCurso.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				verCursoActionPerformed(e);
 			}
 		});
-		btnVerCurso.setBounds(237, 89, 80, 23);
+		btnVerCurso.setBounds(392, 93, 80, 23);
 		getContentPane().add(btnVerCurso);
 		
-		JTextPane textPaneDatos = new JTextPane();
-		textPaneDatos.setBounds(354, 28, 225, 238);
+		textPaneDatos = new JTextPane();
+		textPaneDatos.setBounds(523, 26, 243, 219);
 		getContentPane().add(textPaneDatos);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(354, 28, 225, 238);
-		getContentPane().add(panel);
-		
 		JLabel lblEdiciones = new JLabel("EDICIONES");
-		lblEdiciones.setBounds(27, 166, 60, 14);
+		lblEdiciones.setBounds(27, 169, 87, 14);
 		getContentPane().add(lblEdiciones);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(110, 163, 106, 20);
-		getContentPane().add(comboBox);
+		comboBoxEdiciones = new JComboBox<String>();
+		comboBoxEdiciones.setBounds(148, 166, 190, 20);
+		getContentPane().add(comboBoxEdiciones);
 		
 		JLabel lblProgramas = new JLabel("PROGRAMAS");
-		lblProgramas.setBounds(27, 209, 73, 14);
+		lblProgramas.setBounds(27, 209, 105, 14);
 		getContentPane().add(lblProgramas);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(110, 206, 106, 20);
-		getContentPane().add(comboBox_1);
+		comboBoxProgramas = new JComboBox<String>();
+		comboBoxProgramas.setBounds(148, 209, 190, 20);
+		getContentPane().add(comboBoxProgramas);
 		
-		JButton btnVerEdicion = new JButton("VER");
+		btnVerEdicion = new JButton("VER");
 		btnVerEdicion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				verEdicionActionPerformed(e);
 			}
 		});
-		btnVerEdicion.setBounds(237, 162, 80, 23);
+		btnVerEdicion.setBounds(392, 166, 80, 23);
 		getContentPane().add(btnVerEdicion);
 		
 		JButton btnVerPrograma = new JButton("VER");
 		btnVerPrograma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				verProgramaActionPerformed(e);
 			}
 		});
-		btnVerPrograma.setBounds(237, 205, 80, 23);
+		btnVerPrograma.setBounds(392, 206, 80, 23);
 		getContentPane().add(btnVerPrograma);
+		
+		btnSalir = new JButton("SALIR");
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				salirActionPerformed(e);
+			}
+		});
+		btnSalir.setBounds(324, 289, 117, 25);
+		getContentPane().add(btnSalir);
 
 	}
+	
+	protected void verCursoActionPerformed(ActionEvent e) {}
+	
+	protected void verEdicionActionPerformed(ActionEvent e) {}
+	
+	protected void verProgramaActionPerformed(ActionEvent e) {}
+	
+	protected void salirActionPerformed(ActionEvent e) {
+		//limpiar comboBoxes y textPane
+		setVisible(false);
+	}
+	
+	
+	/*public void iniciarlizarComboBoxInstituto() {		
+		if(iConConEdi.getInstitutos().length != 0) {
+			DefaultComboBoxModel<String> modelInstituto = new DefaultComboBoxModel<String>(iConConEdi.getInstitutos());		
+			comboBoxInstituto.setModel(modelInstituto);
+		}		
+	}*/
+	
+	/*public void iniciarlizarComboBoxCurso() {		
+		this.institutoSeleccionado =  comboBoxInstituto.getSelectedItem().toString();
+		if(iConConEdi.getCursos(this.institutoSeleccionado).length != 0){
+			DefaultComboBoxModel<String> modelCurso = new DefaultComboBoxModel<String>(iConConEdi.getCursos(this.institutoSeleccionado));		
+			comboBoxCurso.setModel(modelCurso);	
+		}		
+	}*/
 }

@@ -155,7 +155,6 @@ public class ControladorInscripcionAEdicion implements IControladorInscripcionAE
 					}
 					if (!tieneEdicionAsociada) 				//el estudiante no está inscripto en la edición que pasamos como parámetro (se puede inscribir)
 						estudiantes.add(e.getNick());
-
 				}
 				
 			}
