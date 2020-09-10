@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -15,6 +16,7 @@ import javax.persistence.OneToMany;
 public class Curso {
 	@Id
 	private String nombre;
+	@Column(name="descripción")
 	private String desc;
 	private int duracion;
 	private int cantHoras;
@@ -23,10 +25,10 @@ public class Curso {
 	private String url;
 	
 	
-	@ManyToMany(cascade = {CascadeType.ALL})
+	@ManyToMany(mappedBy = "previasDe")
 	private List<Curso> previas = new ArrayList<Curso>();
 	
-	@ManyToMany(mappedBy = "previas")
+	@ManyToMany()
 	private List<Curso> previasDe = new ArrayList<Curso>();
 
 	
