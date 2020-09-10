@@ -19,7 +19,6 @@ public abstract class Usuario {
 	
 	public Usuario() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Usuario(String nick, String nombre, String apellido, String correo, Date fechaNac) {

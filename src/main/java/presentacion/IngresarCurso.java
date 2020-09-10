@@ -25,7 +25,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import javax.swing.JPanel;
 
 public class IngresarCurso extends JInternalFrame {
 	

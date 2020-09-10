@@ -1,6 +1,5 @@
 package logica;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,23 +58,16 @@ public class ControladorConsultaEdicion implements IControladorConsultaEdicion{
 	};
 	
 	public String[] getInstitutos(){
-		ManejadorInstituto mi = ManejadorInstituto.getInstancia();
-		
+		ManejadorInstituto mi = ManejadorInstituto.getInstancia();		
 		List<Instituto> institutos = mi.getInstitutos();
-
 		String [] arrInstitutos = new String [institutos.size()];
 		
-		
-		
-		int i=0;
-		
+		int i=0;		
 		for(Instituto ins: institutos) {
-
 			arrInstitutos[i] = ins.getNombre();
 			i++;
 		}
-		return arrInstitutos;
-		
+		return arrInstitutos;		
 		
 	}
 	

@@ -2,7 +2,6 @@ package logica;
 
 import java.util.Date;
 
-import datatype.DtProgFormacionMin;
 
 public class InscripcionPF {
 	

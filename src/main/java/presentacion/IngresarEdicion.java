@@ -5,12 +5,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 import interfaces.IControladorAltaEdicion;
-import interfaces.IControladorConsultaEdicion;
-import logica.Curso;
-import logica.Edicion;
 import logica.Instituto;
-import logica.ManejadorEdicion;
-import logica.funcionesAux;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -29,12 +24,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JComboBox;
-import javax.swing.JRadioButton;
 import com.toedter.calendar.JDateChooser;
 
 import datatype.DtEdicionExp;
 
-import javax.swing.JPanel;
 import javax.swing.JCheckBox;;
 
 public class IngresarEdicion extends JInternalFrame {
@@ -56,8 +49,6 @@ public class IngresarEdicion extends JInternalFrame {
 	private List<String> docentesSeleccionados = new ArrayList <String>();
 
 
-	
-	
 	
 	public IngresarEdicion(IControladorAltaEdicion iConAltEd) {
 		this.iConAltEd = iConAltEd;

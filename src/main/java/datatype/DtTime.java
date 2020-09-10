@@ -6,7 +6,6 @@ public class DtTime {
 	
 	public DtTime() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public DtTime(int horas, int min) {
 		super();

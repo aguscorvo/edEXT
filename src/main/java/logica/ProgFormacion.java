@@ -2,8 +2,6 @@ package logica;
 
 import java.util.Date;
 
-import datatype.DtProgFormacionExp;
-import datatype.DtProgFormacionMin;
 
 public class ProgFormacion {
 	private String nombre;

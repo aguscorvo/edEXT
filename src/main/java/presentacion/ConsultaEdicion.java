@@ -1,23 +1,15 @@
 package presentacion;
 
-import java.awt.EventQueue;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 import interfaces.IControladorConsultaEdicion;
-import logica.Instituto;
-import logica.ManejadorInstituto;
 
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JList;
 import javax.swing.JTextPane;
 
 import datatype.DtEdicion;
@@ -35,7 +27,7 @@ public class ConsultaEdicion extends JInternalFrame {
 	private JComboBox<String> comboBoxCurso;
 	private JComboBox<String> comboBoxEdicion;
 	private JButton btnSalir;
-	private List<String> datosEdicion = new ArrayList<String>();
+	//private List<String> datosEdicion = new ArrayList<String>();
 	private String institutoSeleccionado;
 	private String cursoSeleccionado;
 	private String edicionSeleccionado;
@@ -170,23 +162,19 @@ public class ConsultaEdicion extends JInternalFrame {
 	
 	public void iniciarlizarComboBoxInstituto() {
 		
-		
-		
-		
 		if(iConConEdi.getInstitutos().length != 0) {
-		DefaultComboBoxModel<String> modelInstituto = new DefaultComboBoxModel<String>(iConConEdi.getInstitutos());		
-		comboBoxInstituto.setModel(modelInstituto);
+			DefaultComboBoxModel<String> modelInstituto = new DefaultComboBoxModel<String>(iConConEdi.getInstitutos());		
+			comboBoxInstituto.setModel(modelInstituto);
 		}
+		
 	}
 	
 	public void iniciarlizarComboBoxCurso() {
 		
-		this.institutoSeleccionado = (String) comboBoxInstituto.getSelectedItem();
+		this.institutoSeleccionado =  comboBoxInstituto.getSelectedItem().toString();
 		if(iConConEdi.getCursos(this.institutoSeleccionado).length != 0){
-		
-		DefaultComboBoxModel<String> modelCurso = new DefaultComboBoxModel<String>(iConConEdi.getCursos(this.institutoSeleccionado));		
-		comboBoxCurso.setModel(modelCurso);
-		
+			DefaultComboBoxModel<String> modelCurso = new DefaultComboBoxModel<String>(iConConEdi.getCursos(this.institutoSeleccionado));		
+			comboBoxCurso.setModel(modelCurso);		
 		}
 		
 	}
@@ -195,8 +183,8 @@ public class ConsultaEdicion extends JInternalFrame {
 		
 		this.cursoSeleccionado = (String) comboBoxCurso.getSelectedItem();
 		if(iConConEdi.getEdiciones(this.cursoSeleccionado).length != 0) {
-		DefaultComboBoxModel<String> modelEdicion = new DefaultComboBoxModel<String>(iConConEdi.getEdiciones(this.cursoSeleccionado));		
-		comboBoxEdicion.setModel(modelEdicion);
+			DefaultComboBoxModel<String> modelEdicion = new DefaultComboBoxModel<String>(iConConEdi.getEdiciones(this.cursoSeleccionado));		
+			comboBoxEdicion.setModel(modelEdicion);
 		}
 	}
 }

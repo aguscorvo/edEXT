@@ -19,10 +19,6 @@ import javax.swing.JMenu;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JPanel;
-import javax.swing.JButton;
 
 public class Principal {
 	private JFrame frame;
@@ -191,6 +187,8 @@ public class Principal {
 		mntmAEdicion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				inscribirAEdicionInternalFrame.setVisible(true);
+				inscribirAEdicionInternalFrame.iniciarlizarComboBoxInstituto();
+				inscribirAEdicionInternalFrame.iniciarlizarComboBoxCurso();
 				//inicializarComboBoxes
 			}
 		});

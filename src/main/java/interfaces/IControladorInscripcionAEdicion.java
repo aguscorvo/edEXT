@@ -1,6 +1,5 @@
 package interfaces;
 import java.util.Date;
-import java.util.List;
 
 import excepciones.NoExisteEdicionVigenteException;
 
@@ -11,5 +10,9 @@ public interface IControladorInscripcionAEdicion {
 	public void ingresarEstudiante(String nick, Date fecha);
 	public void confirmarInscripcionAEdicion();
 	public void cancelarInscripcionAEdicion();
+	public String[] getInstitutos();
+	public String[] getCursos(String instituto);
+	String [] getEstudiantes(String edicion);
+	
 
 }
