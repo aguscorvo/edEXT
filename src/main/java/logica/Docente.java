@@ -4,15 +4,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
-@DiscriminatorValue("Docente")
-
 public class Docente extends Usuario {
+	@ManyToOne
 	private Instituto instituto;
-	
+	@ManyToMany(cascade=CascadeType.ALL)
 	private List<Edicion> ediciones = new ArrayList<Edicion>();
 
 	//@Override

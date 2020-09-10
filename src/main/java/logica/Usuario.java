@@ -2,21 +2,22 @@ package logica;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 
 import datatype.DtUsuario;
 
-@Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-
+@MappedSuperclass
 public abstract class Usuario {
 	@Id
 	private String nick; 
 	private String nombre; 
 	private String apellido; 
+	@Column(unique = true)
 	private String correo; // podria ser Id tambien?
 	private Date fechaNac; 
 

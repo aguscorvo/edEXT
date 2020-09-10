@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,13 +19,19 @@ public class InscripcionPF {
 	
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
-	
-	@Id 
+	@Id
 	@ManyToOne
+	@JoinColumn(
+			insertable=false,
+			updatable=false
+	)
 	private ProgFormacion progFormacion;
-	
-	@Id 
+	@Id
 	@ManyToOne
+	@JoinColumn(
+			insertable=false,
+			updatable=false
+	)
 	private Estudiante estudiante;
 	
 	//public DtProgFormacionMin obtenerDtProgFormacionMin() {}

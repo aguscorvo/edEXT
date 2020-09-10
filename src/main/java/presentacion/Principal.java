@@ -20,6 +20,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.swing.JButton;
 
 public class Principal {
@@ -45,7 +47,8 @@ public class Principal {
 
 	public Principal() throws PropertyVetoException {
 		initialize();
-		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("joaquin");
+		System.out.println("Conexion creada");
 		Fabrica f = Fabrica.getInstancia();
 		IControladorAltaInstituto IConAltInst = f.getIControladorAltaInstituto();
 		IControladorAltaUsuario IConAltUsu = f.getIControladorAltaUsuario();

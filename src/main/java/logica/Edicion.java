@@ -18,7 +18,7 @@ public class Edicion {
 	private int cupo;
 	private Date fechaPub;
 	
-	@OneToMany(cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="edicion", cascade=CascadeType.ALL)
 	private List<InscripcionEd> inscripcionesEd = new ArrayList<InscripcionEd>();
 	
 	//public DtEdicion obtenerDatos() {};

@@ -23,13 +23,19 @@ public class Curso {
 	private String url;
 	
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = {CascadeType.ALL})
 	private List<Curso> previas = new ArrayList<Curso>();
+	
+	@ManyToMany(mappedBy = "previas")
+	private List<Curso> previasDe = new ArrayList<Curso>();
+
+	
+	
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Edicion> ediciones = new ArrayList<Edicion>();
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL)
 	private List<ProgFormacion> programas = new ArrayList<ProgFormacion>();
 	
 	/*public boolean existeCurso(String curso) {};

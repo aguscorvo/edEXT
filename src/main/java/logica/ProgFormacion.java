@@ -21,7 +21,7 @@ public class ProgFormacion {
 	private Date fechaF;
 	private Date fechaAlta;
 	
-	@OneToMany(cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "progFormacion", cascade=CascadeType.ALL)
 	private List <InscripcionPF> inscripcionesPF = new ArrayList<InscripcionPF>();
 	
 	//public DtProgFormacionExp obtenerDatos() {};

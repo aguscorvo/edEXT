@@ -4,18 +4,19 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import datatype.DtEstudiante;
 
 @Entity
-@DiscriminatorValue("Estudiante")
-
 public class Estudiante extends Usuario {
 	
-	
+	@OneToMany(mappedBy="estudiante",cascade=CascadeType.ALL)
 	private List<InscripcionEd> inscripcionesEd = new ArrayList<InscripcionEd>();
+	@OneToMany(mappedBy="estudiante",cascade=CascadeType.ALL)
 	private List<InscripcionPF> inscripcionesPF = new ArrayList<InscripcionPF>();
 	
 	//@Override
