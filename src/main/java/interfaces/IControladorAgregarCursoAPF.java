@@ -2,8 +2,11 @@ package interfaces;
 
 import java.util.List;
 
+import excepciones.CursoEnPFRepetidoException;
+
 public interface IControladorAgregarCursoAPF {
-	public List<String> getProgramas();
-	public List<String> seleccionarPrograma(String nombrePF);
-	public void seleccionarCurso(String nombreC);
+	public String[] getProgramas();
+	public void seleccionarPrograma(String nombrePF);
+	public String [] getCursos();
+	public void seleccionarCurso(String nombreC) throws CursoEnPFRepetidoException;
 }

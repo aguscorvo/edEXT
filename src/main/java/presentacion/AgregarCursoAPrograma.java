@@ -4,15 +4,29 @@ import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import excepciones.CursoEnPFRepetidoException;
+import excepciones.ProgramaRepetidoException;
+import interfaces.IControladorAgregarCursoAPF;
+import interfaces.IControladorConsultaCurso;
+
 import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class AgregarCursoAPrograma extends JInternalFrame {
+	
+	private IControladorAgregarCursoAPF iConAgrCurAPF;
+	private JComboBox<String> comboBoxPrograma;
+	private JComboBox<String> comboBoxCurso;
+	private JButton btnConfirmar; 
 
 	
-	public AgregarCursoAPrograma() {
+	public AgregarCursoAPrograma(IControladorAgregarCursoAPF iConAgrCurAPF) {
+		this.iConAgrCurAPF=iConAgrCurAPF;
 		setMaximizable(true);
 		setIconifiable(true);
 		setClosable(true);
@@ -28,17 +42,18 @@ public class AgregarCursoAPrograma extends JInternalFrame {
 		lblCurso.setBounds(52, 106, 73, 14);
 		getContentPane().add(lblCurso);
 		
-		JComboBox comboBoxPrograma = new JComboBox();
+		comboBoxPrograma = new JComboBox<String>();
 		comboBoxPrograma.setBounds(168, 52, 208, 20);
 		getContentPane().add(comboBoxPrograma);
 		
-		JComboBox comboBoxCurso = new JComboBox();
+		comboBoxCurso = new JComboBox<String>();
 		comboBoxCurso.setBounds(166, 103, 210, 20);
 		getContentPane().add(comboBoxCurso);
 		
-		JButton btnConfirmar = new JButton("CONFIRMAR");
+		btnConfirmar = new JButton("CONFIRMAR");
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				confirmarActionPerformed(e);
 			}
 		});
 		btnConfirmar.setBounds(77, 174, 122, 23);
@@ -47,10 +62,59 @@ public class AgregarCursoAPrograma extends JInternalFrame {
 		JButton btnCancelar = new JButton("CANCELAR");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				cancelarActionPerformed(e);
+				
 			}
 		});
 		btnCancelar.setBounds(239, 174, 122, 23);
 		getContentPane().add(btnCancelar);
 
+	}
+	
+	protected void confirmarActionPerformed(ActionEvent e) {
+		String programa = comboBoxPrograma.getSelectedItem().toString();
+		String curso = comboBoxCurso.getSelectedItem().toString();
+		
+		iConAgrCurAPF.seleccionarPrograma(programa);
+		try {
+			iConAgrCurAPF.seleccionarCurso(curso);
+			JOptionPane.showMessageDialog(this, "El curso '" + curso + "' se ha agregado al programa de formación '" + programa + "' con éxito", "Agregar curso a programa de formación", JOptionPane.INFORMATION_MESSAGE);
+
+		}catch (CursoEnPFRepetidoException cepfre) {
+            JOptionPane.showMessageDialog(this, cepfre.getMessage(), "Ingresar programa de formación", JOptionPane.ERROR_MESSAGE);
+
+		}
+		setVisible(false);
+		
+	}
+	
+	protected void cancelarActionPerformed(ActionEvent e) {
+		setVisible(false);
+	}
+	
+	
+	
+		
+	/*public void habilitarBotonConfirmar() {
+		if ((iConAgrCurAPF.getCursos().length != 0) & (iConAgrCurAPF.getProgramas().length != 0)) {
+			btnConfirmar.setEnabled(true);
+		}
+		else btnConfirmar.setEnabled(false);
+		
+	}*/
+	
+	 
+	 public void inicializarComboBoxCurso() {	
+		if(iConAgrCurAPF.getCursos().length != 0) {
+			DefaultComboBoxModel<String> modelCurso = new DefaultComboBoxModel<String>(iConAgrCurAPF.getCursos());		
+			comboBoxCurso.setModel(modelCurso);
+		}		
+	}
+	 
+	 public void inicializarComboBoxProgramas() {	
+		if(iConAgrCurAPF.getProgramas().length != 0) {
+			DefaultComboBoxModel<String> modelPrograma = new DefaultComboBoxModel<String>(iConAgrCurAPF.getProgramas());		
+			comboBoxPrograma.setModel(modelPrograma);
+		}		
 	}
 }

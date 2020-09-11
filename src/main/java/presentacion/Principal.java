@@ -8,6 +8,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import interfaces.Fabrica;
+import interfaces.IControladorAgregarCursoAPF;
 import interfaces.IControladorAltaCurso;
 import interfaces.IControladorAltaEdicion;
 import interfaces.IControladorAltaInstituto;
@@ -32,6 +33,7 @@ public class Principal {
 	private InscripcionAEdicion inscribirAEdicionInternalFrame;
 	private ConsultaCurso consultarCursoInternalFrame;
 	private IngresarPrograma ingresarProgramaInternalFrame;
+	private AgregarCursoAPrograma agregarCursoAPFInternalFrame;
 	
 
 	
@@ -60,6 +62,7 @@ public class Principal {
 		IControladorInscripcionAEdicion IConInsEd = f.getIControladorInscripcionAEdicion();
 		IControladorConsultaCurso IConConCur = f.getIControladorConsultaCurso();
 		IControladorAltaProgFormacion IConAltPF = f.getIControladorAltaProgFormacion();
+		IControladorAgregarCursoAPF IConAgrCurAPF = f.getIControladorAgregarCursoAPF();
 				
 		Dimension desktopSize = frame.getSize();
 		Dimension jInternalFrameSize;
@@ -72,6 +75,7 @@ public class Principal {
 		inscribirAEdicionInternalFrame = new InscripcionAEdicion(IConInsEd);
 		consultarCursoInternalFrame = new ConsultaCurso(IConConCur);
 		ingresarProgramaInternalFrame = new IngresarPrograma(IConAltPF);
+		agregarCursoAPFInternalFrame = new AgregarCursoAPrograma (IConAgrCurAPF);
 		
 		
 		
@@ -139,6 +143,14 @@ public class Principal {
 		ingresarProgramaInternalFrame.setVisible(false);
 		frame.getContentPane().add(ingresarProgramaInternalFrame);
 		ingresarProgramaInternalFrame.getContentPane().setLayout(null);
+				
+		jInternalFrameSize =agregarCursoAPFInternalFrame.getSize();
+		agregarCursoAPFInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
+		    (desktopSize.height- jInternalFrameSize.height)/2);
+		
+		agregarCursoAPFInternalFrame.setVisible(false);
+		frame.getContentPane().add(agregarCursoAPFInternalFrame);
+		agregarCursoAPFInternalFrame.getContentPane().setLayout(null);
 		
 	}
 
@@ -239,6 +251,14 @@ public class Principal {
 		menuBar.add(mnAgregar);
 		
 		JMenuItem mntmCursoAPrograma = new JMenuItem("curso a programa de formación");
+		mntmCursoAPrograma.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				agregarCursoAPFInternalFrame.setVisible(true);
+				agregarCursoAPFInternalFrame.inicializarComboBoxCurso();
+				agregarCursoAPFInternalFrame.inicializarComboBoxProgramas();
+
+			}
+		});
 		mnAgregar.add(mntmCursoAPrograma);
 	}
 }

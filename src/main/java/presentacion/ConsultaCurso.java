@@ -212,8 +212,6 @@ public class ConsultaCurso extends JInternalFrame {
 		
 		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();		
 
-		comboBoxCurso.setModel(model);
-		comboBoxCurso.setEnabled(false);
 		comboBoxEdiciones.setModel(model);
 		comboBoxEdiciones.setEnabled(false);
 		comboBoxProgramas.setModel(model);
