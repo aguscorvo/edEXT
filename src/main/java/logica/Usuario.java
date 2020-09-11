@@ -18,7 +18,7 @@ public abstract class Usuario {
 	private String nombre; 
 	private String apellido; 
 	@Column(unique = true)
-	private String correo; // podria ser Id tambien?
+	private String correo; 
 	private Date fechaNac; 
 
 	//public abstract DtUsuario obtenerDtUsuario();
@@ -28,7 +28,6 @@ public abstract class Usuario {
 	
 	public Usuario() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Usuario(String nick, String nombre, String apellido, String correo, Date fechaNac) {

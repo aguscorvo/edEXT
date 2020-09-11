@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 public class Curso {
 	@Id
 	private String nombre;
-	@Column(name="descripción")
+	@Column(name="descripcion")
 	private String desc;
 	private int duracion;
 	private int cantHoras;
