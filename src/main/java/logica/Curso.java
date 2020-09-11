@@ -16,8 +16,8 @@ import javax.persistence.OneToMany;
 public class Curso {
 	@Id
 	private String nombre;
-	@Column(name="descripcion")
-	private String desc;
+	//@Column(name="descripcion")
+	private String descripcion;
 	private int duracion;
 	private int cantHoras;
 	private int creditos;
@@ -58,7 +58,7 @@ public class Curso {
 			String url, List<Curso> previas, List<Edicion> ediciones, List<ProgFormacion> programas) {
 		super();
 		this.nombre = nombre;
-		this.desc = desc;
+		this.descripcion = desc;
 		this.duracion = duracion;
 		this.cantHoras = cantHoras;
 		this.creditos = creditos;
@@ -77,12 +77,12 @@ public class Curso {
 		this.nombre = nombre;
 	}
 	
-	public String getDesc() {
-		return desc;
+	public String getDescripcion() {
+		return descripcion;
 	}
 	
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescripcion(String desc) {
+		this.descripcion = desc;
 	}
 	
 	public int getDuracion() {

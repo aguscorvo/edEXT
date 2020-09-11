@@ -16,7 +16,7 @@ import datatype.DtProgFormacionMin;
 public class ProgFormacion {
 	@Id
 	private String nombre;
-	private String desc;
+	private String descPF;
 	private Date fechaI;
 	private Date fechaF;
 	private Date fechaAlta;
@@ -35,7 +35,7 @@ public class ProgFormacion {
 	public ProgFormacion(String nombre, String desc, Date fechaI, Date fechaF, Date fechaAlta) {
 		super();
 		this.nombre = nombre;
-		this.desc = desc;
+		this.descPF = desc;
 		this.fechaI = fechaI;
 		this.fechaF = fechaF;
 		this.fechaAlta = fechaAlta;
@@ -49,12 +49,12 @@ public class ProgFormacion {
 		this.nombre = nombre;
 	}
 	
-	public String getDesc() {
-		return desc;
+	public String getDescPF() {
+		return descPF;
 	}
 	
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescPF(String desc) {
+		this.descPF = desc;
 	}
 	public Date getFechaI() {
 		return fechaI;

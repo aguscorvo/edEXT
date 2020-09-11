@@ -18,7 +18,7 @@ import persistencia.InscripcionIdPF;
 public class InscripcionPF {
 	
 	@Temporal(TemporalType.DATE)
-	private Date fecha;
+	private Date fechaPF;
 	@Id
 	@ManyToOne
 	@JoinColumn(
@@ -42,16 +42,16 @@ public class InscripcionPF {
 
 	public InscripcionPF(Date fecha, ProgFormacion progFormacion) {
 		super();
-		this.fecha = fecha;
+		this.fechaPF = fecha;
 		this.progFormacion = progFormacion;
 	}
 
-	public Date getFecha() {
-		return fecha;
+	public Date getFechaPF() {
+		return fechaPF;
 	}
 
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
+	public void setFechaPF(Date fecha) {
+		this.fechaPF = fecha;
 	}
 
 	public ProgFormacion getProgFormacion() {
