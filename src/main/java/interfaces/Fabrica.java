@@ -50,6 +50,12 @@ public class Fabrica {
 		
 		
 	}
+	
+	public IControladorAltaProgFormacion getIControladorAltaProgFormacion() {
+		return new ControladorAltaProgFormacion();
+		
+		
+	}
 	/*
 	public IControladorAgregarCursoAPF getIControladorAgregarCursoAPF() {
 		return new ControladorAgregarCursoAPF();

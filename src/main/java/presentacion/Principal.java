@@ -11,6 +11,7 @@ import interfaces.Fabrica;
 import interfaces.IControladorAltaCurso;
 import interfaces.IControladorAltaEdicion;
 import interfaces.IControladorAltaInstituto;
+import interfaces.IControladorAltaProgFormacion;
 import interfaces.IControladorAltaUsuario;
 import interfaces.IControladorConsultaCurso;
 import interfaces.IControladorConsultaEdicion;
@@ -30,6 +31,7 @@ public class Principal {
 	private ConsultaEdicion consultarEdicionInternalFrame;
 	private InscripcionAEdicion inscribirAEdicionInternalFrame;
 	private ConsultaCurso consultarCursoInternalFrame;
+	private IngresarPrograma ingresarProgramaInternalFrame;
 	
 
 	
@@ -57,6 +59,7 @@ public class Principal {
 		IControladorConsultaEdicion IConConEdi = f.getIControladorConsultaEdicion();
 		IControladorInscripcionAEdicion IConInsEd = f.getIControladorInscripcionAEdicion();
 		IControladorConsultaCurso IConConCur = f.getIControladorConsultaCurso();
+		IControladorAltaProgFormacion IConAltPF = f.getIControladorAltaProgFormacion();
 				
 		Dimension desktopSize = frame.getSize();
 		Dimension jInternalFrameSize;
@@ -68,6 +71,7 @@ public class Principal {
 		consultarEdicionInternalFrame = new ConsultaEdicion(IConConEdi);
 		inscribirAEdicionInternalFrame = new InscripcionAEdicion(IConInsEd);
 		consultarCursoInternalFrame = new ConsultaCurso(IConConCur);
+		ingresarProgramaInternalFrame = new IngresarPrograma(IConAltPF);
 		
 		
 		
@@ -128,6 +132,14 @@ public class Principal {
 		frame.getContentPane().add(consultarCursoInternalFrame);
 		consultarCursoInternalFrame.getContentPane().setLayout(null);
 		
+		jInternalFrameSize =ingresarProgramaInternalFrame.getSize();
+		consultarCursoInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
+		    (desktopSize.height- jInternalFrameSize.height)/2);
+		
+		ingresarProgramaInternalFrame.setVisible(false);
+		frame.getContentPane().add(ingresarProgramaInternalFrame);
+		ingresarProgramaInternalFrame.getContentPane().setLayout(null);
+		
 	}
 
 	private void initialize() {
@@ -178,6 +190,14 @@ public class Principal {
 		});
 		mnAltas.add(mntmEdicionDeCurso);
 		
+		JMenuItem mntmProgramaDeFormacion = new JMenuItem("Programa de formación");
+		mntmProgramaDeFormacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ingresarProgramaInternalFrame.setVisible(true);
+			}
+		});
+		mnAltas.add(mntmProgramaDeFormacion);
+		
 		JMenu mnConsultas = new JMenu("Consultas");
 		menuBar.add(mnConsultas);
 		
@@ -214,5 +234,11 @@ public class Principal {
 			}
 		});
 		mnInscripciones.add(mntmAEdicion);
+		
+		JMenu mnAgregar = new JMenu("Agregar");
+		menuBar.add(mnAgregar);
+		
+		JMenuItem mntmCursoAPrograma = new JMenuItem("curso a programa de formación");
+		mnAgregar.add(mntmCursoAPrograma);
 	}
 }

@@ -1,6 +1,7 @@
 package logica;
 
 import datatype.DtProgFormacion;
+import excepciones.ProgramaRepetidoException;
 import interfaces.IControladorAltaProgFormacion;
 
 public class ControladorAltaProgFormacion implements IControladorAltaProgFormacion {
@@ -9,13 +10,14 @@ public class ControladorAltaProgFormacion implements IControladorAltaProgFormaci
 	
 	
 	
-	public void ingresarProgFormacion(DtProgFormacion programa) {
+	public void ingresarProgFormacion(DtProgFormacion programa) throws ProgramaRepetidoException {
 		
 		ManejadorProgFormacion mpf = ManejadorProgFormacion.getInstancia();
-		if(mpf.existeProgFormacion(programa.getNombre())) {
+		if(mpf.existeProgFormacion(programa.getNombre())) 
+			throw new ProgramaRepetidoException("Ya existe un programa con nombre '" + programa.getNombre() + "' registrado en el sistema.\n");
+		else {
 			ProgFormacion auxPrograma = mpf.getProgFormacion(programa.getNombre());
-			this.programa = programa;
-		
+			this.programa = programa;		
 		}
 		
 		
