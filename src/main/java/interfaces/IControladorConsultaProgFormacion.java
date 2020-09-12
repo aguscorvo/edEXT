@@ -12,5 +12,12 @@ public interface IControladorConsultaProgFormacion {
 	public DtProgFormacionExp seleccionarPrograma(String programa);
 	
 	public DtCursoExp seleccionarCurso(String curso);
+	
+	public String [] getCursos(DtProgFormacionExp dtProg);
 
+	public String obtenerDatosPrograma(DtProgFormacionExp programa);
+	
+	public String obtenerDatosCurso(DtCursoExp curso);
+	
+	
 }

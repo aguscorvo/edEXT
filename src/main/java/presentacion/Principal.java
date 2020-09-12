@@ -16,6 +16,7 @@ import interfaces.IControladorAltaProgFormacion;
 import interfaces.IControladorAltaUsuario;
 import interfaces.IControladorConsultaCurso;
 import interfaces.IControladorConsultaEdicion;
+import interfaces.IControladorConsultaProgFormacion;
 import interfaces.IControladorInscripcionAEdicion;
 
 import javax.swing.JMenu;
@@ -41,6 +42,7 @@ public class Principal {
 	private ConsultaCurso consultarCursoInternalFrame;
 	private IngresarPrograma ingresarProgramaInternalFrame;
 	private AgregarCursoAPrograma agregarCursoAPFInternalFrame;
+	private ConsultaPrograma consultarProgramaInternalFrame;
 	
 
 	
@@ -71,6 +73,7 @@ public class Principal {
 		IControladorConsultaCurso IConConCur = f.getIControladorConsultaCurso();
 		IControladorAltaProgFormacion IConAltPF = f.getIControladorAltaProgFormacion();
 		IControladorAgregarCursoAPF IConAgrCurAPF = f.getIControladorAgregarCursoAPF();
+		IControladorConsultaProgFormacion IConConPF = f.getIControladorConsultaProgFormacion();
 				
 		Dimension desktopSize = frame.getSize();
 		Dimension jInternalFrameSize;
@@ -84,6 +87,7 @@ public class Principal {
 		consultarCursoInternalFrame = new ConsultaCurso(IConConCur);
 		ingresarProgramaInternalFrame = new IngresarPrograma(IConAltPF);
 		agregarCursoAPFInternalFrame = new AgregarCursoAPrograma (IConAgrCurAPF);
+		consultarProgramaInternalFrame = new ConsultaPrograma(IConConPF);
 		
 		
 		
@@ -159,6 +163,14 @@ public class Principal {
 		agregarCursoAPFInternalFrame.setVisible(false);
 		frame.getContentPane().add(agregarCursoAPFInternalFrame);
 		agregarCursoAPFInternalFrame.getContentPane().setLayout(null);
+		
+		jInternalFrameSize =consultarProgramaInternalFrame.getSize();
+		consultarProgramaInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
+		    (desktopSize.height- jInternalFrameSize.height)/2);
+		
+		consultarProgramaInternalFrame.setVisible(false);
+		frame.getContentPane().add(consultarProgramaInternalFrame);
+		consultarProgramaInternalFrame.getContentPane().setLayout(null);
 		
 	}
 
@@ -241,6 +253,15 @@ public class Principal {
 			}
 		});
 		mnConsultas.add(mntmCurso_1);
+		
+		JMenuItem mntmProgramaDeFormacionCon = new JMenuItem("Programa de formación");
+		mntmProgramaDeFormacionCon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				consultarProgramaInternalFrame.setVisible(true);
+				consultarProgramaInternalFrame.inicializarComboBoxProgramas();
+			}
+		});
+		mnConsultas.add(mntmProgramaDeFormacionCon);
 		
 		JMenu mnInscripciones = new JMenu("Inscripciones");
 		menuBar.add(mnInscripciones);

@@ -11,6 +11,7 @@ import interfaces.IControladorConsultaProgFormacion;
 
 public class ControladorConsultaProgFormacion implements IControladorConsultaProgFormacion {
 
+		
 	
 		public String[] getProgramasDeFormacion() {
 			
@@ -19,8 +20,10 @@ public class ControladorConsultaProgFormacion implements IControladorConsultaPro
 			String[] nombreProgramas = new String[programas.size()];
 			if(nombreProgramas.length != 0) {
 				int i = 0;
-				for(ProgFormacion pf: programas)
+				for(ProgFormacion pf: programas) {
 					nombreProgramas[i] = pf.getNombre();
+					i++;
+				}
 			}
 			
 			return nombreProgramas;
@@ -31,7 +34,6 @@ public class ControladorConsultaProgFormacion implements IControladorConsultaPro
 		public DtProgFormacionExp seleccionarPrograma(String programa) {
 			
 			ManejadorProgFormacion mpf = ManejadorProgFormacion.getInstancia();
-				
 			ProgFormacion auxPF = mpf.getProgFormacion(programa);
 			String nombre = auxPF.getNombre();
 			String desc = auxPF.getDesc();
@@ -48,7 +50,7 @@ public class ControladorConsultaProgFormacion implements IControladorConsultaPro
 			for(Curso c: cursos) {
 				cursosPFs = c.getProgramas();
 				for(ProgFormacion pf: cursosPFs) {
-					if(pf.getNombre().equals(c.getNombre())) {
+					if(pf.getNombre().equals(programa)) {
 						nomCursos.add(c.getNombre());
 						break;
 					}
@@ -57,10 +59,24 @@ public class ControladorConsultaProgFormacion implements IControladorConsultaPro
 			
 			DtProgFormacionExp auxDT = new DtProgFormacionExp(nombre, desc, fechaI, fechaF, fechaAlta, nomCursos); //lo cree con las fechas aunque no aparezca eso en el diseño porque 
 																													//me dio lastima y me pareció al pedo ponerlo en null.
-			
 			return auxDT;
 				
 		};
+		
+		public String [] getCursos(DtProgFormacionExp dtProg) {
+			String [] arrVacio = {""};
+			List<String> auxCursos = dtProg.getCursos();
+			if (!dtProg.getCursos().isEmpty()) {
+				String [] cursos = new String [dtProg.getCursos().size()];
+				int i=0;
+				for(String c: auxCursos) {
+					cursos[i]=c;
+					i++;
+				}
+				return cursos;
+			}
+			return arrVacio;
+		}
 		
 		
 		
@@ -95,6 +111,38 @@ public class ControladorConsultaProgFormacion implements IControladorConsultaPro
 			return auxDT;
 
 
+		}
+		
+		public String obtenerDatosPrograma(DtProgFormacionExp programa) {
+			String nombre = programa.getNombre();
+			String desc = programa.getDesc();
+			Date auxFechaI = programa.getFechaI();
+			Date auxFechaF = programa.getFechaF();
+			Date auxFechaAlta = programa.getFechaAlta();
+			String fechaI = funcionesAux.convertirAString(auxFechaI);
+			String fechaF = funcionesAux.convertirAString(auxFechaF);
+			String fechaAlta = funcionesAux.convertirAString(auxFechaAlta);
+			String aRetornar = "Nombre: " + nombre + "\n\nDescripción: " + desc + "\n\nFecha de inicio: " + fechaI + "\n\nFecha de finalización: " + fechaF + "\n\n"
+					+ "Fecha de alta: " + fechaAlta;
+			
+			return aRetornar;
+			
+		}
+		
+		public String obtenerDatosCurso(DtCursoExp curso) {
+			String nombre = curso.getNombre();
+			String desc = curso.getDesc();
+			int duracion = curso.getDuracion();
+			int cantHoras = curso.getCantHoras();
+			int creditos = curso.getCreditos();
+			Date auxFechaR = curso.getFechaR();
+			String fechaR = funcionesAux.convertirAString(auxFechaR);
+			String url = curso.getUrl();
+			String aRetornar = "Nombre: " + nombre + "\n\nDescripción: " + desc+ "\n\nDuración: " + duracion+ "\n\nCantidad de horas: " + cantHoras + "\n\nCréditos: " 
+			+ creditos + "\n\nFecha de registro: " + fechaR+ "\n\nURL: " + url;
+			
+			return aRetornar;	
+			
 		}
 		
 
