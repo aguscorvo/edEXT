@@ -10,7 +10,6 @@ import persistencia.Conexion;
 
 public class ManejadorEdicion {
 	private static ManejadorEdicion instancia = null;
-	//private List<Edicion> ediciones = new ArrayList<Edicion>();
 	
 	private ManejadorEdicion(){}
 	
@@ -21,7 +20,6 @@ public class ManejadorEdicion {
 	}
 
 	public void agregarEdicion(Edicion edicion) {
-		//ediciones.add(edicion);
 		Conexion c = Conexion.getInstancia();
 		EntityManager em= c.getEntityManager();
 		
@@ -31,12 +29,7 @@ public class ManejadorEdicion {
 	}
 	
 	public Edicion getEdicion(String nombre) {
-		/*Edicion aretornar=null;
-		for(Edicion e: ediciones){
-			if (e.getNombre().equals(nombre))
-				aretornar=e;
-		}
-		return aretornar;*/
+
 		Conexion c = Conexion.getInstancia();
 		EntityManager em= c.getEntityManager();
 		Edicion auxEdicion = em.find(Edicion.class, nombre);
@@ -56,19 +49,11 @@ public class ManejadorEdicion {
 			aRetornar.add(e);
 		}
 		return aRetornar;
-		//return ediciones;
 	}
 	public void removerEdicion(Edicion edicion){}
 	
 	public boolean existeEdicion(String nombre){
-		/*boolean existe = false;
-		for(Edicion e: ediciones) {
-			if(e.getNombre().equals(nombre)) {
-				existe = true;
-			}	
-		}
-		return existe;*/
-		
+				
 		Conexion c = Conexion.getInstancia();
 		EntityManager em= c.getEntityManager();
 		
@@ -76,7 +61,10 @@ public class ManejadorEdicion {
 		boolean existe = em.contains(auxEd);
 		return existe;
 
-		
-		
+
 	}
+	
+		
+	
+	
 }

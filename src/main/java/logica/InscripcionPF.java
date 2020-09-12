@@ -2,6 +2,7 @@ package logica;
 
 import java.util.Date;
 
+<<<<<<< HEAD
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;

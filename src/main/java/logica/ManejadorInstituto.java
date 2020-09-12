@@ -40,7 +40,7 @@ public class ManejadorInstituto {
 		/*Instituto aretornar=null;
 		for(Instituto i: institutos){
 			if (i.getNombre().equals(nombre))
-				aretornar=i;
+				return aretornar=i;
 		}
 		return aretornar;*/
 	}

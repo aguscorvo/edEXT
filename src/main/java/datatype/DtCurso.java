@@ -13,7 +13,7 @@ public class DtCurso {
 	private int creditos;
 	private Date fechaR;
 	private String url;	
-	private List<String> previas = new ArrayList<String>(); // ver distintos contenedores
+	private List<String> previas = new ArrayList<String>(); 	
 	
 	public DtCurso() {
 		super();

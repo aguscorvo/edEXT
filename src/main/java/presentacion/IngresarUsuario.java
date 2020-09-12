@@ -22,7 +22,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import java.awt.event.ActionListener;
 import java.util.Date;
-import javax.swing.UIManager;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JPanel;

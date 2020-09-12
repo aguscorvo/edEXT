@@ -73,7 +73,7 @@ public class ControladorAltaEdicion implements IControladorAltaEdicion{
 		}
 		
 		ManejadorEdicion me = ManejadorEdicion.getInstancia();
-		me.getEdiciones().add(nuevaEdicion);
+		me.agregarEdicion(nuevaEdicion);
 		
 		
 	}

@@ -40,7 +40,6 @@ public class InscripcionEd {
 
 	public InscripcionEd() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public InscripcionEd(Date fecha, Edicion edicion) {

@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 public class DtProgFormacionExp extends DtProgFormacion{
+	
 	private List<String> cursos = new ArrayList<String>();
 
 	public DtProgFormacionExp() {

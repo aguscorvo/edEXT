@@ -11,7 +11,6 @@ public class DtEdicion {
 	
 	public DtEdicion() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public DtEdicion(String nombre, Date fechaI, Date fechaF, int cupo, Date fechaPub) {

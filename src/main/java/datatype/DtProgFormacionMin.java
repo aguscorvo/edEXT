@@ -6,7 +6,6 @@ public class DtProgFormacionMin {
 	
 	public DtProgFormacionMin() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public DtProgFormacionMin(String nombre, String desc) {

@@ -25,7 +25,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import javax.swing.JPanel;
 
 public class IngresarCurso extends JInternalFrame {
 	
@@ -47,7 +46,7 @@ public class IngresarCurso extends JInternalFrame {
 	
 
 	
-	public IngresarCurso(IControladorAltaCurso iConAltCur) {
+	public IngresarCurso(final IControladorAltaCurso iConAltCur) {
 		this.iConAltCur = iConAltCur;
 		setResizable(true);
 		setClosable(true);
@@ -311,7 +310,7 @@ public class IngresarCurso extends JInternalFrame {
 		DefaultComboBoxModel<String> modelcursos = new DefaultComboBoxModel<String>(iConAltCur.getCursos());		
 		comboBoxPrevias.setModel(modelcursos);
 		
-	}	
+	}
 	
 	public void habilitarBotonConfirmar() {
 		if (!textFieldInstituto.getText().isEmpty() & !textFieldNombre.getText().isEmpty() & !textFieldDescripcion.getText().isEmpty() & !textFieldCantHoras.getText().isEmpty()

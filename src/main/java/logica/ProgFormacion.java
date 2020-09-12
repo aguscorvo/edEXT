@@ -9,8 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import datatype.DtProgFormacionExp;
-import datatype.DtProgFormacionMin;
 
 @Entity
 public class ProgFormacion {

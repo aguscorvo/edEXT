@@ -3,6 +3,7 @@ package logica;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+<<<<<<< HEAD
 
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
@@ -10,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import datatype.DtEstudiante;
+
 
 @Entity
 public class Estudiante extends Usuario {

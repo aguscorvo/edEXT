@@ -10,7 +10,6 @@ import persistencia.Conexion;
 
 public class ManejadorProgFormacion {
 	private static ManejadorProgFormacion instancia = null;
-	//private List<ProgFormacion> progFormaciones = new ArrayList<ProgFormacion>();
 	
 	private ManejadorProgFormacion(){}
 	
@@ -21,23 +20,19 @@ public class ManejadorProgFormacion {
 	}
 
 	public void agregarProgFormacion(ProgFormacion progFormacion) {
-		//progFormaciones.add(progFormacion);
+
 		Conexion c = Conexion.getInstancia();
 		EntityManager em= c.getEntityManager();
 		
 		em.getTransaction().begin();
 		em.persist(progFormacion);
 		em.getTransaction().commit();
+
 	}
 	
 	
 	public ProgFormacion getProgFormacion(String nombre) {
-		/*ProgFormacion aretornar=null;
-		for(ProgFormacion pf: progFormaciones){
-			if (pf.getNombre().equals(nombre))
-				aretornar=pf;
-		}
-		return aretornar;*/
+
 		Conexion c = Conexion.getInstancia();
 		EntityManager em= c.getEntityManager();
 		ProgFormacion auxPrograma = em.find(ProgFormacion.class, nombre);
@@ -67,5 +62,18 @@ public class ManejadorProgFormacion {
 		ProgFormacion auxPF = em.find(ProgFormacion.class, nombre);
 		boolean existe = em.contains(auxPF);
 		return existe;
+	
+	}
+	
+	public void removerProgFormacion(ProgFormacion progFormacion){}
+	
+	public boolean existeProgFormacion(String nombre){
+		
+		for(ProgFormacion pf: progsFormacion)
+			if(pf.getNombre().equals(nombre))
+					return true;
+			
+		return false;
+
 	}
 }
