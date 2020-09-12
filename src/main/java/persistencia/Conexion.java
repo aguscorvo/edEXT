@@ -21,7 +21,7 @@ public class Conexion {
 	}
 	
 	public EntityManager getEntityManager() {
-		return this.em;
+		return em;
 	}
 	
 	public void close() {

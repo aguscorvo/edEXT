@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Edicion {
 	@Id
-	private String nombre;
+	private String nombreEd;
 	private Date fechaI;
 	private Date fechaF;
 	private int cupo;
@@ -32,19 +32,19 @@ public class Edicion {
 	
 	public Edicion(String nombre, Date fechaI, Date fechaF, int cupo, Date fechaPub) {
 		super();
-		this.nombre = nombre;
+		this.nombreEd = nombre;
 		this.fechaI = fechaI;
 		this.fechaF = fechaF;
 		this.cupo = cupo;
 		this.fechaPub = fechaPub;
 	}
 	
-	public String getNombre() {
-		return nombre;
+	public String getNombreEd() {
+		return nombreEd;
 	}
 	
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setNombreEd(String nombre) {
+		this.nombreEd = nombre;
 	}
 	
 	public Date getFechaI() {
