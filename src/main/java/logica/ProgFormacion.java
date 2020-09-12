@@ -77,6 +77,18 @@ public class ProgFormacion {
 	public void setFechaAlta(Date fechaAlta) {
 		this.fechaAlta = fechaAlta;
 	}
+
+	public List<InscripcionPF> getInscripcionesPF() {
+		return inscripcionesPF;
+	}
+
+	public void setInscripcionesPF(List<InscripcionPF> inscripcionesPF) {
+		this.inscripcionesPF = inscripcionesPF;
+		for (InscripcionPF ipf: this.inscripcionesPF) {
+			ipf.setProgFormacion(this);
+		}
+	}
+	
 	
 	
 }

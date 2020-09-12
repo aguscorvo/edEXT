@@ -32,6 +32,9 @@ import javax.swing.JCheckBox;;
 
 public class IngresarEdicion extends JInternalFrame {
 	
+	private static final long serialVersionUID = 1L;
+
+	
 	private IControladorAltaEdicion iConAltEd;
 	private List<String> CursosInstituto = new ArrayList<String>();
 	private JButton btnConfirmar;

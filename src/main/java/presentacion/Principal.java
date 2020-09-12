@@ -23,7 +23,6 @@ import javax.swing.JMenu;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 import java.awt.event.ActionEvent;
-<<<<<<< HEAD
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JPanel;

@@ -3,7 +3,6 @@ package logica;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-<<<<<<< HEAD
 
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
@@ -45,15 +44,24 @@ public class Estudiante extends Usuario {
 
 	public void setInscripcionesEd(List<InscripcionEd> inscripcionesEd) {
 		this.inscripcionesEd = inscripcionesEd;
+		for(InscripcionEd ie :this.inscripcionesEd) {
+			ie.setEstudiante(this);
+		}
 	}
 
 	public List<InscripcionPF> getInscripcionesPF() {
 		return inscripcionesPF;
+	
 	}
 
 	public void setInscripcionesPF(List<InscripcionPF> inscripcionesPF) {
 		this.inscripcionesPF = inscripcionesPF;
+		for(InscripcionPF ipf :this.inscripcionesPF) {
+			ipf.setEstudiante(this);
+		}
 	}
+	
+	
 	
 	
 	

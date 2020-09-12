@@ -44,7 +44,7 @@ public class ControladorConsultaCurso implements IControladorConsultaCurso{
 		Curso auxCurso = mc.getCurso(curso);
 		
 		String nombre = auxCurso.getNombre();
-		String desc = auxCurso.getDesc();
+		String desc = auxCurso.getDescripcion();
 		int duracion = auxCurso.getDuracion();
 		int cantHoras = auxCurso.getCantHoras();
 		int creditos = auxCurso.getCreditos();
@@ -58,7 +58,7 @@ public class ControladorConsultaCurso implements IControladorConsultaCurso{
 		List<String> auxPFs = new ArrayList<String>();
 		
 		for(Edicion e: ediciones)
-			auxEdiciones.add(e.getNombre());
+			auxEdiciones.add(e.getNombreEd());
 		
 		for(ProgFormacion pf: PFs)
 			auxPFs.add(pf.getNombre());
@@ -76,7 +76,7 @@ public class ControladorConsultaCurso implements IControladorConsultaCurso{
 		ManejadorEdicion me = ManejadorEdicion.getInstancia();
 		Edicion auxEdicion = me.getEdicion(edicion);
 		
-		String nombre = auxEdicion.getNombre();
+		String nombre = auxEdicion.getNombreEd();
 		Date fechaI = auxEdicion.getFechaI();
 		Date fechaF = auxEdicion.getFechaF();
 		int cupo = auxEdicion.getCupo();
@@ -97,7 +97,7 @@ public class ControladorConsultaCurso implements IControladorConsultaCurso{
 		ProgFormacion auxPF = mpf.getProgFormacion(progFormacion);
 		
 		String nombre = auxPF.getNombre();
-		String desc = auxPF.getDesc();
+		String desc = auxPF.getDescPF();
 		Date fechaI = auxPF.getFechaI();
 		Date fechaF = auxPF.getFechaF();
 		Date fechaAlta = auxPF.getFechaAlta();
@@ -161,7 +161,7 @@ public class ControladorConsultaCurso implements IControladorConsultaCurso{
 			String [] nomEdiciones = new String[edicionesCurso.size()];
 			int i = 0;
 			for(Edicion e: edicionesCurso) { 
-				nomEdiciones[i] = e.getNombre();
+				nomEdiciones[i] = e.getNombreEd();
 				i++;
 			}
 			

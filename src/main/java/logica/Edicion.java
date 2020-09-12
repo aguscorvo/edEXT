@@ -78,6 +78,18 @@ public class Edicion {
 	public void setFechaPub(Date fechaPub) {
 		this.fechaPub = fechaPub;
 	}
+
+	public List<InscripcionEd> getInscripcionesEd() {
+		return inscripcionesEd;
+		
+	}
+
+	public void setInscripcionesEd(List<InscripcionEd> inscripcionesEd) {
+		this.inscripcionesEd = inscripcionesEd;
+		for (InscripcionEd ied: this.inscripcionesEd) {
+			ied.setEdicion(this);
+		}
+	}
 	
 	
 	

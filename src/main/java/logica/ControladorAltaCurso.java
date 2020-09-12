@@ -49,7 +49,9 @@ public class ControladorAltaCurso implements IControladorAltaCurso {
 		Curso nuevo = new Curso(this.curso.getNombre(),this.curso.getDesc(),this.curso.getDuracion(),this.curso.getCantHoras(),this.curso.getCreditos(),this.curso.getFechaR(),this.curso.getUrl(), auxPrevias, auxEdiciones, auxProgramas);
 
 		Instituto auxInstituto = mi.getInstituto(this.instituto);
-		auxInstituto.getCursos().add(nuevo);
+		List<Curso> auxCursos = auxInstituto.getCursos();
+		auxCursos.add(nuevo);
+		auxInstituto.setCursos(auxCursos);
 		
 		mc.agregarCurso(nuevo);
 	

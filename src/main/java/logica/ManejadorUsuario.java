@@ -10,7 +10,6 @@ import persistencia.Conexion;
 
 public class ManejadorUsuario {
 	private static ManejadorUsuario instancia = null;
-	//private List<Usuario> usuarios = new ArrayList<Usuario>();
 	
 	private ManejadorUsuario(){}
 	
@@ -21,7 +20,6 @@ public class ManejadorUsuario {
 	}
 
 	public void agregarUsuario(Usuario usuario) {
-		//usuarios.add(usuario);
 		Conexion c = Conexion.getInstancia();
 		EntityManager em= c.getEntityManager();
 		
@@ -31,12 +29,7 @@ public class ManejadorUsuario {
 	}
 	
 	public Usuario getUsuario(String nick) {
-		/*Usuario aretornar=null;
-		for(Usuario u: usuarios){
-			if (u.getNick().equals(nick))
-				return aretornar=u;
-		}
-		return aretornar;*/
+		
 		Conexion c = Conexion.getInstancia();
 		EntityManager em= c.getEntityManager();
 		Usuario auxUsuario = em.find(Usuario.class, nick);
@@ -44,8 +37,7 @@ public class ManejadorUsuario {
 	}
 	
 	public List<Usuario> getUsuarios(){
-		/*List <Usuario> aux = new ArrayList<Usuario>(usuarios);
-		return aux;*/
+		
 		Conexion c = Conexion.getInstancia();
 		EntityManager em= c.getEntityManager();
 		
@@ -58,16 +50,11 @@ public class ManejadorUsuario {
 		}
 		return aRetornar;
 	}
+	
 	public void removerUsuario(Usuario usuario){}
 	
 	public boolean existeUsuarioNick(String nick){
-		/*boolean existe = false;
-		for (Usuario u: usuarios) {
-			if(u.getNick().equals(nick)) {
-				existe= true;
-			}	
-		}
-		return existe;*/
+
 		Conexion c = Conexion.getInstancia();
 		EntityManager em= c.getEntityManager();
 		
@@ -78,13 +65,7 @@ public class ManejadorUsuario {
 	
 	
 	public boolean existeUsuarioCorreo(String correo) {
-		/*boolean existe = false;
-		for (Usuario u: usuarios) {
-			if(u.getCorreo().equals(correo)) {
-				existe= true;
-			}	
-		}
-		return existe;*/
+	
 		Conexion c = Conexion.getInstancia();
 		EntityManager em= c.getEntityManager();
 		

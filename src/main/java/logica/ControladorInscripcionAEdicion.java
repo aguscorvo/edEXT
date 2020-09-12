@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import excepciones.NoExisteEdicionVigenteException;
 import interfaces.IControladorInscripcionAEdicion;
+import persistencia.Conexion;
 
 public class ControladorInscripcionAEdicion implements IControladorInscripcionAEdicion {
 	private String instituto;
@@ -56,8 +59,8 @@ public class ControladorInscripcionAEdicion implements IControladorInscripcionAE
 					throw new NoExisteEdicionVigenteException("El curso '" + curso + "' no tiene una edición vigente.");	
 				
 				else {
-					this.edicion = e.getNombre();
-					return e.getNombre();
+					this.edicion = e.getNombreEd();
+					return e.getNombreEd();
 				} 				
 				
 			}
@@ -91,6 +94,11 @@ public class ControladorInscripcionAEdicion implements IControladorInscripcionAE
 		auxInscripciones.add(nuevaInscripcion);
 		auxEstudiante.setInscripcionesEd(auxInscripciones);
 		
+		Conexion conexion = Conexion.getInstancia();
+		EntityManager em = conexion.getEntityManager();
+		em.getTransaction().begin();
+		em.persist(nuevaInscripcion);
+		em.getTransaction().commit();
 		
 	}
 	
@@ -150,7 +158,7 @@ public class ControladorInscripcionAEdicion implements IControladorInscripcionAE
 				else {
 					for(InscripcionEd ie: inscripcionesEd) {
 						auxEdicion=ie.getEdicion();
-						if (auxEdicion.getNombre().equals(edicion)) 
+						if (auxEdicion.getNombreEd().equals(edicion)) 
 							tieneEdicionAsociada=true;	
 					}
 					if (!tieneEdicionAsociada) 				//el estudiante no está inscripto en la edición que pasamos como parámetro (se puede inscribir)

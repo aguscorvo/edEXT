@@ -64,16 +64,5 @@ public class ManejadorProgFormacion {
 		return existe;
 	
 	}
-	
-	public void removerProgFormacion(ProgFormacion progFormacion){}
-	
-	public boolean existeProgFormacion(String nombre){
 		
-		for(ProgFormacion pf: progsFormacion)
-			if(pf.getNombre().equals(nombre))
-					return true;
-			
-		return false;
-
-	}
 }

@@ -19,6 +19,9 @@ import java.awt.event.ActionEvent;
 
 public class AgregarCursoAPrograma extends JInternalFrame {
 	
+	private static final long serialVersionUID = 1L;
+	
+		
 	private IControladorAgregarCursoAPF iConAgrCurAPF;
 	private JComboBox<String> comboBoxPrograma;
 	private JComboBox<String> comboBoxCurso;

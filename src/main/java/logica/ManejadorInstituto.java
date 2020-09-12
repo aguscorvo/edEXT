@@ -10,7 +10,6 @@ import persistencia.Conexion;
 
 public class ManejadorInstituto {
 	private static ManejadorInstituto instancia = null;
-	//private List<Instituto> institutos = new ArrayList<Instituto>();
 	
 	private ManejadorInstituto(){}
 	
@@ -21,7 +20,6 @@ public class ManejadorInstituto {
 	}
 
 	public void agregarInstituto(Instituto instituto) {
-		//institutos.add(instituto);
 
 		Conexion c = Conexion.getInstancia();
 		EntityManager em= c.getEntityManager();
@@ -37,12 +35,7 @@ public class ManejadorInstituto {
 		
 		Instituto auxInstituto = em.find(Instituto.class, nombre);
 		return auxInstituto;
-		/*Instituto aretornar=null;
-		for(Instituto i: institutos){
-			if (i.getNombre().equals(nombre))
-				return aretornar=i;
-		}
-		return aretornar;*/
+		
 	}
 	
 	public List<Instituto> getInstitutos(){
@@ -57,18 +50,12 @@ public class ManejadorInstituto {
 			aRetornar.add(i);
 		}
 		return aRetornar;
-		//return institutos;
+		
 	}
 	public void removerInstituto(Instituto instituto){}
 	
 	public boolean existeInstituto(String nombre){
-		/*boolean existe=false;
-		for(Instituto i: institutos){
-			if(i.getNombre().equals(nombre))
-				existe=true;
-		}
-		return existe;*/
-		
+				
 		Conexion c = Conexion.getInstancia();
 		EntityManager em= c.getEntityManager();
 		

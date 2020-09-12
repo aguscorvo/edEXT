@@ -39,7 +39,7 @@ public class ControladorConsultaEdicion implements IControladorConsultaEdicion{
 		List<String> nombreEdiciones = new ArrayList<String>();
 		
 		for(Edicion e: auxEdicion)
-			nombreEdiciones.add(e.getNombre());
+			nombreEdiciones.add(e.getNombreEd());
 		
 		return nombreEdiciones;
 		
@@ -49,7 +49,7 @@ public class ControladorConsultaEdicion implements IControladorConsultaEdicion{
 		
 		ManejadorEdicion me = ManejadorEdicion.getInstancia();
 		Edicion auxEdicion = me.getEdicion(edicion);
-		DtEdicion auxDT = new DtEdicion(auxEdicion.getNombre(), auxEdicion.getFechaI(), auxEdicion.getFechaF(), auxEdicion.getCupo(), auxEdicion.getFechaPub());
+		DtEdicion auxDT = new DtEdicion(auxEdicion.getNombreEd(), auxEdicion.getFechaI(), auxEdicion.getFechaF(), auxEdicion.getCupo(), auxEdicion.getFechaPub());
 		
 		this.datosEdicion = auxDT;
 		return auxDT;
@@ -108,7 +108,7 @@ public class ControladorConsultaEdicion implements IControladorConsultaEdicion{
 			
 			for(Edicion e: ediciones) {
 				
-				arrEdiciones[i] = e.getNombre();
+				arrEdiciones[i] = e.getNombreEd();
 				i++;
 			}
 			return arrEdiciones;

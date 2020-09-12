@@ -24,11 +24,11 @@ public class Curso {
 	private String url;
 	
 	
-	@ManyToMany(mappedBy = "previasDe")
-	private List<Curso> previas = new ArrayList<Curso>();
+	@ManyToMany(mappedBy = "soyPreviaDe")
+	private List<Curso> misPrevias = new ArrayList<Curso>();
 	
 	@ManyToMany()
-	private List<Curso> previasDe = new ArrayList<Curso>();
+	private List<Curso> soyPreviaDe = new ArrayList<Curso>();
 
 	
 	
@@ -63,7 +63,7 @@ public class Curso {
 		this.creditos = creditos;
 		this.fechaR = fechaR;
 		this.url = url;
-		this.previas = previas;
+		this.misPrevias = previas;
 		this.ediciones = ediciones;
 		this.programas = programas;
 	}
@@ -124,12 +124,12 @@ public class Curso {
 		this.url = url;
 	}
 	
-	public List<Curso> getPrevias() {
-		return previas;
+	public List<Curso> getMisPrevias() {
+		return misPrevias;
 	}
 	
-	public void setPrevias(List<Curso> cursos) {
-		this.previas = cursos;
+	public void setMisPrevias(List<Curso> cursos) {
+		this.misPrevias = cursos;
 	}
 	
 	public List<Edicion> getEdiciones() {
@@ -151,7 +151,16 @@ public class Curso {
 	
 	public void setProgramas(List<ProgFormacion> programas) {
 		this.programas = programas;
+	}
+
+	public List<Curso> getSoyPreviaDe() {
+		return soyPreviaDe;
+	}
+
+	public void setSoyPreviaDe(List<Curso> soyPreviaDe) {
+		this.soyPreviaDe = soyPreviaDe;
 	};
+	
 	
 	
 	

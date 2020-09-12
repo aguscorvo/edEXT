@@ -2,7 +2,6 @@ package logica;
 
 import java.util.Date;
 
-<<<<<<< HEAD
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -20,6 +19,7 @@ public class InscripcionPF {
 	
 	@Temporal(TemporalType.DATE)
 	private Date fechaPF;
+	
 	@Id
 	@ManyToOne
 	@JoinColumn(
@@ -27,6 +27,7 @@ public class InscripcionPF {
 			updatable=false
 	)
 	private ProgFormacion progFormacion;
+	
 	@Id
 	@ManyToOne
 	@JoinColumn(
@@ -61,7 +62,16 @@ public class InscripcionPF {
 
 	public void setProgFormacion(ProgFormacion progFormacion) {
 		this.progFormacion = progFormacion;
+	}
+
+	public Estudiante getEstudiante() {
+		return estudiante;
+	}
+
+	public void setEstudiante(Estudiante estudiante) {
+		this.estudiante = estudiante;
 	};
+	
 	
 	
 }

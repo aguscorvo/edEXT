@@ -20,6 +20,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class ConsultaCurso extends JInternalFrame {
+	
+	private static final long serialVersionUID = 1L;
+
 
 	private IControladorConsultaCurso iConConCur;
 	private JComboBox<String> comboBoxInstituto;

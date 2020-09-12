@@ -36,7 +36,7 @@ public class ControladorConsultaProgFormacion implements IControladorConsultaPro
 			ManejadorProgFormacion mpf = ManejadorProgFormacion.getInstancia();
 			ProgFormacion auxPF = mpf.getProgFormacion(programa);
 			String nombre = auxPF.getNombre();
-			String desc = auxPF.getDesc();
+			String desc = auxPF.getDescPF();
 			Date fechaI = auxPF.getFechaI();
 			Date fechaF = auxPF.getFechaF();
 			Date fechaAlta = auxPF.getFechaAlta();
@@ -86,7 +86,7 @@ public class ControladorConsultaProgFormacion implements IControladorConsultaPro
 			Curso auxCurso = mc.getCurso(curso);
 			
 			String nombre = auxCurso.getNombre();
-			String desc = auxCurso.getDesc();
+			String desc = auxCurso.getDescripcion();
 			int duracion = auxCurso.getDuracion();
 			int cantHoras = auxCurso.getCantHoras();
 			int creditos = auxCurso.getCreditos();
@@ -100,7 +100,7 @@ public class ControladorConsultaProgFormacion implements IControladorConsultaPro
 			List<String> nomPFs = new ArrayList<String>();
 			
 			for(Edicion e: edicionesCurso)
-				nomEdiciones.add(e.getNombre());
+				nomEdiciones.add(e.getNombreEd());
 				
 			for(ProgFormacion pf: progsFormacionCurso)
 				nomPFs.add(pf.getNombre());
