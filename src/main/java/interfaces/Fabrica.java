@@ -65,14 +65,9 @@ public class Fabrica {
 		return new ControladorModificarDatosUsuario();
 	}
 	
-	/*
-	
 	
 	public IControladorConsultaUsuario getIControladorConsultaUsuario() {
 		return new ControladorConsultaUsuario();
 	}
-	
-	
-	
-	*/
+		
 }

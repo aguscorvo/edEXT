@@ -217,6 +217,8 @@ public class ConsultaCurso extends JInternalFrame {
 		textPaneDatos.setText("");
 		
 	}
+	
+	
 
 }
 		

@@ -17,6 +17,7 @@ import interfaces.IControladorAltaUsuario;
 import interfaces.IControladorConsultaCurso;
 import interfaces.IControladorConsultaEdicion;
 import interfaces.IControladorConsultaProgFormacion;
+import interfaces.IControladorConsultaUsuario;
 import interfaces.IControladorInscripcionAEdicion;
 import interfaces.IControladorModificarDatosUsuario;
 
@@ -40,6 +41,7 @@ public class Principal {
 	private AgregarCursoAPrograma agregarCursoAPFInternalFrame;
 	private ConsultaPrograma consultarProgramaInternalFrame;
 	private ModificarDatosUsuario modificarDatosUsuarioInternalFrame;
+	private ConsultaUsuario consultarUsuarioInternalFrame;
 	
 
 	
@@ -72,6 +74,7 @@ public class Principal {
 		IControladorAgregarCursoAPF IConAgrCurAPF = f.getIControladorAgregarCursoAPF();
 		IControladorConsultaProgFormacion IConConPF = f.getIControladorConsultaProgFormacion();
 		IControladorModificarDatosUsuario IConModUsu = f.getIControladorModificarDatosUsuario();
+		IControladorConsultaUsuario IConConUsu = f.getIControladorConsultaUsuario();
 				
 		Dimension desktopSize = frame.getSize();
 		Dimension jInternalFrameSize;
@@ -87,6 +90,7 @@ public class Principal {
 		agregarCursoAPFInternalFrame = new AgregarCursoAPrograma (IConAgrCurAPF);
 		consultarProgramaInternalFrame = new ConsultaPrograma(IConConPF);
 		modificarDatosUsuarioInternalFrame = new ModificarDatosUsuario(IConModUsu);
+		consultarUsuarioInternalFrame = new ConsultaUsuario(IConConUsu);
 		
 		
 		
@@ -148,7 +152,7 @@ public class Principal {
 		consultarCursoInternalFrame.getContentPane().setLayout(null);
 		
 		jInternalFrameSize =ingresarProgramaInternalFrame.getSize();
-		consultarCursoInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
+		ingresarProgramaInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
 		    (desktopSize.height- jInternalFrameSize.height)/2);
 		
 		ingresarProgramaInternalFrame.setVisible(false);
@@ -172,12 +176,20 @@ public class Principal {
 		consultarProgramaInternalFrame.getContentPane().setLayout(null);
 		
 		jInternalFrameSize =modificarDatosUsuarioInternalFrame.getSize();
-		consultarProgramaInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
+		modificarDatosUsuarioInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
 		    (desktopSize.height- jInternalFrameSize.height)/2);
 		
 		modificarDatosUsuarioInternalFrame.setVisible(false);
 		frame.getContentPane().add(modificarDatosUsuarioInternalFrame);
 		modificarDatosUsuarioInternalFrame.getContentPane().setLayout(null);
+		
+		jInternalFrameSize =consultarUsuarioInternalFrame.getSize();
+		consultarUsuarioInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
+		    (desktopSize.height- jInternalFrameSize.height)/2);
+		
+		consultarUsuarioInternalFrame.setVisible(false);
+		frame.getContentPane().add(consultarUsuarioInternalFrame);
+		consultarUsuarioInternalFrame.getContentPane().setLayout(null);
 		
 	}
 
@@ -269,6 +281,15 @@ public class Principal {
 			}
 		});
 		mnConsultas.add(mntmProgramaDeFormacionCon);
+		
+		JMenuItem mntmUsuario_1 = new JMenuItem("Usuario");
+		mntmUsuario_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				consultarUsuarioInternalFrame.setVisible(true);
+				consultarUsuarioInternalFrame.inicializarComboBoxUsuarios();
+			}
+		});
+		mnConsultas.add(mntmUsuario_1);
 		
 		JMenu mnInscripciones = new JMenu("Inscripciones");
 		menuBar.add(mnInscripciones);
