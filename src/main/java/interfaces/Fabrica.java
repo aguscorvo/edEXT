@@ -61,6 +61,9 @@ public class Fabrica {
 		return new ControladorConsultaProgFormacion();
 	}
 	
+	public IControladorModificarDatosUsuario getIControladorModificarDatosUsuario() {
+		return new ControladorModificarDatosUsuario();
+	}
 	
 	/*
 	
@@ -69,9 +72,7 @@ public class Fabrica {
 		return new ControladorConsultaUsuario();
 	}
 	
-	public IControladorModificarDatosUsuario getIControladorModificarDatosUsuario() {
-		return new ControladorModificarDatosUsuario();
-	}
+	
 	
 	*/
 }

@@ -18,6 +18,7 @@ import interfaces.IControladorConsultaCurso;
 import interfaces.IControladorConsultaEdicion;
 import interfaces.IControladorConsultaProgFormacion;
 import interfaces.IControladorInscripcionAEdicion;
+import interfaces.IControladorModificarDatosUsuario;
 
 import javax.swing.JMenu;
 import java.awt.event.ActionListener;
@@ -38,6 +39,7 @@ public class Principal {
 	private IngresarPrograma ingresarProgramaInternalFrame;
 	private AgregarCursoAPrograma agregarCursoAPFInternalFrame;
 	private ConsultaPrograma consultarProgramaInternalFrame;
+	private ModificarDatosUsuario modificarDatosUsuarioInternalFrame;
 	
 
 	
@@ -69,6 +71,7 @@ public class Principal {
 		IControladorAltaProgFormacion IConAltPF = f.getIControladorAltaProgFormacion();
 		IControladorAgregarCursoAPF IConAgrCurAPF = f.getIControladorAgregarCursoAPF();
 		IControladorConsultaProgFormacion IConConPF = f.getIControladorConsultaProgFormacion();
+		IControladorModificarDatosUsuario IConModUsu = f.getIControladorModificarDatosUsuario();
 				
 		Dimension desktopSize = frame.getSize();
 		Dimension jInternalFrameSize;
@@ -83,6 +86,7 @@ public class Principal {
 		ingresarProgramaInternalFrame = new IngresarPrograma(IConAltPF);
 		agregarCursoAPFInternalFrame = new AgregarCursoAPrograma (IConAgrCurAPF);
 		consultarProgramaInternalFrame = new ConsultaPrograma(IConConPF);
+		modificarDatosUsuarioInternalFrame = new ModificarDatosUsuario(IConModUsu);
 		
 		
 		
@@ -166,6 +170,14 @@ public class Principal {
 		consultarProgramaInternalFrame.setVisible(false);
 		frame.getContentPane().add(consultarProgramaInternalFrame);
 		consultarProgramaInternalFrame.getContentPane().setLayout(null);
+		
+		jInternalFrameSize =modificarDatosUsuarioInternalFrame.getSize();
+		consultarProgramaInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
+		    (desktopSize.height- jInternalFrameSize.height)/2);
+		
+		modificarDatosUsuarioInternalFrame.setVisible(false);
+		frame.getContentPane().add(modificarDatosUsuarioInternalFrame);
+		modificarDatosUsuarioInternalFrame.getContentPane().setLayout(null);
 		
 	}
 
@@ -284,5 +296,17 @@ public class Principal {
 			}
 		});
 		mnAgregar.add(mntmCursoAPrograma);
+		
+		JMenu mnModificar = new JMenu("Modificar");
+		menuBar.add(mnModificar);
+		
+		JMenuItem mntmDatosDeUsuario = new JMenuItem("datos de usuario");
+		mntmDatosDeUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				modificarDatosUsuarioInternalFrame.setVisible(true);
+				modificarDatosUsuarioInternalFrame.inicializarComboBoxUsuarios();
+			}
+		});
+		mnModificar.add(mntmDatosDeUsuario);
 	}
 }
