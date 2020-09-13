@@ -1,7 +1,6 @@
 package interfaces;
 import datatype.DtProgFormacionExp;
 
-import java.util.List;
 
 import datatype.DtCursoExp;
 

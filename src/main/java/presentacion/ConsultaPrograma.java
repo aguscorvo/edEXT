@@ -1,7 +1,5 @@
 package presentacion;
 
-import java.awt.EventQueue;
-
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
@@ -11,7 +9,6 @@ import javax.swing.JTextPane;
 
 import datatype.DtCursoExp;
 import datatype.DtProgFormacionExp;
-import interfaces.IControladorConsultaEdicion;
 import interfaces.IControladorConsultaProgFormacion;
 
 import java.awt.event.ActionListener;

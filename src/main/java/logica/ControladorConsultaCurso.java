@@ -11,12 +11,10 @@ import interfaces.IControladorConsultaCurso;
 
 public class ControladorConsultaCurso implements IControladorConsultaCurso{
 	
-	private String instituto;
 	
 	public String[] ingresarInstituto(String instituto){
 		
 		ManejadorInstituto mi = ManejadorInstituto.getInstancia();
-		this.instituto = instituto;
 		String [] arrCursosVacio = {""};
 		if(mi.existeInstituto(instituto)) {
 			Instituto auxInst = mi.getInstituto(instituto);

@@ -1,7 +1,5 @@
 package presentacion;
 
-import java.awt.EventQueue;
-
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
@@ -13,9 +11,7 @@ import datatype.DtCursoExp;
 import datatype.DtEdicion;
 import datatype.DtProgFormacionExp;
 import interfaces.IControladorConsultaCurso;
-import interfaces.IControladorConsultaEdicion;
 
-import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -31,7 +27,6 @@ public class ConsultaCurso extends JInternalFrame {
 	private JComboBox<String> comboBoxProgramas;
 	private JButton btnVerCurso;
 	private JButton btnVerEdicion;
-	private JButton btnVerPrograma;
 	private JButton btnSalir;
 	private JTextPane textPaneDatos;
 	private String institutoSeleccionado;

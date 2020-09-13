@@ -44,6 +44,7 @@ public class ManejadorProgFormacion {
 		EntityManager em= c.getEntityManager();
 		
 		Query query = em.createQuery("SELECT pf FROM ProgFormacion pf");
+		@SuppressWarnings("unchecked")
 		List<ProgFormacion> listaPF = (List<ProgFormacion>) query.getResultList();
 		
 		ArrayList<ProgFormacion> aRetornar = new ArrayList<>();

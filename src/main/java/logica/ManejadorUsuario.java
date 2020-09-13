@@ -42,6 +42,7 @@ public class ManejadorUsuario {
 		EntityManager em= c.getEntityManager();
 		
 		Query query = em.createQuery("SELECT pf FROM Usuario pf");
+		@SuppressWarnings("unchecked")
 		List<Usuario> listaUsu = (List<Usuario>) query.getResultList();
 		
 		ArrayList<Usuario> aRetornar = new ArrayList<>();

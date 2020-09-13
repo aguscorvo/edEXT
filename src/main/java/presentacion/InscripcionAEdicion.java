@@ -4,10 +4,8 @@ package presentacion;
 import javax.swing.JInternalFrame;
 import javax.swing.JTextField;
 
-import excepciones.InstitutoRepetidaException;
 import excepciones.NoExisteEdicionVigenteException;
 import interfaces.IControladorInscripcionAEdicion;
-import logica.Instituto;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;

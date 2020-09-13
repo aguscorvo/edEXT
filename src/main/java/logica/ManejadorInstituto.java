@@ -43,6 +43,7 @@ public class ManejadorInstituto {
 		EntityManager em= c.getEntityManager();
 		
 		Query query = em.createQuery("SELECT i FROM Instituto i");
+		@SuppressWarnings("unchecked")
 		List<Instituto> listaInst = (List<Instituto>) query.getResultList();
 		
 		ArrayList<Instituto> aRetornar = new ArrayList<>();

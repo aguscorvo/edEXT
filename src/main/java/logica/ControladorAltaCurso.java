@@ -3,14 +3,11 @@ package logica;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-
 import datatype.DtCurso;
 import excepciones.CursoRepetidoException;
 import excepciones.NoExisteCursoException;
 import excepciones.NoExisteInstitutoException;
 import interfaces.IControladorAltaCurso;
-import persistencia.Conexion;
 
 public class ControladorAltaCurso implements IControladorAltaCurso {
 	private DtCurso curso;
@@ -41,13 +38,9 @@ public class ControladorAltaCurso implements IControladorAltaCurso {
 		ManejadorCurso mc = ManejadorCurso.getInstancia();
 		ManejadorInstituto mi = ManejadorInstituto.getInstancia();
 		List<Curso> auxPrevias = new ArrayList<Curso>();
-		List<Curso> auxSoyPreviaDe = new ArrayList<Curso>();
 		for(String p: this.curso.getPrevias()){
 			Curso auxPrevia = mc.getCurso(p);
 			auxPrevias.add(auxPrevia);
-			//auxSoyPreviaDe= auxPrevia.getSoyPreviaDe();
-			//auxSoyPreviaDe.add(mc.getCurso(this.curso.getNombre()));
-			//auxPrevia.setSoyPreviaDe(auxSoyPreviaDe);			
 		}
 				
 		List<Edicion> auxEdiciones = new ArrayList<Edicion>();

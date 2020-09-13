@@ -1,6 +1,5 @@
 package interfaces;
 
-import java.util.List;
 
 import excepciones.CursoEnPFRepetidoException;
 

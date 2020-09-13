@@ -1,7 +1,5 @@
 package presentacion;
 
-import java.awt.EventQueue;
-
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -10,10 +8,8 @@ import javax.swing.JButton;
 import com.toedter.calendar.JDateChooser;
 
 import datatype.DtProgFormacion;
-import excepciones.NoExisteInstitutoException;
 import excepciones.ProgramaRepetidoException;
 import interfaces.IControladorAltaProgFormacion;
-import logica.funcionesAux;
 
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;

@@ -42,6 +42,7 @@ public class ManejadorEdicion {
 		EntityManager em= c.getEntityManager();
 		
 		Query query = em.createQuery("SELECT e FROM Edicion i");
+		@SuppressWarnings("unchecked")
 		List<Edicion> listaEds = (List<Edicion>) query.getResultList();
 		
 		ArrayList<Edicion> aRetornar = new ArrayList<>();

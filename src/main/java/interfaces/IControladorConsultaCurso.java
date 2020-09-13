@@ -1,8 +1,6 @@
 package interfaces;
 import datatype.*;
-import logica.funcionesAux;
 
-import java.util.List;
 
 public interface IControladorConsultaCurso {
 	public String [] ingresarInstituto(String instituto);

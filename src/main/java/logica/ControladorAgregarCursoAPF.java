@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import excepciones.CursoEnPFRepetidoException;
-import excepciones.NoExisteEdicionVigenteException;
 import interfaces.IControladorAgregarCursoAPF;
 import persistencia.Conexion;
 

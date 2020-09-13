@@ -11,7 +11,6 @@ import interfaces.IControladorAltaEdicion;
 
 public class ControladorAltaEdicion implements IControladorAltaEdicion{
 	
-	private String instituto;
 	private String curso;
 	private DtEdicionExp edicion;
 	private Instituto inst;
@@ -30,7 +29,6 @@ public class ControladorAltaEdicion implements IControladorAltaEdicion{
 			auxCursos.add(c.getNombre());
 		}
 		
-		this.instituto = instituto;
 		return auxCursos;
 		
 	}
@@ -64,7 +62,6 @@ public class ControladorAltaEdicion implements IControladorAltaEdicion{
 		
 		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
 		List<String> auxDocentes = new ArrayList<String>(this.edicion.getDocentes()); 
-		List<Edicion> auxEdiciones = new ArrayList<Edicion>();
 		
 		for(String d: auxDocentes) {
 			Usuario aux = mu.getUsuario(d);
