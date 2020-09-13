@@ -7,9 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import excepciones.CursoEnPFRepetidoException;
-import excepciones.ProgramaRepetidoException;
 import interfaces.IControladorAgregarCursoAPF;
-import interfaces.IControladorConsultaCurso;
 
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;

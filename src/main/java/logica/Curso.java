@@ -24,11 +24,11 @@ public class Curso {
 	private String url;
 	
 	
-	@ManyToMany(mappedBy = "soyPreviaDe")
+	@ManyToMany//(mappedBy = "nombre")
 	private List<Curso> misPrevias = new ArrayList<Curso>();
 	
-	@ManyToMany()
-	private List<Curso> soyPreviaDe = new ArrayList<Curso>();
+	//@ManyToMany
+	//private List<Curso> soyPreviaDe = new ArrayList<Curso>();
 
 	
 	
@@ -153,13 +153,13 @@ public class Curso {
 		this.programas = programas;
 	}
 
-	public List<Curso> getSoyPreviaDe() {
+	/*public List<Curso> getSoyPreviaDe() {
 		return soyPreviaDe;
 	}
 
 	public void setSoyPreviaDe(List<Curso> soyPreviaDe) {
 		this.soyPreviaDe = soyPreviaDe;
-	};
+	};*/
 	
 	
 	

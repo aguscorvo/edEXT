@@ -2,9 +2,12 @@ package logica;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import excepciones.CursoEnPFRepetidoException;
 import excepciones.NoExisteEdicionVigenteException;
 import interfaces.IControladorAgregarCursoAPF;
+import persistencia.Conexion;
 
 public class ControladorAgregarCursoAPF implements IControladorAgregarCursoAPF {
 	
@@ -66,6 +69,11 @@ public class ControladorAgregarCursoAPF implements IControladorAgregarCursoAPF {
 		auxProgramas.add(auxPrograma);
 		auxCurso.setProgramas(auxProgramas);
 		
+		Conexion conexion = Conexion.getInstancia();
+		EntityManager em = conexion.getEntityManager();
+		em.getTransaction().begin();
+		em.merge(auxCurso);
+		em.getTransaction().commit();
 
 	}
 

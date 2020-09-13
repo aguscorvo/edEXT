@@ -3,11 +3,14 @@ package logica;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import datatype.DtCurso;
 import excepciones.CursoRepetidoException;
 import excepciones.NoExisteCursoException;
 import excepciones.NoExisteInstitutoException;
 import interfaces.IControladorAltaCurso;
+import persistencia.Conexion;
 
 public class ControladorAltaCurso implements IControladorAltaCurso {
 	private DtCurso curso;
@@ -42,12 +45,11 @@ public class ControladorAltaCurso implements IControladorAltaCurso {
 		for(String p: this.curso.getPrevias()){
 			Curso auxPrevia = mc.getCurso(p);
 			auxPrevias.add(auxPrevia);
-			auxSoyPreviaDe= auxPrevia.getSoyPreviaDe();
-			auxSoyPreviaDe.add(mc.getCurso(this.curso.getNombre()));
-			auxPrevia.setSoyPreviaDe(auxSoyPreviaDe);			
+			//auxSoyPreviaDe= auxPrevia.getSoyPreviaDe();
+			//auxSoyPreviaDe.add(mc.getCurso(this.curso.getNombre()));
+			//auxPrevia.setSoyPreviaDe(auxSoyPreviaDe);			
 		}
-		
-		
+				
 		List<Edicion> auxEdiciones = new ArrayList<Edicion>();
 		List<ProgFormacion> auxProgramas = new ArrayList<ProgFormacion>();
 		Curso nuevo = new Curso(this.curso.getNombre(),this.curso.getDesc(),this.curso.getDuracion(),this.curso.getCantHoras(),this.curso.getCreditos(),this.curso.getFechaR(),this.curso.getUrl(), auxPrevias, auxEdiciones, auxProgramas);
@@ -58,7 +60,7 @@ public class ControladorAltaCurso implements IControladorAltaCurso {
 		auxInstituto.setCursos(auxCursos);
 		
 		mc.agregarCurso(nuevo);
-	
+			
 	};
 			
 	
