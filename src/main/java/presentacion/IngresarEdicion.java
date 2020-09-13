@@ -10,6 +10,7 @@ import logica.Instituto;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import excepciones.DocenteRepetidoException;
 import excepciones.EdicionRepetidaException;
 import excepciones.NoExisteCursoException;
 import excepciones.NoExisteInstitutoException;
@@ -240,6 +241,9 @@ public class IngresarEdicion extends JInternalFrame {
                 JOptionPane.showMessageDialog(this, nece.getMessage(), "Ingresar Edicion", JOptionPane.ERROR_MESSAGE);
 
 				
+			} catch(DocenteRepetidoException dre) {
+                JOptionPane.showMessageDialog(this, dre.getMessage(), "Ingresar Edicion", JOptionPane.ERROR_MESSAGE);
+
 			}
 			
 		}
