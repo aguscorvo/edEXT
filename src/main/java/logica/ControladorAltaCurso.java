@@ -7,6 +7,7 @@ import datatype.DtCurso;
 import excepciones.CursoRepetidoException;
 import excepciones.NoExisteCursoException;
 import excepciones.NoExisteInstitutoException;
+import excepciones.PreviaRepetidaException;
 import interfaces.IControladorAltaCurso;
 
 public class ControladorAltaCurso implements IControladorAltaCurso {
@@ -33,11 +34,22 @@ public class ControladorAltaCurso implements IControladorAltaCurso {
 };
 	
 	
-	public void confirmarAltaCurso(){
+	public void confirmarAltaCurso() throws PreviaRepetidaException{
 		
 		ManejadorCurso mc = ManejadorCurso.getInstancia();
 		ManejadorInstituto mi = ManejadorInstituto.getInstancia();
 		List<Curso> auxPrevias = new ArrayList<Curso>();
+		
+		//busco si se ingreso alguna previa repetida. para eso recorro la lista de previas de dtCurso buscando algun nombre repetido
+		List<String> previasRepetidas = new ArrayList<String>();
+		for(String p: this.curso.getPrevias()) {
+			
+			if(!previasRepetidas.add(p)) //la funcion 'add' devuelve true si el string no existe en la lista y false si ya existe
+				throw new PreviaRepetidaException("No se puede crear un curso con previas repetidas.");
+			
+		}
+		
+		//si no hay repetidas, entonces las agrego a la lista de previas del curso a crear.
 		for(String p: this.curso.getPrevias()){
 			Curso auxPrevia = mc.getCurso(p);
 			auxPrevias.add(auxPrevia);

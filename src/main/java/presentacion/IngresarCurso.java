@@ -12,6 +12,7 @@ import datatype.DtCurso;
 import excepciones.CursoRepetidoException;
 import excepciones.NoExisteCursoException;
 import excepciones.NoExisteInstitutoException;
+import excepciones.PreviaRepetidaException;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -248,6 +249,9 @@ public class IngresarCurso extends JInternalFrame {
 
 			}catch(NoExisteCursoException nece) {
 	               JOptionPane.showMessageDialog(this, nece.getMessage(), "Ingresar Curso", JOptionPane.ERROR_MESSAGE);
+
+			}catch(PreviaRepetidaException pre) {
+	               JOptionPane.showMessageDialog(this, pre.getMessage(), "Ingresar Curso", JOptionPane.ERROR_MESSAGE);
 
 			}
 		}

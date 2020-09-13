@@ -13,6 +13,7 @@ import datatype.DtDocente;
 import datatype.DtEstudiante;
 import datatype.DtUsuario;
 import excepciones.CorreoRepetidoException;
+import excepciones.NoExisteInstitutoException;
 import excepciones.UsuarioRepetidoException;
 
 import javax.swing.JRadioButton;
@@ -227,6 +228,9 @@ public class IngresarUsuario extends JInternalFrame {
 				} catch(CorreoRepetidoException cre) {
 		           JOptionPane.showMessageDialog(this, cre.getMessage(), "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
 					
+				} catch(NoExisteInstitutoException nei) {
+					JOptionPane.showMessageDialog(this, nei.getMessage(), "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
+
 				}
 			limpiarFormulario();
 			btnConfirmar.setEnabled(false);

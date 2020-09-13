@@ -8,6 +8,7 @@ import datatype.DtDocente;
 import datatype.DtEstudiante;
 import datatype.DtUsuario;
 import excepciones.CorreoRepetidoException;
+import excepciones.NoExisteInstitutoException;
 import excepciones.UsuarioRepetidoException;
 import interfaces.IControladorAltaUsuario;
 
@@ -27,10 +28,13 @@ public class ControladorAltaUsuario implements IControladorAltaUsuario {
 		this.usuario= usuario;			
 	}
 		
-	public void confirmarAltaUsuario(){
+	public void confirmarAltaUsuario() throws NoExisteInstitutoException{
 		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
 		if (usuario instanceof DtDocente) {
 			ManejadorInstituto mi = ManejadorInstituto.getInstancia();
+			if(!mi.existeInstituto(((DtDocente)usuario).getInstituto())){
+				throw new NoExisteInstitutoException("El instituto '" + ((DtDocente)usuario).getInstituto() + "'no se encuentra registrado en el sistema."); 
+			}
 			Instituto inst = mi.getInstituto(((DtDocente) usuario).getInstituto());
 			List<Edicion> aux = new ArrayList<Edicion>(); 
 			Docente d= new Docente(usuario.getNick(), usuario.getNombre(), usuario.getApellido(), usuario.getCorreo(), usuario.getFechaNac(), inst, aux);
