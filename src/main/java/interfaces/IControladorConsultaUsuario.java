@@ -5,7 +5,6 @@ import datatype.*;
 public interface IControladorConsultaUsuario {
 	public String[] getUsuarios();
 	public DtUsuario seleccionarUsuario(String nick);
-	//public DtCursoExp seleccionarCurso(String nombre);
 	public DtEdicion seleccionarEdicion(String nombre);
 	public DtProgFormacionExp seleccionarPrograma(String programa);
 	public String obtenerDatosUsuario (DtUsuario usuario);

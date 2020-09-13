@@ -14,7 +14,6 @@ import javax.persistence.OneToMany;
 public class Curso {
 	@Id
 	private String nombre;
-	//@Column(name="descripcion")
 	private String descripcion;
 	private int duracion;
 	private int cantHoras;
@@ -23,14 +22,10 @@ public class Curso {
 	private String url;
 	
 	
-	@ManyToMany//(mappedBy = "nombre")
+	@ManyToMany
 	private List<Curso> misPrevias = new ArrayList<Curso>();
 	
-	//@ManyToMany
-	//private List<Curso> soyPreviaDe = new ArrayList<Curso>();
 
-	
-	
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Edicion> ediciones = new ArrayList<Edicion>();

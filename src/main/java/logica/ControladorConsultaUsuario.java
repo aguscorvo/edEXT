@@ -70,7 +70,6 @@ public class ControladorConsultaUsuario implements IControladorConsultaUsuario{
 		return dt;
 	}
 	
-	//public DtCursoExp seleccionarCurso(String nombre) {}
 	
 	public DtEdicion seleccionarEdicion(String nombre) {
 		ManejadorEdicion me = ManejadorEdicion.getInstancia();
@@ -174,6 +173,7 @@ public class ControladorConsultaUsuario implements IControladorConsultaUsuario{
 		
 		if(usuario instanceof DtEstudiante)
 			auxProgramas = ((DtEstudianteExp)usuario).getProgramas();
+		
 		
 		if(!auxProgramas.isEmpty()) {
 			String [] programas = new String[auxProgramas.size()];
