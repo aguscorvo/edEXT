@@ -65,6 +65,7 @@ public class ControladorAgregarCursoAPF implements IControladorAgregarCursoAPF {
 		}
 		auxProgramas.add(auxPrograma);
 		auxCurso.setProgramas(auxProgramas);
+		
 
 	}
 

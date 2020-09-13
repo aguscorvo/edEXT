@@ -50,6 +50,7 @@ public class ManejadorEdicion {
 		}
 		return aRetornar;
 	}
+	
 	public void removerEdicion(Edicion edicion){}
 	
 	public boolean existeEdicion(String nombre){

@@ -12,7 +12,7 @@ import javax.persistence.MappedSuperclass;
 import datatype.DtUsuario;
 
 @Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Usuario {
 	@Id
 	private String nick; 

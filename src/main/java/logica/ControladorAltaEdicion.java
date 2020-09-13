@@ -64,13 +64,16 @@ public class ControladorAltaEdicion implements IControladorAltaEdicion{
 		
 		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
 		List<String> auxDocentes = new ArrayList<String>(this.edicion.getDocentes()); 
+		List<Edicion> auxEdiciones = new ArrayList<Edicion>();
 		
 		for(String d: auxDocentes) {
 			Usuario aux = mu.getUsuario(d);
-			if(aux instanceof Docente)
+			if(aux instanceof Docente) {
 				((Docente)aux).getEdiciones().add(nuevaEdicion);
+			}
 			
 		}
+		
 		
 		ManejadorEdicion me = ManejadorEdicion.getInstancia();
 		me.agregarEdicion(nuevaEdicion);

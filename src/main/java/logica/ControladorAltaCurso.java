@@ -38,11 +38,15 @@ public class ControladorAltaCurso implements IControladorAltaCurso {
 		ManejadorCurso mc = ManejadorCurso.getInstancia();
 		ManejadorInstituto mi = ManejadorInstituto.getInstancia();
 		List<Curso> auxPrevias = new ArrayList<Curso>();
+		List<Curso> auxSoyPreviaDe = new ArrayList<Curso>();
 		for(String p: this.curso.getPrevias()){
-			Curso auxCurso = mc.getCurso(p);
-			auxPrevias.add(auxCurso);
-			
+			Curso auxPrevia = mc.getCurso(p);
+			auxPrevias.add(auxPrevia);
+			auxSoyPreviaDe= auxPrevia.getSoyPreviaDe();
+			auxSoyPreviaDe.add(mc.getCurso(this.curso.getNombre()));
+			auxPrevia.setSoyPreviaDe(auxSoyPreviaDe);			
 		}
+		
 		
 		List<Edicion> auxEdiciones = new ArrayList<Edicion>();
 		List<ProgFormacion> auxProgramas = new ArrayList<ProgFormacion>();
