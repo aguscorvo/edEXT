@@ -7,6 +7,7 @@ import java.util.List;
 import datatype.DtDocente;
 import datatype.DtEstudiante;
 import datatype.DtUsuario;
+import excepciones.CorreoRepetidoException;
 import excepciones.UsuarioRepetidoException;
 import interfaces.IControladorAltaUsuario;
 
@@ -15,10 +16,10 @@ public class ControladorAltaUsuario implements IControladorAltaUsuario {
 	
 	private DtUsuario usuario;
 	
-	public void ingresarDtUsuario(DtUsuario usuario) throws UsuarioRepetidoException{
+	public void ingresarDtUsuario(DtUsuario usuario) throws UsuarioRepetidoException, CorreoRepetidoException{
 		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
 		if(mu.existeUsuarioCorreo(usuario.getCorreo())) {
-			throw new UsuarioRepetidoException ("El usuario con correo '" + usuario.getCorreo() + "' ya se encuentra registrado en el sistema.");			
+			throw new CorreoRepetidoException ("El usuario con correo '" + usuario.getCorreo() + "' ya se encuentra registrado en el sistema.");			
 		}
 		if(mu.existeUsuarioNick(usuario.getNick())) {
 			throw new UsuarioRepetidoException ("El usuario con nick '" + usuario.getNick() + "' ya se encuentra registrado en el sistema.");

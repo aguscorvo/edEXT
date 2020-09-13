@@ -12,6 +12,7 @@ import com.toedter.calendar.JDateChooser;
 import datatype.DtDocente;
 import datatype.DtEstudiante;
 import datatype.DtUsuario;
+import excepciones.CorreoRepetidoException;
 import excepciones.UsuarioRepetidoException;
 
 import javax.swing.JRadioButton;
@@ -223,6 +224,9 @@ public class IngresarUsuario extends JInternalFrame {
 				} catch(UsuarioRepetidoException ue) {
 	               JOptionPane.showMessageDialog(this, ue.getMessage(), "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
 	
+				} catch(CorreoRepetidoException cre) {
+		           JOptionPane.showMessageDialog(this, cre.getMessage(), "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
+					
 				}
 			limpiarFormulario();
 			btnConfirmar.setEnabled(false);
