@@ -26,6 +26,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JComboBox;
 import com.toedter.calendar.JDateChooser;
 
+
 import datatype.DtEdicionExp;
 
 import javax.swing.JCheckBox;;
@@ -364,10 +365,11 @@ public class IngresarEdicion extends JInternalFrame {
 	}	
 	
 	public void iniciarlizarComboBoxDocentes() {
-		DefaultComboBoxModel<String> modelcursos = new DefaultComboBoxModel<String>(iConAltEd.getDocentes());		
+		DefaultComboBoxModel<String> modelcursos = new DefaultComboBoxModel<String>(ArrayCursosInstituto());		//acá invoco a la funcion ArrayCursosInstituto
+																													//que devuelve un String[] para rellenar el CB :D
 		comboBoxDocentes.setModel(modelcursos);
 		
-		if (iConAltEd.getDocentes().toString().isEmpty())
+		if (ArrayCursosInstituto().length == 0)
 			comboBoxDocentes.setEnabled(false);
 		else  comboBoxDocentes.setEnabled(true);
 
@@ -376,6 +378,17 @@ public class IngresarEdicion extends JInternalFrame {
 	public void limpiarComboBox(JComboBox<String> comboBox) {
 		DefaultComboBoxModel<String> modelcursos = new DefaultComboBoxModel<String>();		
 		comboBox.setModel(modelcursos);
+	}
+	
+	public String [] ArrayCursosInstituto() { //relleno array de strings con nombres de todos los docentes de el instituto seleccionado
+		List<String> auxCursosInst = this.CursosInstituto;
+		String[] nombreCursosInst = new String[auxCursosInst.size()];
+		int i=0;
+		for(String c: auxCursosInst) {
+			nombreCursosInst[i] = c;
+			i++;
+		}
+		return nombreCursosInst;
 	}
 		
 	
