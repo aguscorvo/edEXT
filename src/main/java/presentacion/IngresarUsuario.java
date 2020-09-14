@@ -169,7 +169,6 @@ public class IngresarUsuario extends JInternalFrame {
 		
 		btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.setEnabled(false);
-		//btnConfirmar.setBackground(UIManager.getColor("Button.darkShadow"));
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ingresarUsuarioAceptarActionPerformed(e);

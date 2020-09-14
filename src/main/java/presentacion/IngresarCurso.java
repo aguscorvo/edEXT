@@ -259,6 +259,7 @@ public class IngresarCurso extends JInternalFrame {
 		btnConfirmar.setEnabled(false);
 		limpiarFormulario();
         setVisible(false);
+        
 	
 	}
 	
@@ -307,7 +308,8 @@ public class IngresarCurso extends JInternalFrame {
 		textFieldDuracion.setText("");
 		textFieldCreditos.setText("");
 		textFieldURL.setText("");
-	}
+		previasSeleccionadas.clear();
+}
 	
 	public void iniciarlizarComboBoxes() {
 		
