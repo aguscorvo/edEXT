@@ -299,7 +299,6 @@ public class Principal {
 			public void actionPerformed(ActionEvent arg0) {
 				inscribirAEdicionInternalFrame.setVisible(true);
 				inscribirAEdicionInternalFrame.iniciarlizarComboBoxInstituto();
-				inscribirAEdicionInternalFrame.iniciarlizarComboBoxCurso();
 			}
 		});
 		mnInscripciones.add(mntmAEdicion);

@@ -101,6 +101,15 @@ public class InscripcionAEdicion extends JInternalFrame {
 		});
 		btnCancelar.setBounds(369, 293, 117, 25);
 		getContentPane().add(btnCancelar);
+		
+		JButton btnVerCursos = new JButton("VER CURSOS");
+		btnVerCursos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				verCursosActionPerformed(e);
+			}
+		});
+		btnVerCursos.setBounds(488, 50, 142, 25);
+		getContentPane().add(btnVerCursos);
 
 	}
 	
@@ -121,6 +130,10 @@ public class InscripcionAEdicion extends JInternalFrame {
 
 		}
 	
+	}
+	
+	protected void verCursosActionPerformed(ActionEvent e) {
+		iniciarlizarComboBoxCurso();
 	}
 	
 	protected void verEdicionActionPerformed(ActionEvent e){
@@ -185,6 +198,4 @@ public class InscripcionAEdicion extends JInternalFrame {
 		comboBoxEstudiante.setModel(modelEstudiante);
 		comboBoxEstudiante.setEnabled(false);
 	}
-	
-	
 }
