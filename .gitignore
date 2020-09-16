@@ -4,3 +4,6 @@
 .class
 /bin
 *.log
+*.settings
+.classpath
+.project
