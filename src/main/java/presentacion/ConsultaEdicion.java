@@ -27,11 +27,13 @@ public class ConsultaEdicion extends JInternalFrame {
 	private JComboBox<String> comboBoxCurso;
 	private JComboBox<String> comboBoxEdicion;
 	private JButton btnSalir;
-	//private List<String> datosEdicion = new ArrayList<String>();
 	private String institutoSeleccionado;
 	private String cursoSeleccionado;
 	private String edicionSeleccionado;
 	private JTextPane textPane;
+	private JButton btnVerCursos;
+	private JButton btnVerEdiciones;
+	private JButton btnConfirmar;
 
 	
 
@@ -62,24 +64,15 @@ public class ConsultaEdicion extends JInternalFrame {
 		comboBoxInstituto = new JComboBox<String>();
 		comboBoxInstituto.setBounds(152, 47, 194, 24);
 		getContentPane().add(comboBoxInstituto);
-		
-		
-			
-		
+					
 		JLabel lblCurso = new JLabel("CURSO");
 		lblCurso.setBounds(67, 131, 70, 15);
 		getContentPane().add(lblCurso);
 		
-		
-		
-		
-		
 		JLabel lblEdicion = new JLabel("EDICION");
 		lblEdicion.setBounds(67, 217, 70, 15);
 		getContentPane().add(lblEdicion);
-		
-		
-		
+				
 		btnSalir = new JButton("SALIR");
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -90,10 +83,11 @@ public class ConsultaEdicion extends JInternalFrame {
 		getContentPane().add(btnSalir);
 		
 		textPane = new JTextPane();
-		textPane.setBounds(453, 47, 254, 253);
+		textPane.setBounds(502, 47, 254, 253);
 		getContentPane().add(textPane);
 		
-		JButton btnConfirmar = new JButton("CONFIRMAR");
+		btnConfirmar = new JButton("CONFIRMAR");
+		btnConfirmar.setEnabled(false);
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				confirmarActionPerformed(e);
@@ -102,49 +96,48 @@ public class ConsultaEdicion extends JInternalFrame {
 		btnConfirmar.setBounds(63, 275, 117, 25);
 		getContentPane().add(btnConfirmar);
 		
+		btnVerCursos = new JButton("VER");
+		btnVerCursos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				verCursosActionPerformed(e);
+			}
+		});
+		btnVerCursos.setBounds(373, 47, 70, 25);
+		getContentPane().add(btnVerCursos);
 		
-		/*if(iConConEdi.getInstitutos().length == 0) {
-			comboBoxInstituto.setEnabled(false);
-			comboBoxCurso.setEnabled(false);
-			comboBoxEdicion.setEnabled(false);
-		}
-		else {
-			comboBoxInstituto.setEnabled(true);
-			comboBoxCurso.setEnabled(true);
-			comboBoxEdicion.setEnabled(true);
-		}
+		btnVerEdiciones = new JButton("VER");
+		btnVerEdiciones.setEnabled(false);
+		btnVerEdiciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				verEdicionesActionPerformed(e);
+			}
+		});
+		btnVerEdiciones.setBounds(373, 126, 70, 25);
+		getContentPane().add(btnVerEdiciones);
 		
-		if(iConConEdi.getCursos(institutoSeleccionado).length == 0) {
-			
-			comboBoxCurso.setEnabled(false);
-			comboBoxEdicion.setEnabled(false);
-		}
-		else {
-			
-			comboBoxCurso.setEnabled(true);
-			comboBoxEdicion.setEnabled(true);
-			
-		}
 		
-		if(iConConEdi.getEdiciones(cursoSeleccionado).length == 0) {
-			comboBoxEdicion.setEnabled(false);
-		}
-		else {
-			comboBoxEdicion.setEnabled(true);
+	}
+	
+	protected void 	verCursosActionPerformed(ActionEvent e) {
+		institutoSeleccionado= comboBoxInstituto.getSelectedItem().toString();
+		inicializarComboBoxCurso();
+		btnVerEdiciones.setEnabled(true);
+	}
 
-		}*/
-		
-
+	
+	protected void verEdicionesActionPerformed(ActionEvent e) {
+		cursoSeleccionado = comboBoxCurso.getSelectedItem().toString();
+		inicializarComboBoxEdicion();
+		btnConfirmar.setEnabled(true);
 
 	}
 	
 	
 	protected void salirActionPerformed(ActionEvent e) {
-		
-		textPane.setText("");
-		setVisible(false);
-		
-		
+		btnConfirmar.setEnabled(false);
+		btnVerEdiciones.setEnabled(false);
+		limpiar();
+		setVisible(false);	
 	}
 	
 	protected void  confirmarActionPerformed(ActionEvent e) {
@@ -169,7 +162,7 @@ public class ConsultaEdicion extends JInternalFrame {
 		
 	}
 	
-	public void iniciarlizarComboBoxCurso() {
+	public void inicializarComboBoxCurso() {
 		
 		if(iConConEdi.getInstitutos().length != 0) {
 			this.institutoSeleccionado =  comboBoxInstituto.getSelectedItem().toString();
@@ -181,12 +174,20 @@ public class ConsultaEdicion extends JInternalFrame {
 		}
 	}	
 	
-	public void iniciarlizarComboBoxEdicion() {
+	public void inicializarComboBoxEdicion() {
 		
-		this.cursoSeleccionado = (String) comboBoxCurso.getSelectedItem();
 		if(iConConEdi.getEdiciones(this.cursoSeleccionado).length != 0) {
 			DefaultComboBoxModel<String> modelEdicion = new DefaultComboBoxModel<String>(iConConEdi.getEdiciones(this.cursoSeleccionado));		
 			comboBoxEdicion.setModel(modelEdicion);
 		}
+
+	}
+	
+	public void limpiar() {
+		textPane.setText("");
+		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();		
+		comboBoxInstituto.setModel(model);
+		comboBoxCurso.setModel(model);
+		comboBoxEdicion.setModel(model);		
 	}
 }

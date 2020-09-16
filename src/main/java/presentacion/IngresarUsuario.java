@@ -1,5 +1,6 @@
 package presentacion;
 
+
 import javax.swing.JInternalFrame;
 
 import interfaces.IControladorAltaUsuario;
@@ -24,6 +25,7 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JPanel;
 
 public class IngresarUsuario extends JInternalFrame {
 	
@@ -240,7 +242,7 @@ public class IngresarUsuario extends JInternalFrame {
 			return false;
 		}
 		
-		return true;		
+		return true;			
 		
 	}
 	
