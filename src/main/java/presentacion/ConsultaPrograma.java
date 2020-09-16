@@ -63,6 +63,7 @@ public class ConsultaPrograma extends JInternalFrame {
 		getContentPane().add(comboBoxCursos);
 		
 		btnVerCurso = new JButton("VER");
+		btnVerCurso.setEnabled(false);
 		btnVerCurso.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				verCursoActionPerformed(e);
@@ -109,7 +110,8 @@ public class ConsultaPrograma extends JInternalFrame {
 	}
 	
 	protected void salirActionPerformed(ActionEvent e) {
-		textPane.setText("");
+		btnVerCurso.setEnabled(false);
+		limpiar();
 		setVisible(false);
 	}
 	
@@ -132,9 +134,17 @@ public class ConsultaPrograma extends JInternalFrame {
 		if(cursos.length != 0) {
 			DefaultComboBoxModel<String> modelCurso = new DefaultComboBoxModel<String>(cursos);		
 			comboBoxCursos.setModel(modelCurso);
+			btnVerCurso.setEnabled(true);
 		}	
 	}
-	 
+	
+	public void limpiar() {
+		textPane.setText("");
+		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();		
+		comboBoxProgramas.setModel(model);
+		comboBoxCursos.setModel(model);
+		
+	}
 	 	
 	
 	 

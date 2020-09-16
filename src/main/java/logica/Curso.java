@@ -147,15 +147,7 @@ public class Curso {
 		this.programas = programas;
 	}
 
-	/*public List<Curso> getSoyPreviaDe() {
-		return soyPreviaDe;
-	}
-
-	public void setSoyPreviaDe(List<Curso> soyPreviaDe) {
-		this.soyPreviaDe = soyPreviaDe;
-	};*/
-	
-	
+		
 	
 	
 	

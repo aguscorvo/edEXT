@@ -57,8 +57,8 @@ public class ControladorConsultaProgFormacion implements IControladorConsultaPro
 				}
 			}
 			
-			DtProgFormacionExp auxDT = new DtProgFormacionExp(nombre, desc, fechaI, fechaF, fechaAlta, nomCursos); //lo cree con las fechas aunque no aparezca eso en el diseño porque 
-																													//me dio lastima y me pareció al pedo ponerlo en null.
+			DtProgFormacionExp auxDT = new DtProgFormacionExp(nombre, desc, fechaI, fechaF, fechaAlta, nomCursos);  
+																													
 			return auxDT;
 				
 		};

@@ -66,12 +66,20 @@ public class ManejadorUsuario {
 	
 	
 	public boolean existeUsuarioCorreo(String correo) {
-	
-		Conexion c = Conexion.getInstancia();
-		EntityManager em= c.getEntityManager();
 		
-		Usuario auxU= em.find(Usuario.class, correo);
-		boolean existe = em.contains(auxU);
-		return existe;
+		List<Usuario> usuarios = getUsuarios();
+		if (!usuarios.isEmpty()) {
+			Conexion c = Conexion.getInstancia();
+			EntityManager em= c.getEntityManager();
+			
+			Query query = em.createQuery("SELECT u FROM Usuario as u WHERE u.correo LIKE: correoIngresado").setParameter("correoIngresado", correo);
+			@SuppressWarnings("unchecked")
+			List <Usuario> resultado = (List<Usuario>) query.getResultList();
+			if (resultado.isEmpty())
+				return false;
+			else return true;
+		}
+		return false;
+		
 	}
 }

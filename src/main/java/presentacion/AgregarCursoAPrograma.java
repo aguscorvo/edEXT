@@ -51,6 +51,7 @@ public class AgregarCursoAPrograma extends JInternalFrame {
 		getContentPane().add(comboBoxCurso);
 		
 		btnConfirmar = new JButton("CONFIRMAR");
+		btnConfirmar.setEnabled(false);
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				confirmarActionPerformed(e);
@@ -84,26 +85,20 @@ public class AgregarCursoAPrograma extends JInternalFrame {
             JOptionPane.showMessageDialog(this, cepfre.getMessage(), "Ingresar programa de formación", JOptionPane.ERROR_MESSAGE);
 
 		}
+		limpiarComboBoxes();
+		btnConfirmar.setEnabled(false);
 		setVisible(false);
 		
 	}
 	
 	protected void cancelarActionPerformed(ActionEvent e) {
+		btnConfirmar.setEnabled(false);
+		limpiarComboBoxes();
 		setVisible(false);
 	}
 	
 	
-	
-		
-	/*public void habilitarBotonConfirmar() {
-		if ((iConAgrCurAPF.getCursos().length != 0) & (iConAgrCurAPF.getProgramas().length != 0)) {
-			btnConfirmar.setEnabled(true);
-		}
-		else btnConfirmar.setEnabled(false);
-		
-	}*/
-	
-	 
+		 
 	 public void inicializarComboBoxCurso() {	
 		if(iConAgrCurAPF.getCursos().length != 0) {
 			DefaultComboBoxModel<String> modelCurso = new DefaultComboBoxModel<String>(iConAgrCurAPF.getCursos());		
@@ -115,6 +110,14 @@ public class AgregarCursoAPrograma extends JInternalFrame {
 		if(iConAgrCurAPF.getProgramas().length != 0) {
 			DefaultComboBoxModel<String> modelPrograma = new DefaultComboBoxModel<String>(iConAgrCurAPF.getProgramas());		
 			comboBoxPrograma.setModel(modelPrograma);
+			btnConfirmar.setEnabled(true);
+
 		}		
+	}
+	 
+	public void limpiarComboBoxes() {
+		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();		
+		comboBoxPrograma.setModel(model);
+		comboBoxCurso.setModel(model);
 	}
 }

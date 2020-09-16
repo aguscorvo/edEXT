@@ -12,7 +12,6 @@ import datatype.DtCurso;
 import excepciones.CursoRepetidoException;
 import excepciones.NoExisteCursoException;
 import excepciones.NoExisteInstitutoException;
-import excepciones.PreviaRepetidaException;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -186,6 +185,7 @@ public class IngresarCurso extends JInternalFrame {
 		textFieldCreditos.setColumns(10);
 		
 		btnAgregarPrevia = new JButton("Agregar");
+		btnAgregarPrevia.setEnabled(false);
 		btnAgregarPrevia.setBounds(282, 201, 91, 25);
 		getContentPane().add(btnAgregarPrevia);
 		
@@ -202,9 +202,9 @@ public class IngresarCurso extends JInternalFrame {
 		getContentPane().add(comboBoxPrevias);
 		
 		
-		if (iConAltCur.getCursos().length ==0) {
-			btnAgregarPrevia.setEnabled(false);
-			comboBoxPrevias.setEnabled(false);
+		if (iConAltCur.getCursos().length !=0) {
+			btnAgregarPrevia.setEnabled(true);
+			comboBoxPrevias.setEnabled(true);
 		}
 		
 	
@@ -250,21 +250,20 @@ public class IngresarCurso extends JInternalFrame {
 			}catch(NoExisteCursoException nece) {
 	               JOptionPane.showMessageDialog(this, nece.getMessage(), "Ingresar Curso", JOptionPane.ERROR_MESSAGE);
 
-			}catch(PreviaRepetidaException pre) {
-	               JOptionPane.showMessageDialog(this, pre.getMessage(), "Ingresar Curso", JOptionPane.ERROR_MESSAGE);
-
 			}
 		}
-			
+		btnAgregarPrevia.setEnabled(false);	
 		btnConfirmar.setEnabled(false);
 		limpiarFormulario();
+		limpiarComboBoxes();
         setVisible(false);
-        
 	
 	}
 	
 	
 	protected void ingresarCursoCancelarActionPerformed(ActionEvent e) {
+		btnAgregarPrevia.setEnabled(false);
+		btnConfirmar.setEnabled(false);
 		iConAltCur.cancelarAltaCurso();
 		limpiarFormulario();
 		setVisible(false);
@@ -300,6 +299,12 @@ public class IngresarCurso extends JInternalFrame {
 	    return true;
 	}
 	
+	
+	public void limpiarComboBoxes() {
+		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();		
+		comboBoxPrevias.setModel(model);		
+	}
+	
 	private void limpiarFormulario() {
 		textFieldInstituto.setText("");
 		textFieldNombre.setText("");
@@ -309,7 +314,8 @@ public class IngresarCurso extends JInternalFrame {
 		textFieldCreditos.setText("");
 		textFieldURL.setText("");
 		previasSeleccionadas.clear();
-}
+
+	}
 	
 	public void iniciarlizarComboBoxes() {
 		

@@ -86,7 +86,6 @@ public class IngresarPrograma extends JInternalFrame {
 		});
 		btnConfirmar.setBounds(94, 214, 118, 23);
 		getContentPane().add(btnConfirmar);
-		//btnConfirmar.setEnabled(false);
 		
 		JButton btnCancelar = new JButton("CANCELAR");
 		btnCancelar.addActionListener(new ActionListener() {
@@ -135,6 +134,7 @@ public class IngresarPrograma extends JInternalFrame {
 	}
 	
 	protected void cancelarActionPerformed(ActionEvent e) {
+		btnConfirmar.setEnabled(false);
 		iConAltPF.cancelarAltaPrograma();
 		limpiarFormularios();
 		setVisible(false);
@@ -143,6 +143,9 @@ public class IngresarPrograma extends JInternalFrame {
 	public void limpiarFormularios() {
 		textFieldNombre.setText("");
 		textFieldDesc.setText("");
+		Date fechaActual = new Date();
+		dateChooserInicio.setDate(fechaActual);
+		dateChooserFin.setDate(fechaActual);
 	}
 	
 	private boolean checkFormulario(String string) {

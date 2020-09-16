@@ -160,7 +160,7 @@ public class ConsultaEdicion extends JInternalFrame {
 	
 
 	
-	public void iniciarlizarComboBoxInstituto() {
+	public void inicializarComboBoxInstituto() {
 		
 		if(iConConEdi.getInstitutos().length != 0) {
 			DefaultComboBoxModel<String> modelInstituto = new DefaultComboBoxModel<String>(iConConEdi.getInstitutos());		

@@ -256,9 +256,7 @@ public class Principal {
 		mntmEdicionDeCurso_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				consultarEdicionInternalFrame.setVisible(true);
-				consultarEdicionInternalFrame.iniciarlizarComboBoxInstituto();
-				consultarEdicionInternalFrame.iniciarlizarComboBoxCurso();
-				consultarEdicionInternalFrame.iniciarlizarComboBoxEdicion();
+				consultarEdicionInternalFrame.inicializarComboBoxInstituto();
 			}
 		});
 		mnConsultas.add(mntmEdicionDeCurso_1);
@@ -268,7 +266,6 @@ public class Principal {
 			public void actionPerformed(ActionEvent arg0) {
 				consultarCursoInternalFrame.setVisible(true);
 				consultarCursoInternalFrame.inicializarComboBoxInstituto();
-				consultarCursoInternalFrame.inicializarComboBoxCurso();
 			}
 		});
 		mnConsultas.add(mntmCurso_1);

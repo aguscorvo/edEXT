@@ -10,7 +10,6 @@ import logica.Instituto;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import excepciones.DocenteRepetidoException;
 import excepciones.EdicionRepetidaException;
 import excepciones.NoExisteCursoException;
 import excepciones.NoExisteInstitutoException;
@@ -26,7 +25,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JComboBox;
 import com.toedter.calendar.JDateChooser;
-
 
 import datatype.DtEdicionExp;
 
@@ -167,6 +165,7 @@ public class IngresarEdicion extends JInternalFrame {
 		getContentPane().add(lblInstituto);
 		
 		btnAgregar = new JButton("Agregar");
+		btnAgregar.setEnabled(false);
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				agregarDocenteActionPerformed(e);
@@ -212,18 +211,7 @@ public class IngresarEdicion extends JInternalFrame {
 				iConAltEd.seleccionarCurso(cursoSeleccionado);
 				iConAltEd.ingresarDtEdicion(edicion);
 				iConAltEd.confirmarAltaEdicion();
-				
-				
-				/*ManejadorEdicion me = ManejadorEdicion.getInstancia();
-				Edicion auxEd= me.getEdicion(nombre);
-				System.out.println(auxEd.getNombre());
-				System.out.println(auxEd.getFechaI());
-				System.out.println(auxEd.getFechaF());
-				System.out.println(auxEd.getCupo());
-				System.out.println(auxEd.getFechaPub());*/
-
-				
-				
+								
 				JOptionPane.showMessageDialog(this, "La edición '" + nombre + "' del curso '" + cursoSeleccionado + "' se ha creado con éxito", "Ingresar Edición", JOptionPane.INFORMATION_MESSAGE);
 
 				
@@ -241,13 +229,11 @@ public class IngresarEdicion extends JInternalFrame {
                 JOptionPane.showMessageDialog(this, nece.getMessage(), "Ingresar Edicion", JOptionPane.ERROR_MESSAGE);
 
 				
-			} catch(DocenteRepetidoException dre) {
-                JOptionPane.showMessageDialog(this, dre.getMessage(), "Ingresar Edicion", JOptionPane.ERROR_MESSAGE);
-
 			}
 			
 		}
 		btnConfirmar.setEnabled(false);
+		btnAgregar.setEnabled(false);
 		comboBoxCursos.setEnabled(false);
 		limpiarComboBox(comboBoxDocentes);
 		limpiarComboBox(comboBoxCursos);
@@ -258,8 +244,13 @@ public class IngresarEdicion extends JInternalFrame {
 	
 	protected void ingresarEdicionCancelarActionPerformed(ActionEvent e) {
 		iConAltEd.cancelarAltaEdicion();
+		limpiarComboBox(comboBoxDocentes);
+		limpiarComboBox(comboBoxCursos);
 		limpiarFormulario();
+		btnConfirmar.setEnabled(false);
+		btnAgregar.setEnabled(false);
 		setVisible(false); 
+
 	}
 	
 	protected void chckbxCupoActionPerformed(ActionEvent e) {
@@ -335,6 +326,9 @@ public class IngresarEdicion extends JInternalFrame {
 		textFieldInstituto.setText("");
 		textFieldCupo.setText("");
 		textFieldNombre.setText("");
+		Date fechaActual = new Date();
+		dateChooserInicia.setDate(fechaActual);
+		dateChooserFinaliza.setDate(fechaActual);
 		
 	}
 	
@@ -369,30 +363,24 @@ public class IngresarEdicion extends JInternalFrame {
 	}	
 	
 	public void iniciarlizarComboBoxDocentes() {
-		DefaultComboBoxModel<String> modelcursos = new DefaultComboBoxModel<String>(ArrayCursosInstituto());		//acá invoco a la funcion ArrayCursosInstituto
-																													//que devuelve un String[] para rellenar el CB :D
+		DefaultComboBoxModel<String> modelcursos = new DefaultComboBoxModel<String>(iConAltEd.getDocentes());		
 		comboBoxDocentes.setModel(modelcursos);
 		
-		if (ArrayCursosInstituto().length == 0)
+		if (iConAltEd.getDocentes().toString().isEmpty()) {
 			comboBoxDocentes.setEnabled(false);
-		else  comboBoxDocentes.setEnabled(true);
+			btnAgregar.setEnabled(false);
+
+		}
+		else  {
+			comboBoxDocentes.setEnabled(true);
+			btnAgregar.setEnabled(true);
+		}
 
 	}
 	
 	public void limpiarComboBox(JComboBox<String> comboBox) {
-		DefaultComboBoxModel<String> modelcursos = new DefaultComboBoxModel<String>();		
-		comboBox.setModel(modelcursos);
-	}
-	
-	public String [] ArrayCursosInstituto() { //relleno array de strings con nombres de todos los docentes de el instituto seleccionado
-		List<String> auxCursosInst = this.CursosInstituto;
-		String[] nombreCursosInst = new String[auxCursosInst.size()];
-		int i=0;
-		for(String c: auxCursosInst) {
-			nombreCursosInst[i] = c;
-			i++;
-		}
-		return nombreCursosInst;
+		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();		
+		comboBox.setModel(model);
 	}
 		
 	

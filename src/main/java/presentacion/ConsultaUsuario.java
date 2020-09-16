@@ -139,6 +139,8 @@ public class ConsultaUsuario extends JInternalFrame {
 	}
 	
 	public void cancelarActionPerformed() {
+		btnVerEdicion.setEnabled(false);
+		btnVerPrograma.setEnabled(false);
 		
 		limpiar();
 		setVisible(false);

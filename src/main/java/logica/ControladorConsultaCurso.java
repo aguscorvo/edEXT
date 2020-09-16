@@ -170,6 +170,25 @@ public class ControladorConsultaCurso implements IControladorConsultaCurso{
 		
 	}
 	
+	public String [] getPrevias (String curso) {
+		ManejadorCurso mC = ManejadorCurso.getInstancia();
+		Curso auxCurso =mC.getCurso(curso);
+		String [] arrVacio={""};
+		List<Curso> auxCursos = new ArrayList<Curso>(auxCurso.getMisPrevias());
+		
+		if (!auxCursos.isEmpty()) {
+			String [] previas = new String [auxCursos.size()];
+			int i=0;
+			for (Curso p: auxCursos) {
+				previas[i]=p.getNombre();
+				i++;
+			}
+			return previas;
+		}
+		return arrVacio;
+	}
+	
+	
 	public String[] getPFs (String curso) {
 		
 		ManejadorCurso mc = ManejadorCurso.getInstancia();

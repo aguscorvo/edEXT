@@ -1,6 +1,5 @@
 package presentacion;
 
-
 import javax.swing.JInternalFrame;
 import javax.swing.JTextField;
 
@@ -36,9 +35,11 @@ public class InscripcionAEdicion extends JInternalFrame {
 	
 	
 	public InscripcionAEdicion(IControladorInscripcionAEdicion iConInsEd) {
+		setMaximizable(true);
+		setClosable(true);
 		this.iConInsEd=iConInsEd;
 		setTitle("Inscripción a edición");
-		setBounds(100, 100, 725, 403);
+		setBounds(100, 100, 688, 395);
 		getContentPane().setLayout(null);
 		
 		JLabel lblInstituto = new JLabel("INSTITUTO");
@@ -75,12 +76,13 @@ public class InscripcionAEdicion extends JInternalFrame {
 		getContentPane().add(lblEstudiante);
 		
 		btnVerEdicion = new JButton("VER EDICIÓN");
+		btnVerEdicion.setEnabled(false);
 		btnVerEdicion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				verEdicionActionPerformed(e);
 			}
 		});
-		btnVerEdicion.setBounds(488, 102, 142, 25);
+		btnVerEdicion.setBounds(488, 102, 126, 25);
 		getContentPane().add(btnVerEdicion);
 		
 		btnConfirmar = new JButton("CONFIRMAR");
@@ -108,32 +110,19 @@ public class InscripcionAEdicion extends JInternalFrame {
 				verCursosActionPerformed(e);
 			}
 		});
-		btnVerCursos.setBounds(488, 50, 142, 25);
+		btnVerCursos.setBounds(488, 50, 126, 25);
 		getContentPane().add(btnVerCursos);
 
 	}
 	
-	public void inicializarComboBoxEstudiante() {
-		edicion = textFieldEdicion.getText();
-		if(!edicion.isEmpty()) {
-			if(iConInsEd.getEstudiantes(edicion).length !=0) {
-				DefaultComboBoxModel<String> modelEstudiante = new DefaultComboBoxModel<String>(iConInsEd.getEstudiantes(edicion));		
-				comboBoxEstudiante.setModel(modelEstudiante);
-				comboBoxEstudiante.setEnabled(true);
-				btnConfirmar.setEnabled(true);
-
-			}
-		}else {
-			limpiarComboBoxEstudiante();
-			btnConfirmar.setEnabled(false);	
-			
-
-		}
 	
-	}
 	
 	protected void verCursosActionPerformed(ActionEvent e) {
+		institutoSeleccionado= comboBoxInstituto.getSelectedItem().toString();
 		iniciarlizarComboBoxCurso();
+		btnVerEdicion.setEnabled(true);
+
+		
 	}
 	
 	protected void verEdicionActionPerformed(ActionEvent e){
@@ -142,21 +131,24 @@ public class InscripcionAEdicion extends JInternalFrame {
 			edicion=iConInsEd.ingresarCurso(cursoSeleccionado);
 			textFieldEdicion.setEnabled(true);
 			textFieldEdicion.setText(edicion);
-			//textFieldEdicion.setEnabled(false);
 			comboBoxEstudiante.setEnabled(true);
 			inicializarComboBoxEstudiante();
 			
 			
 		}catch (NoExisteEdicionVigenteException ed) {			
             JOptionPane.showMessageDialog(this, ed.getMessage(), "Inscripción a edición", JOptionPane.ERROR_MESSAGE);
-            setVisible(false); //opcional
+            setVisible(false); 
 		}
 	}
 	
 	protected void cancelarActionPerformed(ActionEvent e) {
 		iConInsEd.cancelarInscripcionAEdicion();
 		textFieldEdicion.setText("");
-		limpiarComboBoxEstudiante();
+		limpiarComboBox(comboBoxInstituto);
+		limpiarComboBox(comboBoxCurso);
+		limpiarComboBox(comboBoxEstudiante);
+		btnConfirmar.setEnabled(false);
+		btnVerEdicion.setEnabled(false);
 		setVisible(false);
 	}
 	
@@ -168,8 +160,11 @@ public class InscripcionAEdicion extends JInternalFrame {
 		JOptionPane.showMessageDialog(this, "El estudiante '" + estudianteSeleccionado + "' se ha inscripto a la edición '" + edicion + "' con éxito",
 				"Inscripción a edición de curso", JOptionPane.INFORMATION_MESSAGE);
 		textFieldEdicion.setText("");
-		limpiarComboBoxEstudiante();
+		limpiarComboBox(comboBoxInstituto);
+		limpiarComboBox(comboBoxCurso);
+		limpiarComboBox(comboBoxEstudiante);
 		btnConfirmar.setEnabled(false);
+		btnVerEdicion.setEnabled(false);
 		setVisible(false);
 	}
 	
@@ -185,17 +180,35 @@ public class InscripcionAEdicion extends JInternalFrame {
 	
 	public void iniciarlizarComboBoxCurso() {
 		
-		this.institutoSeleccionado =  comboBoxInstituto.getSelectedItem().toString();
 		if(iConInsEd.getCursos(this.institutoSeleccionado).length != 0){
 			DefaultComboBoxModel<String> modelCurso = new DefaultComboBoxModel<String>(iConInsEd.getCursos(this.institutoSeleccionado));		
 			comboBoxCurso.setModel(modelCurso);		
 		}
 		
 	}
-	public void limpiarComboBoxEstudiante() {
-		
-		DefaultComboBoxModel<String> modelEstudiante = new DefaultComboBoxModel<String>();		
-		comboBoxEstudiante.setModel(modelEstudiante);
-		comboBoxEstudiante.setEnabled(false);
+	
+	public void inicializarComboBoxEstudiante() {
+		edicion = textFieldEdicion.getText();
+		if(!edicion.isEmpty()) {
+			if(iConInsEd.getEstudiantes(edicion).length !=0) {
+				DefaultComboBoxModel<String> modelEstudiante = new DefaultComboBoxModel<String>(iConInsEd.getEstudiantes(edicion));		
+				comboBoxEstudiante.setModel(modelEstudiante);
+				comboBoxEstudiante.setEnabled(true);
+				btnConfirmar.setEnabled(true);
+			}
+		}else {
+			limpiarComboBox(comboBoxEstudiante);
+			btnConfirmar.setEnabled(false);		
+		}	
 	}
+	
+		
+	public void limpiarComboBox(JComboBox<String> comboBox) {
+		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();		
+		comboBox.setModel(model);
+	}
+	
+
+	
+
 }

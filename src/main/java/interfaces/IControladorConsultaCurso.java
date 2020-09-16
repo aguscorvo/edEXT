@@ -8,6 +8,7 @@ public interface IControladorConsultaCurso {
 	public DtEdicion seleccionarEdicion(String edicion);
 	public DtProgFormacionExp seleccionarProgFormacion(String progFormacion);	
 	public String[] getInstitutos();
+	public String [] getPrevias (String curso);
 	public String[] getEdiciones (String curso);
 	public String[] getPFs (String curso);
 	public String obtenerDatosCurso(DtCursoExp curso);

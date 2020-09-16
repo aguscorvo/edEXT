@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import datatype.DtEdicionExp;
-import excepciones.DocenteRepetidoException;
 import excepciones.EdicionRepetidaException;
 import excepciones.NoExisteCursoException;
 import excepciones.NoExisteInstitutoException;
-import excepciones.PreviaRepetidaException;
 import interfaces.IControladorAltaEdicion;
 
 public class ControladorAltaEdicion implements IControladorAltaEdicion{
@@ -44,22 +42,11 @@ public class ControladorAltaEdicion implements IControladorAltaEdicion{
 		
 	}
 	
-	public void ingresarDtEdicion(DtEdicionExp edicion) throws EdicionRepetidaException, DocenteRepetidoException{
+	public void ingresarDtEdicion(DtEdicionExp edicion) throws EdicionRepetidaException{
 		
 		ManejadorEdicion me = ManejadorEdicion.getInstancia();
 		if(me.existeEdicion(edicion.getNombre()))
 			throw new EdicionRepetidaException("La edicion '" + edicion.getNombre() +"' ya se encuentra registrada en el sistema.");
-		
-		List<String> auxDocentes = new ArrayList<String>(this.edicion.getDocentes()); //checkeo si hay docentes repetidos en la lista, si hay lanzo exception.
-		
-		List<String> docentesRepetidos = new ArrayList<String>();
-		for(String d: auxDocentes) {
-			
-			if(!docentesRepetidos.add(d))
-				throw new DocenteRepetidoException("No se puede crear una edicion con docentes repetidos.");
-			
-		}
-
 		
 		this.edicion = edicion;
 		

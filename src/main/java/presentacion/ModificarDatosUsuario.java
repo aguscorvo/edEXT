@@ -129,8 +129,12 @@ public class ModificarDatosUsuario extends JInternalFrame {
 	
 	public void inicializarComboBoxUsuarios() {					
 		if(iConModUsu.getUsuarios().length != 0) {
-			DefaultComboBoxModel<String> modelInstituto = new DefaultComboBoxModel<String>(iConModUsu.getUsuarios());		
-			comboBoxUsuarios.setModel(modelInstituto);
+			DefaultComboBoxModel<String> modelUsuario = new DefaultComboBoxModel<String>(iConModUsu.getUsuarios());		
+			comboBoxUsuarios.setModel(modelUsuario);
+		}
+		else {
+			DefaultComboBoxModel<String> modelUsuario = new DefaultComboBoxModel<String>();		
+			comboBoxUsuarios.setModel(modelUsuario);
 		}
 	}
 	

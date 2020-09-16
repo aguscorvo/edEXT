@@ -1,6 +1,5 @@
 package presentacion;
 
-
 import javax.swing.JInternalFrame;
 
 import interfaces.IControladorAltaUsuario;
@@ -12,7 +11,6 @@ import com.toedter.calendar.JDateChooser;
 import datatype.DtDocente;
 import datatype.DtEstudiante;
 import datatype.DtUsuario;
-import excepciones.CorreoRepetidoException;
 import excepciones.NoExisteInstitutoException;
 import excepciones.UsuarioRepetidoException;
 
@@ -26,7 +24,6 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import javax.swing.JPanel;
 
 public class IngresarUsuario extends JInternalFrame {
 	
@@ -169,6 +166,7 @@ public class IngresarUsuario extends JInternalFrame {
 		
 		btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.setEnabled(false);
+		//btnConfirmar.setBackground(UIManager.getColor("Button.darkShadow"));
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ingresarUsuarioAceptarActionPerformed(e);
@@ -186,13 +184,6 @@ public class IngresarUsuario extends JInternalFrame {
 		btnCancelar.setBounds(515, 170, 117, 25);
 		getContentPane().add(btnCancelar);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(363, 120, 269, 30);
-		getContentPane().add(panel);
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(12, 12, 665, 209);
-		getContentPane().add(panel_1);
 
 	}
 	
@@ -224,13 +215,9 @@ public class IngresarUsuario extends JInternalFrame {
 				} catch(UsuarioRepetidoException ue) {
 	               JOptionPane.showMessageDialog(this, ue.getMessage(), "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
 	
-				} catch(CorreoRepetidoException cre) {
-		           JOptionPane.showMessageDialog(this, cre.getMessage(), "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
-					
-				} catch(NoExisteInstitutoException nei) {
+				}catch(NoExisteInstitutoException nei) {
 					JOptionPane.showMessageDialog(this, nei.getMessage(), "Ingresar Usuario", JOptionPane.ERROR_MESSAGE);
-
-				}
+					}
 			limpiarFormulario();
 			btnConfirmar.setEnabled(false);
 			setVisible(false);				
@@ -253,7 +240,7 @@ public class IngresarUsuario extends JInternalFrame {
 			return false;
 		}
 		
-		return true;			
+		return true;		
 		
 	}
 	
@@ -263,6 +250,8 @@ public class IngresarUsuario extends JInternalFrame {
 		textFieldApellido.setText("");
 		textFieldCorreo.setText("");
 		textFieldInstituto.setText("");
+		Date fechaActual = new Date();
+		dateChooserFechaNac.setDate(fechaActual);
 	}
 
 	public void habilitarBotonConfirmar() {
