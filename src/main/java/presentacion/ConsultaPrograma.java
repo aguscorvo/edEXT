@@ -135,7 +135,13 @@ public class ConsultaPrograma extends JInternalFrame {
 			DefaultComboBoxModel<String> modelCurso = new DefaultComboBoxModel<String>(cursos);		
 			comboBoxCursos.setModel(modelCurso);
 			btnVerCurso.setEnabled(true);
-		}	
+		}else {
+			
+			DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();		
+			comboBoxCursos.setModel(model);
+			btnVerCurso.setEnabled(false);
+
+		}
 	}
 	
 	public void limpiar() {

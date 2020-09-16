@@ -128,7 +128,6 @@ public class ConsultaEdicion extends JInternalFrame {
 	protected void verEdicionesActionPerformed(ActionEvent e) {
 		cursoSeleccionado = comboBoxCurso.getSelectedItem().toString();
 		inicializarComboBoxEdicion();
-		btnConfirmar.setEnabled(true);
 
 	}
 	
@@ -179,6 +178,12 @@ public class ConsultaEdicion extends JInternalFrame {
 		if(iConConEdi.getEdiciones(this.cursoSeleccionado).length != 0) {
 			DefaultComboBoxModel<String> modelEdicion = new DefaultComboBoxModel<String>(iConConEdi.getEdiciones(this.cursoSeleccionado));		
 			comboBoxEdicion.setModel(modelEdicion);
+			btnConfirmar.setEnabled(true);
+		}
+		else {
+			btnConfirmar.setEnabled(false);
+			DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();	
+			comboBoxEdicion.setModel(model);
 		}
 
 	}

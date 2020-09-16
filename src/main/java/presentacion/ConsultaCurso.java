@@ -146,6 +146,14 @@ public class ConsultaCurso extends JInternalFrame {
 		institutoSeleccionado= comboBoxInstituto.getSelectedItem().toString();
 		inicializarComboBoxCurso();
 		btnVerCurso.setEnabled(true);
+		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();	
+		comboBoxEdiciones.setModel(model);
+		comboBoxProgramas.setModel(model);
+		comboBoxPrevias.setModel(model);
+		textPaneDatos.setText("");
+
+		
+
 
 	}
 	
@@ -156,11 +164,16 @@ public class ConsultaCurso extends JInternalFrame {
 		this.cursoSeleccionado = comboBoxCurso.getSelectedItem().toString();
 		comboBoxEdiciones.setEnabled(true);
 		comboBoxProgramas.setEnabled(true);
+		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();	
+		comboBoxEdiciones.setModel(model);
+		comboBoxProgramas.setModel(model);
 		inicializarComboBoxPrevias();
 		inicializarComboBoxEdiciones();
 		inicializarComboBoxProgramas();
 		DtCursoExp auxDTCE = iConConCur.seleccionarCurso(cursoSeleccionado);
 		textPaneDatos.setText(iConConCur.obtenerDatosCurso(auxDTCE));
+
+
 		
 	}
 	
@@ -221,6 +234,7 @@ public class ConsultaCurso extends JInternalFrame {
 			if(iConConCur.ingresarInstituto(institutoSeleccionado).length != 0) {
 				DefaultComboBoxModel<String> modelCurso = new DefaultComboBoxModel<String>(iConConCur.ingresarInstituto(institutoSeleccionado));		
 				comboBoxCurso.setModel(modelCurso);
+				
 			}		
 		}
 	}	
