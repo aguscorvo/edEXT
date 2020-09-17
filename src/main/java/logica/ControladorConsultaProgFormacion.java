@@ -95,9 +95,11 @@ public class ControladorConsultaProgFormacion implements IControladorConsultaPro
 			
 			List<Edicion> edicionesCurso = auxCurso.getEdiciones();
 			List<ProgFormacion> progsFormacionCurso = auxCurso.getProgramas();
+			List<Categoria> categorias = auxCurso.getCategorias();
 			
 			List<String> nomEdiciones = new ArrayList<String>();
 			List<String> nomPFs = new ArrayList<String>();
+			List<String> nomCat = new ArrayList<String>();
 			
 			for(Edicion e: edicionesCurso)
 				nomEdiciones.add(e.getNombreEd());
@@ -105,8 +107,10 @@ public class ControladorConsultaProgFormacion implements IControladorConsultaPro
 			for(ProgFormacion pf: progsFormacionCurso)
 				nomPFs.add(pf.getNombre());
 				
-			
-			DtCursoExp auxDT = new DtCursoExp(nombre, desc, duracion, cantHoras, creditos, fechaR, url, null, nomEdiciones, nomPFs);
+			for(Categoria c: categorias)
+				nomCat.add(c.getNombreCategoria());
+					
+			DtCursoExp auxDT = new DtCursoExp(nombre, desc, duracion, cantHoras, creditos, fechaR, url, null, nomCat, nomEdiciones, nomPFs);
 			
 			return auxDT;
 

@@ -9,6 +9,7 @@ import javax.swing.JMenuItem;
 
 import interfaces.Fabrica;
 import interfaces.IControladorAgregarCursoAPF;
+import interfaces.IControladorAltaCategoria;
 import interfaces.IControladorAltaCurso;
 import interfaces.IControladorAltaEdicion;
 import interfaces.IControladorAltaInstituto;
@@ -42,6 +43,7 @@ public class Principal {
 	private ConsultaPrograma consultarProgramaInternalFrame;
 	private ModificarDatosUsuario modificarDatosUsuarioInternalFrame;
 	private ConsultaUsuario consultarUsuarioInternalFrame;
+	private IngresarCategoria ingresarCategoriaInternalFrame;
 	
 
 	
@@ -75,7 +77,8 @@ public class Principal {
 		IControladorConsultaProgFormacion IConConPF = f.getIControladorConsultaProgFormacion();
 		IControladorModificarDatosUsuario IConModUsu = f.getIControladorModificarDatosUsuario();
 		IControladorConsultaUsuario IConConUsu = f.getIControladorConsultaUsuario();
-				
+		IControladorAltaCategoria IConAltCat = f.getIControladorAltaCategoria();
+		
 		Dimension desktopSize = frame.getSize();
 		Dimension jInternalFrameSize;
 		
@@ -91,7 +94,7 @@ public class Principal {
 		consultarProgramaInternalFrame = new ConsultaPrograma(IConConPF);
 		modificarDatosUsuarioInternalFrame = new ModificarDatosUsuario(IConModUsu);
 		consultarUsuarioInternalFrame = new ConsultaUsuario(IConConUsu);
-		
+		ingresarCategoriaInternalFrame = new IngresarCategoria(IConAltCat);
 		
 		
 		//dejamos el jInternalFrame en el medio de la pantalla
@@ -103,13 +106,17 @@ public class Principal {
 		frame.getContentPane().add(ingresarInstitutoInternalFrame);
 		ingresarInstitutoInternalFrame.getContentPane().setLayout(null);
 		
-		jInternalFrameSize = ingresarUsuarioInternalFrame.getSize();
-		ingresarUsuarioInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
+		///////////////////
+		
+		jInternalFrameSize = ingresarCategoriaInternalFrame.getSize();
+		ingresarCategoriaInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
 		    (desktopSize.height- jInternalFrameSize.height)/2);
 		
-		ingresarUsuarioInternalFrame.setVisible(false);
-		frame.getContentPane().add(ingresarUsuarioInternalFrame);
-		ingresarUsuarioInternalFrame.getContentPane().setLayout(null);
+		ingresarCategoriaInternalFrame.setVisible(false);
+		frame.getContentPane().add(ingresarCategoriaInternalFrame);
+		ingresarInstitutoInternalFrame.getContentPane().setLayout(null);
+	
+		///////////////////
 		
 		jInternalFrameSize = ingresarCursoInternalFrame.getSize();
 		ingresarCursoInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
@@ -119,6 +126,18 @@ public class Principal {
 		frame.getContentPane().add(ingresarCursoInternalFrame);
 		ingresarCursoInternalFrame.getContentPane().setLayout(null);
 		
+		///////////////////
+		
+		jInternalFrameSize = ingresarUsuarioInternalFrame.getSize();
+		ingresarUsuarioInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
+		    (desktopSize.height- jInternalFrameSize.height)/2);
+		
+		ingresarUsuarioInternalFrame.setVisible(false);
+		frame.getContentPane().add(ingresarUsuarioInternalFrame);
+		ingresarUsuarioInternalFrame.getContentPane().setLayout(null);
+		
+		///////////////////
+		
 		jInternalFrameSize = ingresarEdicionInternalFrame.getSize();
 		ingresarEdicionInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
 		    (desktopSize.height- jInternalFrameSize.height)/2);
@@ -126,6 +145,8 @@ public class Principal {
 		ingresarEdicionInternalFrame.setVisible(false);
 		frame.getContentPane().add(ingresarEdicionInternalFrame);
 		ingresarEdicionInternalFrame.getContentPane().setLayout(null);
+		
+		///////////////////
 		
 		jInternalFrameSize = consultarEdicionInternalFrame.getSize();
 		consultarEdicionInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
@@ -135,6 +156,8 @@ public class Principal {
 		frame.getContentPane().add(consultarEdicionInternalFrame);
 		consultarEdicionInternalFrame.getContentPane().setLayout(null);
 		
+		///////////////////
+		
 		jInternalFrameSize =inscribirAEdicionInternalFrame.getSize();
 		inscribirAEdicionInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
 		    (desktopSize.height- jInternalFrameSize.height)/2);
@@ -142,6 +165,8 @@ public class Principal {
 		inscribirAEdicionInternalFrame.setVisible(false);
 		frame.getContentPane().add(inscribirAEdicionInternalFrame);
 		inscribirAEdicionInternalFrame.getContentPane().setLayout(null);
+		
+		///////////////////
 		
 		jInternalFrameSize =consultarCursoInternalFrame.getSize();
 		consultarCursoInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
@@ -151,6 +176,8 @@ public class Principal {
 		frame.getContentPane().add(consultarCursoInternalFrame);
 		consultarCursoInternalFrame.getContentPane().setLayout(null);
 		
+		///////////////////
+		
 		jInternalFrameSize =ingresarProgramaInternalFrame.getSize();
 		ingresarProgramaInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
 		    (desktopSize.height- jInternalFrameSize.height)/2);
@@ -159,6 +186,8 @@ public class Principal {
 		frame.getContentPane().add(ingresarProgramaInternalFrame);
 		ingresarProgramaInternalFrame.getContentPane().setLayout(null);
 				
+		///////////////////
+		
 		jInternalFrameSize =agregarCursoAPFInternalFrame.getSize();
 		agregarCursoAPFInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
 		    (desktopSize.height- jInternalFrameSize.height)/2);
@@ -166,6 +195,8 @@ public class Principal {
 		agregarCursoAPFInternalFrame.setVisible(false);
 		frame.getContentPane().add(agregarCursoAPFInternalFrame);
 		agregarCursoAPFInternalFrame.getContentPane().setLayout(null);
+		
+		///////////////////
 		
 		jInternalFrameSize =consultarProgramaInternalFrame.getSize();
 		consultarProgramaInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
@@ -175,6 +206,8 @@ public class Principal {
 		frame.getContentPane().add(consultarProgramaInternalFrame);
 		consultarProgramaInternalFrame.getContentPane().setLayout(null);
 		
+		///////////////////
+		
 		jInternalFrameSize =modificarDatosUsuarioInternalFrame.getSize();
 		modificarDatosUsuarioInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
 		    (desktopSize.height- jInternalFrameSize.height)/2);
@@ -182,6 +215,8 @@ public class Principal {
 		modificarDatosUsuarioInternalFrame.setVisible(false);
 		frame.getContentPane().add(modificarDatosUsuarioInternalFrame);
 		modificarDatosUsuarioInternalFrame.getContentPane().setLayout(null);
+		
+		///////////////////
 		
 		jInternalFrameSize =consultarUsuarioInternalFrame.getSize();
 		consultarUsuarioInternalFrame.setLocation((desktopSize.width - jInternalFrameSize.width)/2,
@@ -220,6 +255,14 @@ public class Principal {
 				ingresarUsuarioInternalFrame.setVisible(true);
 			}
 		});
+		
+		JMenuItem mntmCategoria = new JMenuItem("Categoría");
+		mntmCategoria.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			ingresarCategoriaInternalFrame.setVisible(true);
+			}
+		});
+		mnAltas.add(mntmCategoria);
 		mnAltas.add(mntmUsuario);
 		
 		JMenuItem mntmCurso = new JMenuItem("Curso");

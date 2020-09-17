@@ -10,7 +10,8 @@
 	<class>logica.Estudiante</class>
 	<class>logica.Docente</class>	
 	<class>logica.InscripcionPF</class>
-	<class>logica.InscripcionEd</class>	
+	<class>logica.InscripcionEd</class>
+	<class>logica.Categoria</class>	
 	
 	<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />

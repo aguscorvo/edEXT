@@ -13,14 +13,15 @@ public class DtCurso {
 	private int creditos;
 	private Date fechaR;
 	private String url;	
-	private List<String> previas = new ArrayList<String>(); 	
+	private List<String> previas = new ArrayList<String>(); 
+	private List<String> categorias = new ArrayList<String>();
 	
 	public DtCurso() {
 		super();
 	}
 
 	public DtCurso(String nombre, String desc, int duracion, int cantHoras, int creditos, Date fechaR,
-			String url, List<String> previas) {
+			String url, List<String> previas, List<String> categorias) {
 		super();
 		this.nombre = nombre;
 		this.desc = desc;
@@ -30,6 +31,7 @@ public class DtCurso {
 		this.fechaR = fechaR;
 		this.url = url;
 		this.previas = previas;
+		this.categorias = categorias;
 	}
 
 	public String getNombre() {
@@ -94,6 +96,14 @@ public class DtCurso {
 
 	public void setPrevias(List<String> previas) {
 		this.previas = previas;
+	}
+
+	public List<String> getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(List<String> categorias) {
+		this.categorias = categorias;
 	}
 	
 	

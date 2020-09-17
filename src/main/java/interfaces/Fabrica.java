@@ -18,6 +18,11 @@ public class Fabrica {
 	}
 	
 	
+	public IControladorAltaCategoria getIControladorAltaCategoria() {
+		return new ControladorAltaCategoria();
+	}
+	
+	
 	public IControladorAltaUsuario getIControladorAltaUsuario() {
 		return new ControladorAltaUsuario();		
 	}

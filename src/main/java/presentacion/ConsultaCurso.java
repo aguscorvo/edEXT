@@ -24,6 +24,7 @@ public class ConsultaCurso extends JInternalFrame {
 	private JComboBox<String> comboBoxInstituto;
 	private JComboBox<String> comboBoxCurso;
 	private JComboBox<String> comboBoxPrevias;
+	private JComboBox<String> comboBoxCategorias;
 	private JComboBox<String> comboBoxEdiciones;
 	private JComboBox<String> comboBoxProgramas;
 	private JButton btnVerCurso;
@@ -48,19 +49,19 @@ public class ConsultaCurso extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblInstituto = new JLabel("INSTITUTO");
-		lblInstituto.setBounds(27, 49, 73, 14);
+		lblInstituto.setBounds(27, 28, 73, 14);
 		getContentPane().add(lblInstituto);
 		
 		comboBoxInstituto = new JComboBox<String>();
-		comboBoxInstituto.setBounds(148, 49, 190, 20);
+		comboBoxInstituto.setBounds(148, 28, 190, 20);
 		getContentPane().add(comboBoxInstituto);
 		
 		JLabel lblCurso = new JLabel("CURSO");
-		lblCurso.setBounds(27, 96, 73, 14);
+		lblCurso.setBounds(27, 75, 73, 14);
 		getContentPane().add(lblCurso);
 		
 		comboBoxCurso = new JComboBox<String>();
-		comboBoxCurso.setBounds(148, 93, 190, 20);
+		comboBoxCurso.setBounds(148, 72, 190, 20);
 		getContentPane().add(comboBoxCurso);
 		
 		btnVerCurso = new JButton("VER");
@@ -70,7 +71,7 @@ public class ConsultaCurso extends JInternalFrame {
 				verCursoActionPerformed(e);
 			}
 		});
-		btnVerCurso.setBounds(392, 93, 80, 23);
+		btnVerCurso.setBounds(392, 72, 80, 23);
 		getContentPane().add(btnVerCurso);
 		
 		textPaneDatos = new JTextPane();
@@ -78,19 +79,19 @@ public class ConsultaCurso extends JInternalFrame {
 		getContentPane().add(textPaneDatos);
 		
 		JLabel lblEdiciones = new JLabel("EDICIONES");
-		lblEdiciones.setBounds(27, 193, 87, 14);
+		lblEdiciones.setBounds(27, 230, 87, 14);
 		getContentPane().add(lblEdiciones);
 		
 		comboBoxEdiciones = new JComboBox<String>();
-		comboBoxEdiciones.setBounds(148, 190, 190, 20);
+		comboBoxEdiciones.setBounds(148, 227, 190, 20);
 		getContentPane().add(comboBoxEdiciones);
 		
 		JLabel lblProgramas = new JLabel("PROGRAMAS");
-		lblProgramas.setBounds(27, 233, 105, 14);
+		lblProgramas.setBounds(27, 270, 105, 14);
 		getContentPane().add(lblProgramas);
 		
 		comboBoxProgramas = new JComboBox<String>();
-		comboBoxProgramas.setBounds(148, 233, 190, 20);
+		comboBoxProgramas.setBounds(148, 270, 190, 20);
 		getContentPane().add(comboBoxProgramas);
 		
 		btnVerEdicion = new JButton("VER");
@@ -100,7 +101,7 @@ public class ConsultaCurso extends JInternalFrame {
 				verEdicionActionPerformed(e);
 			}
 		});
-		btnVerEdicion.setBounds(392, 190, 80, 23);
+		btnVerEdicion.setBounds(392, 227, 80, 23);
 		getContentPane().add(btnVerEdicion);
 		
 		btnVerPrograma = new JButton("VER");
@@ -110,7 +111,7 @@ public class ConsultaCurso extends JInternalFrame {
 				verProgramaActionPerformed(e);
 			}
 		});
-		btnVerPrograma.setBounds(392, 230, 80, 23);
+		btnVerPrograma.setBounds(392, 267, 80, 23);
 		getContentPane().add(btnVerPrograma);
 		
 		btnSalir = new JButton("SALIR");
@@ -119,7 +120,7 @@ public class ConsultaCurso extends JInternalFrame {
 				salirActionPerformed(e);
 			}
 		});
-		btnSalir.setBounds(324, 313, 117, 25);
+		btnSalir.setBounds(221, 323, 117, 25);
 		getContentPane().add(btnSalir);
 		
 		JButton btnVerInstituto = new JButton("VER");
@@ -128,16 +129,24 @@ public class ConsultaCurso extends JInternalFrame {
 				verCursosInstitutoActionPerformed(e);
 			}
 		});
-		btnVerInstituto.setBounds(392, 47, 80, 23);
+		btnVerInstituto.setBounds(392, 26, 80, 23);
 		getContentPane().add(btnVerInstituto);
 		
 		comboBoxPrevias = new JComboBox<String>();
-		comboBoxPrevias.setBounds(148, 146, 190, 20);
+		comboBoxPrevias.setBounds(148, 128, 190, 20);
 		getContentPane().add(comboBoxPrevias);
 		
 		JLabel lblPrevias = new JLabel("PREVIAS");
-		lblPrevias.setBounds(27, 149, 87, 14);
+		lblPrevias.setBounds(27, 131, 87, 14);
 		getContentPane().add(lblPrevias);
+		
+		JLabel lblCategoras = new JLabel("CATEGORÍAS");
+		lblCategoras.setBounds(27, 172, 87, 15);
+		getContentPane().add(lblCategoras);
+		
+		comboBoxCategorias = new JComboBox<String>();
+		comboBoxCategorias.setBounds(148, 172, 190, 19);
+		getContentPane().add(comboBoxCategorias);
 
 	}
 	
@@ -168,6 +177,7 @@ public class ConsultaCurso extends JInternalFrame {
 		comboBoxEdiciones.setModel(model);
 		comboBoxProgramas.setModel(model);
 		inicializarComboBoxPrevias();
+		inicializarComboBoxCategorias();
 		inicializarComboBoxEdiciones();
 		inicializarComboBoxProgramas();
 		DtCursoExp auxDTCE = iConConCur.seleccionarCurso(cursoSeleccionado);
@@ -248,6 +258,20 @@ public class ConsultaCurso extends JInternalFrame {
 	}
 	
 
+	public void inicializarComboBoxCategorias() {
+		
+		DefaultComboBoxModel<String> modelCat;
+		
+		if(iConConCur.getCategorias(cursoSeleccionado).length != 0) {
+			modelCat = new DefaultComboBoxModel<String>(iConConCur.getCategorias(cursoSeleccionado));
+		}
+		else {
+			modelCat = new DefaultComboBoxModel<String>();
+		}
+		
+		comboBoxCategorias.setModel(modelCat);
+	}
+	
 	public void inicializarComboBoxEdiciones() {		
 		
 		if(iConConCur.getEdiciones(cursoSeleccionado).length != 0) {
@@ -277,6 +301,7 @@ public class ConsultaCurso extends JInternalFrame {
 		comboBoxPrevias.setModel(model);
 		comboBoxEdiciones.setModel(model);
 		comboBoxProgramas.setModel(model);
+		comboBoxCategorias.setModel(model);
 		
 		
 	}

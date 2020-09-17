@@ -40,9 +40,12 @@ public class IngresarCurso extends JInternalFrame {
 	private JTextField textFieldInstituto;
 	private JTextField textFieldCreditos;
 	private JComboBox<String> comboBoxPrevias;
+	private JComboBox<String> comboBoxCategoras;
 	private List<String> previasSeleccionadas = new ArrayList<String>();
+	private List<String> categoriasSeleccionadas = new ArrayList<String>();
 	private JButton btnConfirmar;
 	private JButton btnAgregarPrevia;
+	private JButton btnAgregarCat;
 	
 
 	
@@ -58,7 +61,7 @@ public class IngresarCurso extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblNombre = new JLabel("NOMBRE");
-		lblNombre.setBounds(36, 84, 70, 15);
+		lblNombre.setBounds(37, 69, 70, 15);
 		getContentPane().add(lblNombre);
 		
 		textFieldNombre = new JTextField();
@@ -68,12 +71,12 @@ public class IngresarCurso extends JInternalFrame {
 				habilitarBotonConfirmar();
 			}
 		});
-		textFieldNombre.setBounds(142, 82, 231, 19);
+		textFieldNombre.setBounds(143, 67, 231, 19);
 		getContentPane().add(textFieldNombre);
 		textFieldNombre.setColumns(10);
 		
 		JLabel lblDescripcion = new JLabel("DESCRIPCIÓN");
-		lblDescripcion.setBounds(36, 125, 92, 15);
+		lblDescripcion.setBounds(37, 110, 92, 15);
 		getContentPane().add(lblDescripcion);
 		
 		textFieldDescripcion = new JTextField();
@@ -83,16 +86,16 @@ public class IngresarCurso extends JInternalFrame {
 				habilitarBotonConfirmar();
 			}
 		});
-		textFieldDescripcion.setBounds(142, 123, 231, 19);
+		textFieldDescripcion.setBounds(143, 108, 231, 19);
 		getContentPane().add(textFieldDescripcion);
 		textFieldDescripcion.setColumns(10);
 		
 		JLabel lblDuracin = new JLabel("DURACIÓN");		
-		lblDuracin.setBounds(431, 42, 79, 15);
+		lblDuracin.setBounds(432, 27, 79, 15);
 		getContentPane().add(lblDuracin);
 		
 		JLabel lblCantidadDeHoras = new JLabel("CANTIDAD DE HORAS");
-		lblCantidadDeHoras.setBounds(431, 84, 150, 15);
+		lblCantidadDeHoras.setBounds(432, 69, 150, 15);
 		getContentPane().add(lblCantidadDeHoras);
 		
 		textFieldCantHoras = new JTextField();
@@ -102,7 +105,7 @@ public class IngresarCurso extends JInternalFrame {
 				habilitarBotonConfirmar();
 			}
 		});
-		textFieldCantHoras.setBounds(608, 82, 79, 19);
+		textFieldCantHoras.setBounds(609, 67, 79, 19);
 		getContentPane().add(textFieldCantHoras);
 		textFieldCantHoras.setColumns(10);
 		
@@ -113,12 +116,12 @@ public class IngresarCurso extends JInternalFrame {
 				habilitarBotonConfirmar();
 			}
 		});
-		textFieldDuracion.setBounds(608, 40, 79, 19);
+		textFieldDuracion.setBounds(609, 25, 79, 19);
 		getContentPane().add(textFieldDuracion);
 		textFieldDuracion.setColumns(10);
 		
 		JLabel lblUrl = new JLabel("URL");
-		lblUrl.setBounds(431, 170, 32, 15);
+		lblUrl.setBounds(432, 155, 32, 15);
 		getContentPane().add(lblUrl);
 		
 		textFieldURL = new JTextField();
@@ -128,12 +131,12 @@ public class IngresarCurso extends JInternalFrame {
 				habilitarBotonConfirmar();
 			}
 		});
-		textFieldURL.setBounds(474, 168, 236, 19);
+		textFieldURL.setBounds(475, 153, 236, 19);
 		getContentPane().add(textFieldURL);
 		textFieldURL.setColumns(10);
 		
 		JLabel lblPrevias = new JLabel("PREVIAS");
-		lblPrevias.setBounds(36, 170, 62, 15);
+		lblPrevias.setBounds(37, 155, 62, 15);
 		getContentPane().add(lblPrevias);
 		
 		btnConfirmar = new JButton("Confirmar");
@@ -148,7 +151,7 @@ public class IngresarCurso extends JInternalFrame {
 				}
 			}
 		});
-		btnConfirmar.setBounds(224, 275, 117, 25);
+		btnConfirmar.setBounds(432, 242, 117, 25);
 		getContentPane().add(btnConfirmar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
@@ -157,11 +160,11 @@ public class IngresarCurso extends JInternalFrame {
 				ingresarCursoCancelarActionPerformed(e);
 			}
 		});
-		btnCancelar.setBounds(393, 275, 117, 25);
+		btnCancelar.setBounds(594, 242, 117, 25);
 		getContentPane().add(btnCancelar);
 		
 		JLabel lblInstituto = new JLabel("INSTITUTO");
-		lblInstituto.setBounds(36, 42, 85, 15);
+		lblInstituto.setBounds(37, 27, 85, 15);
 		getContentPane().add(lblInstituto);
 		
 		textFieldInstituto = new JTextField();
@@ -171,22 +174,22 @@ public class IngresarCurso extends JInternalFrame {
 				habilitarBotonConfirmar();
 			}
 		});
-		textFieldInstituto.setBounds(142, 40, 231, 19);
+		textFieldInstituto.setBounds(143, 25, 231, 19);
 		getContentPane().add(textFieldInstituto);
 		textFieldInstituto.setColumns(10);
 		
 		JLabel lblCrditos = new JLabel("CRÉDITOS");
-		lblCrditos.setBounds(431, 125, 70, 15);
+		lblCrditos.setBounds(432, 110, 70, 15);
 		getContentPane().add(lblCrditos);
 		
 		textFieldCreditos = new JTextField();
-		textFieldCreditos.setBounds(608, 123, 79, 19);
+		textFieldCreditos.setBounds(609, 108, 79, 19);
 		getContentPane().add(textFieldCreditos);
 		textFieldCreditos.setColumns(10);
 		
 		btnAgregarPrevia = new JButton("Agregar");
 		btnAgregarPrevia.setEnabled(false);
-		btnAgregarPrevia.setBounds(282, 201, 91, 25);
+		btnAgregarPrevia.setBounds(283, 186, 91, 25);
 		getContentPane().add(btnAgregarPrevia);
 		
 		btnAgregarPrevia.addActionListener(new ActionListener() {
@@ -198,8 +201,28 @@ public class IngresarCurso extends JInternalFrame {
 
 		
 		comboBoxPrevias = new JComboBox<String>();
-		comboBoxPrevias.setBounds(142, 165, 231, 24);
+		comboBoxPrevias.setBounds(143, 150, 231, 24);
 		getContentPane().add(comboBoxPrevias);
+		
+		JLabel lblCategoras = new JLabel("CATEGORÍAS");
+		lblCategoras.setBounds(37, 234, 92, 15);
+		getContentPane().add(lblCategoras);
+		
+		comboBoxCategoras = new JComboBox<String>();
+		comboBoxCategoras.setBounds(143, 229, 231, 24);
+		getContentPane().add(comboBoxCategoras);
+		
+		btnAgregarCat = new JButton("Agregar");
+		btnAgregarCat.setEnabled(false);
+		btnAgregarCat.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				agregarCategoriaActionPerformed(e);
+			
+			}
+		});
+		
+		btnAgregarCat.setBounds(283, 265, 91, 25);
+		getContentPane().add(btnAgregarCat);
 		
 		
 		if (iConAltCur.getCursos().length !=0) {
@@ -207,8 +230,18 @@ public class IngresarCurso extends JInternalFrame {
 			comboBoxPrevias.setEnabled(true);
 		}
 		
+		if (iConAltCur.getCategorias().length !=0) {
+			btnAgregarCat.setEnabled(true);
+			comboBoxCategoras.setEnabled(true);
+		}
 	
 
+	}
+	
+	protected void agregarCategoriaActionPerformed(ActionEvent e) {
+		String categoria = comboBoxCategoras.getSelectedItem().toString();
+		categoriasSeleccionadas.add(categoria);
+		JOptionPane.showMessageDialog(this, "La categoría '" +categoria+ "' fue agregada con éxito a la lista de categorías.", "Ingresar Curso", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	protected void agregarPreviaActionPerformed(ActionEvent e) {
@@ -229,12 +262,13 @@ public class IngresarCurso extends JInternalFrame {
 		Date fechaR = new Date();
 		String url = textFieldURL.getText();
 		List <String> previas = new ArrayList<String>(previasSeleccionadas);
+		List <String> categorias = new ArrayList<String>(categoriasSeleccionadas);
 		if (checkTextField(instituto) & checkTextField(nombre)& checkTextField(desc) & checkTextFieldInt(cHoras) & checkTextFieldInt(cred) & checkTextFieldInt(d) & checkTextField(url)) {
 			
 			int duracion = Integer.parseInt(d);
 			int cantHoras = Integer.parseInt(cHoras);
 			int creditos = Integer.parseInt(cred);
-			DtCurso dt = new DtCurso(nombre, desc, duracion, cantHoras, creditos, fechaR, url, previas);			
+			DtCurso dt = new DtCurso(nombre, desc, duracion, cantHoras, creditos, fechaR, url, previas, categorias);			
 			try {
 				iConAltCur.ingresarCurso(instituto, dt);
 				iConAltCur.confirmarAltaCurso();
@@ -314,6 +348,7 @@ public class IngresarCurso extends JInternalFrame {
 		textFieldCreditos.setText("");
 		textFieldURL.setText("");
 		previasSeleccionadas.clear();
+		categoriasSeleccionadas.clear();
 
 	}
 	
@@ -321,6 +356,9 @@ public class IngresarCurso extends JInternalFrame {
 		
 		DefaultComboBoxModel<String> modelcursos = new DefaultComboBoxModel<String>(iConAltCur.getCursos());		
 		comboBoxPrevias.setModel(modelcursos);
+		
+		DefaultComboBoxModel<String> modelcategorias = new DefaultComboBoxModel<String>(iConAltCur.getCategorias());
+		comboBoxCategoras.setModel(modelcategorias);
 		
 	}
 	

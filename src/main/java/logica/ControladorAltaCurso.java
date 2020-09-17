@@ -42,10 +42,17 @@ public class ControladorAltaCurso implements IControladorAltaCurso {
 			Curso auxPrevia = mc.getCurso(p);
 			auxPrevias.add(auxPrevia);
 		}
-				
+		
+		ManejadorCategoria mCat = ManejadorCategoria.getInstancia();
+		List<Categoria> auxCategorias = new ArrayList<Categoria>();
+		for(String p: this.curso.getCategorias()){
+			Categoria auxCategoria = mCat.getCategoria(p);
+			auxCategorias.add(auxCategoria);
+		}
+		
 		List<Edicion> auxEdiciones = new ArrayList<Edicion>();
 		List<ProgFormacion> auxProgramas = new ArrayList<ProgFormacion>();
-		Curso nuevo = new Curso(this.curso.getNombre(),this.curso.getDesc(),this.curso.getDuracion(),this.curso.getCantHoras(),this.curso.getCreditos(),this.curso.getFechaR(),this.curso.getUrl(), auxPrevias, auxEdiciones, auxProgramas);
+		Curso nuevo = new Curso(this.curso.getNombre(),this.curso.getDesc(),this.curso.getDuracion(),this.curso.getCantHoras(),this.curso.getCreditos(),this.curso.getFechaR(),this.curso.getUrl(), auxPrevias, auxCategorias, auxEdiciones, auxProgramas);
 	
 		Instituto auxInstituto = mi.getInstituto(this.instituto);
 		List<Curso> auxCursos = auxInstituto.getCursos();
@@ -71,6 +78,20 @@ public class ControladorAltaCurso implements IControladorAltaCurso {
         	i++;
         }
         return cursos_ret;
+	}
+
+
+	public String[] getCategorias() {
+		List<Categoria> categorias;
+		ManejadorCategoria mc = ManejadorCategoria.getInstancia();
+		categorias = mc.getCategorias();
+		String[] cat_ret = new String [categorias.size()];
+		int i=0;
+		for (Categoria c: categorias) {
+			cat_ret[i]= c.getNombreCategoria();
+			i++;
+		}
+		return cat_ret;
 	}
 	
 	

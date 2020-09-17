@@ -61,7 +61,7 @@ public class ControladorConsultaCurso implements IControladorConsultaCurso{
 		for(ProgFormacion pf: PFs)
 			auxPFs.add(pf.getNombre());
 		
-		DtCursoExp auxDT = new DtCursoExp(nombre, desc, duracion, cantHoras, creditos, fechaR, url, null, auxEdiciones, auxPFs);
+		DtCursoExp auxDT = new DtCursoExp(nombre, desc, duracion, cantHoras, creditos, fechaR, url, null, null, auxEdiciones, auxPFs);
 		
 		return auxDT;
 		
@@ -246,6 +246,21 @@ public class ControladorConsultaCurso implements IControladorConsultaCurso{
 		
 		return auxDatos;
 
+	}
+
+
+	public String[] getCategorias(String curso) {
+		List<Categoria> categorias;
+		ManejadorCurso mc = ManejadorCurso.getInstancia();
+		Curso auxCurso = mc.getCurso(curso);
+		categorias = auxCurso.getCategorias(); 
+		String[] cat_ret = new String [categorias.size()];
+		int i=0;
+		for (Categoria c: categorias) {
+			cat_ret[i]= c.getNombreCategoria();
+			i++;
+		}
+		return cat_ret;
 	}
 	
 	

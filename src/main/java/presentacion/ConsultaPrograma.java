@@ -46,7 +46,7 @@ public class ConsultaPrograma extends JInternalFrame {
 		getContentPane().add(lblPrograma);
 		
 		comboBoxProgramas = new JComboBox<String>();
-		comboBoxProgramas.setBounds(35, 81, 162, 20);
+		comboBoxProgramas.setBounds(35, 81, 197, 20);
 		getContentPane().add(comboBoxProgramas);
 		
 		btnVerPrograma = new JButton("VER");
@@ -59,7 +59,7 @@ public class ConsultaPrograma extends JInternalFrame {
 		getContentPane().add(btnVerPrograma);
 		
 		comboBoxCursos = new JComboBox<String>();
-		comboBoxCursos.setBounds(36, 161, 162, 20);
+		comboBoxCursos.setBounds(36, 161, 196, 20);
 		getContentPane().add(comboBoxCursos);
 		
 		btnVerCurso = new JButton("VER");

@@ -14,9 +14,9 @@ public class DtCursoExp extends DtCurso {
 	
 	
 	public DtCursoExp(String nombre, String desc, int duracion, int cantHoras, int creditos, Date fechaR, 
-					String url, List<String> previas, List<String> ediciones, List<String> programas) {
+					String url, List<String> previas, List<String> categorias, List<String> ediciones, List<String> programas) {
 		
-		super(nombre, desc, duracion, cantHoras, creditos, fechaR, url, previas);
+		super(nombre, desc, duracion, cantHoras, creditos, fechaR, url, previas, categorias);
 		this.ediciones = ediciones;
 		this.programas = programas;
 		

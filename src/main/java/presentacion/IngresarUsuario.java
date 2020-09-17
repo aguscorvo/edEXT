@@ -42,6 +42,8 @@ public class IngresarUsuario extends JInternalFrame {
 	private JDateChooser dateChooserFechaNac;
 	private JButton btnConfirmar;
 	private JButton btnCancelar;
+	private JTextField textFieldContra1;
+	private JTextField textFieldContra2;
 
 	
 	public IngresarUsuario(IControladorAltaUsuario iConAltUsu) {
@@ -52,7 +54,7 @@ public class IngresarUsuario extends JInternalFrame {
 		setIconifiable(true);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setTitle("Ingresar Usuario");
-		setBounds(100, 100, 719, 284);
+		setBounds(100, 100, 715, 433);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNick = new JLabel("NICK");
@@ -172,7 +174,7 @@ public class IngresarUsuario extends JInternalFrame {
 				ingresarUsuarioAceptarActionPerformed(e);
 			}
 		});
-		btnConfirmar.setBounds(363, 170, 117, 25);
+		btnConfirmar.setBounds(206, 335, 117, 25);
 		getContentPane().add(btnConfirmar);
 		
 		btnCancelar = new JButton("Cancelar");
@@ -181,8 +183,39 @@ public class IngresarUsuario extends JInternalFrame {
 				ingresarUsuarioCancelarActionPerformed(e);
 			}
 		});
-		btnCancelar.setBounds(515, 170, 117, 25);
+		btnCancelar.setBounds(390, 335, 117, 25);
 		getContentPane().add(btnCancelar);
+		
+		JLabel lblIngreseUnaContrasea = new JLabel("Ingrese una contraseña:");
+		lblIngreseUnaContrasea.setBounds(34, 227, 181, 15);
+		getContentPane().add(lblIngreseUnaContrasea);
+		
+	
+		textFieldContra1 = new JTextField();
+		textFieldContra1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				habilitarBotonConfirmar();
+			}
+		});
+		textFieldContra1.setBounds(242, 227, 238, 19);
+		getContentPane().add(textFieldContra1);
+		textFieldContra1.setColumns(10);
+		
+		JLabel lblConfirmeContrasea = new JLabel("Confirme contraseña:");
+		lblConfirmeContrasea.setBounds(34, 272, 181, 15);
+		getContentPane().add(lblConfirmeContrasea);
+		
+		textFieldContra2 = new JTextField();
+		textFieldContra2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				habilitarBotonConfirmar();
+			}
+		});
+		textFieldContra2.setBounds(242, 270, 238, 19);
+		getContentPane().add(textFieldContra2);
+		textFieldContra2.setColumns(10);
 		
 
 	}

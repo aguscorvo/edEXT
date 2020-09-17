@@ -10,4 +10,5 @@ public interface IControladorAltaCurso {
 	public void confirmarAltaCurso();
 	public void cancelarAltaCurso();
 	public String [] getCursos();
+	public String [] getCategorias();
 }
