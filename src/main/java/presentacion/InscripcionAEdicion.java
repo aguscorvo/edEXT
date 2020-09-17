@@ -196,11 +196,11 @@ public class InscripcionAEdicion extends JInternalFrame {
 				comboBoxEstudiante.setModel(modelEstudiante);
 				comboBoxEstudiante.setEnabled(true);
 				btnConfirmar.setEnabled(true);
-			}
-		}else {
-			limpiarComboBox(comboBoxEstudiante);
-			btnConfirmar.setEnabled(false);		
-		}	
+			}else {
+				limpiarComboBox(comboBoxEstudiante);
+				btnConfirmar.setEnabled(false);		
+			}	
+		}
 	}
 	
 		

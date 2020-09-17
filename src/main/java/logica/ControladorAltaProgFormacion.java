@@ -16,7 +16,6 @@ public class ControladorAltaProgFormacion implements IControladorAltaProgFormaci
 		if(mpf.existeProgFormacion(programa.getNombre())) 
 			throw new ProgramaRepetidoException("Ya existe un programa con nombre '" + programa.getNombre() + "' registrado en el sistema.\n");
 		else {
-			ProgFormacion auxPrograma = mpf.getProgFormacion(programa.getNombre());
 			this.programa = programa;		
 		}
 		

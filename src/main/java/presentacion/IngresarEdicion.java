@@ -239,6 +239,7 @@ public class IngresarEdicion extends JInternalFrame {
 		limpiarComboBox(comboBoxCursos);
 		limpiarFormulario();
 		setVisible(false); 
+		docentesSeleccionados.clear();
 		
 	}
 	
@@ -249,8 +250,8 @@ public class IngresarEdicion extends JInternalFrame {
 		limpiarFormulario();
 		btnConfirmar.setEnabled(false);
 		btnAgregar.setEnabled(false);
-		setVisible(false); 
-
+		setVisible(false);
+		docentesSeleccionados.clear();
 	}
 	
 	protected void chckbxCupoActionPerformed(ActionEvent e) {

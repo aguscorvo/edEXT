@@ -25,7 +25,6 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import javax.swing.JPanel;
 
 public class IngresarUsuario extends JInternalFrame {
 	
@@ -168,7 +167,6 @@ public class IngresarUsuario extends JInternalFrame {
 		
 		btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.setEnabled(false);
-		//btnConfirmar.setBackground(UIManager.getColor("Button.darkShadow"));
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ingresarUsuarioAceptarActionPerformed(e);
