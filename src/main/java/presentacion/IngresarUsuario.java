@@ -25,6 +25,7 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JPasswordField;
 
 public class IngresarUsuario extends JInternalFrame {
 	
@@ -42,8 +43,8 @@ public class IngresarUsuario extends JInternalFrame {
 	private JDateChooser dateChooserFechaNac;
 	private JButton btnConfirmar;
 	private JButton btnCancelar;
-	private JTextField textFieldContra1;
-	private JTextField textFieldContra2;
+	private JPasswordField passwordField1;
+	private JPasswordField passwordField2;
 
 	
 	public IngresarUsuario(IControladorAltaUsuario iConAltUsu) {
@@ -191,33 +192,19 @@ public class IngresarUsuario extends JInternalFrame {
 		getContentPane().add(lblIngreseUnaContrasea);
 		
 	
-		textFieldContra1 = new JTextField();
-		textFieldContra1.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyReleased(KeyEvent e) {
-				habilitarBotonConfirmar();
-			}
-		});
-		textFieldContra1.setBounds(242, 227, 238, 19);
-		getContentPane().add(textFieldContra1);
-		textFieldContra1.setColumns(10);
-		
 		JLabel lblConfirmeContrasea = new JLabel("Confirme contraseña:");
 		lblConfirmeContrasea.setBounds(34, 272, 181, 15);
 		getContentPane().add(lblConfirmeContrasea);
 		
-		textFieldContra2 = new JTextField();
-		textFieldContra2.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyReleased(KeyEvent e) {
-				habilitarBotonConfirmar();
-			}
-		});
-		textFieldContra2.setBounds(242, 270, 238, 19);
-		getContentPane().add(textFieldContra2);
-		textFieldContra2.setColumns(10);
+		passwordField1 = new JPasswordField();
+		passwordField1.setBounds(233, 225, 268, 19);
+		getContentPane().add(passwordField1);
 		
-
+		passwordField2 = new JPasswordField();
+		passwordField2.setBounds(233, 270, 268, 19);
+		getContentPane().add(passwordField2);
+		
+		
 	}
 	
 	protected void ingresarUsuarioAceptarActionPerformed(ActionEvent e) {
@@ -283,6 +270,8 @@ public class IngresarUsuario extends JInternalFrame {
 		textFieldApellido.setText("");
 		textFieldCorreo.setText("");
 		textFieldInstituto.setText("");
+		passwordField1.setText("");
+		passwordField2.setText("");
 		Date fechaActual = new Date();
 		dateChooserFechaNac.setDate(fechaActual);
 	}
