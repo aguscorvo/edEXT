@@ -21,8 +21,8 @@ public class Docente extends Usuario {
 	
 	//public boolean estaAsociado(String nombre) {}
 
-	public Docente(String nick, String nombre, String apellido, String correo, Date fechaNac, Instituto instituto, List<Edicion> ediciones) {
-		super(nick, nombre, apellido, correo, fechaNac);
+	public Docente(String nick, String nombre, String apellido, String correo, Date fechaNac, String password, Instituto instituto, List<Edicion> ediciones) {
+		super(nick, nombre, apellido, correo, fechaNac, password);
 		this.instituto = instituto;
 		this.ediciones = ediciones;
 	}

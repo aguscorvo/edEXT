@@ -10,8 +10,8 @@ public class DtDocente extends DtUsuario{
 		super();
 	}
 		
-	public DtDocente(String nick, String nombre, String apellido, String correo, Date fechaNac, String instituto) {
-		super(nick, nombre, apellido, correo, fechaNac);
+	public DtDocente(String nick, String nombre, String apellido, String correo, Date fechaNac, String password, String instituto) {
+		super(nick, nombre, apellido, correo, fechaNac, password);
 		this.instituto = instituto;
 	}	
 

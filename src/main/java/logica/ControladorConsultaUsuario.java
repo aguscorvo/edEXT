@@ -55,7 +55,7 @@ public class ControladorConsultaUsuario implements IControladorConsultaUsuario{
 			}
 			
 			dt = new DtEstudianteExp (auxUsuario.getNick(), auxUsuario.getNombre(), auxUsuario.getApellido(), auxUsuario.getCorreo(), 
-					auxUsuario.getFechaNac(), nombreEdiciones, nombreProgramas);
+					auxUsuario.getFechaNac(), "", nombreEdiciones, nombreProgramas);
 						
 		}else if(auxUsuario instanceof Docente) {
 			List<Edicion> auxEdiciones = (((Docente)auxUsuario).getEdiciones());
@@ -64,7 +64,7 @@ public class ControladorConsultaUsuario implements IControladorConsultaUsuario{
 				nombreEdiciones.add(e.getNombreEd());
 			
 			dt = new DtDocenteExp (auxUsuario.getNick(), auxUsuario.getNombre(), auxUsuario.getApellido(), auxUsuario.getCorreo(), 
-					auxUsuario.getFechaNac(), ((Docente)auxUsuario).getInstituto().getNombre(), nombreEdiciones);
+					auxUsuario.getFechaNac(), "", ((Docente)auxUsuario).getInstituto().getNombre(), nombreEdiciones);
 			
 		}
 		return dt;

@@ -30,7 +30,8 @@ public class ControladorModificarDatosUsuario implements IControladorModificarDa
 	public DtUsuario seleccionarUsuario(String nick) {
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
 		Usuario auxUsuario = mU.getUsuario(nick);
-		DtUsuario dt = new DtUsuario (auxUsuario.getNick(), auxUsuario.getNombre(), auxUsuario.getApellido(), auxUsuario.getCorreo(), auxUsuario.getFechaNac());
+		DtUsuario dt = new DtUsuario (auxUsuario.getNick(), auxUsuario.getNombre(), auxUsuario.getApellido(), auxUsuario.getCorreo(), 
+		auxUsuario.getFechaNac(), auxUsuario.getPassword());
 		return dt;
 	}
 	

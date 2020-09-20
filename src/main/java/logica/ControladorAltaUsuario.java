@@ -36,14 +36,14 @@ public class ControladorAltaUsuario implements IControladorAltaUsuario {
 			}
 			Instituto inst = mi.getInstituto(((DtDocente) usuario).getInstituto());
 			List<Edicion> aux = new ArrayList<Edicion>(); 
-			Docente d= new Docente(usuario.getNick(), usuario.getNombre(), usuario.getApellido(), usuario.getCorreo(), usuario.getFechaNac(), inst, aux);
+			Docente d= new Docente(usuario.getNick(), usuario.getNombre(), usuario.getApellido(), usuario.getCorreo(), usuario.getFechaNac(), usuario.getPassword(), inst, aux);
 			mu.agregarUsuario(d);
 
 		}
 		if (usuario instanceof DtEstudiante) {
 			List<InscripcionEd> ie = new ArrayList<InscripcionEd>();
 			List<InscripcionPF> ip = new ArrayList<InscripcionPF>();
-			Estudiante e= new Estudiante(usuario.getNick(), usuario.getNombre(), usuario.getApellido(), usuario.getCorreo(), usuario.getFechaNac(), ie, ip);
+			Estudiante e= new Estudiante(usuario.getNick(), usuario.getNombre(), usuario.getApellido(), usuario.getCorreo(), usuario.getFechaNac(), usuario.getPassword(), ie, ip);
 			mu.agregarUsuario(e);
 		}		
 		

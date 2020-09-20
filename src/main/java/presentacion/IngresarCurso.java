@@ -224,7 +224,11 @@ public class IngresarCurso extends JInternalFrame {
 		btnAgregarCat.setBounds(283, 265, 91, 25);
 		getContentPane().add(btnAgregarCat);
 		
-		
+	}
+	
+	
+	
+	public void habilitarBotonesAgregar() {
 		if (iConAltCur.getCursos().length !=0) {
 			btnAgregarPrevia.setEnabled(true);
 			comboBoxPrevias.setEnabled(true);
@@ -234,8 +238,6 @@ public class IngresarCurso extends JInternalFrame {
 			btnAgregarCat.setEnabled(true);
 			comboBoxCategoras.setEnabled(true);
 		}
-	
-
 	}
 	
 	protected void agregarCategoriaActionPerformed(ActionEvent e) {

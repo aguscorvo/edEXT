@@ -213,20 +213,25 @@ public class IngresarUsuario extends JInternalFrame {
 		String apellido = this.textFieldApellido.getText();
 		String correo = this.textFieldCorreo.getText();
 		Date fecha = this.dateChooserFechaNac.getDate();
+		@SuppressWarnings("deprecation")
+		String pass1 = this.passwordField1.getText();
+		@SuppressWarnings("deprecation")
+		String pass2 = this.passwordField2.getText();
+		
 		DtUsuario dt=null;
 		
 		if(rdbtnDocente.isSelected()) {
 			String instituto = this.textFieldInstituto.getText();
 			if (checkTextField(instituto)) {
-				dt = new DtDocente(nick, nombre, apellido, correo, fecha, instituto);
+				dt = new DtDocente(nick, nombre, apellido, correo, fecha, instituto, pass1);
 			}
 			else return;
 			
 		}
 		if(rdbtnEstudiante.isSelected()) {
-			dt= new DtEstudiante(nick, nombre, apellido, correo, fecha);
+			dt= new DtEstudiante(nick, nombre, apellido, correo, fecha, pass1);
 		}
-		if(checkTextField(nick)& checkTextField(nombre)& checkTextField(apellido)&checkTextField(correo)) {
+		if(checkTextField(nick)& checkTextField(nombre)& checkTextField(apellido)& checkTextField(correo)& checkPass(pass1, pass2)) {
 			try {			
 					this.iConAltaUsu.ingresarDtUsuario(dt);
 					this.iConAltaUsu.confirmarAltaUsuario();
@@ -262,6 +267,16 @@ public class IngresarUsuario extends JInternalFrame {
 		
 		return true;			
 		
+	}
+	
+	private boolean checkPass(String string1, String string2) {
+		if(!string1.equals(string2)) {
+			JOptionPane.showMessageDialog(this, "Las contraseñas ingresadas no coinciden. Intente nuevamente.", "Ingresar Usuario",
+                    JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		
+		return true;
 	}
 	
 	private void limpiarFormulario() {

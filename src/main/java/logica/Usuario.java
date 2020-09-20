@@ -20,7 +20,9 @@ public abstract class Usuario {
 	@Column(unique = true)
 	private String correo; 
 	private Date fechaNac; 
-
+	private String password;
+	
+	
 	//public abstract DtUsuario obtenerDtUsuario();
 	public boolean existeUsuario(DtUsuario usuario) {
 		return false;}
@@ -30,13 +32,14 @@ public abstract class Usuario {
 		super();
 	}
 	
-	public Usuario(String nick, String nombre, String apellido, String correo, Date fechaNac) {
+	public Usuario(String nick, String nombre, String apellido, String correo, Date fechaNac, String password) {
 		super();
 		this.nick = nick;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.correo = correo;
 		this.fechaNac = fechaNac;
+		this.password = password;
 	}
 	
 	public String getNick() {
@@ -77,6 +80,12 @@ public abstract class Usuario {
 	
 	public void setFechaNac(Date fechaNac) {
 		this.fechaNac = fechaNac;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

@@ -8,8 +8,8 @@ public class DtEstudianteExp extends DtEstudiante {
 	public List<String> ediciones = new ArrayList<String>();
 	public List<String> programas = new ArrayList<String>();
 	
-	public DtEstudianteExp(String nick, String nombre, String apellido, String correo, Date fechaNac, List<String> ediciones, List<String> programas) {
-		super(nick, nombre, apellido, correo, fechaNac);
+	public DtEstudianteExp(String nick, String nombre, String apellido, String correo, Date fechaNac, String password, List<String> ediciones, List<String> programas) {
+		super(nick, nombre, apellido, correo, fechaNac, password);
 		this.ediciones = ediciones;
 		this.programas = programas;
 	}

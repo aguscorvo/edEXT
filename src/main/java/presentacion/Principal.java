@@ -270,6 +270,7 @@ public class Principal {
 			public void actionPerformed(ActionEvent arg0) {
 				ingresarCursoInternalFrame.setVisible(true);
 				ingresarCursoInternalFrame.iniciarlizarComboBoxes();
+				ingresarCursoInternalFrame.habilitarBotonesAgregar();
 			}
 		});
 		mnAltas.add(mntmCurso);

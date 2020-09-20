@@ -29,9 +29,9 @@ public class Estudiante extends Usuario {
 		super();
 	}
 
-	public Estudiante(String nick, String nombre, String apellido, String correo, Date fechaNac,
+	public Estudiante(String nick, String nombre, String apellido, String correo, Date fechaNac, String password,
 			List<InscripcionEd> inscripcionesEd, List<InscripcionPF> inscripcionesPF) {
-		super(nick, nombre, apellido, correo, fechaNac);
+		super(nick, nombre, apellido, correo, fechaNac, password);
 		this.inscripcionesEd = inscripcionesEd;
 		this.inscripcionesPF = inscripcionesPF;
 	}

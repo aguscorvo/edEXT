@@ -7,19 +7,22 @@ public class DtUsuario {
 	private String nombre;
 	private String apellido;
 	private String correo;
-	private Date fechaNac;
-			
+	private Date fechaNac;		
+	private String password;
+	
+	
 	public DtUsuario() {
 		super();
 	}
 	
-	public DtUsuario(String nick, String nombre, String apellido, String correo, Date fechaNac) {
+	public DtUsuario(String nick, String nombre, String apellido, String correo, Date fechaNac, String password) {
 		super();
 		this.nick = nick;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.correo = correo;
 		this.fechaNac = fechaNac;
+		this.setPassword(password);
 	}
 	public String getNick() {
 		return nick;
@@ -50,6 +53,14 @@ public class DtUsuario {
 	}
 	public void setFechaNac(Date fechaNac) {
 		this.fechaNac = fechaNac;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	
