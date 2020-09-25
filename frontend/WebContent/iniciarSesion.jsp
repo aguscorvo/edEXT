@@ -7,7 +7,7 @@
 <%@include file="/header.jsp"%>
 <title>Iniciar sesión</title>
 </head>
-<body>
+<body style="background-color: #364853">
 <form>
   <div class="form-group">
     <input type="email" name="nickOEmail" class="form-control" id="exampleInputEmail1" placeholder="Nick o correo electrónico">

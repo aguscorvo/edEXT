@@ -9,18 +9,15 @@
 
 </head>
 <body>
-<!--  "navbar navbar-dark bg-dark" -->
+<!--  "navbar navbar-expand-lg navbar-light bg-light" -->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Edext</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.jsp">Edext</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.jsp">Home</a>
-      </li>
       <li class="nav-item">
         <a class="nav-link" href="iniciarSesion.jsp">Iniciar sesión</a>
       </li>
