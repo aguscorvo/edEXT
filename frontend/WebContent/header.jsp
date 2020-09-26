@@ -9,18 +9,7 @@
 
 </head>
 <body>
-<% /*
-if (!session.isNew()){
-	String tipo="estudiante";
-	session.getAttribute("tipoUsuarioLogueado");
-	if (session.getAttribute("tipoUsuarioLogueado").equals(tipo)){
-		System.out.println("es un estudiante");
-	}
-	else 	System.out.println("usuario no logueado o docente");
-}
-*/
 
-%>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="index.jsp">edEXT</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,12 +18,20 @@ if (!session.isNew()){
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
     <!-- si es visitante -->
+      <%if (session!=null){
+    		if(session.getAttribute("tipoUsuarioLogueado") == null){ %>
       <li class="nav-item">
         <a class="nav-link" href="iniciarSesion.jsp">Iniciar sesión</a>
-      </li>
+      </li><%}
+    	} %>
+      <%if (session!=null){
+    		if(session.getAttribute("tipoUsuarioLogueado") != null){ %>
       <li class="nav-item">
-        <a class="nav-link" href="cerrarSesion.jsp" data-toggle="modal">Cerrar sesión</a>
+        <a class="nav-link" href="cerrarSesion.jsp" >Cerrar sesión</a>
       </li>
+      <%
+      		}
+    	} %>
       <li class="nav-item">
         <a class="nav-link" href="verificacion.jsp">Verifico si hay usuario logueado</a>
       </li>

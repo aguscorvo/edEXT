@@ -10,7 +10,7 @@
 </head>
 <body>
 <p>Mirar en consola</p>
-<%HttpSession s = request.getSession();
+<%
 if (session!=null){
 	if(session.getAttribute("tipoUsuarioLogueado") != null){
 		String tipo = (String) session.getAttribute("tipoUsuarioLogueado");
@@ -18,7 +18,7 @@ if (session!=null){
 	}else{
 		System.out.println("usuario no logueado");
 	}
-};%>
+}%>
 
 </body>
 </html>
