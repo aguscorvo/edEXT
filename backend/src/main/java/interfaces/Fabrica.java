@@ -74,5 +74,9 @@ public class Fabrica {
 	public IControladorConsultaUsuario getIControladorConsultaUsuario() {
 		return new ControladorConsultaUsuario();
 	}
+	
+	public IControladorIniciarSesion getIControladorIniciarSesion() {
+		return new ControladorIniciarSesion();
+	}
 		
 }

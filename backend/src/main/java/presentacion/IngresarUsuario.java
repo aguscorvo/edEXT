@@ -223,7 +223,7 @@ public class IngresarUsuario extends JInternalFrame {
 		if(rdbtnDocente.isSelected()) {
 			String instituto = this.textFieldInstituto.getText();
 			if (checkTextField(instituto)) {
-				dt = new DtDocente(nick, nombre, apellido, correo, fecha, instituto, pass1);
+				dt = new DtDocente(nick, nombre, apellido, correo, fecha, pass1, instituto);
 			}
 			else return;
 			
