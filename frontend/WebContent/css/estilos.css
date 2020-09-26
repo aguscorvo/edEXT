@@ -1,13 +1,10 @@
-/*INICIAR SESION*/
-
 body{
 		background-color: #364853;
 	}
 	
 .form-group{
 		width: 250px;
-		margin: 10px 0px 10px 10px;
-			
+		margin: 10px 0px 10px 10px;			
 	}
 	
 .btn-dark{

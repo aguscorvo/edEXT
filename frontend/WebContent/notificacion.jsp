@@ -10,7 +10,7 @@
 
 </head>
 <body>
-<h3>${mensaje}</h3>
+<p>${mensaje}</p>
 
 </body>
 </html>

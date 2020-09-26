@@ -22,6 +22,10 @@
     		if(session.getAttribute("tipoUsuarioLogueado") == null){ %>
       <li class="nav-item">
         <a class="nav-link" href="iniciarSesion.jsp">Iniciar sesión</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="registrarUsuario.jsp">Registrar usuario</a>
       </li><%}
     	} %>
       <%if (session!=null){

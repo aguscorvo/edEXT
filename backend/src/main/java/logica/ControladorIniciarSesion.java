@@ -30,16 +30,13 @@ public class ControladorIniciarSesion implements IControladorIniciarSesion{
 			Usuario auxUsuario;
 			for (Usuario u: usuarios) {
 				if (u.getCorreo().equals(correo)) {
-					if (u.getPassword().equals(password)) {
-						if (u.getPassword().equals(password)) {
+					if (u.getPassword().equals(password)) {						
 							if (u instanceof Docente) {
 								tipo="docente";
 							}
 							else if(u instanceof Estudiante) {
 								tipo="estudiante";
-							}
-						}						
-						
+							}	
 					}
 				}
 			}	
