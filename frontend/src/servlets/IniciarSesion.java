@@ -42,7 +42,7 @@ public class IniciarSesion extends HttpServlet {
 			throw new ServletException(e.getMessage());
 		}
 		
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(true);
 		if (tipo.equals("estudiante"))
 			session.setAttribute("tipoUsuarioLogueado", "estudiante");
 		else if(tipo.equals("docente"))

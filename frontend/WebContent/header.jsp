@@ -9,7 +9,18 @@
 
 </head>
 <body>
-<!-- sacar espacios< % //session.getAttribute("tipoUsuarioLogueado"); % >-->
+<% /*
+if (!session.isNew()){
+	String tipo="estudiante";
+	session.getAttribute("tipoUsuarioLogueado");
+	if (session.getAttribute("tipoUsuarioLogueado").equals(tipo)){
+		System.out.println("es un estudiante");
+	}
+	else 	System.out.println("usuario no logueado o docente");
+}
+*/
+
+%>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="index.jsp">edEXT</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +33,10 @@
         <a class="nav-link" href="iniciarSesion.jsp">Iniciar sesión</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">x</a>
+        <a class="nav-link" href="cerrarSesion.jsp" data-toggle="modal">Cerrar sesión</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="verificacion.jsp">Verifico si hay usuario logueado</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
