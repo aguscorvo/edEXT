@@ -23,6 +23,7 @@ public class ConsultaPrograma extends JInternalFrame {
 	
 	private JComboBox<String> comboBoxProgramas;
 	private JComboBox<String> comboBoxCursos;
+	private JComboBox<String> comboBoxCats;	
 	private JButton btnVerPrograma;
 	private JButton btnVerCurso;
 	private JTextPane textPane;
@@ -33,7 +34,6 @@ public class ConsultaPrograma extends JInternalFrame {
 	private String cursoSeleccionado;
 	private String datosPrograma;
 	private String datosCurso;
-	
 
 	public ConsultaPrograma(IControladorConsultaProgFormacion iConConPF) {
 		this.iConConPF=iConConPF;
@@ -42,11 +42,11 @@ public class ConsultaPrograma extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblPrograma = new JLabel("PROGRAMA");
-		lblPrograma.setBounds(35, 55, 94, 14);
+		lblPrograma.setBounds(36, 22, 94, 14);
 		getContentPane().add(lblPrograma);
 		
 		comboBoxProgramas = new JComboBox<String>();
-		comboBoxProgramas.setBounds(35, 81, 197, 20);
+		comboBoxProgramas.setBounds(36, 48, 197, 20);
 		getContentPane().add(comboBoxProgramas);
 		
 		btnVerPrograma = new JButton("VER");
@@ -55,11 +55,11 @@ public class ConsultaPrograma extends JInternalFrame {
 				verProgramaActionPerformed(e);
 			}
 		});
-		btnVerPrograma.setBounds(269, 80, 89, 23);
+		btnVerPrograma.setBounds(270, 47, 89, 23);
 		getContentPane().add(btnVerPrograma);
 		
 		comboBoxCursos = new JComboBox<String>();
-		comboBoxCursos.setBounds(36, 161, 196, 20);
+		comboBoxCursos.setBounds(36, 190, 196, 20);
 		getContentPane().add(comboBoxCursos);
 		
 		btnVerCurso = new JButton("VER");
@@ -69,7 +69,7 @@ public class ConsultaPrograma extends JInternalFrame {
 				verCursoActionPerformed(e);
 			}
 		});
-		btnVerCurso.setBounds(269, 160, 89, 23);
+		btnVerCurso.setBounds(269, 189, 89, 23);
 		getContentPane().add(btnVerCurso);
 		
 		textPane = new JTextPane();
@@ -77,7 +77,7 @@ public class ConsultaPrograma extends JInternalFrame {
 		getContentPane().add(textPane);
 		
 		JLabel lblCursosAsociados = new JLabel("CURSOS QUE LO INTEGRAN:");
-		lblCursosAsociados.setBounds(36, 135, 196, 14);
+		lblCursosAsociados.setBounds(36, 164, 196, 14);
 		getContentPane().add(lblCursosAsociados);
 		
 		btnSalir = new JButton("SALIR");
@@ -88,6 +88,14 @@ public class ConsultaPrograma extends JInternalFrame {
 		});
 		btnSalir.setBounds(145, 241, 117, 25);
 		getContentPane().add(btnSalir);
+		
+		JLabel lblCategorasAsociadas = new JLabel("CATEGORíAS ASOCIADAS:");
+		lblCategorasAsociadas.setBounds(36, 86, 197, 15);
+		getContentPane().add(lblCategorasAsociadas);
+		
+		comboBoxCats = new JComboBox<String>();
+		comboBoxCats.setBounds(36, 113, 197, 24);
+		getContentPane().add(comboBoxCats);
 
 	}
 	
@@ -98,6 +106,7 @@ public class ConsultaPrograma extends JInternalFrame {
 		datosPrograma= iConConPF.obtenerDatosPrograma(dtPrograma);
 		textPane.setText(datosPrograma);
 		inicializarComboBoxCursos();
+		inicializarComboBoxCategorias();
 	}
 	
 	protected void verCursoActionPerformed(ActionEvent e) {
@@ -127,7 +136,21 @@ public class ConsultaPrograma extends JInternalFrame {
 		}	
 	}
 	
+	public void inicializarComboBoxCategorias () {
+		String [] categorias = iConConPF.getCategoriasPrograma(dtPrograma.getNombre());
 		
+		if(categorias.length != 0) {
+			DefaultComboBoxModel<String> modelCurso = new DefaultComboBoxModel<String>(categorias);		
+			comboBoxCats.setModel(modelCurso);
+		}else {
+			
+			DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();		
+			comboBoxCats.setModel(model);
+
+		}
+		
+	}
+	
 	public void inicializarComboBoxCursos() {
 		String [] cursos = iConConPF.getCursos(dtPrograma);
 				
@@ -149,11 +172,7 @@ public class ConsultaPrograma extends JInternalFrame {
 		DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>();		
 		comboBoxProgramas.setModel(model);
 		comboBoxCursos.setModel(model);
+		comboBoxCats.setModel(model);
 		
 	}
-	 	
-	
-	 
-	
-	
 }

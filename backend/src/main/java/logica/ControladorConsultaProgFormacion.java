@@ -148,6 +148,44 @@ public class ControladorConsultaProgFormacion implements IControladorConsultaPro
 			return aRetornar;	
 			
 		}
-		
+
+
+	
+		public String[] getCategoriasPrograma(String programa) {
+			String [] arrVacio = {""};
+			ManejadorCurso mc = ManejadorCurso.getInstancia();
+			ManejadorProgFormacion mp = ManejadorProgFormacion.getInstancia();
+			ProgFormacion pf = mp.getProgFormacion(programa);
+			List<Curso> cursosAux = mc.getCursos();
+			List<Categoria> categorias = new ArrayList<Categoria>();
+			
+			if (!cursosAux.isEmpty()) {
+				for (Curso c: cursosAux) {
+					List <ProgFormacion> progs = c.getProgramas();
+					if (progs.contains(pf)) {
+						List<Categoria> cats = c.getCategorias();
+						for (int j = 0; j < cats.size(); ++j) {
+							if (!categorias.contains(cats.get(j))){
+								categorias.add(cats.get(j));
+							}
+						}
+					}
+				}
+				if (!categorias.isEmpty()) {
+					String[] lasCat = new String [categorias.size()];
+					int i = 0;
+					for(Categoria c: categorias) {
+						lasCat[i]=c.getNombreCategoria();
+						i++;
+					}
+					return lasCat;
+				}
+				else return arrVacio;
+			}
+			else return arrVacio;
+		}
 
 }
+		
+		
+	
