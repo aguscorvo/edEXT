@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <%@include file="/header.jsp"%>
 <link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.theme.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 <title>Registro de usuario</title>
 </head>
 <body>
@@ -28,7 +31,16 @@
   <div class="form-group">
     <input type="password" name= "pass2" class="form-control" id="exampleInputPassword2" placeholder="Confirmar contraseña" required>
   </div>
-    <!-- falta fecha-->
+    <!--fecha-->
+  <label for="fechaNacimiento">Fecha de nacimiento:</label>
+  <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+  
+  <!-- segunda opcion Fecha  -->
+  
+  <div class="form-group">
+  <label>Fecha de nacimiento</label>
+  <input type="text" id="fechaNacimiento2" class="form-control" readonly="">
+ </div>
     
       <!-- RadioButton-->
  <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -46,10 +58,30 @@
   
   <button type="submit" class="btn btn-primary">Submit</button> 
   
-
   
   
 </form>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$(function(){
+	var fechaA= new Date();
+	var yyyy= fechaA.getFullYear();
+
+	$("#fechaNacimiento2").datepicker({
+		changeMonth: true,
+		changeYear: true,
+		yearRange: '1910:' + yyyy,
+		dateFormat: "dd-mm-yy"
+		
+	});
+});
+
+</script>
+
+
 
 
 </body>
