@@ -8,6 +8,8 @@ public interface IControladorConsultaProgFormacion {
 	
 	public String[] getProgramasDeFormacion();
 	
+	public String[] getCategoriasPrograma (String programa);
+	
 	public DtProgFormacionExp seleccionarPrograma(String programa);
 	
 	public DtCursoExp seleccionarCurso(String curso);
