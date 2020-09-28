@@ -9,7 +9,7 @@ $(function(){
 		changeMonth: true,
 		changeYear: true,
 		yearRange: '1910:' + yyyy,
-		dateFormat: "dd-mm-yy"
+		dateFormat: "dd/mm/yy"
 		
 	});
 });

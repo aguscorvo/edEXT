@@ -15,22 +15,22 @@
 <body>
 <form action="RegistrarUsuario" method="post" id="formulario">
   <div class="form-group">
-    <input type="text" name= "nick" class="form-control" placeholder="Nick" required>
+    <input type="text" name= "nick" class="form-control" placeholder="Nick" >
   </div>
   <div class="form-group">
-    <input type="text" name= "nombre" class="form-control" placeholder="Nombre" required>
+    <input type="text" name= "nombre" class="form-control" placeholder="Nombre" >
   </div>
   <div class="form-group">
-    <input type="text" name= "npellido" class="form-control" placeholder="Apellido" required>
+    <input type="text" name= "apellido" class="form-control" placeholder="Apellido" >
   </div>
   <div class="form-group">
-    <input type="email" name= "correo" class="form-control" id="exampleInputEmail1" placeholder="Correo electrónico" required>
+    <input type="email" name= "email" class="form-control" id="exampleInputEmail1" placeholder="Correo electrónico" >
   </div>
   <div class="form-group">
-    <input type="password" name= "pass1" class="form-control" id="exampleInputPassword1" placeholder="Ingresar contraseña" required>
+    <input type="password" name= "pass1" class="form-control" id="exampleInputPassword1" placeholder="Ingresar contraseña" >
   </div>
   <div class="form-group">
-    <input type="password" name= "pass2" class="form-control" id="exampleInputPassword2" placeholder="Confirmar contraseña" required>
+    <input type="password" name= "pass2" class="form-control" id="exampleInputPassword2" placeholder="Confirmar contraseña" >
   </div>
    
   <!-- segunda opcion Fecha  -->    
@@ -38,7 +38,7 @@
   <div style="max-width:400px;margin:auto"> 
         <div class="input-icons"> 
 			<i class="fa fa-calendar"></i>	
-  			<input class="form-control" type="text" id="fechaNacimiento2" placeholder="Fecha de Nacimiento" >
+  			<input class="form-control" type="text" name=fechaNacimiento2 id="fechaNacimiento2" placeholder="Fecha de Nacimiento" >
         </div> 
   </div> 
   </div>
@@ -46,17 +46,17 @@
       <!-- RadioButton-->
  <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="radio" name="estudiante" id="estudiante" value= "estudiante"  >Estudiante
+    <input type="radio" name="tipoUsuario" id="estudiante" value= "estudiante">Estudiante
   </label>
   <label class="btn btn-secondary active">
-    <input type="radio" name="docente" id="docente" value = "docente" >Docente
+    <input type="radio" name="tipoUsuario" id="docente" value = "docente">Docente
   </label>
 </div>
   <div id = "log" ></div>
 
 
 <div class="form-group">
-    <input type="text" name= "instituto" class="form-control" placeholder="Instituto" >
+    <input type="text" name= "instituto" class="form-control" placeholder="Si es docente ingresar instituto">
   </div>
   
   <button type="submit" class="btn btn-primary">Submit</button> 
@@ -68,16 +68,6 @@
 
 <%@include file="/footer.jsp"%>
 <%@include file="/calendario.jsp"%>
-
-<script>
-$('#formulario input').on('change', function() {
-	   alert($("input[name=docente]:checked", "#formulario").val()); 
-	   alert($("input[name=estudiante]:checked", "#formulario").val()); 
-	   
-	});
-
-</script>
-
 
 
 

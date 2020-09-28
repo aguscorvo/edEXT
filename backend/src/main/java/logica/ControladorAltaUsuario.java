@@ -18,6 +18,7 @@ public class ControladorAltaUsuario implements IControladorAltaUsuario {
 	
 	public void ingresarDtUsuario(DtUsuario usuario) throws UsuarioRepetidoException{
 		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
+		//creo que se rompe en el getCorreo()
 		if(mu.existeUsuarioCorreo(usuario.getCorreo())) {
 			throw new UsuarioRepetidoException ("Ya existe un usuario con correo '" + usuario.getCorreo() + "' registrado en el sistema.");			
 		}

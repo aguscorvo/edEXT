@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import datatype.DtDocente;
+import datatype.DtEstudiante;
+import datatype.DtUsuario;
+import excepciones.NoExisteInstitutoException;
+import excepciones.UsuarioRepetidoException;
+import interfaces.Fabrica;
+import interfaces.IControlador;
+import interfaces.IControladorAltaUsuario;
+import logica.funcionesAux;
 
 
 @WebServlet("/RegistrarUsuario")
@@ -25,21 +36,42 @@ public class RegistrarUsuario extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nick = request.getParameter("nick");
-		String nombre = request.getParameter("nobmre");
+		String nombre = request.getParameter("nombre");
 		String apellido = request.getParameter("apellido");
-		String email = request.getParameter("correo");
+		String email = request.getParameter("email");
+		System.out.println(email);
 		String pass1 = request.getParameter("pass1");
 		String pass2 = request.getParameter("pass2");
-		//controlar que sea docente
-		String instituto = request.getParameter("instituto");
-		//chequear cómo hacer lo siguiente
-		String radioButtonDocente = (String) request.getParameter("docente");
-		String radioButtonEstudiante = (String) request.getParameter("estudiante");
+		String tipo = request.getParameter("tipoUsuario");
+		System.out.println(tipo);
+		String fecha= request.getParameter("fechaNacimiento2");
+		System.out.println(fecha);
+		Date fechaNac= funcionesAux.convertirADate(fecha);
 		
+		DtUsuario dt=null;
 		
+		if(tipo=="docente") {
+			String instituto = request.getParameter("instituto");
+			dt= new DtDocente(nick, nombre, apellido, email, fechaNac, pass1, instituto);
+
+		}else if(tipo=="estudiante") {
+			dt= new DtEstudiante(nick, nombre, apellido, email, fechaNac, pass1);
+		}
 		
+		Fabrica fabrica = Fabrica.getInstancia();
+		IControladorAltaUsuario iCon = fabrica.getIControladorAltaUsuario();
+		
+		try {
+			iCon.ingresarDtUsuario(dt);
+			iCon.confirmarAltaUsuario();
+		} catch (UsuarioRepetidoException e1) {
+			throw new ServletException(e1.getMessage());
+		}catch (NoExisteInstitutoException e2) {
+			throw new ServletException(e2.getMessage());
+		}		
+					
 		RequestDispatcher rd;
-		request.setAttribute("mensaje", "Usuario registrado.");
+		request.setAttribute("mensaje", "El usuario "+ nick + " se ha creado con éxito en el sistema.");
 		rd = request.getRequestDispatcher("/notificacion.jsp");
 		rd.forward(request, response);
 	}
