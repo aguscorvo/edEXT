@@ -2,11 +2,12 @@ package logica;
 
 import java.util.List;
 
+import excepciones.ContraseniaIncorrectaException;
 import excepciones.NoExisteUsuarioException;
 import interfaces.IControladorIniciarSesion;
 
 public class ControladorIniciarSesion implements IControladorIniciarSesion{
-	public String iniciarSesion(String nickOEmail, String contraseña) throws NoExisteUsuarioException {
+	public String iniciarSesion(String nickOEmail, String contraseña) throws NoExisteUsuarioException, ContraseniaIncorrectaException {
 		String tipo = "";
 		String nick = nickOEmail;
 		String correo = nickOEmail;
@@ -23,7 +24,9 @@ public class ControladorIniciarSesion implements IControladorIniciarSesion{
 					tipo="estudiante";
 				}				
 			}			
-			
+			else {
+				throw new ContraseniaIncorrectaException("La contraseña ingresada no es correcta");
+			}
 		}
 		else if (mU.existeUsuarioCorreo(correo)) {
 			List<Usuario> usuarios = mU.getUsuarios();
@@ -37,6 +40,9 @@ public class ControladorIniciarSesion implements IControladorIniciarSesion{
 							else if(u instanceof Estudiante) {
 								tipo="estudiante";
 							}	
+					}
+					else {
+						throw new ContraseniaIncorrectaException("La contraseña ingresada no es correcta");
 					}
 				}
 			}	

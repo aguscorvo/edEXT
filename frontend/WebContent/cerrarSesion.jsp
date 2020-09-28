@@ -16,5 +16,8 @@ s.getMaxInactiveInterval();
 %>
 <p>Sesión cerrada</p>
 
+
+<%@include file="/footer.jsp"%>
+
 </body>
 </html>

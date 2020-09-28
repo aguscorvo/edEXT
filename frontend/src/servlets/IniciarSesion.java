@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import excepciones.ContraseniaIncorrectaException;
 import excepciones.NoExisteUsuarioException;
 import interfaces.Fabrica;
 import interfaces.IControladorIniciarSesion;
@@ -40,6 +41,8 @@ public class IniciarSesion extends HttpServlet {
 			tipo= iCon.iniciarSesion(nickOEmail, contraseña);
 		} catch (NoExisteUsuarioException e) {
 			throw new ServletException(e.getMessage());
+		} catch (ContraseniaIncorrectaException cie) {
+			throw new ServletException(cie.getMessage());
 		}
 		
 		HttpSession session = request.getSession(true);
