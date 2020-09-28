@@ -8,11 +8,12 @@
 <link rel="stylesheet" href="css/estilos.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.theme.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
 
 <title>Registro de usuario</title>
 </head>
 <body>
-<form action="RegistrarUsuario" method="post">
+<form action="RegistrarUsuario" method="post" id="formulario">
   <div class="form-group">
     <input type="text" name= "nick" class="form-control" placeholder="Nick" required>
   </div>
@@ -31,26 +32,28 @@
   <div class="form-group">
     <input type="password" name= "pass2" class="form-control" id="exampleInputPassword2" placeholder="Confirmar contraseña" required>
   </div>
-    <!--fecha-->
-  <label for="fechaNacimiento">Fecha de nacimiento:</label>
-  <input type="date" id="fechaNacimiento" name="fechaNacimiento">
-  
-  <!-- segunda opcion Fecha  -->
-  
+   
+  <!-- segunda opcion Fecha  -->    
   <div class="form-group">
-  <label>Fecha de nacimiento</label>
-  <input type="text" id="fechaNacimiento2" class="form-control" readonly="">
- </div>
-    
+  <div style="max-width:400px;margin:auto"> 
+        <div class="input-icons"> 
+			<i class="fa fa-calendar"></i>	
+  			<input class="form-control" type="text" id="fechaNacimiento2" placeholder="Fecha de Nacimiento" >
+        </div> 
+  </div> 
+  </div>
+ 
       <!-- RadioButton-->
  <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
-    <input type="radio" name="estudiante" id="option1" checked>Estudiante
+    <input type="radio" name="estudiante" id="estudiante" value= "estudiante"  >Estudiante
   </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="docente" id="option2">Docente
+  <label class="btn btn-secondary active">
+    <input type="radio" name="docente" id="docente" value = "docente" >Docente
   </label>
 </div>
+  <div id = "log" ></div>
+
 
 <div class="form-group">
     <input type="text" name= "instituto" class="form-control" placeholder="Instituto" >
@@ -63,23 +66,19 @@
 </form>
 
 
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
-$(function(){
-	var fechaA= new Date();
-	var yyyy= fechaA.getFullYear();
+<%@include file="/footer.jsp"%>
+<%@include file="/calendario.jsp"%>
 
-	$("#fechaNacimiento2").datepicker({
-		changeMonth: true,
-		changeYear: true,
-		yearRange: '1910:' + yyyy,
-		dateFormat: "dd-mm-yy"
-		
+<script>
+$('#formulario input').on('change', function() {
+	   alert($("input[name=docente]:checked", "#formulario").val()); 
+	   alert($("input[name=estudiante]:checked", "#formulario").val()); 
+	   
 	});
-});
 
 </script>
+
+
 
 
 
