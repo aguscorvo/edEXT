@@ -52,7 +52,6 @@ public class RegistrarUsuario extends HttpServlet {
 
 		}else if(tipo.equals("estudiante")) {
 			dt= new DtEstudiante(nick, nombre, apellido, email, fechaNac, pass1);
-			System.out.println(dt.getCorreo());
 		}
 		
 		Fabrica fabrica = Fabrica.getInstancia();
