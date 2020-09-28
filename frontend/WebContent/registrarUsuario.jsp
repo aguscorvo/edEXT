@@ -15,22 +15,22 @@
 <body>
 <form action="RegistrarUsuario" method="post" id="formulario">
   <div class="form-group">
-    <input type="text" name= "nick" class="form-control" placeholder="Nick" >
+    <input type="text" name= "nick" class="form-control" placeholder="Nick" required >
   </div>
   <div class="form-group">
-    <input type="text" name= "nombre" class="form-control" placeholder="Nombre" >
+    <input type="text" name= "nombre" class="form-control" placeholder="Nombre" required >
   </div>
   <div class="form-group">
-    <input type="text" name= "apellido" class="form-control" placeholder="Apellido" >
+    <input type="text" name= "apellido" class="form-control" placeholder="Apellido" required>
   </div>
   <div class="form-group">
-    <input type="email" name= "email" class="form-control" id="exampleInputEmail1" placeholder="Correo electrónico" >
+    <input type="email" name= "email" class="form-control" id="exampleInputEmail1" placeholder="Correo electrónico" required>
   </div>
   <div class="form-group">
-    <input type="password" name= "pass1" class="form-control" id="exampleInputPassword1" placeholder="Ingresar contraseña" >
+    <input type="password" name= "pass1" class="form-control" id="exampleInputPassword1" placeholder="Ingresar contraseña" required>
   </div>
   <div class="form-group">
-    <input type="password" name= "pass2" class="form-control" id="exampleInputPassword2" placeholder="Confirmar contraseña" >
+    <input type="password" name= "pass2" class="form-control" id="exampleInputPassword2" placeholder="Confirmar contraseña" required>
   </div>
    
   <!-- segunda opcion Fecha  -->    
@@ -38,7 +38,7 @@
   <div style="max-width:400px;margin:auto"> 
         <div class="input-icons"> 
 			<i class="fa fa-calendar"></i>	
-  			<input class="form-control" type="text" name=fechaNacimiento2 id="fechaNacimiento2" placeholder="Fecha de Nacimiento" >
+  			<input class="form-control" type="text" name=fechaNacimiento2 id="fechaNacimiento2" placeholder="Fecha de Nacimiento" required>
         </div> 
   </div> 
   </div>
@@ -61,8 +61,7 @@
   
   <button type="submit" class="btn btn-primary">Submit</button> 
   
-  
-  
+   
 </form>
 
 

@@ -16,7 +16,6 @@ import datatype.DtUsuario;
 import excepciones.NoExisteInstitutoException;
 import excepciones.UsuarioRepetidoException;
 import interfaces.Fabrica;
-import interfaces.IControlador;
 import interfaces.IControladorAltaUsuario;
 import logica.funcionesAux;
 
@@ -39,23 +38,21 @@ public class RegistrarUsuario extends HttpServlet {
 		String nombre = request.getParameter("nombre");
 		String apellido = request.getParameter("apellido");
 		String email = request.getParameter("email");
-		System.out.println(email);
 		String pass1 = request.getParameter("pass1");
 		String pass2 = request.getParameter("pass2");
 		String tipo = request.getParameter("tipoUsuario");
-		System.out.println(tipo);
 		String fecha= request.getParameter("fechaNacimiento2");
-		System.out.println(fecha);
 		Date fechaNac= funcionesAux.convertirADate(fecha);
 		
 		DtUsuario dt=null;
 		
-		if(tipo=="docente") {
+		if(tipo.equals("docente")) {
 			String instituto = request.getParameter("instituto");
 			dt= new DtDocente(nick, nombre, apellido, email, fechaNac, pass1, instituto);
 
-		}else if(tipo=="estudiante") {
+		}else if(tipo.equals("estudiante")) {
 			dt= new DtEstudiante(nick, nombre, apellido, email, fechaNac, pass1);
+			System.out.println(dt.getCorreo());
 		}
 		
 		Fabrica fabrica = Fabrica.getInstancia();
