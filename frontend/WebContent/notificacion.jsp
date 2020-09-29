@@ -9,9 +9,12 @@
 <link rel="stylesheet" href="css/estilos.css">
 
 </head>
-<body>
 
-${mensaje}
+<body>
+<a style="opacity:0;" id="mensaje">${mensaje}</a>
+
+<script src="js/notificacion.js"></script>
+<script src="js/redirectHome.js"></script>
 
 
 <%@include file="/footer.jsp"%>
