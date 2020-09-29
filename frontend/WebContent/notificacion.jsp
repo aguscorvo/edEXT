@@ -12,5 +12,8 @@
 <body>
 <p>${mensaje}</p>
 
+
+<%@include file="/footer.jsp"%>
+
 </body>
 </html>
