@@ -10,7 +10,8 @@
 
 </head>
 <body>
-<p>${mensaje}</p>
+
+${mensaje}
 
 
 <%@include file="/footer.jsp"%>

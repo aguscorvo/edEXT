@@ -50,7 +50,7 @@ public class IniciarSesion extends HttpServlet {
 			session.setAttribute("tipoUsuarioLogueado", "estudiante");
 		else if(tipo.equals("docente"))
 			session.setAttribute("tipoUsuarioLogueado", "docente");
-			
+		
 		RequestDispatcher rd;
 		request.setAttribute("mensaje", "Sesion iniciada. Usuario tipo: " + tipo);
 		rd = request.getRequestDispatcher("/notificacion.jsp");

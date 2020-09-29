@@ -14,10 +14,16 @@
 s.removeAttribute("tipoUsuarioLogueado");
 s.getMaxInactiveInterval();
 %>
-<p>Sesión cerrada</p>
+<script>
+	alert("Sesión cerrada");
+</script>
+<script src="js/redirectHome.js"></script>
+
+
 
 
 <%@include file="/footer.jsp"%>
 
 </body>
+
 </html>

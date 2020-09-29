@@ -59,7 +59,7 @@
     <input type="text" name= "instituto" class="form-control" placeholder="Si es docente ingresar instituto">
   </div>
   
-  <button type="submit" class="btn btn-primary">Submit</button> 
+  <button type="submit" class="btn btn-dark">Submit</button> 
   
    
 </form>

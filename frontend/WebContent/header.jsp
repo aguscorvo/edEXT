@@ -11,7 +11,10 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a id="titulo" class="navbar-brand" href="index.jsp" onmouseover="cambiarAHome()" onmouseout="cambiarAEdext()">edEXT</a>
+  <a id="titulo" class="navbar-brand" href="index.jsp">edEXT</a>
+  <script src="js/headerCambiarAHome.js"></script>
+  <script src="js/headerCambiarAEdext.js"></script>
+  
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -127,25 +130,6 @@
       </ul>          
   </div>
 </nav>
-
-<!--  <li class="nav-item">
-        <a class="nav-link" href="verificacion.jsp">Verifico si hay usuario logueado</a>
-      </li>-->
-
-
-
-
-<script>
-function cambiarAHome(){
-	document.getElementById("titulo").textContent="Home";
-}
-</script>
-
-<script>
-function cambiarAEdext(){
-	document.getElementById("titulo").textContent="edEXT";	
-}
-</script>
 
 
 </body>
