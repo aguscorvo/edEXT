@@ -25,12 +25,12 @@ String [] categorias=iCon.getCategorias();
 
 <form action="RegistrarCurso" method="post" id="formulario">
   
-  <select class="custom-select" id="instituto" required>
+  <select name="instituto" class="custom-select" id="instituto" required>
 	  <option selected disabled value="">Seleccione instituto</option>
 	  
 		  <%int i=0;
 		  while (i<institutos.length){%>
-			  <option><%=institutos[i]%></option>
+			  <option value="<%=institutos[i]%>"><%=institutos[i]%></option>
 			 <% i++;
 		  } %>	
 	    
@@ -43,35 +43,35 @@ String [] categorias=iCon.getCategorias();
     <input type="text" name= "descripcion" class="form-control" placeholder="Descripción" required>
   </div>
   <div class="form-group">
-    <input type="number" name= "duracion" class="form-control" placeholder="Duración" required>
+    <input type="number" name= "duracion" class="form-control" placeholder="Duración"  required>
   </div>
   <div class="form-group">
-    <input type="number" name= "cantHoras" class="form-control" placeholder="Cantidad de horas" required>
+    <input type="number" name= "cantHoras" class="form-control" placeholder="Cantidad de horas"  required>
   </div>
   <div class="form-group">
-    <input type="number" name= "creditos" class="form-control" placeholder="Créditos" required>
+    <input type="number" name= "creditos" class="form-control" placeholder="Créditos"  required>
   </div>
   <div class="form-group">
     <input type="url" name= "url" class="form-control" placeholder="Url" required>
   </div>  
   
-  <select class="custom-select" multiple id="previas">
+  <select name="previas" class="custom-select" multiple id="previas">
 	  <option selected disabled value="">Seleccione previa</option>
 	  
 		  <%int j=0;
 		  while (j<cursos.length){%>
-			  <option><%=cursos[j]%></option>
+			  <option value="<%=cursos[j]%>"><%=cursos[j]%></option>
 			 <% j++;
 		  } %>	
 	  
   </select>
    
-   <select class="custom-select"  multiple id="categorias" required>
+   <select name="categorias" class="custom-select"  multiple id="categorias" required>
 	  <option selected disabled value="">Seleccione categoría/s</option>
 	  
 		<%int k=0;
 		  while (k<categorias.length){%>
-			  <option><%=categorias[k]%></option>
+			  <option value="<%=categorias[k]%>" ><%=categorias[k]%></option>
 			 <% k++;
 		  } %>	
 
