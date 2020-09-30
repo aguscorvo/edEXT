@@ -1,22 +1,39 @@
+<%@page import="interfaces.Fabrica" %>
+<%@page import="interfaces.IControladorAltaCurso" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <%@include file="/header.jsp"%>
 <link rel="stylesheet" href="css/estilos.css">
 <title>Registro de curso</title>
 </head>
+
 <body>
 
+<%Fabrica fab = Fabrica.getInstancia();
+IControladorAltaCurso iCon = fab.getIControladorAltaCurso();
+String [] institutos= iCon.getInstitutos();
+String [] cursos=iCon.getCursos();
+String [] categorias=iCon.getCategorias();
 
-<form action="RegistrarUsuario" method="post" id="formulario">
+%>
+
+<form action="RegistrarCurso" method="post" id="formulario">
   
-  <select class="custom-select" id="validationTooltip04" required>
+  <select class="custom-select" id="instituto" required>
 	  <option selected disabled value="">Seleccione instituto</option>
 	  
-	  <option>...</option>
+		  <%int i=0;
+		  while (i<institutos.length){%>
+			  <option><%=institutos[i]%></option>
+			 <% i++;
+		  } %>	
+	    
   </select>
   
   <div class="form-group">
@@ -38,26 +55,33 @@
     <input type="url" name= "url" class="form-control" placeholder="Url" required>
   </div>  
   
-  <select class="custom-select" multiple id="validationTooltip04" required>
+  <select class="custom-select" multiple id="previas">
 	  <option selected disabled value="">Seleccione previa</option>
-	  <option>...</option>
+	  
+		  <%int j=0;
+		  while (j<cursos.length){%>
+			  <option><%=cursos[j]%></option>
+			 <% j++;
+		  } %>	
+	  
   </select>
    
-   <select class="custom-select"  multiple id="validationTooltip04" required>
+   <select class="custom-select"  multiple id="categorias" required>
 	  <option selected disabled value="">Seleccione categoría/s</option>
-	  <option>...</option>
+	  
+		<%int k=0;
+		  while (k<categorias.length){%>
+			  <option><%=categorias[k]%></option>
+			 <% k++;
+		  } %>	
+
   </select>
-
-
-   
   
   
   <button type="submit" class="btn btn-dark">Submit</button> 
   
    
 </form>
-
-
 
 
 

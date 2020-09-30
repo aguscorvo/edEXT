@@ -94,7 +94,19 @@ public class ControladorAltaCurso implements IControladorAltaCurso {
 		return cat_ret;
 	}
 	
-	
+	public String[] getInstitutos(){
+		ManejadorInstituto mi = ManejadorInstituto.getInstancia();		
+		List<Instituto> institutos = mi.getInstitutos();
+		String [] arrInstitutos = new String [institutos.size()];
+		
+		int i=0;		
+		for(Instituto ins: institutos) {
+			arrInstitutos[i] = ins.getNombre();
+			i++;
+		}
+		return arrInstitutos;		
+		
+	}
 		
 		
 	
