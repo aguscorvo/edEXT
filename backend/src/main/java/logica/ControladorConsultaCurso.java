@@ -35,46 +35,38 @@ public class ControladorConsultaCurso implements IControladorConsultaCurso{
 		return arrCursosVacio;
 		
 	}
-	/*
+	
 	public String[] getCursosPorCategoria(String categoria) {
+		String [] arrVacio = {""};
+		ManejadorCategoria mca = ManejadorCategoria.getInstancia();
+		ManejadorCurso mcu = ManejadorCurso.getInstancia();
+		Categoria cat = mca.getCategoria(categoria);
+		List<Curso> cursosAux = mcu.getCursos();
+		List<Curso> cursos = new ArrayList<Curso>();
 		
-		ManejadorCategoria mc = ManejadorCategoria.getInstancia();
-		String [] arrCursosVacio = {""};
-		if(mc.existeCategoria(categoria)) {
-			String [] arrVacio = {""};
-			ManejadorCurso mc = ManejadorCurso.getInstancia();
-			List<Curso> cursosAux = mc.getCursos();
-			List<Categoria> categorias = new ArrayList<Categoria>();
-			
-			if (!cursosAux.isEmpty()) {
-				for (Curso c: cursosAux) {
-					List <Categoria> cats = c.getCategorias();
-					
-					if (cats.contains(pf)) {
-						List<Categoria> cats = c.getCategorias();
-						for (int j = 0; j < cats.size(); ++j) {
-							if (!categorias.contains(cats.get(j))){
-								categorias.add(cats.get(j));
-							}
-						}
-					}
+		if (!cursosAux.isEmpty()) {
+			for (Curso c: cursosAux) {
+				List <Categoria> cats = c.getCategorias();
+				if (cats.contains(cat)) {
+					cursos.add(c);
 				}
-				if (!categorias.isEmpty()) {
-					String[] lasCat = new String [categorias.size()];
-					int i = 0;
-					for(Categoria c: categorias) {
-						lasCat[i]=c.getNombreCategoria();
-						i++;
-					}
-					return lasCat;
+			}
+			if (!cursos.isEmpty()) {
+				String[] losCur = new String [cursos.size()];
+				int i = 0;
+				for(Curso c: cursos) {
+					losCur[i]=c.getNombre();
+					i++;
 				}
-				else return arrVacio;
+				return losCur;
 			}
 			else return arrVacio;
 		}
-	
+		else return arrVacio;
 	}
-	*/
+
+	
+	
 	public DtCursoExp seleccionarCurso(String curso){
 		
 		ManejadorCurso mc = ManejadorCurso.getInstancia();

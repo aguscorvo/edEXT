@@ -4,6 +4,7 @@ import datatype.*;
 
 public interface IControladorConsultaCurso {
 	public String[] getInstitutos();
+	public String[] getCursosPorCategoria(String categoria);
 	public String[] getCategoriasGlobal();
 	public String [] ingresarInstituto(String instituto);
 	public DtCursoExp seleccionarCurso(String curso);
