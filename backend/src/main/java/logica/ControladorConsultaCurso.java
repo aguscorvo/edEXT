@@ -35,7 +35,46 @@ public class ControladorConsultaCurso implements IControladorConsultaCurso{
 		return arrCursosVacio;
 		
 	}
+	/*
+	public String[] getCursosPorCategoria(String categoria) {
+		
+		ManejadorCategoria mc = ManejadorCategoria.getInstancia();
+		String [] arrCursosVacio = {""};
+		if(mc.existeCategoria(categoria)) {
+			String [] arrVacio = {""};
+			ManejadorCurso mc = ManejadorCurso.getInstancia();
+			List<Curso> cursosAux = mc.getCursos();
+			List<Categoria> categorias = new ArrayList<Categoria>();
+			
+			if (!cursosAux.isEmpty()) {
+				for (Curso c: cursosAux) {
+					List <Categoria> cats = c.getCategorias();
+					
+					if (cats.contains(pf)) {
+						List<Categoria> cats = c.getCategorias();
+						for (int j = 0; j < cats.size(); ++j) {
+							if (!categorias.contains(cats.get(j))){
+								categorias.add(cats.get(j));
+							}
+						}
+					}
+				}
+				if (!categorias.isEmpty()) {
+					String[] lasCat = new String [categorias.size()];
+					int i = 0;
+					for(Categoria c: categorias) {
+						lasCat[i]=c.getNombreCategoria();
+						i++;
+					}
+					return lasCat;
+				}
+				else return arrVacio;
+			}
+			else return arrVacio;
+		}
 	
+	}
+	*/
 	public DtCursoExp seleccionarCurso(String curso){
 		
 		ManejadorCurso mc = ManejadorCurso.getInstancia();
@@ -262,6 +301,23 @@ public class ControladorConsultaCurso implements IControladorConsultaCurso{
 		}
 		return cat_ret;
 	}
+	
+	public String[] getCategoriasGlobal() {
+		
+		List<Categoria> categorias;
+		ManejadorCategoria mc = ManejadorCategoria.getInstancia();
+		categorias = mc.getCategorias();
+		String[] cat_ret = new String [categorias.size()];
+		int i=0;
+		for (Categoria c: categorias) {
+			cat_ret[i]= c.getNombreCategoria();
+			i++;
+		}
+		return cat_ret;
+
+		
+	}
+
 	
 	
 	

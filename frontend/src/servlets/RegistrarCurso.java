@@ -53,27 +53,28 @@ public class RegistrarCurso extends HttpServlet {
 		ArrayList<String> listaCategorias;
 		
 		
-		int i=0;
+		
 		if (previas!=null) {
-			listaPrevias = new ArrayList(previas.length);
+			int i=0;
+			listaPrevias = new ArrayList<String>();
 			while (i<previas.length) {
 				listaPrevias.add(previas[i]);
 				i++;
 			}
 		}else {
-			listaPrevias = new ArrayList();
+			listaPrevias = new ArrayList<String>();
 		}
 		
 		
-		int j=0;
 		if (categorias!=null) {
-			listaCategorias = new ArrayList(categorias.length);
+			int j=0;
+			listaCategorias = new ArrayList<String>();
 			while (j<categorias.length) {
 				listaCategorias.add(categorias[j]);
 				j++;
 			}
 		}else {
-			listaCategorias = new ArrayList();
+			listaCategorias = new ArrayList<String>();
 		}
 		
 		
@@ -90,7 +91,6 @@ public class RegistrarCurso extends HttpServlet {
 			throw new ServletException(nece.getMessage());
 		}
 		
-		HttpSession session = request.getSession(true);
 		
 		
 		RequestDispatcher rd;
