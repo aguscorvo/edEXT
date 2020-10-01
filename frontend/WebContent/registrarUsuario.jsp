@@ -1,5 +1,5 @@
 <%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorAltaCurso" %>
+<%@page import="interfaces.IControladorAltaUsuario" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -8,7 +8,7 @@
 <head>
 
 <%Fabrica fab = Fabrica.getInstancia();
-IControladorAltaCurso iCon = fab.getIControladorAltaCurso();
+IControladorAltaUsuario iCon = fab.getIControladorAltaUsuario();
 String [] institutos= iCon.getInstitutos();
 
 %>
