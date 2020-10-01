@@ -24,7 +24,7 @@ String [] categorias=iCon.getCategorias();
 %>
 
 <form action="RegistrarCurso" method="post" id="formulario">
-  
+<div class="form-group">  
   <select name="instituto" class="custom-select" id="instituto" required>
 	  <option selected disabled value="">Seleccione instituto</option>
 	  
@@ -35,7 +35,7 @@ String [] categorias=iCon.getCategorias();
 		  } %>	
 	    
   </select>
-  
+</div>
   <div class="form-group">
     <input type="text" name= "nombre" class="form-control" placeholder="Nombre" required >
   </div>
@@ -54,7 +54,7 @@ String [] categorias=iCon.getCategorias();
   <div class="form-group">
     <input type="url" name= "url" class="form-control" placeholder="Url" required>
   </div>  
-  
+<div class="form-group"> 
   <select name="previas" class="custom-select" multiple id="previas">
 	  <option selected disabled value="">Seleccione previa</option>
 	  
@@ -65,7 +65,8 @@ String [] categorias=iCon.getCategorias();
 		  } %>	
 	  
   </select>
-   
+</div>  
+<div class="form-group">  
    <select name="categorias" class="custom-select"  multiple id="categorias" required>
 	  <option selected disabled value="">Seleccione categoría/s</option>
 	  
@@ -76,9 +77,9 @@ String [] categorias=iCon.getCategorias();
 		  } %>	
 
   </select>
-  
-  
-  <button type="submit" class="btn btn-dark">Submit</button> 
+</div>
+
+  <button type="submit" class="btn btn-dark">Confirmar</button> 
   
    
 </form>

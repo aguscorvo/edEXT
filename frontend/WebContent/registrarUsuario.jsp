@@ -1,8 +1,18 @@
+<%@page import="interfaces.Fabrica" %>
+<%@page import="interfaces.IControladorAltaCurso" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
+
+<%Fabrica fab = Fabrica.getInstancia();
+IControladorAltaCurso iCon = fab.getIControladorAltaCurso();
+String [] institutos= iCon.getInstitutos();
+
+%>
+
 <meta charset="UTF-8">
 <%@include file="/header.jsp"%>
 <link rel="stylesheet" href="css/estilos.css">
@@ -42,26 +52,51 @@
         </div> 
   </div> 
   </div>
- 
-      <!-- RadioButton-->
+    <!-- RadioButton-->
+<div class="form-group">   
  <div class="btn-group btn-group-toggle" data-toggle="buttons">
   <label class="btn btn-secondary active">
     <input type="radio" name="tipoUsuario" id="estudiante" value= "estudiante">Estudiante
   </label>
   <label class="btn btn-secondary active">
-    <input type="radio" name="tipoUsuario" id="docente" value = "docente">Docente
+    <input type="radio" name="tipoUsuario" id="docente" value = "docente" checked>Docente
   </label>
 </div>
   <div id = "log" ></div>
-
+</div>
 
 <div class="form-group">
-    <input type="text" name= "instituto" class="form-control" placeholder="Si es docente ingresar instituto">
-  </div>
+   <select name="instituto" class="custom-select" id="instituto" required>
+	  <option selected disabled value="">Seleccione instituto</option>
+	  
+		  <%int i=0;
+		  while (i<institutos.length){%>
+			  <option value="<%=institutos[i]%>"><%=institutos[i]%></option>
+			 <% i++;
+		  } %>	
+	    
+  </select>
+</div>
   
-  <button type="submit" class="btn btn-dark">Submit</button> 
+  <button type="submit" class="btn btn-dark">Confirmar</button> 
   
-   
+<script>  
+  
+  // Accedemos al botón
+var inst = document.getElementById('instituto');
+
+// evento para el input radio del "si"
+document.getElementById('docente').addEventListener('click', function(e) {
+  inst.disabled = false;
+});
+
+// evento para el input radio del "no"
+document.getElementById('estudiante').addEventListener('click', function(e) {
+  inst.disabled = true;
+});
+
+</script>
+
 </form>
 
 
