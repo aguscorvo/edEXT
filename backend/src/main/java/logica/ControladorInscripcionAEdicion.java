@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import datatype.EstadoInscripcion;
 import excepciones.NoExisteEdicionVigenteException;
 import interfaces.IControladorInscripcionAEdicion;
 import persistencia.Conexion;
@@ -86,7 +87,7 @@ public class ControladorInscripcionAEdicion implements IControladorInscripcionAE
 		ManejadorEdicion me = ManejadorEdicion.getInstancia();
 		Edicion auxEdicion = me.getEdicion(edicion);
 		
-		InscripcionEd nuevaInscripcion = new InscripcionEd(this.fecha, auxEdicion);
+		InscripcionEd nuevaInscripcion = new InscripcionEd(this.fecha, EstadoInscripcion.INSCRIPTO, auxEdicion);
 		
 		List<InscripcionEd> auxInscripciones = auxEstudiante.getInscripcionesEd();
 		auxInscripciones.add(nuevaInscripcion);

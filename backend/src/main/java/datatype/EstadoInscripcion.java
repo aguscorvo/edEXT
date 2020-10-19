@@ -1,5 +1,5 @@
 package datatype;
 
 public enum EstadoInscripcion {
-	Inscripto, Aceptado, Rechazado
+	INSCRIPTO, ACEPTADO, RECHAZADO
 }

@@ -3,6 +3,8 @@ package logica;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
@@ -10,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import datatype.EstadoInscripcion;
 import persistencia.InscripcionIdEd;
 
 @Entity
@@ -18,6 +21,9 @@ public class InscripcionEd {
 	
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
+	
+	@Enumerated(EnumType.STRING)
+	private EstadoInscripcion estado;
 	
 	@Id 
 	@ManyToOne
@@ -42,10 +48,19 @@ public class InscripcionEd {
 		super();
 	}
 
-	public InscripcionEd(Date fecha, Edicion edicion) {
+	public InscripcionEd(Date fecha, EstadoInscripcion estado, Edicion edicion) {
 		super();
 		this.fecha = fecha;
+		this.estado = estado;
 		this.edicion = edicion;
+	}
+
+	public EstadoInscripcion getEstado() {
+		return estado;
+	}
+
+	public void setEstado(EstadoInscripcion estado) {
+		this.estado = estado;
 	}
 
 	public Date getFecha() {
