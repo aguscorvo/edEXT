@@ -25,6 +25,8 @@ public class InscripcionEd {
 	@Enumerated(EnumType.STRING)
 	private EstadoInscripcion estado;
 	
+	int IPR;
+	
 	@Id 
 	@ManyToOne
 	@JoinColumn(
@@ -48,10 +50,11 @@ public class InscripcionEd {
 		super();
 	}
 
-	public InscripcionEd(Date fecha, EstadoInscripcion estado, Edicion edicion) {
+	public InscripcionEd(Date fecha, EstadoInscripcion estado, int IPR, Edicion edicion) {
 		super();
 		this.fecha = fecha;
 		this.estado = estado;
+		this.IPR = IPR;
 		this.edicion = edicion;
 	}
 
@@ -61,6 +64,14 @@ public class InscripcionEd {
 
 	public void setEstado(EstadoInscripcion estado) {
 		this.estado = estado;
+	}
+
+	public int getIPR() {
+		return IPR;
+	}
+
+	public void setIPR(int iPR) {
+		IPR = iPR;
 	}
 
 	public Date getFecha() {

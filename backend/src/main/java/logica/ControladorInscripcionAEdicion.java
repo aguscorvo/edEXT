@@ -87,7 +87,7 @@ public class ControladorInscripcionAEdicion implements IControladorInscripcionAE
 		ManejadorEdicion me = ManejadorEdicion.getInstancia();
 		Edicion auxEdicion = me.getEdicion(edicion);
 		
-		InscripcionEd nuevaInscripcion = new InscripcionEd(this.fecha, EstadoInscripcion.INSCRIPTO, auxEdicion);
+		InscripcionEd nuevaInscripcion = new InscripcionEd(this.fecha, EstadoInscripcion.INSCRIPTO, 0, auxEdicion);
 		
 		List<InscripcionEd> auxInscripciones = auxEstudiante.getInscripcionesEd();
 		auxInscripciones.add(nuevaInscripcion);

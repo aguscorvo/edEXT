@@ -59,7 +59,19 @@ public class Estudiante extends Usuario {
 		}
 	}
 	
-	
+	//Devuelve el pelotito inscripcionEd que se corresponde a la edición pasada como parámetro
+	//Prec: Existe la asociación
+	public InscripcionEd getInscEd (String edicion) {
+		List<InscripcionEd> auxInsc = this.getInscripcionesEd();
+		
+		for (InscripcionEd i: auxInsc) {
+			if (i.getEdicion().getNombreEd().equals(edicion)) {
+				return i;
+			}
+		}
+		return null;
+		
+	}
 	
 	
 	
