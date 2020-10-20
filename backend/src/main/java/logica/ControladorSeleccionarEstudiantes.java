@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import datatype.DtEdicion;
 import datatype.EstadoInscripcion;
 import excepciones.NoEsProfesorDeEdicionVigenteException;
 import excepciones.NoExisteEdicionVigenteException;
+import interfaces.IControladorSeleccionarEstudiantes;
+import persistencia.Conexion;
 
-public class ControladorSeleccionarEstudiantes {
+public class ControladorSeleccionarEstudiantes implements IControladorSeleccionarEstudiantes {
 	
 	private String edicion;
 	
@@ -55,7 +59,7 @@ public class ControladorSeleccionarEstudiantes {
 		
 	}
 
-	public String ingresarCurso(String curso, String docente) throws NoExisteEdicionVigenteException, NoEsProfesorDeEdicionVigenteException{
+	public String ingresarCurso(String curso, String docente) throws NoExisteEdicionVigenteException/*, NoEsProfesorDeEdicionVigenteException*/{
 		
 		ManejadorCurso mc = ManejadorCurso.getInstancia();
 		Curso auxCurso = mc.getCurso(curso);
@@ -73,12 +77,14 @@ public class ControladorSeleccionarEstudiantes {
 					throw new NoExisteEdicionVigenteException("El curso '" + curso + "' no tiene una edición vigente.");	
 				
 				else {
-					if (!e.getNombreEd().equals(docente))
+					/*if (!e.getNombreEd().equals(docente))
 						throw new NoEsProfesorDeEdicionVigenteException("No participas de la edición vigente del curso seleccionado.");
 					else {
 						this.edicion = e.getNombreEd();
 						return e.getNombreEd();
-					}
+					}*/
+					this.edicion = e.getNombreEd();
+					return e.getNombreEd();//cambiar por lo de arriba
 					
 				} 				
 				
@@ -89,15 +95,21 @@ public class ControladorSeleccionarEstudiantes {
 					
 	}
 
-	public DtEdicion obtenerDatosBasicosEd() {
+	public String obtenerDatosBasicosEd() {
 		
-		ManejadorEdicion me = ManejadorEdicion.getInstancia();
-		Edicion auxEdicion = me.getEdicion(this.edicion);
-		DtEdicion auxDT = new DtEdicion(auxEdicion.getNombreEd(), auxEdicion.getFechaI(), auxEdicion.getFechaF(), auxEdicion.getCupo(), auxEdicion.getFechaPub());
+			ManejadorEdicion me = ManejadorEdicion.getInstancia();
+			Edicion e = me.getEdicion(this.edicion);
 		
-		return auxDT;
-		
+			String fechaI = funcionesAux.convertirAString(e.getFechaI());
+			String fechaF = funcionesAux.convertirAString(e.getFechaF());
+			String fechaP = funcionesAux.convertirAString(e.getFechaPub());
+			String cupo = String.valueOf(e.getCupo());
+			
+			String auxDatos = "Nombre: " + e.getNombreEd() + "<br><br>Fecha inicio:" + fechaI + "<br>Fecha fin: " + fechaF + "<br><br>Cupo: " + cupo + "<br><br>Fecha de publicación: <br>" + fechaP;
+			return auxDatos;
+			
 	}
+		
 
 	public String [] getEstudiantes() {
 		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
@@ -114,7 +126,8 @@ public class ControladorSeleccionarEstudiantes {
 					for(InscripcionEd ie: inscripcionesEd) {
 						auxEdicion=ie.getEdicion();
 						if (auxEdicion.getNombreEd().equals(this.edicion)) //si está inscripto a la edición
-							estudiantes.add(e.getNick());
+							if (ie.getEstado() == EstadoInscripcion.INSCRIPTO)
+								estudiantes.add(e.getNick());
 					}
 					
 
@@ -220,30 +233,33 @@ public class ControladorSeleccionarEstudiantes {
 	
 	}
 
-	public void confirmarSeleccionarEstudiantes (String [] estudiantes, String [] estados) {
+	public void confirmarSeleccionarEstudiantes (String [] estudiantes, EstadoInscripcion ei, String edi) {
 		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
 		Usuario u;
-		int ipr;
-		EstadoInscripcion e = null;
-		
+		Estudiante e;
+		int ipr =0;
+		System.out.println("La edcion es:");
+		System.out.println(edi);
 		
 		for (int i = 0; i < estudiantes.length; i++) {
+			
 			u = mu.getUsuario(estudiantes[i]);
 			if (u instanceof Estudiante) {
-				InscripcionEd ie = ((Estudiante) u).getInscEd(this.edicion);
-				if (estados[i].equals("INSCRIPTO")){
-					e = EstadoInscripcion.INSCRIPTO;
-				}
-				else if (estados[i].equals("RECHAZADO")){
-					e = EstadoInscripcion.RECHAZADO;
+				e = (Estudiante) u;
+				InscripcionEd ie = e.getInscEd(edi);
+				System.out.println("ipr");
+				if (ei == EstadoInscripcion.RECHAZADO){
+					
 					ipr = ie.getIPR() + 1;
 					ie.setIPR(ipr);
 				}
-				else if (estados[i].equals("ACEPTADO")){
-					e = EstadoInscripcion.ACEPTADO;
-				}
 				
-				ie.setEstado(e);
+				ie.setEstado(ei);
+				Conexion conexion = Conexion.getInstancia();
+				EntityManager em = conexion.getEntityManager();
+				em.getTransaction().begin();
+				em.merge(ie);
+				em.getTransaction().commit();	
 				
 			}
 		}
