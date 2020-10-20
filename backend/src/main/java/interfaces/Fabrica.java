@@ -13,6 +13,7 @@ public class Fabrica {
 	}
 	
 	
+	
 	public IControladorAltaInstituto getIControladorAltaInstituto() {
 		return new ControladorAltaInstituto();		
 	}
@@ -73,6 +74,10 @@ public class Fabrica {
 	
 	public IControladorConsultaUsuario getIControladorConsultaUsuario() {
 		return new ControladorConsultaUsuario();
+	}
+	
+	public IControladorSeleccionarEstudiantes getIControladorSeleccionarEstudiantes() {
+		return new ControladorSeleccionarEstudiantes();
 	}
 	
 	public IControladorIniciarSesion getIControladorIniciarSesion() {

@@ -65,7 +65,9 @@ public class Estudiante extends Usuario {
 		List<InscripcionEd> auxInsc = this.getInscripcionesEd();
 		
 		for (InscripcionEd i: auxInsc) {
-			if (i.getEdicion().getNombreEd().equals(edicion)) {
+			System.out.println("pasé el pelotito");
+			if (i.getEdicion().getNombreEd().equals("EdC1")) {
+				System.out.println("encontré el pelotito");
 				return i;
 			}
 		}
