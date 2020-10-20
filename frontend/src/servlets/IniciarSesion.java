@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import datatype.DtUsuarioLogueado;
 import excepciones.ContraseniaIncorrectaException;
 import excepciones.NoExisteUsuarioException;
 import interfaces.Fabrica;
@@ -35,10 +36,11 @@ public class IniciarSesion extends HttpServlet {
 		String contraseña = request.getParameter("password");
 		Fabrica fabrica = Fabrica.getInstancia();
 		IControladorIniciarSesion iCon = fabrica.getIControladorIniciarSesion();
-		String tipo="";
+		String nickName="";
+		DtUsuarioLogueado usuarioLogueado=null;
 		
 		try {
-			tipo= iCon.iniciarSesion(nickOEmail, contraseña);
+			usuarioLogueado= iCon.iniciarSesion(nickOEmail, contraseña);
 		} catch (NoExisteUsuarioException e) {
 			throw new ServletException(e.getMessage());
 		} catch (ContraseniaIncorrectaException cie) {
@@ -46,13 +48,19 @@ public class IniciarSesion extends HttpServlet {
 		}
 		
 		HttpSession session = request.getSession(true);
-		if (tipo.equals("estudiante"))
+		if (usuarioLogueado.getTipo().equals("estudiante"))
 			session.setAttribute("tipoUsuarioLogueado", "estudiante");
-		else if(tipo.equals("docente"))
+		else if(usuarioLogueado.getTipo().equals("docente"))
 			session.setAttribute("tipoUsuarioLogueado", "docente");
 		
+		session.setAttribute("nick", usuarioLogueado.getNick());
+		session.setAttribute("nombre", usuarioLogueado.getNombre());
+		session.setAttribute("apellido", usuarioLogueado.getApellido());
+		session.setAttribute("fechaNac", usuarioLogueado.getFechaNac());
+		session.setAttribute("password", usuarioLogueado.getPassword());
+		
 		RequestDispatcher rd;
-		request.setAttribute("mensaje", "Sesion iniciada. Usuario tipo: " + tipo);
+		request.setAttribute("mensaje", usuarioLogueado.getNick() + " ha iniciado sesión");
 		rd = request.getRequestDispatcher("/notificacion.jsp");
 		rd.forward(request, response);
 		

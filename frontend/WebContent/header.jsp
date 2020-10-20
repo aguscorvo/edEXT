@@ -30,9 +30,19 @@
         <a class="nav-link" href="iniciarSesion.jsp">Iniciar sesión</a>
       </li>
      	<%}else if(session.getAttribute("tipoUsuarioLogueado") != null){ %>					<!-- si es un usuario registrado -->
-      <li class="nav-item">
-        <a class="nav-link" href="cerrarSesion.jsp" >Cerrar sesión</a>
-      </li>
+      <li class="nav-item dropdown">
+         <%String nickConArroba="@"+session.getAttribute("nick");%>      
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%=nickConArroba%>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">  
+        <% String nombreCompleto = session.getAttribute("nombre") + " " + session.getAttribute("apellido");%>        
+          <a class="dropdown-item disabled" href=""><%= nombreCompleto%></a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="cerrarSesion.jsp">Cerrar sesión</a>          
+      	</div>
+	  </li>      
+      
       	<%}%>
       	
       	

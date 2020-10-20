@@ -12,6 +12,11 @@
 <body>
 <%HttpSession s = request.getSession(false);
 s.removeAttribute("tipoUsuarioLogueado");
+s.removeAttribute("nick");
+s.removeAttribute("nombre");
+s.removeAttribute("apellido");
+s.removeAttribute("fechaNac");
+s.removeAttribute("password");
 s.getMaxInactiveInterval();
 %>
 <script>
