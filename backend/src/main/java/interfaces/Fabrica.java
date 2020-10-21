@@ -80,6 +80,10 @@ public class Fabrica {
 		return new ControladorSeleccionarEstudiantes();
 	}
 	
+	public IControladorListarAceptados getIControladorListarAceptados() {
+		return new ControladorListarAceptados();
+	}
+	
 	public IControladorIniciarSesion getIControladorIniciarSesion() {
 		return new ControladorIniciarSesion();
 	}

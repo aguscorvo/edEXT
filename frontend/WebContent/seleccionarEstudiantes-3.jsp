@@ -11,7 +11,6 @@
 
 String curso = request.getParameter("curso");
 String docente = (String) session.getAttribute("tipoUsuarioLogueado");
-System.out.println(docente);
 IControladorSeleccionarEstudiantes iCon = fab.getIControladorSeleccionarEstudiantes();
 String edicion = iCon.ingresarCurso(curso, docente);
 String datos = iCon.obtenerDatosBasicosEd();

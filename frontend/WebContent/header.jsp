@@ -101,7 +101,7 @@
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">          
 		          <a class="dropdown-item" href="seleccionarEstudiantes-1.jsp">Seleccionar estudiantes</a>
-		          <a class="dropdown-item disabled" href="#">Listar estudiantes aceptados</a>          
+		          <a class="dropdown-item" href="listarAceptados-1.jsp">Listar estudiantes aceptados</a>          
 		      	</div>
 			  </li>
 	  	<%}%>
