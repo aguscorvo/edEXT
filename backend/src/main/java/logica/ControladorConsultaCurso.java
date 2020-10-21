@@ -248,7 +248,7 @@ public class ControladorConsultaCurso implements IControladorConsultaCurso{
 		String fechaP = funcionesAux.convertirAString(edicion.getFechaPub());
 		String cupo = String.valueOf(edicion.getCupo());
 		
-		String auxDatos = "Nombre: " + edicion.getNombre() + "\n\nFecha inicio: " + fechaI + "\n\nFecha fin: " + fechaF + "\n\nCupo: " + cupo + "\n\nFecha de publicación: " + fechaP;
+		String auxDatos = "Nombre: " + edicion.getNombre() + "<br><br>Fecha inicio: " + fechaI + "<br>Fecha fin: " + fechaF + "<br><br>Cupo: " + cupo + "<br><br>Fecha de publicación: " + fechaP;
 		return auxDatos;
 		
 	}
@@ -259,8 +259,8 @@ public class ControladorConsultaCurso implements IControladorConsultaCurso{
 		String cantHoras = String.valueOf(curso.getCantHoras());
 		String creditos = String.valueOf(curso.getCreditos());
 
-		String auxDatos = "Nombre: " + curso.getNombre() + "\n\nDescripción: " + curso.getDesc() + "\n\nDuración: " + duracion + "\n\nCantidad de horas: " + cantHoras + "\n\nCréditos: " + creditos + 
-				"\n\nFecha de registro: " + fechaR + "\n\nURL: " + curso.getUrl(); 
+		String auxDatos = "Nombre: " + curso.getNombre() + "<br>Descripción: " + curso.getDesc() + "<br><br>Duración: " + duracion + "<br>Cantidad de horas: " + cantHoras + "<br>Créditos: " + creditos + 
+				"<br><br>Fecha de registro: " + fechaR + "<br><br>URL: " + curso.getUrl(); 
 		return auxDatos;
 		
 	}
@@ -272,8 +272,8 @@ public class ControladorConsultaCurso implements IControladorConsultaCurso{
 		String fechaAlta = funcionesAux.convertirAString(programa.getFechaAlta());
 		
 		
-		String auxDatos = "Nombre: " + programa.getNombre() + "\n\nDescripción: " + programa.getDesc() + "\n\nFecha de inicio: " + fechaI + "\n\nFecha de finalización: " + fechaF + 
-				"\n\nFecha de alta: " + fechaAlta;
+		String auxDatos = "Nombre: " + programa.getNombre() + "<br>Descripción: " + programa.getDesc() + "<br><br>Fecha de inicio: " + fechaI + "<br>Fecha de finalización: " + fechaF + 
+				"<br><br>Fecha de alta: " + fechaAlta;
 		
 		return auxDatos;
 
