@@ -30,15 +30,16 @@ String [] estudiantes= iCon.getEstudiantes();
 </head>
 <body>
 
-
 <div class="form-group">
 <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-  <div class="card-header">Edición Vigente</div>
+  <div class="card-header">EDICIÓN VIGENTE</div>
   <div class="card-body">
     <p class="card-text"><%=datos%></p>
   </div>
 </div>
 </div>
+
+<p> <br></p>
 
 <form action="SeleccionarEstudiantes" method="post" id="formulario">
   
@@ -57,6 +58,8 @@ String [] estudiantes= iCon.getEstudiantes();
   </select>
 </div>  
   
+  <p> <br></p>
+  
   <p style="color:white";> &nbsp &nbsp Seleccionar la opción deseada</p>
   
   <!-- RadioButton-->
@@ -71,6 +74,8 @@ String [] estudiantes= iCon.getEstudiantes();
 	</div>
 	  <div id = "log" ></div>
 	</div>
+  
+  <p> <br></p>
   
   <button type="submit" class="btn btn-dark">Confirmar</button> 
  
