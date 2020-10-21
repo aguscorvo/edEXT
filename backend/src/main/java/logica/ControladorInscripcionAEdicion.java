@@ -86,19 +86,29 @@ public class ControladorInscripcionAEdicion implements IControladorInscripcionAE
 		Estudiante auxEstudiante = (Estudiante) mu.getUsuario(nick);
 		ManejadorEdicion me = ManejadorEdicion.getInstancia();
 		Edicion auxEdicion = me.getEdicion(edicion);
-		
-		InscripcionEd nuevaInscripcion = new InscripcionEd(this.fecha, EstadoInscripcion.INSCRIPTO, 0, auxEdicion);
-		
-		List<InscripcionEd> auxInscripciones = auxEstudiante.getInscripcionesEd();
-		auxInscripciones.add(nuevaInscripcion);
-		auxEstudiante.setInscripcionesEd(auxInscripciones);
-		
-		Conexion conexion = Conexion.getInstancia();
-		EntityManager em = conexion.getEntityManager();
-		em.getTransaction().begin();
-		em.persist(nuevaInscripcion);
-		em.getTransaction().commit();
-		
+		InscripcionEd inscripcion = auxEstudiante.getInscEd(edicion);
+		if (inscripcion == null){
+			inscripcion = new InscripcionEd(this.fecha, EstadoInscripcion.INSCRIPTO, 0, auxEdicion);
+			
+			List<InscripcionEd> auxInscripciones = auxEstudiante.getInscripcionesEd();
+			auxInscripciones.add(inscripcion);
+			auxEstudiante.setInscripcionesEd(auxInscripciones);
+			
+			Conexion conexion = Conexion.getInstancia();
+			EntityManager em = conexion.getEntityManager();
+			em.getTransaction().begin();
+			em.persist(inscripcion);
+			em.getTransaction().commit();
+		}
+		else {
+			inscripcion.setEstado(EstadoInscripcion.INSCRIPTO);
+			Conexion conexion = Conexion.getInstancia();
+			EntityManager em = conexion.getEntityManager();
+			em.getTransaction().begin();
+			em.merge(inscripcion);
+			em.getTransaction().commit();	
+		}
+	
 	}
 	
 	
@@ -158,9 +168,13 @@ public class ControladorInscripcionAEdicion implements IControladorInscripcionAE
 					
 					for(InscripcionEd ie: inscripcionesEd) {
 						auxEdicion=ie.getEdicion();
-						if (auxEdicion.getNombreEd().equals(edicion)) 
+						if (auxEdicion.getNombreEd().equals(edicion)) { 
 							tieneEdicionAsociada=true;	
-					}
+							if (ie.getEstado() == EstadoInscripcion.RECHAZADO)
+								estudiantes.add(e.getNick());
+								
+						}
+					}	
 					if (!tieneEdicionAsociada) 				//el estudiante no está inscripto en la edición que pasamos como parámetro (se puede inscribir)
 						estudiantes.add(e.getNick());
 					tieneEdicionAsociada=false;
