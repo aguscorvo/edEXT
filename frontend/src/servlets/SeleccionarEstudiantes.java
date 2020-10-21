@@ -44,8 +44,6 @@ public class SeleccionarEstudiantes extends HttpServlet {
 		String [] estudiantes = request.getParameterValues("estudiantes");
 		String tipo = request.getParameter("AceptarRechazar");
 		String edi = request.getParameter("boton");
-		System.out.println("el valor de edi es:");
-		System.out.println(edi);
 		
 		if(tipo.equals("Aceptar"))
 			ei = EstadoInscripcion.ACEPTADO;
@@ -60,7 +58,7 @@ public class SeleccionarEstudiantes extends HttpServlet {
 	    iCon.confirmarSeleccionarEstudiantes(estudiantes, ei, edi);
 		
 		RequestDispatcher rd;
-		request.setAttribute("mensaje", "El estado de los estudiantes seleccionados ha sido modificado con éxito.");
+		request.setAttribute("mensaje", "El estado de inscripción de los estudiantes seleccionados ha sido modificado con éxito.");
 		rd = request.getRequestDispatcher("/notificacion.jsp");
 		rd.forward(request, response);
 	}

@@ -238,8 +238,6 @@ public class ControladorSeleccionarEstudiantes implements IControladorSelecciona
 		Usuario u;
 		Estudiante e;
 		int ipr =0;
-		System.out.println("La edcion es:");
-		System.out.println(edi);
 		
 		for (int i = 0; i < estudiantes.length; i++) {
 			

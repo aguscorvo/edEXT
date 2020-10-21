@@ -24,7 +24,7 @@ String [] institutos= iCon.getInstitutos();
 </head>
 <body>
 
-<form action="seleccionarEstudiantesCURSO.jsp" method="post" id="formulario">
+<form action="seleccionarEstudiantes-2.jsp" method="post" id="formulario">
   
    
 <div class="form-group">

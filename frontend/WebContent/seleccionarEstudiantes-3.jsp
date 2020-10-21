@@ -14,7 +14,6 @@ String docente = (String) session.getAttribute("tipoUsuarioLogueado");
 System.out.println(docente);
 IControladorSeleccionarEstudiantes iCon = fab.getIControladorSeleccionarEstudiantes();
 String edicion = iCon.ingresarCurso(curso, docente);
-System.out.println(edicion);
 String datos = iCon.obtenerDatosBasicosEd();
 String [] estudiantes= iCon.getEstudiantes();
 
@@ -43,7 +42,7 @@ String [] estudiantes= iCon.getEstudiantes();
 
 <form action="SeleccionarEstudiantes" method="post" id="formulario">
   
-  <input type = "hidden" name = "boton" value = "">
+  <input type = "hidden" name = "boton" value = "<%=edicion%>" id="boton">
    
 <div class="form-group"> 
   <select name="estudiantes" class="custom-select" multiple id="estudiantes">
@@ -75,19 +74,6 @@ String [] estudiantes= iCon.getEstudiantes();
   
   <button type="submit" class="btn btn-dark">Confirmar</button> 
  
- <script>
-  document.getElementById('Aceptar').addEventListener('click', function(e) {
-  	Document.getElementById('boton').value = <%=edicion%>;
-
-  }); 	
-  
-  document.getElementById('Rechazar').addEventListener('click', function(e) {
-  	document.getElementById('boton').value = <%=edicion%>;
- 
-
-});
-  
-</script> 
   
 </form>
 
