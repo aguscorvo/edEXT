@@ -96,6 +96,20 @@ public class ControladorAltaEdicion implements IControladorAltaEdicion{
 		
 	}
 	
+	public String[] getInstitutos(){
+		ManejadorInstituto mi = ManejadorInstituto.getInstancia();		
+		List<Instituto> institutos = mi.getInstitutos();
+		String [] arrInstitutos = new String [institutos.size()];
+		
+		int i=0;		
+		for(Instituto ins: institutos) {
+			arrInstitutos[i] = ins.getNombre();
+			i++;
+		}
+		return arrInstitutos;		
+		
+	}
+	
 	public String[] getCursos(Instituto nombre) {
 		List<Curso> cursos= new ArrayList<Curso>(inst.getCursos());
 		String [] arrCursos= new String [cursos.size()];

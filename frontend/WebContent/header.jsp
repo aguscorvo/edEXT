@@ -49,14 +49,9 @@
       	<!-- si es visitante -->
       	
       	<%if(session.getAttribute("tipoUsuarioLogueado") == null){%>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Registros
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">          
-          <a class="dropdown-item" href="registrarUsuario.jsp">Usuario</a>
-      	</div>
-	  </li>
+      	<li class="nav-item">
+        	<a class="nav-link" href="registrarUsuario.jsp">Registrate</a>
+        </li>     
 	  
 	  <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -80,7 +75,7 @@
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 		        <a class="dropdown-item" href="registrarCurso.jsp">Curso</a>
-		    		<a class="dropdown-item disabled" href="#">Edición de curso</a> 
+		    		<a class="dropdown-item" href="registrarEdicion-1.jsp">Edición de curso</a> 
 		   		</div>
 		      </li> 
 		      
