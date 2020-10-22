@@ -87,5 +87,10 @@ public class Fabrica {
 	public IControladorIniciarSesion getIControladorIniciarSesion() {
 		return new ControladorIniciarSesion();
 	}
+	
+	public IControladorBuscarCursoOPrograma getIControladorBuscarCursoOPrograma() {
+		return new ControladorBuscarCursoOPrograma();
+	}
+	
 		
 }
