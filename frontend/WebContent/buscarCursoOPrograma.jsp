@@ -49,11 +49,12 @@ for (DtCurso c: cursos){
 	System.out.println(c.getNombre());
 }
 
-String programa = (String) session.getAttribute("buscar");
-System.out.println(programa);
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 //PROGRAMAS
+
+String programa = request.getParameter("buscar");
+System.out.println(programa);
+
 ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 
 System.out.println("\nprogramas que coinciden: ");
