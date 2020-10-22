@@ -54,22 +54,19 @@ public class RegistrarEdicion extends HttpServlet {
 		Date fechaF= funcionesAux.convertirADate(fecha2);
 		Date fechaPub = new Date();
 		
-		Boolean tieneCupo = false;
-		String c = request.getParameter("valorCupo");
-		System.out.println(c);
 		int cupo = 0;
-		String verificacionCupo = request.getParameter("verificoCheckbox");
+		String checkboxCupo = request.getParameter("checkboxCupo");
 		
-		if (verificacionCupo.equals("habilitado"))
-			tieneCupo=true;
-	
+		if (checkboxCupo!=null) {
+			int valorCupo = Integer.valueOf(request.getParameter("cupo"));
+			cupo = valorCupo;
+		}
+		
 		Fabrica f = Fabrica.getInstancia();
 		IControladorAltaEdicion iCon = f.getIControladorAltaEdicion();
+			
 		
-		if (tieneCupo) 
-			cupo = Integer.parseInt(c);
-		
-		DtEdicionExp edicion= new DtEdicionExp (nombre, fechaPub, fechaPub, cupo, fechaPub, docentesSeleccionados);
+		DtEdicionExp edicion= new DtEdicionExp (nombre, fechaI, fechaF, cupo, fechaPub, docentesSeleccionados);
 
 		
 		try {

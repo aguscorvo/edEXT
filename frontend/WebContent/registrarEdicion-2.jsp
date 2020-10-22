@@ -85,16 +85,13 @@ String [] docentes= iCon.getDocentes();
   	</div>	
 	<!-- Cupo -->
 	<div class="form-check form-check-inline">
-		<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="habilitar" onclick="habilitarInputCupo()">
-		<label class="form-check-label" for="inlineCheckbox1">Cupo</label>
+		<input class="form-check-input" type="checkbox" id="checkboxCupo" name="checkboxCupo" value="tieneCupo" onclick="habilitarInputCupo()">
+		<label class="form-check-label" for="checkboxCupo">Cupo</label>
 	</div>
 	<div class="form-group">
     	<input type="number" name= "cupo" class="form-control" id="cupo" placeholder="Cupo" disabled required>
   	</div>
-  	<input type="hidden" id="verificoCheckbox" name="verificoCheckbox" value="">
-  	<input type="hidden" id="valorCupo" name="valorCupo" value="">
-	
-	  
+  	  
 	<button type="submit" class="btn btn-dark">Confirmar</button> 
 	  
 </form>
@@ -103,21 +100,13 @@ String [] docentes= iCon.getDocentes();
 <script>
 
 	function habilitarInputCupo(){
-		var checkbox = document.getElementById("inlineCheckbox1");
+		var checkbox = document.getElementById("checkboxCupo");
 		var inputCupo = document.getElementById("cupo");
-		var verificoCheckbox = document.getElementById("verificoCheckbox");
-		var cupo = document.getElementById("cupo").value;
-		var valorCupo = document.getElementById("valorCupo");
-		if (checkbox.checked==true){
-			inputCupo.disabled=false;
-			verificoCheckbox.setAttribute("verificoCheckbox", "habilitado");
-			valorCupo.setAttribute("valorCupo", cupo);
-		}
-		else{		
+		if (checkbox.checked==true)
+			inputCupo.disabled=false;		
+		else	
 			inputCupo.disabled=true;
-			verificoCheckbox.setAttribute("verificoCheckbox", "deshabilitado");			
-		}
-		//console.log(verificoCheckbox.getAttribute("verificoCheckbox"));
+		
 	};
 
 </script>
