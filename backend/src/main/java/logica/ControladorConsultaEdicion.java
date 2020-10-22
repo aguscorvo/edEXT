@@ -96,6 +96,36 @@ public class ControladorConsultaEdicion implements IControladorConsultaEdicion{
 		
 	}
 	
+	public String[] getCursosPorCategoria(String categoria) {
+		String [] arrVacio = {""};
+		ManejadorCategoria mca = ManejadorCategoria.getInstancia();
+		ManejadorCurso mcu = ManejadorCurso.getInstancia();
+		Categoria cat = mca.getCategoria(categoria);
+		List<Curso> cursosAux = mcu.getCursos();
+		List<Curso> cursos = new ArrayList<Curso>();
+		
+		if (!cursosAux.isEmpty()) {
+			for (Curso c: cursosAux) {
+				List <Categoria> cats = c.getCategorias();
+				if (cats.contains(cat)) {
+					cursos.add(c);
+				}
+			}
+			if (!cursos.isEmpty()) {
+				String[] losCur = new String [cursos.size()];
+				int i = 0;
+				for(Curso c: cursos) {
+					losCur[i]=c.getNombre();
+					i++;
+				}
+				return losCur;
+			}
+			else return arrVacio;
+		}
+		else return arrVacio;
+	}
+	
+	
 	public String[] getEdiciones(String curso){
 		
 		ManejadorCurso mc = ManejadorCurso.getInstancia();
@@ -119,18 +149,70 @@ public class ControladorConsultaEdicion implements IControladorConsultaEdicion{
 		return arrEdicionesVacio;
 	}
 	
+	public String getDocentesAsignados(String edicion) {
+		
+		
+		ManejadorEdicion me = ManejadorEdicion.getInstancia();
+		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
+		
+		List<Usuario> usuarios = mu.getUsuarios();
+		List<String> docentesNom = new ArrayList<String>();
+		List<String> docentesAp = new ArrayList<String>();
+		
+		if(me.existeEdicion(edicion)) {
+			Edicion auxEd = me.getEdicion(edicion);
+			for (Usuario u: usuarios) {
+				if (u instanceof Docente) {
+					boolean estaAsoc = false;
+					List<Edicion> ediciones = ((Docente) u).getEdiciones();
+					for (Edicion e: ediciones) {
+						if (e.getNombreEd().equals(edicion)) 
+							estaAsoc = true;
+					}
+					if (estaAsoc) {
+						docentesNom.add(((Docente) u).getNombre());
+						docentesAp.add(((Docente)u).getApellido());
+					}
+				}
+			}
+
+		}
+		int cantElem = docentesNom.size();
+		int cont = 0;
+		String cadenaDoc = "";
+		while (!docentesNom.isEmpty() && !docentesAp.isEmpty() && cont<cantElem) {
+			cadenaDoc = cadenaDoc + docentesNom.get(cont) + " " + docentesAp.get(cont) + "<br>";
+			cont++;
+		}
+		
+		return cadenaDoc;
+	}
 	
+	public String obtenerDatosBasicosEd(String edicion) {
+		
+		ManejadorEdicion me = ManejadorEdicion.getInstancia();
+		Edicion e = me.getEdicion(edicion);
+	
+		String fechaI = funcionesAux.convertirAString(e.getFechaI());
+		String fechaF = funcionesAux.convertirAString(e.getFechaF());
+		String fechaP = funcionesAux.convertirAString(e.getFechaPub());
+		String cupo = String.valueOf(e.getCupo());
+		
+		String auxDatos = "Nombre: " + e.getNombreEd() + "<br><br>Fecha inicio:" + fechaI + "<br>Fecha fin: " + fechaF + "<br><br>Cupo: " + cupo + "<br><br>Fecha de publicación: <br>" + fechaP;
+		return auxDatos;
+		
+	}
+
 	public String obtenerDatosEdicion(DtEdicion edicion) {
 		String fechaI = funcionesAux.convertirAString(edicion.getFechaI());
 		String fechaF = funcionesAux.convertirAString(edicion.getFechaF());
 		String fechaP = funcionesAux.convertirAString(edicion.getFechaPub());
 		String cupo = String.valueOf(edicion.getCupo());
 		
-		String auxDatos = "Nombre: " + edicion.getNombre() + "\n\nFecha inicio: " + fechaI + "\n\nFecha fin: " + fechaF + "\n\nCupo: " + cupo + "\n\nFecha de publicación: " + fechaP;
+		String auxDatos = "Nombre: " + edicion.getNombre() + "<br><br>Fecha inicio: " + fechaI + "<br>Fecha fin: " + fechaF + "<br><br>Cupo: " + cupo + "<br><br>Fecha de publicación: " + fechaP;
 		return auxDatos;
 		
 	}
-
 
 	public DtEdicion getDatosEdicion() {
 		return datosEdicion;
@@ -141,15 +223,21 @@ public class ControladorConsultaEdicion implements IControladorConsultaEdicion{
 		this.datosEdicion = datosEdicion;
 	}
 	
-	
-	
-	
-	
-	
+	public String[] getCategoriasGlobal() {
+		
+		List<Categoria> categorias;
+		ManejadorCategoria mc = ManejadorCategoria.getInstancia();
+		categorias = mc.getCategorias();
+		String[] cat_ret = new String [categorias.size()];
+		int i=0;
+		for (Categoria c: categorias) {
+			cat_ret[i]= c.getNombreCategoria();
+			i++;
+		}
+		return cat_ret;
+		
+	}
 
 
-
-	
-	
 
 }

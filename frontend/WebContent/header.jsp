@@ -59,7 +59,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">          
           <a class="dropdown-item" href="consultarCurso-1.jsp">Curso</a>
-          <a class="dropdown-item disabled" href="#">Edición de curso</a>
+          <a class="dropdown-item" href="consultarEdicion-1.jsp">Edición de curso</a>
           
       	</div>
 	  </li>
@@ -85,7 +85,7 @@
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">          
 		          <a class="dropdown-item" href="consultarCurso-1.jsp">Curso</a>
-		          <a class="dropdown-item disabled" href="#">Edición de curso</a>
+		          <a class="dropdown-item" href="consultarEdicion-1.jsp">Edición de curso</a>
 		          
 		      	</div>
 			  </li>
@@ -112,7 +112,7 @@
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">          
 	          <a class="dropdown-item" href="consultarCurso-1.jsp">Curso</a>
-	          <a class="dropdown-item disabled" href="#">Edición de curso</a>
+	          <a class="dropdown-item" href="consultarEdicion-1.jsp">Edición de curso</a>
 	          
 	      	</div>
 		  </li>
