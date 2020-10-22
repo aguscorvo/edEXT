@@ -17,7 +17,6 @@ s.removeAttribute("nombre");
 s.removeAttribute("apellido");
 s.removeAttribute("fechaNac");
 s.removeAttribute("password");
-s.removeAttribute("buscar");
 
 s.getMaxInactiveInterval();
 %>
