@@ -44,7 +44,7 @@ String [] arrCategorias= iCon.getCategoriasGlobal();
 	</div>
 
 	<div class="form-group">
-   		<select name="institutosCategorias" class="custom-select" id="institutosCategorias" onchange="cargarCursos()" disabled required>
+   		<select name="institutosCategorias" class="custom-select" id="institutosCategorias" disabled required>
 	  		<option selected disabled value="">Seleccione un elemento</option>
   		</select>
 	</div> 
