@@ -102,6 +102,17 @@
 		          <a class="dropdown-item" href="listarAceptados-1.jsp">Listar estudiantes aceptados</a>          
 		      	</div>
 			  </li>
+			  
+			  <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Programa de formación
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">          
+		          <a class="dropdown-item" href="agregarCursoPrograma.jsp">Agregar curso</a>
+		                
+		      	</div>
+			  </li>
+			  
 	  	<%}%>
 	  
 	  <!-- si es estudiante -->
