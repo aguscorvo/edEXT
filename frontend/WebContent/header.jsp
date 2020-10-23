@@ -124,7 +124,7 @@
 	          Inscripciones
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">          
-	          <a class="dropdown-item disabled" href="#">Edición de curso</a>          
+	          <a class="dropdown-item" href="inscripcionEdicion-1.jsp">Edición de curso</a>          
 	      	</div>
 		  </li>      
           

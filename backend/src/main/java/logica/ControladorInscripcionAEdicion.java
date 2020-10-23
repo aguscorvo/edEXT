@@ -40,6 +40,51 @@ public class ControladorInscripcionAEdicion implements IControladorInscripcionAE
 		
 	}
 	
+	public String[] getCategoriasGlobal() {
+		
+		List<Categoria> categorias;
+		ManejadorCategoria mc = ManejadorCategoria.getInstancia();
+		categorias = mc.getCategorias();
+		String[] cat_ret = new String [categorias.size()];
+		int i=0;
+		for (Categoria c: categorias) {
+			cat_ret[i]= c.getNombreCategoria();
+			i++;
+		}
+		return cat_ret;
+
+		
+	}
+	
+	public String[] getCursosPorCategoria(String categoria) {
+		String [] arrVacio = {""};
+		ManejadorCategoria mca = ManejadorCategoria.getInstancia();
+		ManejadorCurso mcu = ManejadorCurso.getInstancia();
+		Categoria cat = mca.getCategoria(categoria);
+		List<Curso> cursosAux = mcu.getCursos();
+		List<Curso> cursos = new ArrayList<Curso>();
+		
+		if (!cursosAux.isEmpty()) {
+			for (Curso c: cursosAux) {
+				List <Categoria> cats = c.getCategorias();
+				if (cats.contains(cat)) {
+					cursos.add(c);
+				}
+			}
+			if (!cursos.isEmpty()) {
+				String[] losCur = new String [cursos.size()];
+				int i = 0;
+				for(Curso c: cursos) {
+					losCur[i]=c.getNombre();
+					i++;
+				}
+				return losCur;
+			}
+			else return arrVacio;
+		}
+		else return arrVacio;
+	}
+	
 	public String ingresarCurso(String curso) throws NoExisteEdicionVigenteException{
 		
 		ManejadorCurso mc = ManejadorCurso.getInstancia();
@@ -69,7 +114,20 @@ public class ControladorInscripcionAEdicion implements IControladorInscripcionAE
 					
 	}
 		
+	public String obtenerDatosBasicosEd() {
 		
+		ManejadorEdicion me = ManejadorEdicion.getInstancia();
+		Edicion e = me.getEdicion(this.edicion);
+	
+		String fechaI = funcionesAux.convertirAString(e.getFechaI());
+		String fechaF = funcionesAux.convertirAString(e.getFechaF());
+		String fechaP = funcionesAux.convertirAString(e.getFechaPub());
+		String cupo = String.valueOf(e.getCupo());
+		
+		String auxDatos = "Nombre: " + e.getNombreEd() + "<br><br>Fecha inicio:" + fechaI + "<br>Fecha fin: " + fechaF + "<br><br>Cupo: " + cupo + "<br><br>Fecha de publicación: <br>" + fechaP;
+		return auxDatos;
+		
+}	
 		
 		
 	public void ingresarEstudiante(String nick, Date fecha) {
@@ -79,36 +137,53 @@ public class ControladorInscripcionAEdicion implements IControladorInscripcionAE
 		
 	}
 	
+	public EstadoInscripcion chequearEstudianteEdicion() {
+		
+		EstadoInscripcion e = null;
+		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
+		Usuario auxUsuario = mu.getUsuario(nick);
+		if (auxUsuario instanceof Estudiante) {
+			Estudiante auxEstudiante = ((Estudiante) auxUsuario);
+			ManejadorEdicion me = ManejadorEdicion.getInstancia();
+			InscripcionEd inscripcion = auxEstudiante.getInscEd(edicion);
+			if (inscripcion != null){
+				e = inscripcion.getEstado();
+			}
+		}
+		return e;
+	}
 	
 	public void confirmarInscripcionAEdicion() {
 		
 		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
-		Estudiante auxEstudiante = (Estudiante) mu.getUsuario(nick);
-		ManejadorEdicion me = ManejadorEdicion.getInstancia();
-		Edicion auxEdicion = me.getEdicion(edicion);
-		InscripcionEd inscripcion = auxEstudiante.getInscEd(edicion);
-		if (inscripcion == null){
-			inscripcion = new InscripcionEd(this.fecha, EstadoInscripcion.INSCRIPTO, 0, auxEdicion);
-			
-			List<InscripcionEd> auxInscripciones = auxEstudiante.getInscripcionesEd();
-			auxInscripciones.add(inscripcion);
-			auxEstudiante.setInscripcionesEd(auxInscripciones);
-			
-			Conexion conexion = Conexion.getInstancia();
-			EntityManager em = conexion.getEntityManager();
-			em.getTransaction().begin();
-			em.persist(inscripcion);
-			em.getTransaction().commit();
+		Usuario auxUsuario = mu.getUsuario(nick);
+		if (auxUsuario instanceof Estudiante) {
+			Estudiante auxEstudiante = ((Estudiante) auxUsuario);
+			ManejadorEdicion me = ManejadorEdicion.getInstancia();
+			Edicion auxEdicion = me.getEdicion(edicion);
+			InscripcionEd inscripcion = auxEstudiante.getInscEd(edicion);
+			if (inscripcion == null){
+				inscripcion = new InscripcionEd(this.fecha, EstadoInscripcion.INSCRIPTO, 0, auxEdicion);
+				
+				List<InscripcionEd> auxInscripciones = auxEstudiante.getInscripcionesEd();
+				auxInscripciones.add(inscripcion);
+				auxEstudiante.setInscripcionesEd(auxInscripciones);
+				
+				Conexion conexion = Conexion.getInstancia();
+				EntityManager em = conexion.getEntityManager();
+				em.getTransaction().begin();
+				em.persist(inscripcion);
+				em.getTransaction().commit();
+			}
+			else {
+				inscripcion.setEstado(EstadoInscripcion.INSCRIPTO);
+				Conexion conexion = Conexion.getInstancia();
+				EntityManager em = conexion.getEntityManager();
+				em.getTransaction().begin();
+				em.merge(inscripcion);
+				em.getTransaction().commit();	
+			}
 		}
-		else {
-			inscripcion.setEstado(EstadoInscripcion.INSCRIPTO);
-			Conexion conexion = Conexion.getInstancia();
-			EntityManager em = conexion.getEntityManager();
-			em.getTransaction().begin();
-			em.merge(inscripcion);
-			em.getTransaction().commit();	
-		}
-	
 	}
 	
 	
