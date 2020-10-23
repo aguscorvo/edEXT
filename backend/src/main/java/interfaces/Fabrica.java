@@ -84,6 +84,10 @@ public class Fabrica {
 		return new ControladorListarAceptados();
 	}
 	
+	public IControladorListarResultadosInscripciones getIControladorListarResultadosInscripciones() {
+		return new ControladorListarResultadosInscripciones();
+	}
+	
 	public IControladorIniciarSesion getIControladorIniciarSesion() {
 		return new ControladorIniciarSesion();
 	}
