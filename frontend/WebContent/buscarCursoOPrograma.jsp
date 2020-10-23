@@ -55,6 +55,7 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 	</li>   
 </ul>
 
+<form action="BuscarCursoOPrograma" method="post" id="formulario">
 
 <div class="tab-content">
 	
@@ -73,7 +74,8 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 		  <div class="card-body">
 		    <h5 class="card-title"><%=c.getNombre()%></h5>
 		    <p class="card-text"><%=c.getDesc() %></p>
-		    <a href="#" class="btn btn-dark border-secondary">Ver información del curso</a>
+		    <button type="submit" class="btn  btn-dark border-secondary" onblur="seleccionCurso1()">Ver información del curso</button> 	    
+	    	<input type="hidden" name="nombreCurso1" id="nombreCurso1" value="<%=c.getNombre()%>">
 		  </div>
 		  <div class="card-footer text-muted">Fecha de publicación: <%= funcionesAux.convertirAString(c.getFechaR()) %>  
 		  </div>
@@ -98,7 +100,9 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 		  <div class="card-body">
 		    <h5 class="card-title"><%=c.getNombre()%></h5>
 		    <p class="card-text"><%=c.getDesc() %></p>
-		    <a href="#" class="btn btn-dark border-secondary">Ver información del curso</a>
+		    <button type="submit" class="btn  btn-dark border-secondary" onblur="seleccionCurso2()">Ver información del curso</button> 	    
+	    	<input type="hidden" name="nombreCurso2" id="nombreCurso2"value="<%=c.getNombre()%>">
+	    	
 		  </div>
 		  <div class="card-footer text-muted">Fecha de publicación: <%= funcionesAux.convertirAString(c.getFechaR()) %>  
 		  </div>
@@ -123,7 +127,8 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 	  <div class="card-body">
 	    <h5 class="card-title"><%=pf.getNombre()%></h5>
 	    <p class="card-text"><%=pf.getDesc() %></p>
-	    <a href="#" class="btn  btn-dark border-secondary">Ver información del curso</a>
+	    <button type="submit" class="btn  btn-dark border-secondary" onblur="seleccionPrograma1()">Ver información del programa</button> 	    
+	    <input type="hidden" name="nombrePrograma1" value="<%=pf.getNombre()%>">
 	  </div>
 	  <div class="card-footer text-muted">Fecha de publicación: <%= funcionesAux.convertirAString(pf.getFechaAlta()) %>  
 	  </div>
@@ -149,7 +154,9 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 	  <div class="card-body">
 	    <h5 class="card-title"><%=pf.getNombre()%></h5>
 	    <p class="card-text"><%=pf.getDesc() %></p>
-	    <a href="#" class="btn  btn-dark border-secondary">Ver información del programa</a>
+	     <button type="submit" class="btn  btn-dark border-secondary" onblur="seleccionPrograma2()">Ver información del programa</button> 
+	    
+	    <input type="hidden" name="nombrePrograma2" id="nombrePrograma2" value="<%=pf.getNombre()%>">
 	  </div>
 	  <div class="card-footer text-muted">Fecha de publicación: <%= funcionesAux.convertirAString(pf.getFechaAlta()) %>  
 	  </div>
@@ -161,9 +168,45 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 	</div>
 
 </div> 
+</form>
 
 
 </body>
+
+
+<script>
+
+function seleccionCurso1(){
+	var curso1 = document.getElementById("nombreCurso1").value;
+	console.log(curso1);
+	//document.getElementById("nombreCurso2").value = null;
+	//document.getElementById("nombrePrograma1").value = null;
+	//document.getElementById("nombrePrograma2").value = null;	
+}
+
+
+function seleccionCurso2(){	
+	var curso2 = document.getElementById("nombreCurso2").value;
+	console.log(curso2);
+	//document.getElementById("nombreCurso1").value = null;
+	//document.getElementById("nombrePrograma1").value = null;
+	//document.getElementById("nombrePrograma2").value = null;	
+}
+
+function seleccionPrograma1(){
+	//document.getElementById("nombreCurso1").value = null;	
+	//document.getElementById("nombreCurso2").value = null;
+	//document.getElementById("nombrePrograma2").value = null;
+}
+
+function seleccionPrograma2(){
+	//document.getElementById("nombreCurso1").value = null;	
+	//document.getElementById("nombreCurso2").value = null;
+	//document.getElementById("nombrePrograma1").value = null;
+}
+
+
+</script>
 
 
 <%@include file="/footer.jsp"%>
