@@ -15,6 +15,8 @@ import datatype.DtEstudiante;
 import datatype.DtUsuario;
 import excepciones.NoExisteInstitutoException;
 import excepciones.UsuarioRepetidoException;
+import excepciones.UsuarioRepetidoExceptionMail;
+import excepciones.UsuarioRepetidoExceptionNick;
 import interfaces.Fabrica;
 import interfaces.IControladorAltaUsuario;
 import logica.funcionesAux;
@@ -57,17 +59,24 @@ public class RegistrarUsuario extends HttpServlet {
 		Fabrica fabrica = Fabrica.getInstancia();
 		IControladorAltaUsuario iCon = fabrica.getIControladorAltaUsuario();
 		
+		RequestDispatcher rd;
+		
 		try {
-			iCon.ingresarDtUsuario(dt);
-			iCon.confirmarAltaUsuario();
-		} catch (UsuarioRepetidoException e1) {
-			throw new ServletException(e1.getMessage());
+			try {
+				iCon.ingresarDtUsuarioFrontEnd(dt);
+				iCon.confirmarAltaUsuario();
+				request.setAttribute("mensaje", "El usuario "+ nick + " se ha creado con éxito en el sistema.");
+			} catch (UsuarioRepetidoExceptionNick e) {
+				request.setAttribute("mensaje", "El usuario '"+ nick + "' ya existe en el sistema.\nIntenta registrarte con un nick diferente.");
+				e.printStackTrace();
+			} catch (UsuarioRepetidoExceptionMail e) {
+				request.setAttribute("mensaje", "Ya existe un usuario con correo '"+ email + "' ingresado en el sistema.\nIntenta registrarte con un correo diferente.");
+				e.printStackTrace();
+			}
 		}catch (NoExisteInstitutoException e2) {
 			throw new ServletException(e2.getMessage());
 		}		
 					
-		RequestDispatcher rd;
-		request.setAttribute("mensaje", "El usuario "+ nick + " se ha creado con éxito en el sistema.");
 		rd = request.getRequestDispatcher("/notificacion.jsp");
 		rd.forward(request, response);
 	}

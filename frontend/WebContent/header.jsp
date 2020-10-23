@@ -76,8 +76,9 @@
 		          Registros
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-		        <a class="dropdown-item" href="registrarCurso.jsp">Curso</a>
+		      	    <a class="dropdown-item" href="registrarCurso.jsp">Curso</a>
 		    		<a class="dropdown-item" href="registrarEdicion-1.jsp">Edición de curso</a> 
+		    		<a class="dropdown-item" href="registrarPrograma.jsp">Programa de formación</a> 
 		   		</div>
 		      </li> 
 		      
