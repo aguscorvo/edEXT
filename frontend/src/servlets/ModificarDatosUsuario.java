@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import datatype.DtUsuario;
 import interfaces.Fabrica;
@@ -42,6 +43,13 @@ public class ModificarDatosUsuario extends HttpServlet {
 		
 		DtUsuario dt= iCon.seleccionarUsuario(nick);
 		DtUsuario nuevoDt = new DtUsuario (nick, nombre, apellido, dt.getCorreo(), fechaNac, password);		
+		
+		HttpSession s = request.getSession();
+		s.setAttribute("nombre", nombre);
+		s.setAttribute("apellido", apellido);
+		s.setAttribute("password", password);
+		s.setAttribute("fechaNac", fechaNac);
+		
 		iCon.modificarDatosUsuario(nuevoDt);
 		
 		RequestDispatcher rd;		
