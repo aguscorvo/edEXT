@@ -126,8 +126,8 @@ public class ControladorConsultaProgFormacion implements IControladorConsultaPro
 			String fechaI = funcionesAux.convertirAString(auxFechaI);
 			String fechaF = funcionesAux.convertirAString(auxFechaF);
 			String fechaAlta = funcionesAux.convertirAString(auxFechaAlta);
-			String aRetornar = "Nombre: " + nombre + "\n\nDescripción: " + desc + "\n\nFecha de inicio: " + fechaI + "\n\nFecha de finalización: " + fechaF + "\n\n"
-					+ "Fecha de alta: " + fechaAlta;
+			String aRetornar = "Nombre: " + nombre + "<br><br>Descripción: " + desc + "<br><br>Fecha de inicio: " + fechaI + "<br>Fecha de finalización: " + fechaF + 
+					"<br>Fecha de alta: " + fechaAlta;
 			
 			return aRetornar;
 			
@@ -142,8 +142,8 @@ public class ControladorConsultaProgFormacion implements IControladorConsultaPro
 			Date auxFechaR = curso.getFechaR();
 			String fechaR = funcionesAux.convertirAString(auxFechaR);
 			String url = curso.getUrl();
-			String aRetornar = "Nombre: " + nombre + "\n\nDescripción: " + desc+ "\n\nDuración: " + duracion+ "\n\nCantidad de horas: " + cantHoras + "\n\nCréditos: " 
-			+ creditos + "\n\nFecha de registro: " + fechaR+ "\n\nURL: " + url;
+			String aRetornar = "Nombre: " + nombre + "<br>Descripción: " + desc+ "<br><br>Duración: " + duracion+ "<br>Cantidad de horas: " + cantHoras + "<br>Créditos: " 
+			+ creditos + "<br><br>Fecha de registro: " + fechaR+ "<br><br>URL: " + url;
 			
 			return aRetornar;	
 			
