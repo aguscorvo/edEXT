@@ -43,8 +43,7 @@ public class ModificarDatosUsuario extends HttpServlet {
 		IControladorModificarDatosUsuario iCon = fabrica.getIControladorModificarDatosUsuario();
 		
 		DtUsuario dt= iCon.seleccionarUsuario(nick);
-		DtUsuario nuevoDt = new DtUsuario (nick, nombre, apellido, dt.getCorreo(), fechaNac, password);
-		nuevoDt.setPassword(password);
+		DtUsuario nuevoDt = new DtUsuario (nick, nombre, apellido, dt.getCorreo(), fechaNac, password);		
 		iCon.modificarDatosUsuario(nuevoDt);
 		
 		RequestDispatcher rd;		

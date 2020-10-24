@@ -38,6 +38,8 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">  
         <% String nombreCompleto = session.getAttribute("nombre") + " " + session.getAttribute("apellido");%>        
           <a class="dropdown-item disabled" href=""><%= nombreCompleto%></a>
+          <a class="dropdown-item" href="modificarDatosUsuario.jsp">Modificar datos de usuario</a>          
+          
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="cerrarSesion.jsp">Cerrar sesión</a>          
       	</div>
