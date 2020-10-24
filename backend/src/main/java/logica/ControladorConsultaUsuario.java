@@ -11,6 +11,7 @@ import datatype.DtEstudiante;
 import datatype.DtEstudianteExp;
 import datatype.DtProgFormacionExp;
 import datatype.DtUsuario;
+import datatype.EstadoInscripcion;
 import interfaces.IControladorConsultaUsuario;
 
 public class ControladorConsultaUsuario implements IControladorConsultaUsuario{
@@ -39,23 +40,29 @@ public class ControladorConsultaUsuario implements IControladorConsultaUsuario{
 		if (auxUsuario instanceof Estudiante) {
 
 			List<InscripcionEd> auxInscripcionesEd = (((Estudiante)auxUsuario).getInscripcionesEd());
-			List<String> nombreEdiciones = new ArrayList<String>();
+			List<String> nombreEdiciones = new ArrayList<String>(); // nombres de ediciones con inscripcion Inscripto o Aceptado
+			List<String> nombreEdicionesInscRechazadas = new ArrayList<String>(); // nombres de ediciones con inscripción Rechazado
+			
 			String nombreEd;
-			for (InscripcionEd ie: auxInscripcionesEd) {
+			for (InscripcionEd ie: auxInscripcionesEd) { 
 				nombreEd=ie.getEdicion().getNombreEd();
-				nombreEdiciones.add(nombreEd);
-			}
+				if (ie.getEstado()==EstadoInscripcion.ACEPTADO || ie.getEstado()==EstadoInscripcion.INSCRIPTO)
+					nombreEdiciones.add(nombreEd);					
+				else if (ie.getEstado()==EstadoInscripcion.RECHAZADO)
+					nombreEdicionesInscRechazadas.add(nombreEd);
+			}			
+			
 			
 			List<InscripcionPF> auxInscripcionesPF = new ArrayList<InscripcionPF>(((Estudiante)auxUsuario).getInscripcionesPF()); 
 			List<String> nombreProgramas = new ArrayList<String>();
 			String nombrePF;
 			for (InscripcionPF ipf: auxInscripcionesPF) {
 				nombrePF=ipf.getProgFormacion().getNombre();
-				nombreEdiciones.add(nombrePF);
+				nombreProgramas.add(nombrePF);
 			}
 			
 			dt = new DtEstudianteExp (auxUsuario.getNick(), auxUsuario.getNombre(), auxUsuario.getApellido(), auxUsuario.getCorreo(), 
-					auxUsuario.getFechaNac(), "", nombreEdiciones, nombreProgramas);
+					auxUsuario.getFechaNac(), "", nombreEdiciones, nombreEdicionesInscRechazadas, nombreProgramas);
 						
 		}else if(auxUsuario instanceof Docente) {
 			List<Edicion> auxEdiciones = (((Docente)auxUsuario).getEdiciones());
@@ -115,7 +122,7 @@ public class ControladorConsultaUsuario implements IControladorConsultaUsuario{
 		String fechaP = funcionesAux.convertirAString(edicion.getFechaPub());
 		String cupo = String.valueOf(edicion.getCupo());
 		
-		String auxDatos = "Nombre: " + edicion.getNombre() + "\n\nFecha inicio: " + fechaI + "\n\nFecha fin: " + fechaF + "\n\nCupo: " + cupo + "\n\nFecha de publicación: " + fechaP;
+		String auxDatos = "Nombre: " + edicion.getNombre() + "<br><br>Fecha inicio: " + fechaI + "<br>Fecha fin: " + fechaF + "<br><br>nCupo: " + cupo + "<br><br>Fecha de publicación: " + fechaP;
 		return auxDatos;
 		
 	}
@@ -129,7 +136,7 @@ public class ControladorConsultaUsuario implements IControladorConsultaUsuario{
 		String fechaI = funcionesAux.convertirAString(auxFechaI);
 		String fechaF = funcionesAux.convertirAString(auxFechaF);
 		String fechaAlta = funcionesAux.convertirAString(auxFechaAlta);
-		String aRetornar = "Nombre: " + nombre + "\n\nDescripción: " + desc + "\n\nFecha de inicio: " + fechaI + "\n\nFecha de finalización: " + fechaF + "\n\n"
+		String aRetornar = "Nombre: " + nombre + "<br>Descripción: " + desc + "<br><br>Fecha de inicio: " + fechaI + "<br>Fecha de finalización: " + fechaF + "<br>"
 				+ "Fecha de alta: " + fechaAlta;
 		
 		return aRetornar;
@@ -138,8 +145,8 @@ public class ControladorConsultaUsuario implements IControladorConsultaUsuario{
 	
 	public String obtenerDatosUsuario (DtUsuario usuario) {
 		String fechaNac = funcionesAux.convertirAString(usuario.getFechaNac());
-		String aRetornar = "Nick: " + usuario.getNick() + "\n\nNombre: " + usuario.getNombre() + "\n\nApellido: "  + usuario.getApellido() + "\n\nCorreo:" +
-				usuario.getCorreo() + "\n\nFecha de nacimiento: " + fechaNac;
+		String aRetornar = "Nick: " + usuario.getNick() + "<br><br>Nombre: " + usuario.getNombre() + "<br>Apellido: "  + usuario.getApellido() + "<br>Correo:" +
+				usuario.getCorreo() + "<br>Fecha de nacimiento: " + fechaNac;
 		return aRetornar;
 		
 	}
@@ -162,8 +169,27 @@ public class ControladorConsultaUsuario implements IControladorConsultaUsuario{
 			}
 			return ediciones;			
 		}
-		return arrVacio;
+		return arrVacio;	
+			
+	}
+	
+	public String [] getEdicionesInscRechazadas(DtUsuario usuario) {
+		List <String> auxEdiciones = new ArrayList<String>();
+		String[] arrVacio= {""};
 		
+		if (usuario instanceof DtEstudiante) {
+			auxEdiciones=((DtEstudianteExp)usuario).getEdicionesRechazadas();
+		}
+		if(!auxEdiciones.isEmpty()) {
+			String [] ediciones = new String [auxEdiciones.size()];
+			int i = 0;
+			for(String e: auxEdiciones) {
+				ediciones[i]=e;
+				i++;
+			}
+			return ediciones;			
+		}
+		return arrVacio;	
 			
 	}
 	
@@ -187,7 +213,57 @@ public class ControladorConsultaUsuario implements IControladorConsultaUsuario{
 		return arrVacio;
 	}
 	
+	public String tipoUsuarioSeleccionado(String nick) {
+		String tipo="";
+		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
+		Usuario auxUsuario = mu.getUsuario(nick);
+		if (auxUsuario instanceof Estudiante)
+			tipo="estudiante";
+		else if (auxUsuario instanceof Docente)
+			tipo="docente";
+		return tipo;
+	}
 	
+	public String getEstudiantesAceptadosAEdicion(String edicion) {
+			ManejadorUsuario mu = ManejadorUsuario.getInstancia();
+			List <Usuario> usuarios = mu.getUsuarios();
+			List<InscripcionEd> inscripcionesEd;
+			List<String> estudiantesNombre = new ArrayList <String>();
+			List<String> estudiantesApellido = new ArrayList <String>();
+			
+			Edicion auxEdicion;
+			for (Usuario e: usuarios) {
+				if(e instanceof Estudiante) {
+					inscripcionesEd=((Estudiante) e).getInscripcionesEd();
+					if (!inscripcionesEd.isEmpty()) {  			//el estudiante está inscripto a alguna edición
+						
+						for(InscripcionEd ie: inscripcionesEd) {
+							auxEdicion=ie.getEdicion();
+							if (auxEdicion.getNombreEd().equals(edicion)) //si está inscripto a la edición
+								if (ie.getEstado() == EstadoInscripcion.ACEPTADO) {
+									estudiantesNombre.add(e.getNombre());
+									estudiantesApellido.add(e.getApellido());
+						
+								}
+						}
+
+					}
+					
+				}
+			}
+			
+			int cantElem = estudiantesNombre.size();
+			int cont = 0;
+			String cadenaEst = "";
+			while (!estudiantesNombre.isEmpty() && !estudiantesApellido.isEmpty() && cont<cantElem) {
+				cadenaEst = cadenaEst + estudiantesNombre.get(cont) + " " + estudiantesApellido.get(cont) + "<br>";
+				cont++;
+			}
+			
+			return cadenaEst;
+		}
+	
+
 			
 		
 }

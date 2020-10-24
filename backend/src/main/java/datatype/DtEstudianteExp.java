@@ -6,11 +6,13 @@ import java.util.List;
 
 public class DtEstudianteExp extends DtEstudiante {
 	public List<String> ediciones = new ArrayList<String>();
+	public List<String> edicionesRechazadas = new ArrayList<String>();
 	public List<String> programas = new ArrayList<String>();
 	
-	public DtEstudianteExp(String nick, String nombre, String apellido, String correo, Date fechaNac, String password, List<String> ediciones, List<String> programas) {
+	public DtEstudianteExp(String nick, String nombre, String apellido, String correo, Date fechaNac, String password, List<String> ediciones, List<String> edicionesRechazadas, List<String> programas) {
 		super(nick, nombre, apellido, correo, fechaNac, password);
 		this.ediciones = ediciones;
+		this.edicionesRechazadas=edicionesRechazadas;
 		this.programas = programas;
 	}
 
@@ -28,6 +30,14 @@ public class DtEstudianteExp extends DtEstudiante {
 
 	public void setProgramas(List<String> programas) {
 		this.programas = programas;
+	}
+
+	public List<String> getEdicionesRechazadas() {
+		return edicionesRechazadas;
+	}
+
+	public void setEdicionesRechazadas(List<String> edicionesRechazadas) {
+		this.edicionesRechazadas = edicionesRechazadas;
 	}
 	
 	
