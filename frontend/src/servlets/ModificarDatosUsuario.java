@@ -34,10 +34,8 @@ public class ModificarDatosUsuario extends HttpServlet {
 		String nombre = request.getParameter("nombre");
 		String apellido = request.getParameter("apellido");
 		String password = request.getParameter("password");
-		System.out.println("contrasenia modificada: " + password);
 		String fecha= request.getParameter("fechaNacimiento2");
 		Date fechaNac= funcionesAux.convertirADate(fecha);
-		System.out.println("fechaNac modificada: " + fecha);
 		
 		Fabrica fabrica = Fabrica.getInstancia();
 		IControladorModificarDatosUsuario iCon = fabrica.getIControladorModificarDatosUsuario();

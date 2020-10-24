@@ -15,7 +15,7 @@
 <%@include file="/header.jsp"%>
 
 <link rel="stylesheet" href="css/estilos.css">
-<title>Buscar curso o programa</title>
+<title>Buscar curso o programa de formación</title>
 </head>
 
 <body>
@@ -55,158 +55,114 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 	</li>   
 </ul>
 
-<form action="BuscarCursoOPrograma" method="post" id="formulario">
 
 <div class="tab-content">
 	
 	<!-- CURSOS ORDENADOS POR FECHA -->
 	
 	<div class="tab-pane fade show active" id="cursosOrdenadosPorFecha">
+		<form action="consultarCurso-3.jsp" method="post" id="formulario1">
+	
 		<%
 		//los cursos se ordenan por fecha
 		cursos=iCon.ordenarCursosPorFecha(cursos);
 		
 		for (DtCurso c: cursos) {%>
 		<div class="card bg-dark border-secondary text-white text-center">
-		  <div class="card-header">
-		    
+		  <div class="card-header">		    
 		  </div>
 		  <div class="card-body">
-		    <h5 class="card-title"><%=c.getNombre()%></h5>
+		    <button type="submit" name="curso" id="curso" value="<%=c.getNombre()%>" class="btn  btn-dark border-secondary"><%=c.getNombre()%></button> 
 		    <p class="card-text"><%=c.getDesc() %></p>
-		    <button type="submit" class="btn  btn-dark border-secondary" onblur="seleccionCurso1()">Ver información del curso</button> 	    
-	    	<input type="hidden" name="nombreCurso1" id="nombreCurso1" value="<%=c.getNombre()%>">
 		  </div>
 		  <div class="card-footer text-muted">Fecha de publicación: <%= funcionesAux.convertirAString(c.getFechaR()) %>  
 		  </div>
 		</div>
 		<%} %>
-	
+		</form>
 	</div>
 	
 	<!-- CURSOS ORDENADOS ALFABÉTICAMENTE -->
 	
 	<div class="tab-pane fade" id="cursosOrdenadosAlfabeticamente">
-	
+		<form action="consultarCurso-3.jsp" method="post" id="formulario2">	
 		<%
 		//los cursos se ordenan alfabeticamente
 		cursos=iCon.ordenarCursosAlfabeticamente(cursos);
 		
 		for (DtCurso c: cursos) {%>
 		<div class="card bg-dark border-secondary text-white text-center">
-		  <div class="card-header">
-		    
+		  <div class="card-header">		    
 		  </div>
 		  <div class="card-body">
-		    <h5 class="card-title"><%=c.getNombre()%></h5>
+		    <button type="submit" name="curso" id="curso" value="<%=c.getNombre()%>" class="btn  btn-dark border-secondary"><%=c.getNombre()%></button> 
 		    <p class="card-text"><%=c.getDesc() %></p>
-		    <button type="submit" class="btn  btn-dark border-secondary" onblur="seleccionCurso2()">Ver información del curso</button> 	    
-	    	<input type="hidden" name="nombreCurso2" id="nombreCurso2"value="<%=c.getNombre()%>">
-	    	
 		  </div>
 		  <div class="card-footer text-muted">Fecha de publicación: <%= funcionesAux.convertirAString(c.getFechaR()) %>  
 		  </div>
 		</div>
 		<%} %>
+		</form>
 	
 	</div>
+	
+	
 	
 	<!-- PROGRAMAS ORDENADOS POR FECHA -->
 	
 	<div class="tab-pane fade" id="programasOrdenadosPorFecha">
-	
-		<%
-		//los programas se ordenan por fecha
-		programas=iCon.ordenarProgramasPorFecha(programas);		
+		<form action="consultarPrograma-2.jsp" method="post" id="formulario3">
 		
-		for (DtProgFormacion pf: programas) {%>
-	 <div class="card text-center bg-dark border-secondary text-white text-center">
-	  <div class="card-header">
-	    
-	  </div>
-	  <div class="card-body">
-	    <h5 class="card-title"><%=pf.getNombre()%></h5>
-	    <p class="card-text"><%=pf.getDesc() %></p>
-	    <button type="submit" class="btn  btn-dark border-secondary" onblur="seleccionPrograma1()">Ver información del programa</button> 	    
-	    <input type="hidden" name="nombrePrograma1" value="<%=pf.getNombre()%>">
-	  </div>
-	  <div class="card-footer text-muted">Fecha de publicación: <%= funcionesAux.convertirAString(pf.getFechaAlta()) %>  
-	  </div>
-	</div>
-	
-	<%} %>	
-
+			<%
+			//los programas se ordenan por fecha
+			programas=iCon.ordenarProgramasPorFecha(programas);		
+			
+			for (DtProgFormacion pf: programas) {%>
+		 <div class="card text-center bg-dark border-secondary text-white text-center">
+		  <div class="card-header">		    
+		  </div>
+		  <div class="card-body">
+		  	<button type="submit" name="programa" id="programa" value="<%=pf.getNombre()%>" class="btn  btn-dark border-secondary"><%=pf.getNombre()%></button>
+		    <p class="card-text"><%=pf.getDesc() %></p>
+		  </div>
+		  <div class="card-footer text-muted">Fecha de publicación: <%= funcionesAux.convertirAString(pf.getFechaAlta()) %>  
+		  </div>
+		</div>
+		
+		<%} %>	
+		</form>
 	</div>
 	
 	<!-- PROGRAMAS ORDENADOS ALFABÉTICAMENTE -->
 		
-	<div class="tab-pane fade" id="programasOrdenadosAlfabeticamente">
-	
+	<div class="tab-pane fade" id="programasOrdenadosAlfabeticamente">	
+		<form action="consultarPrograma-2.jsp" method="post" id="formulario4">	
+		
 		<%
 		//los programas se ordenan alfabeticamente
 		programas=iCon.ordenarProgramasAlfabeticamente(programas);		
 		
 		for (DtProgFormacion pf: programas) {%>
-	<div class="card text-center bg-dark border-secondary text-white text-center">
-	  <div class="card-header">
-	    
-	  </div>
-	  <div class="card-body">
-	    <h5 class="card-title"><%=pf.getNombre()%></h5>
-	    <p class="card-text"><%=pf.getDesc() %></p>
-	     <button type="submit" class="btn  btn-dark border-secondary" onblur="seleccionPrograma2()">Ver información del programa</button> 
-	    
-	    <input type="hidden" name="nombrePrograma2" id="nombrePrograma2" value="<%=pf.getNombre()%>">
-	  </div>
-	  <div class="card-footer text-muted">Fecha de publicación: <%= funcionesAux.convertirAString(pf.getFechaAlta()) %>  
-	  </div>
-	</div>
+		<div class="card text-center bg-dark border-secondary text-white text-center">
+		  <div class="card-header">		    
+		  </div>
+		  <div class="card-body">
+		  	<button type="submit" name="programa" id="programa" value="<%=pf.getNombre()%>" class="btn  btn-dark border-secondary"><%=pf.getNombre()%></button>
+		    <p class="card-text"><%=pf.getDesc() %></p>
+		  </div>
+		  <div class="card-footer text-muted">Fecha de publicación: <%= funcionesAux.convertirAString(pf.getFechaAlta()) %>  
+		  </div>
+		</div>
+		
+		<%} %>	
 	
-	<%} %>	
-
-
+		</form>
 	</div>
 
 </div> 
-</form>
 
 
 </body>
-
-
-<script>
-
-function seleccionCurso1(){
-	var curso1 = document.getElementById("nombreCurso1").value;
-	console.log(curso1);
-	//document.getElementById("nombreCurso2").value = null;
-	//document.getElementById("nombrePrograma1").value = null;
-	//document.getElementById("nombrePrograma2").value = null;	
-}
-
-
-function seleccionCurso2(){	
-	var curso2 = document.getElementById("nombreCurso2").value;
-	console.log(curso2);
-	//document.getElementById("nombreCurso1").value = null;
-	//document.getElementById("nombrePrograma1").value = null;
-	//document.getElementById("nombrePrograma2").value = null;	
-}
-
-function seleccionPrograma1(){
-	//document.getElementById("nombreCurso1").value = null;	
-	//document.getElementById("nombreCurso2").value = null;
-	//document.getElementById("nombrePrograma2").value = null;
-}
-
-function seleccionPrograma2(){
-	//document.getElementById("nombreCurso1").value = null;	
-	//document.getElementById("nombreCurso2").value = null;
-	//document.getElementById("nombrePrograma1").value = null;
-}
-
-
-</script>
 
 
 <%@include file="/footer.jsp"%>

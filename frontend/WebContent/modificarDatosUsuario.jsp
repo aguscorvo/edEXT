@@ -36,14 +36,6 @@ Date fecha = (Date) s.getAttribute("fechaNac");
 String fechaNac = funcionesAux.convertirAString(fecha);
 String password = (String) s.getAttribute("password");
 
-
-System.out.println("el nombre del usuario logueado es: "+ nombre);
-System.out.println("el apellido del usuario logueado es: "+ apellido);
-System.out.println("la fecha de nacimiento del usuario logueado es: "+ apellido);
-System.out.println("la contrasenia del usuario logueado es: "+ password);
-
-
-
 %>
 <form action="ModificarDatosUsuario" method="post" id="formulario">
  
