@@ -56,7 +56,8 @@
 
 
 <%@include file="/footer.jsp"%>
-<%@include file="/calendario.jsp"%>
+<%@include file="/calendarioActual1.jsp"%>
+<%@include file="/calendarioActual2.jsp"%>
 
 
 

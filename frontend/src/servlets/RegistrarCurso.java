@@ -83,18 +83,16 @@ public class RegistrarCurso extends HttpServlet {
 		try {
 			iCon.ingresarCurso(instituto, dt);
 			iCon.confirmarAltaCurso();
+			request.setAttribute("mensaje", "El curso " + nombre + " se ha creado con éxito en el sistema");
 		}catch (NoExisteInstitutoException neie) {
-			throw new ServletException(neie.getMessage());
+			request.setAttribute("mensaje", "El instituto " + "'" + instituto + "'" + " no se encuentra registrado en el sistema.\nIntente nuevamente.");
 		}catch(CursoRepetidoException cre) {
-			throw new ServletException (cre.getMessage());
+			request.setAttribute("mensaje", "El curso " + "'" + nombre + "'" + " ya se encuentra registrado en el sistema.\nIntente nuevamente.");
 		}catch (NoExisteCursoException nece) {
-			throw new ServletException(nece.getMessage());
-		}
-		
-		
+			request.setAttribute("mensaje", "El curso " + "'" + nombre + "'" + " no se encuentra registrado en el sistema.\nIntente nuevamente.");
+		}	
 		
 		RequestDispatcher rd;
-		request.setAttribute("mensaje", "El curso " + nombre + " se ha creado con éxito en el sistema");
 		rd = request.getRequestDispatcher("/notificacion.jsp");
 		rd.forward(request, response);
 		

@@ -38,29 +38,39 @@ public class IniciarSesion extends HttpServlet {
 		IControladorIniciarSesion iCon = fabrica.getIControladorIniciarSesion();
 		String nickName="";
 		DtUsuarioLogueado usuarioLogueado=null;
+		Boolean loginExitoso=false;
+		
 		
 		try {
 			usuarioLogueado= iCon.iniciarSesion(nickOEmail, contraseña);
+			loginExitoso=true;
+			request.setAttribute("mensaje", "'" + usuarioLogueado.getNick() + "'" + " ha iniciado sesión.");	
 		} catch (NoExisteUsuarioException e) {
-			throw new ServletException(e.getMessage());
+			request.setAttribute("mensaje", "Los datos ingresados son incorrectos.\nIntente nuevamente.");			
+			loginExitoso=false;
 		} catch (ContraseniaIncorrectaException cie) {
-			throw new ServletException(cie.getMessage());
+			request.setAttribute("mensaje", "La contraseña ingresada es incorrecta.\nIntente nuevamente.");
+			loginExitoso=false;
 		}
 		
-		HttpSession session = request.getSession(true);
-		if (usuarioLogueado.getTipo().equals("estudiante"))
-			session.setAttribute("tipoUsuarioLogueado", "estudiante");
-		else if(usuarioLogueado.getTipo().equals("docente"))
-			session.setAttribute("tipoUsuarioLogueado", "docente");
 		
-		session.setAttribute("nick", usuarioLogueado.getNick());
-		session.setAttribute("nombre", usuarioLogueado.getNombre());
-		session.setAttribute("apellido", usuarioLogueado.getApellido());
-		session.setAttribute("fechaNac", usuarioLogueado.getFechaNac());
-		session.setAttribute("password", usuarioLogueado.getPassword());
+		if (loginExitoso) {
+			
+			HttpSession session = request.getSession(true);
+			if (usuarioLogueado.getTipo().equals("estudiante"))
+				session.setAttribute("tipoUsuarioLogueado", "estudiante");
+			else if(usuarioLogueado.getTipo().equals("docente"))
+				session.setAttribute("tipoUsuarioLogueado", "docente");
+			
+			session.setAttribute("nick", usuarioLogueado.getNick());
+			session.setAttribute("nombre", usuarioLogueado.getNombre());
+			session.setAttribute("apellido", usuarioLogueado.getApellido());
+			session.setAttribute("fechaNac", usuarioLogueado.getFechaNac());
+			session.setAttribute("password", usuarioLogueado.getPassword());
+			
+		}	
 		
 		RequestDispatcher rd;
-		request.setAttribute("mensaje", usuarioLogueado.getNick() + " ha iniciado sesión");
 		rd = request.getRequestDispatcher("/notificacion.jsp");
 		rd.forward(request, response);
 		

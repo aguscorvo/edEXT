@@ -73,15 +73,14 @@ public class RegistrarEdicion extends HttpServlet {
 			iCon.seleccionarCurso(curso);
 			iCon.ingresarDtEdicion(edicion);
 			iCon.confirmarAltaEdicion();
-			
+			request.setAttribute("mensaje", "La edición" + "'" + nombre + "'" + " se ha creado con éxito en el sistema.");			
 		}catch (NoExisteCursoException nece) {
-			throw new ServletException(nece.getMessage());
+			request.setAttribute("mensaje", "El curso" + "'" + curso + "'" + " no se encuentra registrado en el sistema.\nIntente nuevamente.");			
 		}catch(EdicionRepetidaException ere) {
-			throw new ServletException (ere.getMessage());
+			request.setAttribute("mensaje", "La edición" + "'" + nombre + "'" + " ya se encuentra registrada en el sistema.\nIntente nuevamente.");
 		}
 		
 		RequestDispatcher rd;
-		request.setAttribute("mensaje", "La edición" + nombre + " se ha creado con éxito en el sistema");
 		rd = request.getRequestDispatcher("/notificacion.jsp");
 		rd.forward(request, response);
 		
