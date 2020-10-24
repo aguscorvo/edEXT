@@ -137,6 +137,7 @@
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">          
 	          <a class="dropdown-item" href="inscripcionEdicion-1.jsp">Edición de curso</a>          
+	          <a class="dropdown-item" href="inscripcionPrograma.jsp">Programa de formación</a>    
 	      	</div>
 		  </li>      
            <li class="nav-item dropdown">

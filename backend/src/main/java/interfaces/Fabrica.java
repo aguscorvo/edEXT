@@ -48,6 +48,10 @@ public class Fabrica {
 		return new ControladorInscripcionAEdicion();
 	}
 	
+	public IControladorInscripcionAPrograma getIControladorInscripcionAPrograma() {
+		return new ControladorInscripcionAPrograma();
+	}
+	
 	
 	public IControladorConsultaCurso getIControladorConsultaCurso() {
 		return new ControladorConsultaCurso();		

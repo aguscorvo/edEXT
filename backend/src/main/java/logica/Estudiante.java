@@ -73,6 +73,17 @@ public class Estudiante extends Usuario {
 		
 	}
 	
+	public InscripcionPF getInscPF (String programa) {
+		List<InscripcionPF> auxInsc = this.getInscripcionesPF();
+		
+		for (InscripcionPF i: auxInsc) {
+			if (i.getProgFormacion().getNombre().equals(programa)) {
+				return i;
+			}
+		}
+		return null;
+		
+	}
 	
 	
 	
