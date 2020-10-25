@@ -44,7 +44,7 @@ public class IniciarSesion extends HttpServlet {
 		try {
 			usuarioLogueado= iCon.iniciarSesion(nickOEmail, contraseña);
 			loginExitoso=true;
-			request.setAttribute("mensaje", "'" + usuarioLogueado.getNick() + "'" + " ha iniciado sesión.");	
+			request.setAttribute("mensaje", "'@" + usuarioLogueado.getNick() + "'" + " ha iniciado sesión.");	
 		} catch (NoExisteUsuarioException e) {
 			request.setAttribute("mensaje", "Los datos ingresados son incorrectos.\nIntente nuevamente.");			
 			loginExitoso=false;

@@ -59,7 +59,7 @@ public class ControladorSeguirUsuarios implements IControladorSeguirUsuarios {
 			int cont = 0;
 			String cadena = "";
 			while (!usuariosSeguidos.isEmpty() && cont<cantElem) {
-				cadena = cadena + usuariosSeguidos.get(cont).getNombre() + " " + usuariosSeguidos.get(cont).getApellido() + "<br>";
+				cadena = cadena + "@" + usuariosSeguidos.get(cont).getNick() + " (" +  usuariosSeguidos.get(cont).getNombre() + " " + usuariosSeguidos.get(cont).getApellido() + ")<br><br>";
 				cont++;
 			}
 			
@@ -86,7 +86,7 @@ public class ControladorSeguirUsuarios implements IControladorSeguirUsuarios {
 			int cont = 0;
 			String cadena = "";
 			while (!usuariosSeguidores.isEmpty() && cont<cantElem) {
-				cadena = cadena + usuariosSeguidores.get(cont).getNombre() + " " + usuariosSeguidores.get(cont).getApellido() + "<br>";
+				cadena = cadena + "@" + usuariosSeguidores.get(cont).getNick() + " (" +  usuariosSeguidores.get(cont).getNombre() + " " + usuariosSeguidores.get(cont).getApellido() + ")<br><br>";
 				cont++;
 			}
 			

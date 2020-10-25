@@ -33,7 +33,7 @@ String seguidos = iCon.getCadenaUsuariosSeguidos(usuario);
 
 <div class="form-group">
 <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-  <div class="card-header">USUARIOS SEGUIDOS</div>
+  <div class="card-header">SIGUIENDO A:</div>
   <div class="card-body">
     <p class="card-text"><%=seguidos%></p>
   </div>
