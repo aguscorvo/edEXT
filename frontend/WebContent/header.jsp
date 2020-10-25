@@ -117,6 +117,18 @@
 		      	</div>
 			  </li>
 			  
+			   <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Seguir usuarios
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">          
+		          <a class="dropdown-item" href="seguirUsuario-1.jsp">Seguir un usuario</a>
+		          <a class="dropdown-item" href="dejarDeSeguir-1.jsp">Dejar de seguir un usuario</a>
+		          <a class="dropdown-item" href="listarSeguidos.jsp">Listar usuarios que sigo</a>
+          		  <a class="dropdown-item" href="listarSeguidores.jsp">Listar usuarios que me siguen </a>   
+		      	</div>
+			  </li>
+			  
 	  	<%}%>
 	  
 	  <!-- si es estudiante -->
@@ -152,7 +164,20 @@
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">          
 	          <a class="dropdown-item" href="listarResultadosInscripciones.jsp">Listar resultados de inscripciones</a>          
 	      	</div>
-		  </li>      
+		  </li> 
+		  
+		  <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Seguir usuarios
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">          
+		          <a class="dropdown-item" href="seguirUsuario-1.jsp">Seguir un usuario</a>
+		          <a class="dropdown-item" href="dejarDeSeguir-1.jsp">Dejar de seguir un usuario</a>
+		          <a class="dropdown-item" href="listarSeguidos.jsp">Listar usuarios que sigo</a>
+          		  <a class="dropdown-item" href="listarSeguidores.jsp">Listar usuarios que me siguen </a>  
+		      	</div>
+			  </li>
+			       
       	<%}%>
       
      <%}%>

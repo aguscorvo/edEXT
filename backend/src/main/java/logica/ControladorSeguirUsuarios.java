@@ -19,9 +19,9 @@ public class ControladorSeguirUsuarios implements IControladorSeguirUsuarios {
 			List<Usuario> usuarios = mu.getUsuarios();
 			
 			for (Usuario aux: usuarios) {
-				if (!usuariosSeguidos.contains(aux)) {
-					usuariosNoSeguidos.add(aux);
-				}
+				if (!usuariosSeguidos.contains(aux))
+					if (aux != u)
+						usuariosNoSeguidos.add(aux);
 			}
 			
 			String[] usu_ret = new String [usuariosNoSeguidos.size()];
