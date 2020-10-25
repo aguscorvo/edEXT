@@ -56,6 +56,9 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 </ul>
 
 
+<div class="row">
+<div class="col-sm-3 mx-auto">
+
 <div class="tab-content">
 	
 	<!-- CURSOS ORDENADOS POR FECHA -->
@@ -72,7 +75,7 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 		  <div class="card-header">		    
 		  </div>
 		  <div class="card-body">
-		    <button type="submit" name="curso" id="curso" value="<%=c.getNombre()%>" class="btn  btn-dark border-secondary"><%=c.getNombre()%></button> 
+		    <button type="submit" name="curso" id="curso" value="<%=c.getNombre()%>" class="btn btn-link"><%=c.getNombre()%></button> 
 		    <p class="card-text"><%=c.getDesc() %></p>
 		  </div>
 		  <div class="card-footer text-muted">Fecha de publicación: <%= funcionesAux.convertirAString(c.getFechaR()) %>  
@@ -95,7 +98,7 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 		  <div class="card-header">		    
 		  </div>
 		  <div class="card-body">
-		    <button type="submit" name="curso" id="curso" value="<%=c.getNombre()%>" class="btn  btn-dark border-secondary"><%=c.getNombre()%></button> 
+		    <button type="submit" name="curso" id="curso" value="<%=c.getNombre()%>" class="btn btn-link"><%=c.getNombre()%></button> 
 		    <p class="card-text"><%=c.getDesc() %></p>
 		  </div>
 		  <div class="card-footer text-muted">Fecha de publicación: <%= funcionesAux.convertirAString(c.getFechaR()) %>  
@@ -118,11 +121,11 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 			programas=iCon.ordenarProgramasPorFecha(programas);		
 			
 			for (DtProgFormacion pf: programas) {%>
-		 <div class="card text-center bg-dark border-secondary text-white text-center">
+		 <div class="card text-center bg-dark border-secondary text-white text-center" "card bg-light mb-3">
 		  <div class="card-header">		    
 		  </div>
 		  <div class="card-body">
-		  	<button type="submit" name="programa" id="programa" value="<%=pf.getNombre()%>" class="btn  btn-dark border-secondary"><%=pf.getNombre()%></button>
+		  	<button type="submit" name="programa" id="programa" value="<%=pf.getNombre()%>" class="btn btn-link"><%=pf.getNombre()%></button>
 		    <p class="card-text"><%=pf.getDesc() %></p>
 		  </div>
 		  <div class="card-footer text-muted">Fecha de publicación: <%= funcionesAux.convertirAString(pf.getFechaAlta()) %>  
@@ -147,7 +150,7 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 		  <div class="card-header">		    
 		  </div>
 		  <div class="card-body">
-		  	<button type="submit" name="programa" id="programa" value="<%=pf.getNombre()%>" class="btn  btn-dark border-secondary"><%=pf.getNombre()%></button>
+		  	<button type="submit" name="programa" id="programa" value="<%=pf.getNombre()%>" class="btn btn-link"><%=pf.getNombre()%></button>
 		    <p class="card-text"><%=pf.getDesc() %></p>
 		  </div>
 		  <div class="card-footer text-muted">Fecha de publicación: <%= funcionesAux.convertirAString(pf.getFechaAlta()) %>  
@@ -159,6 +162,9 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 		</form>
 	</div>
 
+</div> 
+
+</div>
 </div> 
 
 

@@ -23,6 +23,9 @@ String [] institutos= iCon.getInstitutos();
 <title>Registro de usuario</title>
 </head>
 <body>
+
+<div class="row">
+<div class="col-sm-2 mx-auto">
 <form action="RegistrarUsuario" method="post" id="formulario">
   <div class="form-group">
     <input type="text" name= "nick" class="form-control" placeholder="Nick" required >
@@ -98,7 +101,8 @@ document.getElementById('estudiante').addEventListener('click', function(e) {
 </script>
 
 </form>
-
+</div>
+</div>
 
 <%@include file="/footer.jsp"%>
 <%@include file="/calendario.jsp"%>

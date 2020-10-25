@@ -29,6 +29,9 @@ String [] estudiantes= iCon.getEstudiantes();
 </head>
 <body>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 <div class="form-group">
 <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
   <div class="card-header">EDICIÓN VIGENTE</div>
@@ -81,6 +84,8 @@ String [] estudiantes= iCon.getEstudiantes();
   
 </form>
 
+</div>
+</div>
 
 <%@include file="/footer.jsp"%>
 <%@include file="/calendario.jsp"%>

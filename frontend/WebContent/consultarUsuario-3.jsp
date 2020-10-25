@@ -20,6 +20,9 @@ String edicion = request.getParameter("edicion");
 String estudiantesAceptados = iCon.getEstudiantesAceptadosAEdicion(edicion);
 %>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 <div class="form-group">
 	<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
 		  <div class="card-header">ESTUDIANTES ACEPTADOS</div>
@@ -28,6 +31,9 @@ String estudiantesAceptados = iCon.getEstudiantesAceptadosAEdicion(edicion);
 		    <p class="card-text"><%=estudiantesAceptados%></p>
 		  </div>
 	</div>
+</div>
+
+</div>
 </div>
 
 

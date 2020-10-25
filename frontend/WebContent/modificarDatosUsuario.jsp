@@ -37,6 +37,10 @@ String fechaNac = funcionesAux.convertirAString(fecha);
 String password = (String) s.getAttribute("password");
 
 %>
+
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 <form action="ModificarDatosUsuario" method="post" id="formulario">
  
  <div class="form-group">
@@ -66,6 +70,8 @@ String password = (String) s.getAttribute("password");
 
 </form>
 
+</div>
+</div>
 
 <%@include file="/footer.jsp"%>
 <%@include file="/calendario.jsp"%>

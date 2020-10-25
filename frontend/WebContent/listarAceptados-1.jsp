@@ -24,6 +24,9 @@ String [] institutos= iCon.getInstitutos();
 </head>
 <body>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 <form action="listarAceptados-2.jsp" method="post" id="formulario">
   
    
@@ -44,6 +47,9 @@ String [] institutos= iCon.getInstitutos();
   
 
 </form>
+
+</div>
+</div>
 
 
 <%@include file="/footer.jsp"%>

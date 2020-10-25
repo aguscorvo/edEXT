@@ -27,6 +27,9 @@ String datosCurso = iCon.obtenerDatosCurso(dtCurso);
 
 %>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 <form action="index.jsp" id="form1">  
 
 	<div class="form-group">
@@ -42,6 +45,9 @@ String datosCurso = iCon.obtenerDatosCurso(dtCurso);
   <button type="submit" class="btn btn-dark">Volver a home</button> 
 
 </form>
+
+</div>
+</div>
 
 </body>
 </html>

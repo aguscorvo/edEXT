@@ -30,6 +30,9 @@ String aceptadas = iCon.inscripcionesAceptadas(estudiante);
 </head>
 <body>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 <h5 style="color:white";><br> &nbsp Este es el estado de tus inscripciones a ediciones de curso: <br><br></h5>
 
 <div class="form-group">
@@ -65,6 +68,8 @@ String aceptadas = iCon.inscripcionesAceptadas(estudiante);
 </div>
 
 
+</div>
+</div>
 
 <%@include file="/footer.jsp"%>
 <%@include file="/calendario.jsp"%>

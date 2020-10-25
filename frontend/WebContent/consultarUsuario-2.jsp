@@ -56,6 +56,9 @@ if (tipo.equals("estudiante") ){
 
 %>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 	<!--  DATOS DE USUARIO -->
 	<div class="form-group"> 
 	
@@ -145,6 +148,8 @@ if (tipo.equals("estudiante") ){
 	<%} %>
 	</form>
 	
+</div>
+</div>
 	 
   
 

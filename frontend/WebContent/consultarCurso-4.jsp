@@ -38,6 +38,9 @@ else if (tipo.equals("programa")){
 
 %>
 
+
+<div class="row">
+<div class="col-sm-2 mx-auto">
 <form action="index.jsp" id="form1">  
 
 	<div class="form-group">
@@ -58,6 +61,8 @@ else if (tipo.equals("programa")){
   <button type="submit" class="btn btn-dark">Volver a home</button> 
 
 </form>
+</div>
+</div>
 
 </body>
 </html>

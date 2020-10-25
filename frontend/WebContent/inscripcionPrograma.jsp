@@ -26,6 +26,9 @@ String [] programas= iCon.getProgramas();
 
 <br>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 <form action="InscripcionPrograma" method="post" id="formulario">
   
    
@@ -48,6 +51,9 @@ String [] programas= iCon.getProgramas();
   
 
 </form>
+
+</div>
+</div>
 
 
 <%@include file="/footer.jsp"%>

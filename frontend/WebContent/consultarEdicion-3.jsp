@@ -22,6 +22,9 @@ String curso = request.getParameter("curso");
 String [] arrEdiciones = iCon.getEdiciones(curso);
 %>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 <form action="consultarEdicion-4.jsp" method="post" id="form1">  
    
 	<div class="form-group">
@@ -40,6 +43,9 @@ String [] arrEdiciones = iCon.getEdiciones(curso);
 	 <button type="submit" class="btn btn-dark">Mostrar informacion</button> 
 
 </form>
+
+</div>
+</div>
 
 </body>
 </html>

@@ -33,6 +33,8 @@ else if (tipo.equals("categoria")){
 
 %>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
 <form action="consultarCurso-3.jsp" method="post" id="form1">  
    
 	<div class="form-group">
@@ -51,6 +53,8 @@ else if (tipo.equals("categoria")){
 	 <button type="submit" class="btn btn-dark">Obtener información de curso</button> 
 
 </form>
+</div>
+</div>
 
 </body>
 </html>

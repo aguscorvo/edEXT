@@ -25,6 +25,11 @@ String [] cursos= iCon.ingresarInstituto(inst);
 <title>Seleccionar Estudiantes</title>
 </head>
 <body>
+
+
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 <form action="seleccionarEstudiantes-3.jsp" method="post" id="formulario">
   
    
@@ -45,6 +50,9 @@ String [] cursos= iCon.ingresarInstituto(inst);
   <p style="color:white";> &nbsp&nbsp Al hacer click en el botón se obtendrán los datos de la edición vigente y sus estudiantes</p>
 
 </form>
+
+</div>
+</div>
 
 
 <%@include file="/footer.jsp"%>

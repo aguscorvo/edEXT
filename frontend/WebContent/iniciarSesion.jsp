@@ -12,6 +12,8 @@
 <body>
 <form action="IniciarSesion" method="post">
   
+<div class="row">
+<div class="col-sm-2 mx-auto">
   <div class="form-group">
     <input type="text" name="nickOEmail" class="form-control" id="exampleInputEmail1" placeholder="Nick o correo electrónico" >
   </div>
@@ -19,6 +21,8 @@
     <input  type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" >
   </div> 
   	<button type="submit" class="btn btn-dark">Enviar</button>
+</div>
+</div>
   
 </form>
 

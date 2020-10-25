@@ -18,6 +18,9 @@
 
 <br>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 <form action="RegistrarPrograma" method="post" id="formulario">
   <div class="form-group">
     <input type="text" name= "nombre" class="form-control" placeholder="Nombre" required >
@@ -53,6 +56,9 @@
  
 
 </form>
+
+</div>
+</div>
 
 
 <%@include file="/footer.jsp"%>

@@ -5,11 +5,12 @@ body{
 	
 .form-group{
 		width: 250px;
-		margin: 10px 0px 10px 10px;			
+		margin: 10px 15px 10px 10px;			
 	}
 	
 .btn-dark{
-		margin-left: 10px;		
+		margin-left: 10px;
+		margin-bottom: 10px;		
 	}
 	
 .input-icons i { 
@@ -32,3 +33,10 @@ body{
     padding: 10px; 
     text-align: center; 
 } 
+
+.col-sm-2 {
+	margin-top: 40px; 
+	background: rgba(255,255,255 .2); 
+	box-shadow: 0 5px 15px rgba(0,0,0,.5); 
+	border-radius: 5px 10px;
+}

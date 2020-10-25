@@ -26,6 +26,9 @@ String docentes= iCon.getDocentesAsignados(edicion);
 </head>
 <body>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 <div class="form-group">
 <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
   <div class="card-header">DATOS BÁSICOS</div>
@@ -45,7 +48,9 @@ String docentes= iCon.getDocentesAsignados(edicion);
   </div>
 </div>
 </div>
-  
+
+</div>
+</div>
 
 <%@include file="/footer.jsp"%>
 <%@include file="/calendario.jsp"%>

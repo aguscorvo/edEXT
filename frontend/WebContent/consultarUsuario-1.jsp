@@ -22,6 +22,9 @@ IControladorConsultaUsuario iCon = fab.getIControladorConsultaUsuario();
 String [] arrUsuarios = iCon.getUsuarios();
 %>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 <form action="consultarUsuario-2.jsp" method="post" id="form1">  
    
 	<div class="form-group">
@@ -40,6 +43,9 @@ String [] arrUsuarios = iCon.getUsuarios();
 	 <button type="submit" class="btn btn-dark">Obtener información del usuario</button> 
 
 </form>
+
+</div>
+</div>
 
 <%@include file="/footer.jsp"%>
 </body>

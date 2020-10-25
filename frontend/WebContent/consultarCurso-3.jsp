@@ -32,6 +32,8 @@ String [] ediciones = iCon.getEdiciones(curso);
 String [] programas = iCon.getPFs(curso);
 %>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
 <form action="consultarCurso-4.jsp" method="post" id="form1">  
 
 	<div class="form-group">
@@ -94,6 +96,9 @@ String [] programas = iCon.getPFs(curso);
   <button type="submit" class="btn btn-dark">Obtener información de edición/programa</button> 
 
 </form>
+</div>
+</div>
+
 
 <script>    
  

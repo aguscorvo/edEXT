@@ -33,6 +33,9 @@ String [] docentes= iCon.getDocentes();
 
 %>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 <form action="RegistrarEdicion" method="post" id="formulario">
   
    <!-- Cursos -->
@@ -95,6 +98,9 @@ String [] docentes= iCon.getDocentes();
 	<button type="submit" class="btn btn-dark">Confirmar</button> 
 	  
 </form>
+
+</div>
+</div>
 
 
 <script>

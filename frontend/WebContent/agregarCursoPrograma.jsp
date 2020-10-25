@@ -26,9 +26,10 @@ String [] cursos = iCon.getCursos();
 
 <br>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
 <form action="AgregarCurso" method="post" id="formulario">
   
-   
 <div class="form-group">
    <select name="programa" class="custom-select" id="programa" required>
 	  <option selected disabled value="">Seleccione programa</option>
@@ -63,6 +64,8 @@ String [] cursos = iCon.getCursos();
   
 
 </form>
+</div>
+</div>
 
 
 <%@include file="/footer.jsp"%>

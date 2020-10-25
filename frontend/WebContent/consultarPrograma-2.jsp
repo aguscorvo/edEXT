@@ -31,6 +31,9 @@ String [] cursos = iCon.getCursos(dtPF); //cursos que lo integran
 
 %>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 <form action="consultarPrograma-3.jsp" method="post" id="form1">  
 
 	<div class="form-group">
@@ -72,6 +75,9 @@ String [] cursos = iCon.getCursos(dtPF); //cursos que lo integran
   <button type="submit" class="btn btn-dark">Obtener información del curso</button> 
 
 </form>
+
+</div>
+</div>
 
 
 <%@include file="/footer.jsp"%>

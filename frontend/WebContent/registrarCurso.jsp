@@ -22,7 +22,8 @@ String [] cursos=iCon.getCursos();
 String [] categorias=iCon.getCategorias();
 
 %>
-
+<div class="row">
+<div class="col-sm-2 mx-auto">
 <form action="RegistrarCurso" method="post" id="formulario">
 <div class="form-group">  
   <select name="instituto" class="custom-select" id="instituto" required>
@@ -84,7 +85,8 @@ String [] categorias=iCon.getCategorias();
    
 </form>
 
-
+</div>
+</div>
 
 
 

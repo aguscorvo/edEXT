@@ -25,6 +25,9 @@ String [] arrProgramas = iCon.getProgramasDeFormacion();
 
 %>
 
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 <form action="consultarPrograma-2.jsp" method="post" id="form1">  
    
 	<div class="form-group">
@@ -43,6 +46,9 @@ String [] arrProgramas = iCon.getProgramasDeFormacion();
 	 <button type="submit" class="btn btn-dark">Obtener información del programa</button> 
 
 </form>
+
+</div>
+</div>
 
 </body>
 </html>

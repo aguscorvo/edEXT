@@ -27,6 +27,10 @@ String [] arrCategorias= iCon.getCategoriasGlobal();
 </head>
 <body>
 
+
+<div class="row">
+<div class="col-sm-2 mx-auto">
+
 <form action="consultarEdicion-2.jsp" method="post" name="form1">
     <p style="color:white";>Presionar una opcion para desplegar institutos o categorias</p>
 	<!-- RadioButton-->
@@ -53,6 +57,9 @@ String [] arrCategorias= iCon.getCategoriasGlobal();
  <button type="submit" class="btn btn-dark">Obtener cursos</button>   
   
 </form>
+
+</div>
+</div>
 
 
 <script>    
