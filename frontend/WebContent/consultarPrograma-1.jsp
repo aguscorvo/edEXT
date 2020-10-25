@@ -50,5 +50,7 @@ String [] arrProgramas = iCon.getProgramasDeFormacion();
 </div>
 </div>
 
+<%@include file="/footer.jsp"%>
+
 </body>
 </html>

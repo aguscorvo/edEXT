@@ -1,5 +1,6 @@
 <%@page import="interfaces.Fabrica" %>
 <%@page import="interfaces.IControladorConsultaUsuario"%>
+<%@page import="interfaces.IControladorSeguirUsuarios"%>
 <%@page import="datatype.DtUsuario"%>
 
 
@@ -20,8 +21,14 @@
 <%
 Fabrica fab = Fabrica.getInstancia();
 IControladorConsultaUsuario iCon = fab.getIControladorConsultaUsuario();
+IControladorSeguirUsuarios iConSeguir = fab.getIcontroladorSeguirUsuarios();
+
 
 String usuario = request.getParameter("usuario");
+
+String seguidos = iConSeguir.getCadenaUsuariosSeguidos(usuario);
+String seguidores = iConSeguir.getCadenaUsuariosSeguidores(usuario);
+
 DtUsuario dtUsuario = iCon.seleccionarUsuario(usuario);
 String datosUsuario = iCon.obtenerDatosUsuario(dtUsuario);
 
@@ -56,7 +63,7 @@ if (tipo.equals("estudiante") ){
 
 %>
 
-<div class="row">
+<div style = "float: left" class="row">
 <div class="col-sm-2 mx-auto">
 
 	<!--  DATOS DE USUARIO -->
@@ -69,6 +76,50 @@ if (tipo.equals("estudiante") ){
   			</div>
 		</div>
 	</div>
+	
+	
+	
+	
+</div>
+</div>
+	 
+<div style = "float: left" class="row">
+<div class="col-sm-2 mx-auto">
+
+	
+		<!--  DATOS DE USUARIO -->
+	<div class="form-group"> 
+	
+		<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+ 			<div class="card-header">SIGUE A:</div>
+  				<div class="card-body">
+   					<p class="card-text"><%=seguidos%></p>
+  			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div style = "float: left" class="row">
+<div class="col-sm-2 mx-auto">
+
+	
+		<!--  DATOS DE USUARIO -->
+	<div class="form-group"> 
+	
+		<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+ 			<div class="card-header">SEGUIDORES:</div>
+  				<div class="card-body">
+   					<p class="card-text"><%=seguidores%></p>
+  			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+	
+	<div style = "float: left" class="row">
+	<div class="col-sm-2 mx-auto">
 	
 	<!-- EDICIONES ASOCIADAS -->
 	<form action="consultarEdicion-4.jsp" method="post" id="form1">  	
@@ -127,6 +178,7 @@ if (tipo.equals("estudiante") ){
 		</div> 
 	<%} %>
 	
+	<!-- SI ES DOCENTE CONSULTANDO SU PROPIO PERFIL -->	
 	<!--  MUESTRO LISTA DE EDICIONES Y SE SELECCIONA UNA PARA VER LISTA DE ACEPTADOS  -->
 	<form action="consultarUsuario-3.jsp" method="post" id="form2"> 	
 	<% if(tipo.equals("docente") && consultaPorUsuarioLogueado){%>
@@ -147,14 +199,10 @@ if (tipo.equals("estudiante") ){
 		</div> 
 	<%} %>
 	</form>
+	</div>
+	</div>
 	
-</div>
-</div>
-	 
-  
-
-
-
+	
 
 <%@include file="/footer.jsp"%>
 </body>
