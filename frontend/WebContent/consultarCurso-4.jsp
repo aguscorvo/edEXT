@@ -64,5 +64,7 @@ else if (tipo.equals("programa")){
 </div>
 </div>
 
+<%@include file="/footer.jsp"%>
+
 </body>
 </html>

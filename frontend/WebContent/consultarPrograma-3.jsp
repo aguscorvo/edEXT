@@ -49,5 +49,7 @@ String datosCurso = iCon.obtenerDatosCurso(dtCurso);
 </div>
 </div>
 
+<%@include file="/footer.jsp"%>
+
 </body>
 </html>

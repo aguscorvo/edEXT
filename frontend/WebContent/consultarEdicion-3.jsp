@@ -47,5 +47,7 @@ String [] arrEdiciones = iCon.getEdiciones(curso);
 </div>
 </div>
 
+<%@include file="/footer.jsp"%>
+
 </body>
 </html>

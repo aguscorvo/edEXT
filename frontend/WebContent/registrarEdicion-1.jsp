@@ -47,6 +47,7 @@ String [] institutos= iCon.getInstitutos();
 </div>
 </div>
 
+<%@include file="/footer.jsp"%>
 
 </body>
 </html>

@@ -56,5 +56,7 @@ else if (tipo.equals("categoria")){
 </div>
 </div>
 
+<%@include file="/footer.jsp"%>
+
 </body>
 </html>
