@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <%@include file="/header.jsp"%>
+<link rel="stylesheet" href="css/estilos.css">
+
 <title>Home</title>
 </head>
 <body>
@@ -17,16 +19,16 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="imagenes/1.jpg" class="d-block w-100" alt="...">
+      <img src="imagenes/1.jpg" class="d-block w-100" alt="Two gray pencils on yellow surface">
     </div>
     <div class="carousel-item">
-      <img src="imagenes/2.jpg" class="d-block w-100" alt="...">
+      <img src="imagenes/2.jpg" class="d-block w-100" alt="Student reading book in college library">
     </div>
     <div class="carousel-item">
-      <img src="imagenes/3.jpg" class="d-block w-100" alt="...">
+      <img src="imagenes/3.jpg" class="d-block w-100" alt="Smiling students studying together in computer classroom">
     </div>
     <div class="carousel-item">
-      <img src="imagenes/4.jpg" class="d-block w-100" alt="...">
+      <img src="imagenes/4.jpg" class="d-block w-100" alt="Physics teacher">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
