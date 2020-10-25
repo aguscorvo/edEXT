@@ -14,7 +14,6 @@ import datatype.DtDocente;
 import datatype.DtEstudiante;
 import datatype.DtUsuario;
 import excepciones.NoExisteInstitutoException;
-import excepciones.UsuarioRepetidoException;
 import excepciones.UsuarioRepetidoExceptionMail;
 import excepciones.UsuarioRepetidoExceptionNick;
 import interfaces.Fabrica;
@@ -61,21 +60,26 @@ public class RegistrarUsuario extends HttpServlet {
 		
 		RequestDispatcher rd;
 		
-		try {
+		if (!pass1.equals(pass2)) {
+			request.setAttribute("mensaje", "Error al procesar.\nLas contraseñas ingresadas no coinciden.\nIntenta nuevamente.");
+		}
+		else {
 			try {
-				iCon.ingresarDtUsuarioFrontEnd(dt);
-				iCon.confirmarAltaUsuario();
-				request.setAttribute("mensaje", "El usuario "+ nick + " se ha creado con éxito en el sistema.");
-			} catch (UsuarioRepetidoExceptionNick e) {
-				request.setAttribute("mensaje", "El usuario '"+ nick + "' ya existe en el sistema.\nIntenta registrarte con un nick diferente.");
-				e.printStackTrace();
-			} catch (UsuarioRepetidoExceptionMail e) {
-				request.setAttribute("mensaje", "Ya existe un usuario con correo '"+ email + "' ingresado en el sistema.\nIntenta registrarte con un correo diferente.");
-				e.printStackTrace();
-			}
-		}catch (NoExisteInstitutoException e2) {
-			throw new ServletException(e2.getMessage());
-		}		
+				try {
+					iCon.ingresarDtUsuarioFrontEnd(dt);
+					iCon.confirmarAltaUsuario();
+					request.setAttribute("mensaje", "El usuario "+ nick + " se ha creado con éxito en el sistema.");
+				} catch (UsuarioRepetidoExceptionNick e) {
+					request.setAttribute("mensaje", "El usuario '"+ nick + "' ya existe en el sistema.\nIntenta registrarte con un nick diferente.");
+					e.printStackTrace();
+				} catch (UsuarioRepetidoExceptionMail e) {
+					request.setAttribute("mensaje", "Ya existe un usuario con correo '"+ email + "' ingresado en el sistema.\nIntenta registrarte con un correo diferente.");
+					e.printStackTrace();
+				}
+			}catch (NoExisteInstitutoException e2) {
+				throw new ServletException(e2.getMessage());
+			}	
+		}
 					
 		rd = request.getRequestDispatcher("/notificacion.jsp");
 		rd.forward(request, response);

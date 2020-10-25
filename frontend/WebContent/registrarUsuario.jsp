@@ -27,6 +27,8 @@ String [] institutos= iCon.getInstitutos();
 <div class="row">
 <div class="col-sm-2 mx-auto">
 <form action="RegistrarUsuario" method="post" id="formulario">
+  
+  <h6 style="color:white";>&nbsp Datos básicos:</h6>
   <div class="form-group">
     <input type="text" name= "nick" class="form-control" placeholder="Nick" required >
   </div>
@@ -51,10 +53,14 @@ String [] institutos= iCon.getInstitutos();
   <div style="max-width:400px;margin:auto"> 
         <div class="input-icons"> 
 			<i class="fa fa-calendar"></i>	
-  			<input class="form-control" type="text" name=fechaNacimiento2 id="fechaNacimiento2" placeholder="Fecha de Nacimiento" required>
+  			<input class="form-control" type="text" name=fechaNacimiento2 id="fechaNacimiento2" placeholder=" Fecha de Nacimiento" required>
         </div> 
   </div> 
   </div>
+  
+  <br>
+  <h6 style="color:white";>&nbsp Tipo de usario:</h6>
+  
     <!-- RadioButton-->
 <div class="form-group">   
  <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -80,7 +86,7 @@ String [] institutos= iCon.getInstitutos();
 	    
   </select>
 </div>
-  
+  <br>
   <button type="submit" class="btn btn-dark">Confirmar</button> 
   
 <script>  
