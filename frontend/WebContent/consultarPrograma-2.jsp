@@ -59,7 +59,7 @@ String [] cursos = iCon.getCursos(dtPF); //cursos que lo integran
 	</div> 
 	
 	<div class="form-group"> 
-  		<select name="cursos" class="custom-select" id="cursos">
+  		<select name="cursos" class="custom-select" id="cursos" required>
 	  		<option selected disabled value="">Cursos</option>
 	  
 			  <%int j=0;
