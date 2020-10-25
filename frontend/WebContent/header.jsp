@@ -38,8 +38,10 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">  
         <% String nombreCompleto = session.getAttribute("nombre") + " " + session.getAttribute("apellido");%>        
           <a class="dropdown-item disabled" href=""><%= nombreCompleto%></a>
-          <a class="dropdown-item" href="modificarDatosUsuario.jsp">Modificar datos de usuario</a>          
-          
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="listarSeguidos.jsp">Siguiendo</a>
+          <a class="dropdown-item" href="listarSeguidores.jsp">Seguidores </a> 
+          <a class="dropdown-item" href="modificarDatosUsuario.jsp">Modificar datos de usuario</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="cerrarSesion.jsp">Cerrar sesión</a>          
       	</div>
@@ -124,8 +126,7 @@
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">          
 		          <a class="dropdown-item" href="seguirUsuario-1.jsp">Seguir un usuario</a>
 		          <a class="dropdown-item" href="dejarDeSeguir-1.jsp">Dejar de seguir un usuario</a>
-		          <a class="dropdown-item" href="listarSeguidos.jsp">Listar usuarios que sigo</a>
-          		  <a class="dropdown-item" href="listarSeguidores.jsp">Listar usuarios que me siguen </a>   
+		             
 		      	</div>
 			  </li>
 			  
@@ -172,9 +173,7 @@
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">          
 		          <a class="dropdown-item" href="seguirUsuario-1.jsp">Seguir un usuario</a>
-		          <a class="dropdown-item" href="dejarDeSeguir-1.jsp">Dejar de seguir un usuario</a>
-		          <a class="dropdown-item" href="listarSeguidos.jsp">Listar usuarios que sigo</a>
-          		  <a class="dropdown-item" href="listarSeguidores.jsp">Listar usuarios que me siguen </a>  
+		          <a class="dropdown-item" href="dejarDeSeguir-1.jsp">Dejar de seguir un usuario</a>		           
 		      	</div>
 			  </li>
 			       
