@@ -35,8 +35,5 @@ body{
 } 
 
 .col-sm-2 {
-	margin-top: 40px; 
-	background: rgba(255,255,255 .2); 
-	box-shadow: 0 5px 15px rgba(0,0,0,.5); 
-	border-radius: 5px 10px;
+	margin-top: 40px; 	
 }
