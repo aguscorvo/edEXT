@@ -100,5 +100,8 @@ public class Fabrica {
 		return new ControladorBuscarCursoOPrograma();
 	}
 	
+	public IControladorSeguirUsuarios getIcontroladorSeguirUsuarios() {
+		return new ControladorSeguirUsuarios();
+	}
 		
 }

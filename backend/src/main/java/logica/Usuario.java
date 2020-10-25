@@ -1,12 +1,15 @@
 package logica;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToMany;
 
 import datatype.DtUsuario;
 
@@ -22,6 +25,8 @@ public abstract class Usuario {
 	private Date fechaNac; 
 	private String password;
 	
+	@ManyToMany
+	private List<Usuario> usuariosSeguidos = new ArrayList<Usuario>();
 	
 	//public abstract DtUsuario obtenerDtUsuario();
 	public boolean existeUsuario(DtUsuario usuario) {
@@ -86,6 +91,12 @@ public abstract class Usuario {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public List<Usuario> getUsuariosSeguidos() {
+		return usuariosSeguidos;
+	}
+	public void setUsuariosSeguidos(List<Usuario> usuariosSeguidos) {
+		this.usuariosSeguidos = usuariosSeguidos;
 	}
 	
 	
