@@ -52,6 +52,7 @@ String [] arrCategorias= iCon.getCategoriasGlobal();
   		</select>
 	</div> 
 
+ <br>
 
  <button type="submit" class="btn btn-dark">Obtener cursos</button>   
   

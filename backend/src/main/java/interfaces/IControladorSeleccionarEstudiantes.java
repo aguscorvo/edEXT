@@ -17,6 +17,8 @@ public interface IControladorSeleccionarEstudiantes {
 		
 	public String [] getEstudiantes();
 	
+	public boolean esDocenteEdicion (String docente, String edicion);
+	
 	public void ordenarEstPorPrioridad (String[] estudiantes);
 	
 	public void ordenarEstPorFechaInsc (String[] estudiantes);

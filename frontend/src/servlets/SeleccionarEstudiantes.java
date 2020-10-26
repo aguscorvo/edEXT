@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import datatype.DtDocente;
 import datatype.DtEstudiante;
@@ -54,11 +55,22 @@ public class SeleccionarEstudiantes extends HttpServlet {
 		Fabrica fabrica = Fabrica.getInstancia();
 		IControladorSeleccionarEstudiantes iCon = fabrica.getIControladorSeleccionarEstudiantes();
 		
+
+		HttpSession session = request.getSession();
+		String docente = (String) session.getAttribute("nick");
 		
-	    iCon.confirmarSeleccionarEstudiantes(estudiantes, ei, edi);
+		boolean esDocente = iCon.esDocenteEdicion(docente, edi);
 		
 		RequestDispatcher rd;
-		request.setAttribute("mensaje", "El estado de inscripción de los estudiantes seleccionados ha sido modificado con éxito.");
+		
+		if (!esDocente) {
+			request.setAttribute("mensaje", "Error al procesar.\nNo puedes modificar las inscripciones porque no tienes asociada la edición '" + edi +"'.");     
+		}
+		else {
+			iCon.confirmarSeleccionarEstudiantes(estudiantes, ei, edi);
+			request.setAttribute("mensaje", "El estado de inscripción de los estudiantes seleccionados ha sido modificado con éxito.");
+		}
+		
 		rd = request.getRequestDispatcher("/notificacion.jsp");
 		rd.forward(request, response);
 	}

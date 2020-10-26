@@ -5,10 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-
-import datatype.DtEdicion;
 import datatype.EstadoInscripcion;
-import excepciones.NoEsProfesorDeEdicionVigenteException;
 import excepciones.NoExisteEdicionVigenteException;
 import interfaces.IControladorSeleccionarEstudiantes;
 import persistencia.Conexion;
@@ -261,6 +258,26 @@ public class ControladorSeleccionarEstudiantes implements IControladorSelecciona
 				
 			}
 		}
+	}
+
+
+	
+	public boolean esDocenteEdicion(String docente, String edicion) {
+		
+		boolean esDocente = false;
+		
+		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
+		Usuario u = mu.getUsuario(docente);
+		if (u instanceof Docente) {
+			List<Edicion> ediciones = ((Docente) u).getEdiciones();
+			for (Edicion aux: ediciones) {
+				if(aux.getNombreEd().equals(edicion)) {
+					esDocente = true;
+				}
+			}
+		}
+		return esDocente;
+			
 	}
 	
 }	 	
