@@ -21,6 +21,7 @@ import interfaces.IControladorConsultaProgFormacion;
 import interfaces.IControladorConsultaUsuario;
 import interfaces.IControladorInscripcionAEdicion;
 import interfaces.IControladorModificarDatosUsuario;
+import publicadores.ControladorIniciarSesionPublish;
 
 import javax.swing.JMenu;
 import java.awt.event.ActionListener;
@@ -62,6 +63,9 @@ public class Principal {
 
 	public Principal() throws PropertyVetoException {
 		initialize();
+		ControladorIniciarSesionPublish cp = new ControladorIniciarSesionPublish();
+		cp.publicar();
+		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("joaquin");
 		System.out.println("Conexion creada");
 		Fabrica f = Fabrica.getInstancia();
