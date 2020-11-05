@@ -21,6 +21,12 @@ import interfaces.IControladorConsultaProgFormacion;
 import interfaces.IControladorConsultaUsuario;
 import interfaces.IControladorInscripcionAEdicion;
 import interfaces.IControladorModificarDatosUsuario;
+import publicadores.ControladorAgregarCursoAPFPublish;
+import publicadores.ControladorAltaCursoPublish;
+import publicadores.ControladorAltaEdicionPublish;
+import publicadores.ControladorAltaProgFormacionPublish;
+import publicadores.ControladorAltaUsuarioPublish;
+import publicadores.ControladorBuscarCursoOProgramaPublish;
 import publicadores.ControladorIniciarSesionPublish;
 
 import javax.swing.JMenu;
@@ -62,9 +68,22 @@ public class Principal {
 	}
 
 	public Principal() throws PropertyVetoException {
+		
 		initialize();
-		ControladorIniciarSesionPublish cp = new ControladorIniciarSesionPublish();
-		cp.publicar();
+		ControladorIniciarSesionPublish cpIniciarSesion = new ControladorIniciarSesionPublish();
+		cpIniciarSesion.publicar();
+		ControladorAltaUsuarioPublish cpAltaUsuario = new ControladorAltaUsuarioPublish();
+		cpAltaUsuario.publicar();
+		ControladorAltaCursoPublish cpAltaCurso = new ControladorAltaCursoPublish();
+		cpAltaCurso.publicar();
+		ControladorAltaEdicionPublish cpAltaEdicion = new ControladorAltaEdicionPublish();
+		cpAltaEdicion.publicar();
+		ControladorAltaProgFormacionPublish cpProgFormacion = new ControladorAltaProgFormacionPublish();
+		cpProgFormacion.publicar();
+		ControladorAgregarCursoAPFPublish cpAgregarCursoAPF = new ControladorAgregarCursoAPFPublish();
+		cpAgregarCursoAPF.publicar();
+		ControladorBuscarCursoOProgramaPublish cpBuscarCursoOPrograma = new ControladorBuscarCursoOProgramaPublish();
+		cpBuscarCursoOPrograma.publicar();
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("joaquin");
 		System.out.println("Conexion creada");

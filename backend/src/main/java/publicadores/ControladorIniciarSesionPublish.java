@@ -47,20 +47,12 @@ public class ControladorIniciarSesionPublish {
 	
 
 	@WebMethod
-	public DtUsuarioLogueado iniciarSesion(String nickOEmail, String contraseña){
-		DtUsuarioLogueado aux=null;
-		try {
-			aux = icon.iniciarSesion(nickOEmail, contraseña);
-		} catch (NoExisteUsuarioException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ContraseniaIncorrectaException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return aux;
-				
+	public DtUsuarioLogueado iniciarSesion(String nickOEmail, String contraseña) throws NoExisteUsuarioException, ContraseniaIncorrectaException{
+		return icon.iniciarSesion(nickOEmail, contraseña);
+		
 	}
+	
+	
 	
 
 }

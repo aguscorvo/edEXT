@@ -10,11 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import datatype.DtUsuarioLogueado;
+import org.hibernate.service.spi.ServiceException;
+
 import excepciones.ContraseniaIncorrectaException;
 import excepciones.NoExisteUsuarioException;
 import interfaces.Fabrica;
 import interfaces.IControladorIniciarSesion;
+import publicadores.ControladorIniciarSesionPublish;
+import publicadores.ControladorIniciarSesionPublishService;
+import publicadores.ControladorIniciarSesionPublishServiceLocator;
+import publicadores.DtUsuarioLogueado;
 
 
 @WebServlet("/IniciarSesion")
@@ -34,15 +39,15 @@ public class IniciarSesion extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nickOEmail = request.getParameter("nickOEmail");
 		String contraseña = request.getParameter("password");
-		Fabrica fabrica = Fabrica.getInstancia();
-		IControladorIniciarSesion iCon = fabrica.getIControladorIniciarSesion();
 		String nickName="";
 		DtUsuarioLogueado usuarioLogueado=null;
 		Boolean loginExitoso=false;
 		
 		
+		
+		
 		try {
-			usuarioLogueado= iCon.iniciarSesion(nickOEmail, contraseña);
+			usuarioLogueado= iniciarSesion(nickOEmail, contraseña);
 			loginExitoso=true;
 			request.setAttribute("mensaje", "'@" + usuarioLogueado.getNick() + "'" + " ha iniciado sesión.");	
 		} catch (NoExisteUsuarioException e) {
@@ -51,8 +56,9 @@ public class IniciarSesion extends HttpServlet {
 		} catch (ContraseniaIncorrectaException cie) {
 			request.setAttribute("mensaje", "La contraseña ingresada es incorrecta.\nIntente nuevamente.");
 			loginExitoso=false;
-		}
-		
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 		
 		
 		if (loginExitoso) {
 			
@@ -76,6 +82,14 @@ public class IniciarSesion extends HttpServlet {
 		
 	}
 
+	
+	public DtUsuarioLogueado iniciarSesion(String nickOEmail, String contraseña) throws NoExisteUsuarioException, ContraseniaIncorrectaException, Exception, ServiceException {
+		
+		ControladorIniciarSesionPublishService cps = new ControladorIniciarSesionPublishServiceLocator();
+		ControladorIniciarSesionPublish port = cps.getControladorIniciarSesionPublishPort();
+		return port.iniciarSesion(nickOEmail, contraseña);
+
+	}
 }
 
 
