@@ -44,7 +44,7 @@ public class ControladorIniciarSesionPublishProxy implements publicadores.Contro
     return controladorIniciarSesionPublish;
   }
   
-  public publicadores.DtUsuarioLogueado iniciarSesion(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException{
+  public publicadores.DtUsuarioLogueado iniciarSesion(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException, publicadores.NoExisteUsuarioException, publicadores.ContraseniaIncorrectaException{
     if (controladorIniciarSesionPublish == null)
       _initControladorIniciarSesionPublishProxy();
     return controladorIniciarSesionPublish.iniciarSesion(arg0, arg1);

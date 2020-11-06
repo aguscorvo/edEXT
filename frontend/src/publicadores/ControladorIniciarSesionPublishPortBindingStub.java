@@ -8,14 +8,10 @@
 package publicadores;
 
 public class ControladorIniciarSesionPublishPortBindingStub extends org.apache.axis.client.Stub implements publicadores.ControladorIniciarSesionPublish {
-    @SuppressWarnings("rawtypes")
-	private java.util.Vector cachedSerClasses = new java.util.Vector();
-    @SuppressWarnings("rawtypes")
-	private java.util.Vector cachedSerQNames = new java.util.Vector();
-    @SuppressWarnings("rawtypes")
-	private java.util.Vector cachedSerFactories = new java.util.Vector();
-    @SuppressWarnings("rawtypes")
-	private java.util.Vector cachedDeserFactories = new java.util.Vector();
+    private java.util.Vector cachedSerClasses = new java.util.Vector();
+    private java.util.Vector cachedSerQNames = new java.util.Vector();
+    private java.util.Vector cachedSerFactories = new java.util.Vector();
+    private java.util.Vector cachedDeserFactories = new java.util.Vector();
 
     static org.apache.axis.description.OperationDesc [] _operations;
 
@@ -38,6 +34,18 @@ public class ControladorIniciarSesionPublishPortBindingStub extends org.apache.a
         oper.setReturnQName(new javax.xml.namespace.QName("", "return"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://publicadores/", "NoExisteUsuarioException"),
+                      "publicadores.NoExisteUsuarioException",
+                      new javax.xml.namespace.QName("http://publicadores/", "NoExisteUsuarioException"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://publicadores/", "ContraseniaIncorrectaException"),
+                      "publicadores.ContraseniaIncorrectaException",
+                      new javax.xml.namespace.QName("http://publicadores/", "ContraseniaIncorrectaException"), 
+                      true
+                     ));
         _operations[0] = oper;
 
     }
@@ -51,42 +59,43 @@ public class ControladorIniciarSesionPublishPortBindingStub extends org.apache.a
          super.cachedEndpoint = endpointURL;
     }
 
-    @SuppressWarnings("unchecked")
-	public ControladorIniciarSesionPublishPortBindingStub(javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {
+    public ControladorIniciarSesionPublishPortBindingStub(javax.xml.rpc.Service service) throws org.apache.axis.AxisFault {
         if (service == null) {
             super.service = new org.apache.axis.client.Service();
         } else {
             super.service = service;
         }
         ((org.apache.axis.client.Service)super.service).setTypeMappingVersion("1.2");
-            @SuppressWarnings("rawtypes")
-			java.lang.Class cls;
+            java.lang.Class cls;
             javax.xml.namespace.QName qName;
-            @SuppressWarnings("unused")
-			javax.xml.namespace.QName qName2;
-            @SuppressWarnings("rawtypes")
-			java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
-            @SuppressWarnings("rawtypes")
-			java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
-            @SuppressWarnings({ "rawtypes", "unused" })
-			java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
-            @SuppressWarnings({ "rawtypes", "unused" })
-			java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
-            @SuppressWarnings({ "rawtypes", "unused" })
-			java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
-            @SuppressWarnings({ "rawtypes", "unused" })
-			java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
-            @SuppressWarnings({ "rawtypes", "unused" })
-			java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
-            @SuppressWarnings({ "rawtypes", "unused" })
-			java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
-            @SuppressWarnings({ "rawtypes", "unused" })
-			java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
-            @SuppressWarnings({ "rawtypes", "unused" })
-			java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
+            javax.xml.namespace.QName qName2;
+            java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
+            java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
+            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+            java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
+            java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
+            java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
+            java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
+            java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
+            java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
+            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
+            qName = new javax.xml.namespace.QName("http://publicadores/", "ContraseniaIncorrectaException");
+            cachedSerQNames.add(qName);
+            cls = publicadores.ContraseniaIncorrectaException.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("http://publicadores/", "dtUsuarioLogueado");
             cachedSerQNames.add(qName);
             cls = publicadores.DtUsuarioLogueado.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://publicadores/", "NoExisteUsuarioException");
+            cachedSerQNames.add(qName);
+            cls = publicadores.NoExisteUsuarioException.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -114,8 +123,7 @@ public class ControladorIniciarSesionPublishPortBindingStub extends org.apache.a
             if (super.cachedPortName != null) {
                 _call.setPortName(super.cachedPortName);
             }
-            @SuppressWarnings("rawtypes")
-			java.util.Enumeration keys = super.cachedProperties.keys();
+            java.util.Enumeration keys = super.cachedProperties.keys();
             while (keys.hasMoreElements()) {
                 java.lang.String key = (java.lang.String) keys.nextElement();
                 _call.setProperty(key, super.cachedProperties.get(key));
@@ -130,17 +138,14 @@ public class ControladorIniciarSesionPublishPortBindingStub extends org.apache.a
                     // must set encoding style before registering serializers
                     _call.setEncodingStyle(null);
                     for (int i = 0; i < cachedSerFactories.size(); ++i) {
-                        @SuppressWarnings("rawtypes")
-						java.lang.Class cls = (java.lang.Class) cachedSerClasses.get(i);
+                        java.lang.Class cls = (java.lang.Class) cachedSerClasses.get(i);
                         javax.xml.namespace.QName qName =
                                 (javax.xml.namespace.QName) cachedSerQNames.get(i);
                         java.lang.Object x = cachedSerFactories.get(i);
                         if (x instanceof Class) {
-                            @SuppressWarnings("rawtypes")
-							java.lang.Class sf = (java.lang.Class)
+                            java.lang.Class sf = (java.lang.Class)
                                  cachedSerFactories.get(i);
-                            @SuppressWarnings("rawtypes")
-							java.lang.Class df = (java.lang.Class)
+                            java.lang.Class df = (java.lang.Class)
                                  cachedDeserFactories.get(i);
                             _call.registerTypeMapping(cls, qName, sf, df, false);
                         }
@@ -161,7 +166,7 @@ public class ControladorIniciarSesionPublishPortBindingStub extends org.apache.a
         }
     }
 
-    public publicadores.DtUsuarioLogueado iniciarSesion(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException {
+    public publicadores.DtUsuarioLogueado iniciarSesion(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException, publicadores.NoExisteUsuarioException, publicadores.ContraseniaIncorrectaException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -191,6 +196,17 @@ public class ControladorIniciarSesionPublishPortBindingStub extends org.apache.a
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof publicadores.NoExisteUsuarioException) {
+              throw (publicadores.NoExisteUsuarioException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof publicadores.ContraseniaIncorrectaException) {
+              throw (publicadores.ContraseniaIncorrectaException) axisFaultException.detail;
+         }
+   }
   throw axisFaultException;
 }
     }
