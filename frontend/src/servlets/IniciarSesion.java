@@ -16,6 +16,7 @@ import excepciones.ContraseniaIncorrectaException;
 import excepciones.NoExisteUsuarioException;
 import interfaces.Fabrica;
 import interfaces.IControladorIniciarSesion;
+import javassist.tools.rmi.RemoteException;
 import publicadores.ControladorIniciarSesionPublish;
 import publicadores.ControladorIniciarSesionPublishService;
 import publicadores.ControladorIniciarSesionPublishServiceLocator;
@@ -43,14 +44,11 @@ public class IniciarSesion extends HttpServlet {
 		DtUsuarioLogueado usuarioLogueado=null;
 		Boolean loginExitoso=false;
 		
-		
-		
-		
 		try {
 			usuarioLogueado= iniciarSesion(nickOEmail, contraseña);
 			loginExitoso=true;
 			request.setAttribute("mensaje", "'@" + usuarioLogueado.getNick() + "'" + " ha iniciado sesión.");	
-		} catch (NoExisteUsuarioException e) {
+		} catch (NoExisteUsuarioException neue) {
 			request.setAttribute("mensaje", "Los datos ingresados son incorrectos.\nIntente nuevamente.");			
 			loginExitoso=false;
 		} catch (ContraseniaIncorrectaException cie) {
@@ -58,7 +56,7 @@ public class IniciarSesion extends HttpServlet {
 			loginExitoso=false;
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 		
+		}	
 		
 		if (loginExitoso) {
 			
@@ -83,7 +81,7 @@ public class IniciarSesion extends HttpServlet {
 	}
 
 	
-	public DtUsuarioLogueado iniciarSesion(String nickOEmail, String contraseña) throws NoExisteUsuarioException, ContraseniaIncorrectaException, Exception, ServiceException {
+	public DtUsuarioLogueado iniciarSesion(String nickOEmail, String contraseña) throws RemoteException, Exception {
 		
 		ControladorIniciarSesionPublishService cps = new ControladorIniciarSesionPublishServiceLocator();
 		ControladorIniciarSesionPublish port = cps.getControladorIniciarSesionPublishPort();
