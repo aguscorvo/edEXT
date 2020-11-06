@@ -9,7 +9,12 @@ package publicadores;
 
 public class ControladorIniciarSesionPublishServiceLocator extends org.apache.axis.client.Service implements publicadores.ControladorIniciarSesionPublishService {
 
-    public ControladorIniciarSesionPublishServiceLocator() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public ControladorIniciarSesionPublishServiceLocator() {
     }
 
 
@@ -70,7 +75,7 @@ public class ControladorIniciarSesionPublishServiceLocator extends org.apache.ax
      * If this service has no port for the given interface,
      * then ServiceException is thrown.
      */
-    public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
+    public java.rmi.Remote getPort(@SuppressWarnings("rawtypes") Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
             if (publicadores.ControladorIniciarSesionPublish.class.isAssignableFrom(serviceEndpointInterface)) {
                 publicadores.ControladorIniciarSesionPublishPortBindingStub _stub = new publicadores.ControladorIniciarSesionPublishPortBindingStub(new java.net.URL(ControladorIniciarSesionPublishPort_address), this);
@@ -89,7 +94,7 @@ public class ControladorIniciarSesionPublishServiceLocator extends org.apache.ax
      * If this service has no port for the given interface,
      * then ServiceException is thrown.
      */
-    public java.rmi.Remote getPort(javax.xml.namespace.QName portName, Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
+    public java.rmi.Remote getPort(javax.xml.namespace.QName portName, @SuppressWarnings("rawtypes") Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         if (portName == null) {
             return getPort(serviceEndpointInterface);
         }
@@ -108,9 +113,11 @@ public class ControladorIniciarSesionPublishServiceLocator extends org.apache.ax
         return new javax.xml.namespace.QName("http://publicadores/", "ControladorIniciarSesionPublishService");
     }
 
-    private java.util.HashSet ports = null;
+    @SuppressWarnings("rawtypes")
+	private java.util.HashSet ports = null;
 
-    public java.util.Iterator getPorts() {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public java.util.Iterator getPorts() {
         if (ports == null) {
             ports = new java.util.HashSet();
             ports.add(new javax.xml.namespace.QName("http://publicadores/", "ControladorIniciarSesionPublishPort"));
