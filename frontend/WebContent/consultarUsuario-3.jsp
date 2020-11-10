@@ -1,5 +1,6 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorConsultaUsuario"%>
+<%@page import="publicadores.ControladorConsultaUsuarioPublishService" %>
+<%@page import="publicadores.ControladorConsultaUsuarioPublish" %>
+<%@page import="publicadores.ControladorConsultaUsuarioPublishServiceLocator" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -13,11 +14,11 @@
 </head>
 <body>
 <%
-Fabrica fab = Fabrica.getInstancia();
-IControladorConsultaUsuario iCon = fab.getIControladorConsultaUsuario();
+ControladorConsultaUsuarioPublishService cps = new ControladorConsultaUsuarioPublishServiceLocator();
+ControladorConsultaUsuarioPublish port = cps.getControladorConsultaUsuarioPublishPort();
 
 String edicion = request.getParameter("edicion");
-String estudiantesAceptados = iCon.getEstudiantesAceptadosAEdicion(edicion);
+String estudiantesAceptados = port.getEstudiantesAceptadosAEdicion(edicion);
 %>
 
 <div class="row">

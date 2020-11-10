@@ -1,7 +1,9 @@
 <%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorConsultaUsuario"%>
+<%@page import="publicadores.ControladorConsultaUsuarioPublishService" %>
+<%@page import="publicadores.ControladorConsultaUsuarioPublish" %>
+<%@page import="publicadores.ControladorConsultaUsuarioPublishServiceLocator" %>
 <%@page import="interfaces.IControladorSeguirUsuarios"%>
-<%@page import="datatype.DtUsuario"%>
+<%@page import="publicadores.DtUsuario"%>
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -19,8 +21,10 @@
 <body>
 
 <%
+ControladorConsultaUsuarioPublishService cps = new ControladorConsultaUsuarioPublishServiceLocator();
+ControladorConsultaUsuarioPublish port = cps.getControladorConsultaUsuarioPublishPort();
+
 Fabrica fab = Fabrica.getInstancia();
-IControladorConsultaUsuario iCon = fab.getIControladorConsultaUsuario();
 IControladorSeguirUsuarios iConSeguir = fab.getIcontroladorSeguirUsuarios();
 
 
@@ -29,8 +33,8 @@ String usuario = request.getParameter("usuario");
 String seguidos = iConSeguir.getCadenaUsuariosSeguidos(usuario);
 String seguidores = iConSeguir.getCadenaUsuariosSeguidores(usuario);
 
-DtUsuario dtUsuario = iCon.seleccionarUsuario(usuario);
-String datosUsuario = iCon.obtenerDatosUsuario(dtUsuario);
+DtUsuario dtUsuario = port.seleccionarUsuario(usuario);
+String datosUsuario = port.obtenerDatosUsuario(dtUsuario);
 
 //verifico de que tipo es el usuario seleccionado y si consulta por su propio perfil (si el usuario seleccionado en la consulta es el usuario logueado)
 String tipo = "";
@@ -41,22 +45,22 @@ if (s.getAttribute("nick") != null && usuario.equals(s.getAttribute("nick").toSt
 	tipo= (String) s.getAttribute("tipoUsuarioLogueado");
 	consultaPorUsuarioLogueado= true;
 }else{
-	tipo= iCon.tipoUsuarioSeleccionado(usuario);
+	tipo= port.tipoUsuarioSeleccionado(usuario);
 	consultaPorUsuarioLogueado= false;
 }
 
 //ediciones asociadas al usuario seleccionado
-String [] ediciones = iCon.getEdiciones(dtUsuario);
+String [] ediciones = port.getEdiciones(dtUsuario);
 
 String [] programas = null;
 String [] edicionesRechazadas = null;
 
 if (tipo.equals("estudiante") ){
 	//programas asociados al estudiante seleccionado
-	programas = iCon.getProgramas(dtUsuario);
+	programas = port.getProgramas(dtUsuario);
 	
 	if (consultaPorUsuarioLogueado){ 				 //si es estudiante y consulta por su propio perfil
-		edicionesRechazadas = iCon.getEdicionesInscRechazadas(dtUsuario);
+		edicionesRechazadas = port.getEdicionesInscRechazadas(dtUsuario);
 	}
 	
 }

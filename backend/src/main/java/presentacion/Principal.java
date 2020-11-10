@@ -28,6 +28,7 @@ import publicadores.ControladorAltaProgFormacionPublish;
 import publicadores.ControladorAltaUsuarioPublish;
 import publicadores.ControladorBuscarCursoOProgramaPublish;
 import publicadores.ControladorConsultaProgFormacionPublish;
+import publicadores.ControladorConsultaUsuarioPublish;
 import publicadores.ControladorIniciarSesionPublish;
 
 import javax.swing.JMenu;
@@ -87,6 +88,8 @@ public class Principal {
 		cpBuscarCursoOPrograma.publicar();
 		ControladorConsultaProgFormacionPublish cpConsultarProgFormacion = new ControladorConsultaProgFormacionPublish();
 		cpConsultarProgFormacion.publicar();
+		ControladorConsultaUsuarioPublish cpConsultarUsuario = new ControladorConsultaUsuarioPublish();
+		cpConsultarUsuario.publicar();
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("joaquin");
 		System.out.println("Conexion creada");
