@@ -1,6 +1,7 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorConsultaProgFormacion"%>
-<%@page import="datatype.DtCursoExp"%>
+<%@page import="publicadores.ControladorConsultaProgFormacionPublishService" %>
+<%@page import="publicadores.ControladorConsultaProgFormacionPublish" %>
+<%@page import="publicadores.ControladorConsultaProgFormacionPublishServiceLocator" %>
+<%@page import="publicadores.DtCursoExp"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -17,12 +18,12 @@
 <body>
 
 <%
-Fabrica fab = Fabrica.getInstancia();
-IControladorConsultaProgFormacion iCon = fab.getIControladorConsultaProgFormacion();
+ControladorConsultaProgFormacionPublishService cps = new ControladorConsultaProgFormacionPublishServiceLocator();
+ControladorConsultaProgFormacionPublish port = cps.getControladorConsultaProgFormacionPublishPort();
 String curso = request.getParameter("cursos");
 
-DtCursoExp dtCurso = iCon.seleccionarCurso(curso);
-String datosCurso = iCon.obtenerDatosCurso(dtCurso);
+DtCursoExp dtCurso = port.seleccionarCurso(curso);
+String datosCurso = port.obtenerDatosCurso(dtCurso);
 
 
 %>

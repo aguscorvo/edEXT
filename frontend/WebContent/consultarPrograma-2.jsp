@@ -1,6 +1,7 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorConsultaProgFormacion"%>
-<%@page import="datatype.DtProgFormacionExp"%>
+<%@page import="publicadores.ControladorConsultaProgFormacionPublishService" %>
+<%@page import="publicadores.ControladorConsultaProgFormacionPublish" %>
+<%@page import="publicadores.ControladorConsultaProgFormacionPublishServiceLocator" %>
+<%@page import="publicadores.DtProgFormacionExp"%>
 
 
 
@@ -19,15 +20,15 @@
 <body>
 
 <%
-Fabrica fab = Fabrica.getInstancia();
-IControladorConsultaProgFormacion iCon = fab.getIControladorConsultaProgFormacion();
+ControladorConsultaProgFormacionPublishService cps = new ControladorConsultaProgFormacionPublishServiceLocator();
+ControladorConsultaProgFormacionPublish port = cps.getControladorConsultaProgFormacionPublishPort();
 String programa = request.getParameter("programa");
 
 //se obtienen datos del programa seleccionado
-DtProgFormacionExp dtPF = iCon.seleccionarPrograma(programa);
-String datosPrograma = iCon.obtenerDatosPrograma(dtPF);
-String [] categorias = iCon.getCategoriasPrograma(programa); //categorias asociadas
-String [] cursos = iCon.getCursos(dtPF); //cursos que lo integran
+DtProgFormacionExp dtPF = port.seleccionarPrograma(programa);
+String datosPrograma = port.obtenerDatosPrograma(dtPF);
+String [] categorias = port.getCategoriasPrograma(programa); //categorias asociadas
+String [] cursos = port.getCursos(dtPF); //cursos que lo integran
 
 %>
 

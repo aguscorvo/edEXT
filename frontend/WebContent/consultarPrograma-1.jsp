@@ -1,6 +1,6 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorConsultaProgFormacion"%>
-
+<%@page import="publicadores.ControladorConsultaProgFormacionPublishService" %>
+<%@page import="publicadores.ControladorConsultaProgFormacionPublish" %>
+<%@page import="publicadores.ControladorConsultaProgFormacionPublishServiceLocator" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -17,10 +17,9 @@
 <body>
 
 <%
-Fabrica fab = Fabrica.getInstancia();
-IControladorConsultaProgFormacion iCon = fab.getIControladorConsultaProgFormacion();
-
-String [] arrProgramas = iCon.getProgramasDeFormacion();
+ControladorConsultaProgFormacionPublishService cps = new ControladorConsultaProgFormacionPublishServiceLocator();
+ControladorConsultaProgFormacionPublish port = cps.getControladorConsultaProgFormacionPublishPort();
+String [] arrProgramas = port.getProgramasDeFormacion();
 
 
 %>
