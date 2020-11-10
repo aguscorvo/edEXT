@@ -1,5 +1,6 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorInscripcionAEdicion"%>
+<%@page import="publicadores.ControladorInscripcionAEdicionPublishService" %>
+<%@page import="publicadores.ControladorInscripcionAEdicionPublish" %>
+<%@page import="publicadores.ControladorInscripcionAEdicionPublishServiceLocator" %>
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -16,18 +17,19 @@
 
 <body>
 
-<%Fabrica fab = Fabrica.getInstancia();
-IControladorInscripcionAEdicion iCon = fab.getIControladorInscripcionAEdicion();
+<%
+ControladorInscripcionAEdicionPublishService cps = new ControladorInscripcionAEdicionPublishServiceLocator();
+ControladorInscripcionAEdicionPublish port = cps.getControladorInscripcionAEdicionPublishPort();
 
 String [] arrCursos = null;
 String tipo=request.getParameter("tipoListarPor");
 if (tipo.equals("instituto")){
 	String instituto= request.getParameter("institutosCategorias");
-	arrCursos = iCon.ingresarInstituto(instituto);	
+	arrCursos = port.ingresarInstituto(instituto);	
 }
 else if (tipo.equals("categoria")){
 	String categoria = request.getParameter("institutosCategorias");
-	arrCursos = iCon.getCursosPorCategoria(categoria);
+	arrCursos = port.getCursosPorCategoria(categoria);
 }
 
 

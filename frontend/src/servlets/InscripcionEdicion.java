@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -10,12 +11,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.rpc.ServiceException;
 
-import datatype.EstadoInscripcion;
-import excepciones.NoExisteEdicionVigenteException;
-import interfaces.Fabrica;
-
-import interfaces.IControladorInscripcionAEdicion;
+import publicadores.ControladorAltaUsuarioPublish;
+import publicadores.ControladorAltaUsuarioPublishService;
+import publicadores.ControladorAltaUsuarioPublishServiceLocator;
+import publicadores.ControladorInscripcionAEdicionPublish;
+import publicadores.ControladorInscripcionAEdicionPublishService;
+import publicadores.ControladorInscripcionAEdicionPublishServiceLocator;
+import publicadores.DtDocente;
+import publicadores.EstadoInscripcion;
+import publicadores.UsuarioRepetidoExceptionMail;
+import publicadores.UsuarioRepetidoExceptionNick;
 
 
 
@@ -40,47 +47,88 @@ public class InscripcionEdicion extends HttpServlet {
 		
 		String edi = request.getParameter("boton1");
 		String curso = request.getParameter("boton2");
-		
-		
-		Fabrica fabrica = Fabrica.getInstancia();
-		IControladorInscripcionAEdicion iCon = fabrica.getIControladorInscripcionAEdicion();
-		
+				
+				
 		Date fecha = new Date();
 		
-		iCon.ingresarEstudiante(nick, fecha);
+		try {
+			ingresarEstudiante(nick, fecha);
+		} catch (ServiceException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 		
 		
 		try {
-			iCon.ingresarCurso(curso);
-		} catch (NoExisteEdicionVigenteException e) {
-			e.printStackTrace();
+			ingresarCurso(curso);
+		} catch (Exception e) {
+			request.setAttribute("mensaje", "Los datos ingresados son incorrectos.\nIntente nuevamente.");
 		}
 	    
-		ei = iCon.chequearEstudianteEdicion();
-		
 		RequestDispatcher rd;
-		
-		if (ei == null) {
-			iCon.confirmarInscripcionAEdicion();
-			request.setAttribute("mensaje", "Tu inscripción a la edición " + edi + " se ha efectuado con éxito.");
-		}
-		else {
-			if (ei == EstadoInscripcion.RECHAZADO){
-			iCon.confirmarInscripcionAEdicion();
-			request.setAttribute("mensaje", "Tu inscripción a la edición " + edi + " se ha efectuado con éxito.");
+		try {
+			ei = chequearEstudianteEdicion();
+			if (ei == null) {
+				try {
+					confirmarInscripcionAEdicion();
+				} catch (ServiceException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				request.setAttribute("mensaje", "Tu inscripción a la edición " + edi + " se ha efectuado con éxito.");
 			}
 			else {
-				if (ei == EstadoInscripcion.INSCRIPTO) {
-					request.setAttribute("mensaje", "Error al procesar. Ya te has inscripto con anterioridad a la edición " + edi + ".");
+				if (ei == EstadoInscripcion.RECHAZADO){
+					try {
+						confirmarInscripcionAEdicion();
+					} catch (ServiceException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					request.setAttribute("mensaje", "Tu inscripción a la edición " + edi + " se ha efectuado con éxito.");
 				}
-				else if (ei == EstadoInscripcion.ACEPTADO) {
-					request.setAttribute("mensaje", "Error al procesar. Ya te has inscripto con anterioridad y has sido aceptado en la edición" + edi + ".");
+				else {
+					if (ei == EstadoInscripcion.INSCRIPTO) {
+						request.setAttribute("mensaje", "Error al procesar. Ya te has inscripto con anterioridad a la edición " + edi + ".");
+					}
+					else if (ei == EstadoInscripcion.ACEPTADO) {
+						request.setAttribute("mensaje", "Error al procesar. Ya te has inscripto con anterioridad y has sido aceptado en la edición" + edi + ".");
+					}
 				}
 			}
-		}
+		} catch (ServiceException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}		
+		
 		
 		rd = request.getRequestDispatcher("/notificacion.jsp");
 		rd.forward(request, response);
 	}
 
+	public void ingresarEstudiante(String nick, Date fecha) throws RemoteException, ServiceException{
+		ControladorInscripcionAEdicionPublishService cps = new ControladorInscripcionAEdicionPublishServiceLocator();
+		ControladorInscripcionAEdicionPublish port = cps.getControladorInscripcionAEdicionPublishPort();
+		port.ingresarEstudiante(nick,fecha);		
+	}
+	
+	public void ingresarCurso(String curso) throws RemoteException, ServiceException{
+		ControladorInscripcionAEdicionPublishService cps = new ControladorInscripcionAEdicionPublishServiceLocator();
+		ControladorInscripcionAEdicionPublish port = cps.getControladorInscripcionAEdicionPublishPort();
+		port.ingresarCurso(curso);		
+	}
+	
+	public EstadoInscripcion chequearEstudianteEdicion() throws RemoteException, ServiceException{
+		ControladorInscripcionAEdicionPublishService cps = new ControladorInscripcionAEdicionPublishServiceLocator();
+		ControladorInscripcionAEdicionPublish port = cps.getControladorInscripcionAEdicionPublishPort();
+		return port.chequearEstudianteEdicion();		
+	}
+	
+	public void confirmarInscripcionAEdicion() throws RemoteException, ServiceException{
+		ControladorInscripcionAEdicionPublishService cps = new ControladorInscripcionAEdicionPublishServiceLocator();
+		ControladorInscripcionAEdicionPublish port = cps.getControladorInscripcionAEdicionPublishPort();
+		port.confirmarInscripcionAEdicion();		
+	}
+	
+	
 }

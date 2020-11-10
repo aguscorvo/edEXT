@@ -1,5 +1,6 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorInscripcionAEdicion" %>
+<%@page import="publicadores.ControladorInscripcionAEdicionPublishService" %>
+<%@page import="publicadores.ControladorInscripcionAEdicionPublish" %>
+<%@page import="publicadores.ControladorInscripcionAEdicionPublishServiceLocator" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -7,13 +8,14 @@
 <html>
 <head>
 
-<%Fabrica fab = Fabrica.getInstancia();
+<%
+ControladorInscripcionAEdicionPublishService cps = new ControladorInscripcionAEdicionPublishServiceLocator();
+ControladorInscripcionAEdicionPublish port = cps.getControladorInscripcionAEdicionPublishPort();
 
 String curso = request.getParameter("curso");
 String estudiante = (String) session.getAttribute("tipoUsuarioLogueado");
-IControladorInscripcionAEdicion iCon = fab.getIControladorInscripcionAEdicion();
-String edicion = iCon.ingresarCurso(curso);
-String datos = iCon.obtenerDatosBasicosEd();
+String edicion = port.ingresarCurso(curso);
+String datos = port.obtenerDatosBasicosEd();
 
 
 %>

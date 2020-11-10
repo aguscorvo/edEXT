@@ -1,5 +1,6 @@
-<%@page import="interfaces.IControladorInscripcionAEdicion"%>
-<%@page import="interfaces.Fabrica" %>
+<%@page import="publicadores.ControladorInscripcionAEdicionPublishService" %>
+<%@page import="publicadores.ControladorInscripcionAEdicionPublish" %>
+<%@page import="publicadores.ControladorInscripcionAEdicionPublishServiceLocator" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -9,10 +10,11 @@
 
 <head>
 
-<%Fabrica fab = Fabrica.getInstancia();
-IControladorInscripcionAEdicion iCon = fab.getIControladorInscripcionAEdicion();
-String [] arrInstitutos= iCon.getInstitutos();
-String [] arrCategorias= iCon.getCategoriasGlobal();
+<%
+ControladorInscripcionAEdicionPublishService cps = new ControladorInscripcionAEdicionPublishServiceLocator();
+ControladorInscripcionAEdicionPublish port = cps.getControladorInscripcionAEdicionPublishPort();
+String [] arrInstitutos= port.getInstitutos();
+String [] arrCategorias= port.getCategoriasGlobal();
 
 %>
 
