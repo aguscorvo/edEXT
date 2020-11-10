@@ -13,16 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.rpc.ServiceException;
 
-import publicadores.ControladorAltaUsuarioPublish;
-import publicadores.ControladorAltaUsuarioPublishService;
-import publicadores.ControladorAltaUsuarioPublishServiceLocator;
+
 import publicadores.ControladorInscripcionAEdicionPublish;
 import publicadores.ControladorInscripcionAEdicionPublishService;
 import publicadores.ControladorInscripcionAEdicionPublishServiceLocator;
-import publicadores.DtDocente;
 import publicadores.EstadoInscripcion;
-import publicadores.UsuarioRepetidoExceptionMail;
-import publicadores.UsuarioRepetidoExceptionNick;
+
 
 
 
@@ -53,15 +49,15 @@ public class InscripcionEdicion extends HttpServlet {
 		
 		try {
 			ingresarEstudiante(nick, fecha);
-		} catch (ServiceException e2) {
+		} catch (Exception e1) {
 			// TODO Auto-generated catch block
-			e2.printStackTrace();
+			e1.printStackTrace();
 		}
 		
 		
 		try {
 			ingresarCurso(curso);
-		} catch (Exception e) {
+		} catch (Exception e2) {
 			request.setAttribute("mensaje", "Los datos ingresados son incorrectos.\nIntente nuevamente.");
 		}
 	    
@@ -71,9 +67,9 @@ public class InscripcionEdicion extends HttpServlet {
 			if (ei == null) {
 				try {
 					confirmarInscripcionAEdicion();
-				} catch (ServiceException e) {
+				} catch (Exception e3) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					e3.printStackTrace();
 				}
 				request.setAttribute("mensaje", "Tu inscripción a la edición " + edi + " se ha efectuado con éxito.");
 			}
@@ -81,9 +77,9 @@ public class InscripcionEdicion extends HttpServlet {
 				if (ei == EstadoInscripcion.RECHAZADO){
 					try {
 						confirmarInscripcionAEdicion();
-					} catch (ServiceException e) {
+					} catch (Exception e4) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						e4.printStackTrace();
 					}
 					request.setAttribute("mensaje", "Tu inscripción a la edición " + edi + " se ha efectuado con éxito.");
 				}
@@ -96,9 +92,9 @@ public class InscripcionEdicion extends HttpServlet {
 					}
 				}
 			}
-		} catch (ServiceException e1) {
+		} catch (Exception e5) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			e5.printStackTrace();
 		}		
 		
 		
