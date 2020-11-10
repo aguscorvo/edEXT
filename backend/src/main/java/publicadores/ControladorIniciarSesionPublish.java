@@ -7,6 +7,8 @@ import javax.jws.soap.SOAPBinding.ParameterStyle;
 import javax.jws.soap.SOAPBinding.Style;
 import javax.xml.ws.Endpoint;
 
+import org.hibernate.service.spi.ServiceException;
+
 import configuraciones.WebServiceConfiguracion;
 import datatype.DtUsuarioLogueado;
 import excepciones.ContraseniaIncorrectaException;
@@ -47,7 +49,7 @@ public class ControladorIniciarSesionPublish {
 	
 
 	@WebMethod
-	public DtUsuarioLogueado iniciarSesion(String nickOEmail, String contraseña) throws NoExisteUsuarioException, ContraseniaIncorrectaException{
+	public DtUsuarioLogueado iniciarSesion(String nickOEmail, String contraseña) throws NoExisteUsuarioException, ContraseniaIncorrectaException, ServiceException, java.rmi.RemoteException{
 		return icon.iniciarSesion(nickOEmail, contraseña);
 		
 	}

@@ -1,5 +1,5 @@
 /**
- * DtUsuario.java
+ * Usuario.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
@@ -7,12 +7,12 @@
 
 package publicadores;
 
-public class DtUsuario  implements java.io.Serializable {
+public abstract class Usuario  implements java.io.Serializable {
     private java.lang.String apellido;
 
     private java.lang.String correo;
 
-    private java.util.Date fechaNac;
+    private java.util.Calendar fechaNac;
 
     private java.lang.String nick;
 
@@ -20,27 +20,31 @@ public class DtUsuario  implements java.io.Serializable {
 
     private java.lang.String password;
 
-    public DtUsuario() {
+    private publicadores.Usuario[] usuariosSeguidos;
+
+    public Usuario() {
     }
 
-    public DtUsuario(
+    public Usuario(
            java.lang.String apellido,
            java.lang.String correo,
-           java.util.Date fechaNac,
+           java.util.Calendar fechaNac,
            java.lang.String nick,
            java.lang.String nombre,
-           java.lang.String password) {
+           java.lang.String password,
+           publicadores.Usuario[] usuariosSeguidos) {
            this.apellido = apellido;
            this.correo = correo;
            this.fechaNac = fechaNac;
            this.nick = nick;
            this.nombre = nombre;
            this.password = password;
+           this.usuariosSeguidos = usuariosSeguidos;
     }
 
 
     /**
-     * Gets the apellido value for this DtUsuario.
+     * Gets the apellido value for this Usuario.
      * 
      * @return apellido
      */
@@ -50,7 +54,7 @@ public class DtUsuario  implements java.io.Serializable {
 
 
     /**
-     * Sets the apellido value for this DtUsuario.
+     * Sets the apellido value for this Usuario.
      * 
      * @param apellido
      */
@@ -60,7 +64,7 @@ public class DtUsuario  implements java.io.Serializable {
 
 
     /**
-     * Gets the correo value for this DtUsuario.
+     * Gets the correo value for this Usuario.
      * 
      * @return correo
      */
@@ -70,7 +74,7 @@ public class DtUsuario  implements java.io.Serializable {
 
 
     /**
-     * Sets the correo value for this DtUsuario.
+     * Sets the correo value for this Usuario.
      * 
      * @param correo
      */
@@ -80,27 +84,27 @@ public class DtUsuario  implements java.io.Serializable {
 
 
     /**
-     * Gets the fechaNac value for this DtUsuario.
+     * Gets the fechaNac value for this Usuario.
      * 
      * @return fechaNac
      */
-    public java.util.Date getFechaNac() {
+    public java.util.Calendar getFechaNac() {
         return fechaNac;
     }
 
 
     /**
-     * Sets the fechaNac value for this DtUsuario.
+     * Sets the fechaNac value for this Usuario.
      * 
      * @param fechaNac
      */
-    public void setFechaNac(java.util.Date fechaNac) {
+    public void setFechaNac(java.util.Calendar fechaNac) {
         this.fechaNac = fechaNac;
     }
 
 
     /**
-     * Gets the nick value for this DtUsuario.
+     * Gets the nick value for this Usuario.
      * 
      * @return nick
      */
@@ -110,7 +114,7 @@ public class DtUsuario  implements java.io.Serializable {
 
 
     /**
-     * Sets the nick value for this DtUsuario.
+     * Sets the nick value for this Usuario.
      * 
      * @param nick
      */
@@ -120,7 +124,7 @@ public class DtUsuario  implements java.io.Serializable {
 
 
     /**
-     * Gets the nombre value for this DtUsuario.
+     * Gets the nombre value for this Usuario.
      * 
      * @return nombre
      */
@@ -130,7 +134,7 @@ public class DtUsuario  implements java.io.Serializable {
 
 
     /**
-     * Sets the nombre value for this DtUsuario.
+     * Sets the nombre value for this Usuario.
      * 
      * @param nombre
      */
@@ -140,7 +144,7 @@ public class DtUsuario  implements java.io.Serializable {
 
 
     /**
-     * Gets the password value for this DtUsuario.
+     * Gets the password value for this Usuario.
      * 
      * @return password
      */
@@ -150,7 +154,7 @@ public class DtUsuario  implements java.io.Serializable {
 
 
     /**
-     * Sets the password value for this DtUsuario.
+     * Sets the password value for this Usuario.
      * 
      * @param password
      */
@@ -158,10 +162,38 @@ public class DtUsuario  implements java.io.Serializable {
         this.password = password;
     }
 
+
+    /**
+     * Gets the usuariosSeguidos value for this Usuario.
+     * 
+     * @return usuariosSeguidos
+     */
+    public publicadores.Usuario[] getUsuariosSeguidos() {
+        return usuariosSeguidos;
+    }
+
+
+    /**
+     * Sets the usuariosSeguidos value for this Usuario.
+     * 
+     * @param usuariosSeguidos
+     */
+    public void setUsuariosSeguidos(publicadores.Usuario[] usuariosSeguidos) {
+        this.usuariosSeguidos = usuariosSeguidos;
+    }
+
+    public publicadores.Usuario getUsuariosSeguidos(int i) {
+        return this.usuariosSeguidos[i];
+    }
+
+    public void setUsuariosSeguidos(int i, publicadores.Usuario _value) {
+        this.usuariosSeguidos[i] = _value;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof DtUsuario)) return false;
-        DtUsuario other = (DtUsuario) obj;
+        if (!(obj instanceof Usuario)) return false;
+        Usuario other = (Usuario) obj;
         if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
@@ -187,7 +219,10 @@ public class DtUsuario  implements java.io.Serializable {
               this.nombre.equals(other.getNombre()))) &&
             ((this.password==null && other.getPassword()==null) || 
              (this.password!=null &&
-              this.password.equals(other.getPassword())));
+              this.password.equals(other.getPassword()))) &&
+            ((this.usuariosSeguidos==null && other.getUsuariosSeguidos()==null) || 
+             (this.usuariosSeguidos!=null &&
+              java.util.Arrays.equals(this.usuariosSeguidos, other.getUsuariosSeguidos())));
         __equalsCalc = null;
         return _equals;
     }
@@ -217,16 +252,27 @@ public class DtUsuario  implements java.io.Serializable {
         if (getPassword() != null) {
             _hashCode += getPassword().hashCode();
         }
+        if (getUsuariosSeguidos() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getUsuariosSeguidos());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getUsuariosSeguidos(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
         __hashCodeCalc = false;
         return _hashCode;
     }
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(DtUsuario.class, true);
+        new org.apache.axis.description.TypeDesc(Usuario.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "dtUsuario"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "usuario"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("apellido");
         elemField.setXmlName(new javax.xml.namespace.QName("", "apellido"));
@@ -268,6 +314,14 @@ public class DtUsuario  implements java.io.Serializable {
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("usuariosSeguidos");
+        elemField.setXmlName(new javax.xml.namespace.QName("", "usuariosSeguidos"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://publicadores/", "usuario"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        elemField.setMaxOccursUnbounded(true);
         typeDesc.addFieldDesc(elemField);
     }
 

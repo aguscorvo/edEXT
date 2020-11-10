@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -9,9 +10,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.rpc.ServiceException;
 
-
-import logica.funcionesAux;
+import publicadores.DtDocente;
+import publicadores.DtEstudiante;
+import publicadores.NoExisteInstitutoException;
+import publicadores.UsuarioRepetidoExceptionMail;
+import publicadores.UsuarioRepetidoExceptionNick;
+import publicadores.funcionesAux;
+import publicadores.ControladorAltaUsuarioPublish;
+import publicadores.ControladorAltaUsuarioPublishService;
+import publicadores.ControladorAltaUsuarioPublishServiceLocator;
 
 
 @WebServlet("/RegistrarUsuario")
@@ -38,14 +47,17 @@ public class RegistrarUsuario extends HttpServlet {
 		String fecha= request.getParameter("fechaNacimiento2");
 		Date fechaNac= funcionesAux.convertirADate(fecha);
 		
-		DtUsuario dt=null;
-		
+		DtEstudiante dtEst=null;
+		DtDocente dtDoc=null;
+		boolean esDocente = false;
 		if(tipo.equals("docente")) {
+			esDocente = true;
 			String instituto = request.getParameter("instituto");
-			dt= new DtDocente(nick, nombre, apellido, email, fechaNac, pass1, instituto);
+			dtDoc= new DtDocente(apellido, email, fechaNac, nick, nombre, pass1, instituto);
 
 		}else if(tipo.equals("estudiante")) {
-			dt= new DtEstudiante(nick, nombre, apellido, email, fechaNac, pass1);
+			esDocente = false;
+			dtEst= new DtEstudiante(apellido, email, fechaNac, nick, nombre, pass1);
 		}
 		
 				
@@ -56,24 +68,42 @@ public class RegistrarUsuario extends HttpServlet {
 		}
 		else {
 			try {
-				try {
-					iCon.ingresarDtUsuarioFrontEnd(dt);
-					iCon.confirmarAltaUsuario();
-					request.setAttribute("mensaje", "El usuario "+ nick + " se ha creado con éxito en el sistema.");
-				} catch (UsuarioRepetidoExceptionNick e) {
-					request.setAttribute("mensaje", "El usuario '"+ nick + "' ya existe en el sistema.\nIntenta registrarte con un nick diferente.");
-					e.printStackTrace();
-				} catch (UsuarioRepetidoExceptionMail e) {
-					request.setAttribute("mensaje", "Ya existe un usuario con correo '"+ email + "' ingresado en el sistema.\nIntenta registrarte con un correo diferente.");
-					e.printStackTrace();
+				if(esDocente) {
+					ingresarDtDocenteFrontEnd(dtDoc);
+					confirmarAltaUsuario();
 				}
-			}catch (NoExisteInstitutoException e2) {
-				throw new ServletException(e2.getMessage());
-			}	
+				else if(!esDocente){
+					ingresarDtEstudianteFrontEnd(dtEst);
+					confirmarAltaUsuario();
+				}
+				request.setAttribute("mensaje", "El usuario "+ nick + " se ha creado con éxito en el sistema.");
+			} catch (Exception e) {
+				request.setAttribute("mensaje", "Los datos ingresados son incorrectos.\nIntente nuevamente.");
+			}
 		}
 					
 		rd = request.getRequestDispatcher("/notificacion.jsp");
 		rd.forward(request, response);
 	}
+	
+	public void ingresarDtDocenteFrontEnd(DtDocente dt) throws ServiceException, UsuarioRepetidoExceptionNick, UsuarioRepetidoExceptionMail, RemoteException {
+		ControladorAltaUsuarioPublishService cps = new ControladorAltaUsuarioPublishServiceLocator();
+		ControladorAltaUsuarioPublish port = cps.getControladorAltaUsuarioPublishPort();
+		port.ingresarDtDocenteFrontEnd(dt);
 
+		
+	}
+	
+	public void ingresarDtEstudianteFrontEnd(DtEstudiante dt) throws ServiceException, UsuarioRepetidoExceptionNick, UsuarioRepetidoExceptionMail, RemoteException {
+		ControladorAltaUsuarioPublishService cps = new ControladorAltaUsuarioPublishServiceLocator();
+		ControladorAltaUsuarioPublish port = cps.getControladorAltaUsuarioPublishPort();
+		port.ingresarDtEstudianteFrontEnd(dt);
+	}
+	
+	public void confirmarAltaUsuario() throws ServiceException, NoExisteInstitutoException, RemoteException {
+		ControladorAltaUsuarioPublishService cps = new ControladorAltaUsuarioPublishServiceLocator();
+		ControladorAltaUsuarioPublish port = cps.getControladorAltaUsuarioPublishPort();
+		port.confirmarAltaUsuario();
+
+	}
 }

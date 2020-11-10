@@ -8,6 +8,8 @@ import javax.jws.soap.SOAPBinding.Style;
 import javax.xml.ws.Endpoint;
 
 import configuraciones.WebServiceConfiguracion;
+import datatype.DtDocente;
+import datatype.DtEstudiante;
 import datatype.DtUsuario;
 import excepciones.NoExisteInstitutoException;
 import excepciones.UsuarioRepetidoException;
@@ -54,6 +56,16 @@ public class ControladorAltaUsuarioPublish {
 		@WebMethod
 		public void ingresarDtUsuarioFrontEnd(DtUsuario usuario) throws UsuarioRepetidoExceptionNick, UsuarioRepetidoExceptionMail{
 			icon.ingresarDtUsuarioFrontEnd(usuario);
+		}
+		
+		@WebMethod
+		public void ingresarDtEstudianteFrontEnd(DtEstudiante estudiante) throws UsuarioRepetidoExceptionNick, UsuarioRepetidoExceptionMail{
+			icon.ingresarDtEstudianteFrontEnd(estudiante);
+		}
+		
+		@WebMethod
+		public void ingresarDtDocenteFrontEnd(DtDocente docente) throws UsuarioRepetidoExceptionNick, UsuarioRepetidoExceptionMail{
+			icon.ingresarDtDocenteFrontEnd(docente);
 		}
 		
 		@WebMethod

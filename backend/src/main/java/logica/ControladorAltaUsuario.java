@@ -40,6 +40,28 @@ public class ControladorAltaUsuario implements IControladorAltaUsuario {
 		this.usuario= usuario;			
 	}
 	
+	public void ingresarDtEstudianteFrontEnd(DtEstudiante estudiante) throws UsuarioRepetidoExceptionNick, UsuarioRepetidoExceptionMail{
+		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
+		if(mu.existeUsuarioCorreo(estudiante.getCorreo())) {
+			throw new UsuarioRepetidoExceptionMail ("Ya existe un usuario con correo '" + estudiante.getCorreo() + "' registrado en el sistema.");			
+		}
+		if(mu.existeUsuarioNick(estudiante.getNick())) {
+			throw new UsuarioRepetidoExceptionNick ("Ya existe un usuario con nick '" + estudiante.getNick() + "' registrado en el sistema.");
+		}
+		this.usuario= estudiante;			
+	}
+
+	public void ingresarDtDocenteFrontEnd(DtDocente usuario) throws UsuarioRepetidoExceptionNick, UsuarioRepetidoExceptionMail{
+		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
+		if(mu.existeUsuarioCorreo(usuario.getCorreo())) {
+			throw new UsuarioRepetidoExceptionMail ("Ya existe un usuario con correo '" + usuario.getCorreo() + "' registrado en el sistema.");			
+		}
+		if(mu.existeUsuarioNick(usuario.getNick())) {
+			throw new UsuarioRepetidoExceptionNick ("Ya existe un usuario con nick '" + usuario.getNick() + "' registrado en el sistema.");
+		}
+		this.usuario= usuario;			
+	}
+
 	public void confirmarAltaUsuario() throws NoExisteInstitutoException{
 		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
 		if (usuario instanceof DtDocente) {

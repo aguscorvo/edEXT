@@ -50,6 +50,18 @@ public class ControladorAltaUsuarioPublishProxy implements publicadores.Controla
     controladorAltaUsuarioPublish.ingresarDtUsuarioFrontEnd(arg0);
   }
   
+  public void ingresarDtEstudianteFrontEnd(publicadores.DtEstudiante arg0) throws java.rmi.RemoteException, publicadores.UsuarioRepetidoExceptionNick, publicadores.UsuarioRepetidoExceptionMail{
+    if (controladorAltaUsuarioPublish == null)
+      _initControladorAltaUsuarioPublishProxy();
+    controladorAltaUsuarioPublish.ingresarDtEstudianteFrontEnd(arg0);
+  }
+  
+  public void ingresarDtDocenteFrontEnd(publicadores.DtDocente arg0) throws java.rmi.RemoteException, publicadores.UsuarioRepetidoExceptionNick, publicadores.UsuarioRepetidoExceptionMail{
+    if (controladorAltaUsuarioPublish == null)
+      _initControladorAltaUsuarioPublishProxy();
+    controladorAltaUsuarioPublish.ingresarDtDocenteFrontEnd(arg0);
+  }
+  
   public void cancelarAltaUsuario() throws java.rmi.RemoteException{
     if (controladorAltaUsuarioPublish == null)
       _initControladorAltaUsuarioPublishProxy();

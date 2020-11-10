@@ -16,7 +16,7 @@ public class ControladorAltaUsuarioPublishPortBindingStub extends org.apache.axi
     static org.apache.axis.description.OperationDesc [] _operations;
 
     static {
-        _operations = new org.apache.axis.description.OperationDesc[5];
+        _operations = new org.apache.axis.description.OperationDesc[7];
         _initOperationDesc1();
     }
 
@@ -45,11 +45,53 @@ public class ControladorAltaUsuarioPublishPortBindingStub extends org.apache.axi
         _operations[0] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("ingresarDtEstudianteFrontEnd");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "arg0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://publicadores/", "dtEstudiante"), publicadores.DtEstudiante.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
+        oper.setStyle(org.apache.axis.constants.Style.RPC);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://publicadores/", "UsuarioRepetidoExceptionNick"),
+                      "publicadores.UsuarioRepetidoExceptionNick",
+                      new javax.xml.namespace.QName("http://publicadores/", "UsuarioRepetidoExceptionNick"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://publicadores/", "UsuarioRepetidoExceptionMail"),
+                      "publicadores.UsuarioRepetidoExceptionMail",
+                      new javax.xml.namespace.QName("http://publicadores/", "UsuarioRepetidoExceptionMail"), 
+                      true
+                     ));
+        _operations[1] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("ingresarDtDocenteFrontEnd");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "arg0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://publicadores/", "dtDocente"), publicadores.DtDocente.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
+        oper.setStyle(org.apache.axis.constants.Style.RPC);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://publicadores/", "UsuarioRepetidoExceptionNick"),
+                      "publicadores.UsuarioRepetidoExceptionNick",
+                      new javax.xml.namespace.QName("http://publicadores/", "UsuarioRepetidoExceptionNick"), 
+                      true
+                     ));
+        oper.addFault(new org.apache.axis.description.FaultDesc(
+                      new javax.xml.namespace.QName("http://publicadores/", "UsuarioRepetidoExceptionMail"),
+                      "publicadores.UsuarioRepetidoExceptionMail",
+                      new javax.xml.namespace.QName("http://publicadores/", "UsuarioRepetidoExceptionMail"), 
+                      true
+                     ));
+        _operations[2] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
         oper.setName("cancelarAltaUsuario");
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[1] = oper;
+        _operations[3] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("getInstitutos");
@@ -60,7 +102,7 @@ public class ControladorAltaUsuarioPublishPortBindingStub extends org.apache.axi
         param.setItemQName(new javax.xml.namespace.QName("", "item"));
         oper.setStyle(org.apache.axis.constants.Style.RPC);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[2] = oper;
+        _operations[4] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("ingresarDtUsuario");
@@ -75,7 +117,7 @@ public class ControladorAltaUsuarioPublishPortBindingStub extends org.apache.axi
                       new javax.xml.namespace.QName("http://publicadores/", "UsuarioRepetidoException"), 
                       true
                      ));
-        _operations[3] = oper;
+        _operations[5] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("confirmarAltaUsuario");
@@ -88,7 +130,7 @@ public class ControladorAltaUsuarioPublishPortBindingStub extends org.apache.axi
                       new javax.xml.namespace.QName("http://publicadores/", "NoExisteInstitutoException"), 
                       true
                      ));
-        _operations[4] = oper;
+        _operations[6] = oper;
 
     }
 
@@ -129,6 +171,20 @@ public class ControladorAltaUsuarioPublishPortBindingStub extends org.apache.axi
             qName2 = new javax.xml.namespace.QName("", "item");
             cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
             cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+            qName = new javax.xml.namespace.QName("http://publicadores/", "dtDocente");
+            cachedSerQNames.add(qName);
+            cls = publicadores.DtDocente.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("http://publicadores/", "dtEstudiante");
+            cachedSerQNames.add(qName);
+            cls = publicadores.DtEstudiante.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
 
             qName = new javax.xml.namespace.QName("http://publicadores/", "dtUsuario");
             cachedSerQNames.add(qName);
@@ -269,12 +325,88 @@ public class ControladorAltaUsuarioPublishPortBindingStub extends org.apache.axi
 }
     }
 
-    public void cancelarAltaUsuario() throws java.rmi.RemoteException {
+    public void ingresarDtEstudianteFrontEnd(publicadores.DtEstudiante arg0) throws java.rmi.RemoteException, publicadores.UsuarioRepetidoExceptionNick, publicadores.UsuarioRepetidoExceptionMail {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
         _call.setOperation(_operations[1]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://publicadores/", "ingresarDtEstudianteFrontEnd"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {arg0});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        extractAttachments(_call);
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof publicadores.UsuarioRepetidoExceptionNick) {
+              throw (publicadores.UsuarioRepetidoExceptionNick) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof publicadores.UsuarioRepetidoExceptionMail) {
+              throw (publicadores.UsuarioRepetidoExceptionMail) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public void ingresarDtDocenteFrontEnd(publicadores.DtDocente arg0) throws java.rmi.RemoteException, publicadores.UsuarioRepetidoExceptionNick, publicadores.UsuarioRepetidoExceptionMail {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[2]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("http://publicadores/", "ingresarDtDocenteFrontEnd"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {arg0});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        extractAttachments(_call);
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+    if (axisFaultException.detail != null) {
+        if (axisFaultException.detail instanceof java.rmi.RemoteException) {
+              throw (java.rmi.RemoteException) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof publicadores.UsuarioRepetidoExceptionNick) {
+              throw (publicadores.UsuarioRepetidoExceptionNick) axisFaultException.detail;
+         }
+        if (axisFaultException.detail instanceof publicadores.UsuarioRepetidoExceptionMail) {
+              throw (publicadores.UsuarioRepetidoExceptionMail) axisFaultException.detail;
+         }
+   }
+  throw axisFaultException;
+}
+    }
+
+    public void cancelarAltaUsuario() throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[3]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -301,7 +433,7 @@ public class ControladorAltaUsuarioPublishPortBindingStub extends org.apache.axi
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[2]);
+        _call.setOperation(_operations[4]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -335,7 +467,7 @@ public class ControladorAltaUsuarioPublishPortBindingStub extends org.apache.axi
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[3]);
+        _call.setOperation(_operations[5]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);
@@ -370,7 +502,7 @@ public class ControladorAltaUsuarioPublishPortBindingStub extends org.apache.axi
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[4]);
+        _call.setOperation(_operations[6]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("");
         _call.setEncodingStyle(null);

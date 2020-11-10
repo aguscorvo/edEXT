@@ -1,9 +1,8 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.rmi.RemoteException;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,15 +10,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.rpc.ServiceException;
 
-import datatype.DtEdicionExp;
-import excepciones.CursoRepetidoException;
-import excepciones.EdicionRepetidaException;
-import excepciones.NoExisteCursoException;
-import excepciones.NoExisteInstitutoException;
-import interfaces.Fabrica;
-import interfaces.IControladorAltaEdicion;
-import logica.funcionesAux;
+import publicadores.funcionesAux;
+import publicadores.ControladorAltaEdicionPublish;
+import publicadores.ControladorAltaEdicionPublishService;
+import publicadores.ControladorAltaEdicionPublishServiceLocator;
+import publicadores.DtEdicionExp;
+import publicadores.EdicionRepetidaException;
+import publicadores.NoExisteCursoException;
 
 
 @WebServlet("/RegistrarEdicion")
@@ -40,13 +39,7 @@ public class RegistrarEdicion extends HttpServlet {
 		String curso = request.getParameter("curso");
 		String nombre = request.getParameter("nombre");
 		String [] docentes = request.getParameterValues("docente");	
-		List<String> docentesSeleccionados = new ArrayList <String>();
 		
-		if (docentes!=null) {
-			for(int i=0; i<docentes.length; i++) {
-				docentesSeleccionados.add(docentes[i]);
-			}
-		}
 		
 		String fecha1= request.getParameter("fechaInicio");
 		String fecha2= request.getParameter("fechaFinalizacion");
@@ -62,22 +55,18 @@ public class RegistrarEdicion extends HttpServlet {
 			cupo = valorCupo;
 		}
 		
-		Fabrica f = Fabrica.getInstancia();
-		IControladorAltaEdicion iCon = f.getIControladorAltaEdicion();
-			
+					
 		
-		DtEdicionExp edicion= new DtEdicionExp (nombre, fechaI, fechaF, cupo, fechaPub, docentesSeleccionados);
+		DtEdicionExp edicion= new DtEdicionExp (cupo, fechaF, fechaI, fechaPub, nombre, docentes);
 
 		
 		try {
-			iCon.seleccionarCurso(curso);
-			iCon.ingresarDtEdicion(edicion);
-			iCon.confirmarAltaEdicion();
+			seleccionarCurso(curso);
+			ingresarDtEdicion(edicion);
+			confirmarAltaEdicion();
 			request.setAttribute("mensaje", "La edición" + "'" + nombre + "'" + " se ha creado con éxito en el sistema.");			
-		}catch (NoExisteCursoException nece) {
-			request.setAttribute("mensaje", "El curso" + "'" + curso + "'" + " no se encuentra registrado en el sistema.\nIntente nuevamente.");			
-		}catch(EdicionRepetidaException ere) {
-			request.setAttribute("mensaje", "La edición" + "'" + nombre + "'" + " ya se encuentra registrada en el sistema.\nIntente nuevamente.");
+		}catch (Exception e) {
+			request.setAttribute("mensaje", "Los datos ingresados son incorrectos.\nIntente nuevamente.");
 		}
 		
 		RequestDispatcher rd;
@@ -86,5 +75,25 @@ public class RegistrarEdicion extends HttpServlet {
 		
 		
 	}
+	
+	public void seleccionarCurso(String curso) throws ServiceException, NoExisteCursoException, RemoteException {
+		ControladorAltaEdicionPublishService cps = new ControladorAltaEdicionPublishServiceLocator();
+		ControladorAltaEdicionPublish port = cps.getControladorAltaEdicionPublishPort();
+		port.seleccionarCurso(curso);
 
+	}
+	
+	public void ingresarDtEdicion(DtEdicionExp edicion) throws ServiceException, EdicionRepetidaException, RemoteException {
+		ControladorAltaEdicionPublishService cps = new ControladorAltaEdicionPublishServiceLocator();
+		ControladorAltaEdicionPublish port = cps.getControladorAltaEdicionPublishPort();
+		port.ingresarDtEdicion(edicion);
+
+	}
+	
+	public void confirmarAltaEdicion() throws ServiceException, RemoteException {
+		ControladorAltaEdicionPublishService cps = new ControladorAltaEdicionPublishServiceLocator();
+		ControladorAltaEdicionPublish port = cps.getControladorAltaEdicionPublishPort();
+		port.confirmarAltaEdicion();
+
+	}
 }
