@@ -44,16 +44,10 @@ public class IniciarSesion extends HttpServlet {
 			usuarioLogueado= iniciarSesion(nickOEmail, contraseña);
 			loginExitoso=true;
 			request.setAttribute("mensaje", "'@" + usuarioLogueado.getNick() + "'" + " ha iniciado sesión.");	
-		} catch (NoExisteUsuarioException neue) {
-			request.setAttribute("mensaje", "Los datos ingresados son incorrectos.\nIntente nuevamente.");			
-			loginExitoso=false;
-		} catch (ContraseniaIncorrectaException cie) {
-			request.setAttribute("mensaje", "La contraseña ingresada es incorrecta.\nIntente nuevamente.");
-			loginExitoso=false;
-		} catch (ServiceException e) {
-			e.printStackTrace();
-		} 
-		
+		} catch (Exception e) {			
+				request.setAttribute("mensaje", "Los datos ingresados son incorrectos.\nIntente nuevamente.");
+				loginExitoso=false;			
+		}
 		
 		if (loginExitoso) {
 			
