@@ -10,14 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import datatype.DtDocente;
-import datatype.DtEstudiante;
-import datatype.DtUsuario;
-import excepciones.NoExisteInstitutoException;
-import excepciones.UsuarioRepetidoExceptionMail;
-import excepciones.UsuarioRepetidoExceptionNick;
-import interfaces.Fabrica;
-import interfaces.IControladorAltaUsuario;
+
 import logica.funcionesAux;
 
 
@@ -55,9 +48,7 @@ public class RegistrarUsuario extends HttpServlet {
 			dt= new DtEstudiante(nick, nombre, apellido, email, fechaNac, pass1);
 		}
 		
-		Fabrica fabrica = Fabrica.getInstancia();
-		IControladorAltaUsuario iCon = fabrica.getIControladorAltaUsuario();
-		
+				
 		RequestDispatcher rd;
 		
 		if (!pass1.equals(pass2)) {

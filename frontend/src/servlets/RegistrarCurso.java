@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -11,13 +12,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.rpc.ServiceException;
 
-import datatype.DtCurso;
-import excepciones.CursoRepetidoException;
-import excepciones.NoExisteCursoException;
-import excepciones.NoExisteInstitutoException;
-import interfaces.Fabrica;
-import interfaces.IControladorAltaCurso;
+import publicadores.ContraseniaIncorrectaException;
+import publicadores.ControladorAltaCursoPublish;
+import publicadores.ControladorAltaCursoPublishService;
+import publicadores.ControladorAltaCursoPublishServiceLocator;
+import publicadores.ControladorIniciarSesionPublish;
+import publicadores.ControladorIniciarSesionPublishService;
+import publicadores.ControladorIniciarSesionPublishServiceLocator;
+import publicadores.CursoRepetidoException;
+import publicadores.DtCurso;
+import publicadores.DtUsuarioLogueado;
+import publicadores.NoExisteCursoException;
+import publicadores.NoExisteInstitutoException;
+import publicadores.NoExisteUsuarioException;
+
 
 
 @WebServlet("/RegistrarCurso")
@@ -37,8 +47,7 @@ public class RegistrarCurso extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Fabrica f = Fabrica.getInstancia();
-		IControladorAltaCurso iCon = f.getIControladorAltaCurso();
+		
 		String instituto = request.getParameter("instituto");
 		String nombre = request.getParameter("nombre");
 		String desc = request.getParameter("descripcion");
@@ -49,53 +58,38 @@ public class RegistrarCurso extends HttpServlet {
 		String url = request.getParameter("url");
 		String [] previas = request.getParameterValues("previas");
 		String [] categorias = request.getParameterValues("categorias");
-		ArrayList<String> listaPrevias;
-		ArrayList<String> listaCategorias;
+			
 		
-		
-		
-		if (previas!=null) {
-			int i=0;
-			listaPrevias = new ArrayList<String>();
-			while (i<previas.length) {
-				listaPrevias.add(previas[i]);
-				i++;
-			}
-		}else {
-			listaPrevias = new ArrayList<String>();
-		}
-		
-		
-		if (categorias!=null) {
-			int j=0;
-			listaCategorias = new ArrayList<String>();
-			while (j<categorias.length) {
-				listaCategorias.add(categorias[j]);
-				j++;
-			}
-		}else {
-			listaCategorias = new ArrayList<String>();
-		}
-		
-		
-		DtCurso dt = new DtCurso(nombre, desc, duracion, cantHoras, creditos, fechaR, url, listaPrevias, listaCategorias);			
+		DtCurso dt = new DtCurso(cantHoras, categorias, creditos, desc,duracion,fechaR,nombre, previas, url);			
 		
 		try {
-			iCon.ingresarCurso(instituto, dt);
-			iCon.confirmarAltaCurso();
+			ingresarCurso(instituto, dt);
+			confirmarAltaCurso();
 			request.setAttribute("mensaje", "El curso " + nombre + " se ha creado con éxito en el sistema");
-		}catch (NoExisteInstitutoException neie) {
-			request.setAttribute("mensaje", "El instituto " + "'" + instituto + "'" + " no se encuentra registrado en el sistema.\nIntente nuevamente.");
-		}catch(CursoRepetidoException cre) {
-			request.setAttribute("mensaje", "El curso " + "'" + nombre + "'" + " ya se encuentra registrado en el sistema.\nIntente nuevamente.");
-		}catch (NoExisteCursoException nece) {
-			request.setAttribute("mensaje", "El curso " + "'" + nombre + "'" + " no se encuentra registrado en el sistema.\nIntente nuevamente.");
-		}	
+		}catch (Exception e) {			
+			request.setAttribute("mensaje", "Los datos ingresados son incorrectos.\nIntente nuevamente.");
+		}
 		
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/notificacion.jsp");
 		rd.forward(request, response);
 		
+	}
+	
+	public void ingresarCurso(String instituto, DtCurso curso) throws ServiceException, NoExisteInstitutoException, NoExisteCursoException, CursoRepetidoException, RemoteException {
+		
+		ControladorAltaCursoPublishService cps = new ControladorAltaCursoPublishServiceLocator();
+		ControladorAltaCursoPublish port = cps.getControladorAltaCursoPublishPort();
+		port.ingresarCurso(instituto, curso);
+
+	}
+	
+	public void confirmarAltaCurso() throws ServiceException, RemoteException{
+		
+		ControladorAltaCursoPublishService cps = new ControladorAltaCursoPublishServiceLocator();
+		ControladorAltaCursoPublish port = cps.getControladorAltaCursoPublishPort();
+		port.confirmarAltaCurso();
+
 	}
 
 }
