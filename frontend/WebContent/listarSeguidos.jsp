@@ -1,5 +1,6 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorSeguirUsuarios" %>
+<%@page import="publicadores.ControladorSeguirUsuariosPublish" %>
+<%@page import="publicadores.ControladorSeguirUsuariosPublishService" %>
+<%@page import="publicadores.ControladorSeguirUsuariosPublishServiceLocator" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -7,11 +8,13 @@
 <html>
 <head>
 
-<%Fabrica fab = Fabrica.getInstancia();
+<%
 
 String usuario = (String) session.getAttribute("nick");
-IControladorSeguirUsuarios iCon = fab.getIcontroladorSeguirUsuarios();
-String seguidos = iCon.getCadenaUsuariosSeguidos(usuario);
+
+ControladorSeguirUsuariosPublishService cps = new ControladorSeguirUsuariosPublishServiceLocator();
+ControladorSeguirUsuariosPublish port = cps.getControladorSeguirUsuariosPublishPort();
+String seguidos = port.getCadenaUsuariosSeguidos(usuario);
 
 %>
 

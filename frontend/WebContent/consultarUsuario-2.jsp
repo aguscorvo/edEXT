@@ -1,8 +1,10 @@
-<%@page import="interfaces.Fabrica" %>
+<%@page import="publicadores.ControladorSeguirUsuariosPublish" %>
+<%@page import="publicadores.ControladorSeguirUsuariosPublishService" %>
+<%@page import="publicadores.ControladorSeguirUsuariosPublishServiceLocator" %>
 <%@page import="publicadores.ControladorConsultaUsuarioPublishService" %>
 <%@page import="publicadores.ControladorConsultaUsuarioPublish" %>
 <%@page import="publicadores.ControladorConsultaUsuarioPublishServiceLocator" %>
-<%@page import="interfaces.IControladorSeguirUsuarios"%>
+
 <%@page import="publicadores.DtUsuario"%>
 
 
@@ -24,14 +26,16 @@
 ControladorConsultaUsuarioPublishService cps = new ControladorConsultaUsuarioPublishServiceLocator();
 ControladorConsultaUsuarioPublish port = cps.getControladorConsultaUsuarioPublishPort();
 
-Fabrica fab = Fabrica.getInstancia();
-IControladorSeguirUsuarios iConSeguir = fab.getIcontroladorSeguirUsuarios();
+ControladorSeguirUsuariosPublishService cps2 = new ControladorSeguirUsuariosPublishServiceLocator();
+ControladorSeguirUsuariosPublish port2 = cps2.getControladorSeguirUsuariosPublishPort();
+
+
 
 
 String usuario = request.getParameter("usuario");
 
-String seguidos = iConSeguir.getCadenaUsuariosSeguidos(usuario);
-String seguidores = iConSeguir.getCadenaUsuariosSeguidores(usuario);
+String seguidos = port2.getCadenaUsuariosSeguidos(usuario);
+String seguidores = port2.getCadenaUsuariosSeguidores(usuario);
 
 DtUsuario dtUsuario = port.seleccionarUsuario(usuario);
 String datosUsuario = port.obtenerDatosUsuario(dtUsuario);

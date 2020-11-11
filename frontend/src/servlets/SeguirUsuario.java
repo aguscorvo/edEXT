@@ -1,7 +1,7 @@
 package servlets;
 
 import java.io.IOException;
-
+import java.rmi.RemoteException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import interfaces.Fabrica;
-import interfaces.IControladorSeguirUsuarios;
+import javax.xml.rpc.ServiceException;
+import publicadores.ControladorSeguirUsuariosPublish;
+import publicadores.ControladorSeguirUsuariosPublishService;
+import publicadores.ControladorSeguirUsuariosPublishServiceLocator;
 
 
 
@@ -36,12 +38,15 @@ public class SeguirUsuario extends HttpServlet {
 		HttpSession session = request.getSession();
 		String usuario = (String) session.getAttribute("nick");
 		
-		Fabrica f = Fabrica.getInstancia();
-		IControladorSeguirUsuarios iCon = f.getIcontroladorSeguirUsuarios();
+		
 		
 		RequestDispatcher rd;
 		
-		iCon.seguirUsuario(usuario, usuarioASeguir);
+		try {
+			seguirUsuario(usuario, usuarioASeguir);
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
 		request.setAttribute("mensaje", "Hecho!\nEstás siguiendo al usuario '" + usuarioASeguir + "'.");
 		rd = request.getRequestDispatcher("/notificacion.jsp");
 		rd.forward(request, response);
@@ -49,4 +54,12 @@ public class SeguirUsuario extends HttpServlet {
 		
 	}
 
+	public void seguirUsuario(String usuario, String usuarioASeguir) throws RemoteException, ServiceException{
+		
+		ControladorSeguirUsuariosPublishService cps = new ControladorSeguirUsuariosPublishServiceLocator();
+		ControladorSeguirUsuariosPublish port = cps.getControladorSeguirUsuariosPublishPort();
+		port.seguirUsuario(usuario, usuarioASeguir);
+
+	}
+	
 }

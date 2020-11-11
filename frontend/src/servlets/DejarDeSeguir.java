@@ -2,7 +2,7 @@
 package servlets;
 
 import java.io.IOException;
-
+import java.rmi.RemoteException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import interfaces.Fabrica;
-import interfaces.IControladorSeguirUsuarios;
+import javax.xml.rpc.ServiceException;
+
+import publicadores.ControladorSeguirUsuariosPublish;
+import publicadores.ControladorSeguirUsuariosPublishService;
+import publicadores.ControladorSeguirUsuariosPublishServiceLocator;
+
 
 
 
@@ -37,12 +41,14 @@ public class DejarDeSeguir extends HttpServlet {
 		HttpSession session = request.getSession();
 		String usuario = (String) session.getAttribute("nick");
 		
-		Fabrica f = Fabrica.getInstancia();
-		IControladorSeguirUsuarios iCon = f.getIcontroladorSeguirUsuarios();
 		
 		RequestDispatcher rd;
 		
-		iCon.noSeguirUsuario(usuario, usuarioNoSeguir);
+		try {
+			noSeguirUsuario(usuario, usuarioNoSeguir);
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
 		request.setAttribute("mensaje", "Hecho!\nDejaste de seguir al usuario '" + usuarioNoSeguir + "'.");
 		rd = request.getRequestDispatcher("/notificacion.jsp");
 		rd.forward(request, response);
@@ -50,4 +56,12 @@ public class DejarDeSeguir extends HttpServlet {
 		
 	}
 
+	public void noSeguirUsuario(String usuario, String usuarioNoSeguir) throws RemoteException, ServiceException{
+		
+		ControladorSeguirUsuariosPublishService cps = new ControladorSeguirUsuariosPublishServiceLocator();
+		ControladorSeguirUsuariosPublish port = cps.getControladorSeguirUsuariosPublishPort();
+		port.noSeguirUsuario(usuario, usuarioNoSeguir);
+
+	}
+	
 }
