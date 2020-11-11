@@ -1,7 +1,7 @@
 package servlets;
 
 import java.io.IOException;
-
+import java.rmi.RemoteException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import excepciones.CursoEnPFRepetidoException;
-import interfaces.Fabrica;
-import interfaces.IControladorAgregarCursoAPF;
+import javax.xml.rpc.ServiceException;
+
+import publicadores.ControladorAgregarCursoAPFPublish;
+import publicadores.ControladorAgregarCursoAPFPublishService;
+import publicadores.ControladorAgregarCursoAPFPublishServiceLocator;
 
 
 
@@ -32,19 +34,20 @@ public class AgregarCurso extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String programa = request.getParameter("programa");
 		String curso = request.getParameter("curso");
-		
-		Fabrica f = Fabrica.getInstancia();
-		IControladorAgregarCursoAPF iCon = f.getIControladorAgregarCursoAPF();
-		
+			
 		RequestDispatcher rd;
 		
-		iCon.seleccionarPrograma(programa);
 		try {
-			iCon.seleccionarCurso(curso);
+			seleccionarPrograma(programa);
+		} catch (Exception e) {
+			request.setAttribute("mensaje", "Los datos ingresados son incorrectos.\nIntente nuevamente.");
+
+		}
+		try {
+			seleccionarCurso(curso);
 			request.setAttribute("mensaje", "Se agregó '" + curso + "' al programa de formación ' " + programa + "' con éxito.");
-		} catch (CursoEnPFRepetidoException e) {
-			request.setAttribute("mensaje", "Error al procesar.\nEl curso '" + curso + "' ya pertenece al programa de formación ' " + programa + "'.");
-			e.printStackTrace();
+		} catch (Exception e) {
+			request.setAttribute("mensaje", "Los datos ingresados son incorrectos.\nIntente nuevamente.");
 		}
 		
 		rd = request.getRequestDispatcher("/notificacion.jsp");
@@ -52,5 +55,18 @@ public class AgregarCurso extends HttpServlet {
 		
 		
 	}
-
+	
+	public void seleccionarPrograma(String programa) throws ServiceException, RemoteException {
+		ControladorAgregarCursoAPFPublishService cps = new ControladorAgregarCursoAPFPublishServiceLocator();
+		ControladorAgregarCursoAPFPublish port = cps.getControladorAgregarCursoAPFPublishPort();
+		port.seleccionarPrograma(programa);
+		
+	}
+	
+	public void seleccionarCurso(String curso) throws ServiceException, publicadores.CursoEnPFRepetidoException, RemoteException {
+		ControladorAgregarCursoAPFPublishService cps = new ControladorAgregarCursoAPFPublishServiceLocator();
+		ControladorAgregarCursoAPFPublish port = cps.getControladorAgregarCursoAPFPublishPort();
+		port.seleccionarCurso(curso);
+		
+	}
 }

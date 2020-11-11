@@ -76,9 +76,15 @@ public class ControladorBuscarCursoOProgramaPublish {
 	}		
 	
 	@WebMethod
-	public DtCurso[] ordenarCursosAlfabeticamente(ArrayList<DtCurso> cursos){
+	public DtCurso[] ordenarCursosAlfabeticamente(DtCurso[] cursos){
+		ArrayList<DtCurso> aux2 = new ArrayList<DtCurso>(cursos.length);
+		for(DtCurso dt: cursos) {
+			aux2.add(dt);
+		}
+
 		
-		ArrayList<DtCurso> auxArrList = icon.ordenarCursosAlfabeticamente(cursos);
+		
+		ArrayList<DtCurso> auxArrList = icon.ordenarCursosAlfabeticamente(aux2);
 		DtCurso[] auxArreglo = new DtCurso[auxArrList.size()];
 		int i = 0;
 		for(DtCurso c: auxArrList) {
@@ -91,9 +97,13 @@ public class ControladorBuscarCursoOProgramaPublish {
 	}
 	
 	@WebMethod
-	public DtCurso[] ordenarCursosPorFecha(ArrayList<DtCurso> cursos){
+	public DtCurso[] ordenarCursosPorFecha(DtCurso[] cursos){
+		ArrayList<DtCurso> aux2 = new ArrayList<DtCurso>(cursos.length);
+		for(DtCurso dt: cursos) {
+			aux2.add(dt);
+		}
 		
-		ArrayList<DtCurso> auxArrList = icon.ordenarCursosPorFecha(cursos);
+		ArrayList<DtCurso> auxArrList = icon.ordenarCursosPorFecha(aux2);
 		DtCurso[] auxArreglo = new DtCurso[auxArrList.size()];
 		int i = 0;
 		for(DtCurso c: auxArrList) {
@@ -107,8 +117,14 @@ public class ControladorBuscarCursoOProgramaPublish {
 	}
 	
 	@WebMethod
-	public DtProgFormacion[] ordenarProgramasAlfabeticamente(ArrayList<DtProgFormacion> programas){
-		ArrayList<DtProgFormacion> auxArrList = icon.ordenarProgramasAlfabeticamente(programas);
+	public DtProgFormacion[] ordenarProgramasAlfabeticamente(DtProgFormacion[] programas){
+		ArrayList<DtProgFormacion> aux2 = new ArrayList<DtProgFormacion>(programas.length);
+		for(DtProgFormacion dt: programas) {
+			aux2.add(dt);
+		}
+
+		
+		ArrayList<DtProgFormacion> auxArrList = icon.ordenarProgramasAlfabeticamente(aux2);
 		DtProgFormacion[] auxArreglo = new DtProgFormacion[auxArrList.size()];
 		int i = 0;
 		for(DtProgFormacion pf: auxArrList) {
@@ -121,9 +137,16 @@ public class ControladorBuscarCursoOProgramaPublish {
 	}
 	
 	@WebMethod
-	public DtProgFormacion[] ordenarProgramasPorFecha(ArrayList<DtProgFormacion> programas){
+	public DtProgFormacion[] ordenarProgramasPorFecha(DtProgFormacion[] programas){
 		
-		ArrayList<DtProgFormacion> auxArrList = icon.ordenarProgramasPorFecha(programas);
+		ArrayList<DtProgFormacion> aux2 = new ArrayList<DtProgFormacion>(programas.length);
+		for(DtProgFormacion dt: programas) {
+			aux2.add(dt);
+		}
+
+
+		
+		ArrayList<DtProgFormacion> auxArrList = icon.ordenarProgramasPorFecha(aux2);
 		DtProgFormacion[] auxArreglo = new DtProgFormacion[auxArrList.size()];
 		int i = 0;
 		for(DtProgFormacion pf: auxArrList) {

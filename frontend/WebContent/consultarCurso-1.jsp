@@ -1,5 +1,8 @@
 <%@page import="interfaces.IControladorConsultaCurso"%>
 <%@page import="interfaces.Fabrica" %>
+<%@page import="publicadores.ControladorConsultaCursoPublishService" %>
+<%@page import="publicadores.ControladorConsultaCursoPublish" %>
+<%@page import="publicadores.ControladorConsultaCursoPublishServiceLocator" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -9,10 +12,14 @@
 
 <head>
 
-<%Fabrica fab = Fabrica.getInstancia();
-IControladorConsultaCurso iCon = fab.getIControladorConsultaCurso();
-String [] arrInstitutos= iCon.getInstitutos();
-String [] arrCategorias= iCon.getCategoriasGlobal();
+<%
+
+
+ControladorConsultaCursoPublishService cps = new ControladorConsultaCursoPublishServiceLocator();
+ControladorConsultaCursoPublish port = cps.getControladorConsultaCursoPublishPort();
+
+String[] institutos = port.getInstitutos();
+String [] categorias = port.getCategoriasGlobal();
 
 %>
 
@@ -72,9 +79,9 @@ document.getElementById('instituto').addEventListener('click', function(e) {
   } 
   
   <%int i=0;
-  while (i<arrInstitutos.length){%>
+  while (i<institutos.length){%>
   
-  	nuevoValor = new Option("<%=arrInstitutos[i]%>","<%=arrInstitutos[i]%>","defaultSelected");
+  	nuevoValor = new Option("<%=institutos[i]%>","<%=institutos[i]%>","defaultSelected");
   	form1.institutosCategorias.options [<%=i%> + 1] = nuevoValor;
 
   	<%i++;
@@ -89,9 +96,9 @@ document.getElementById('categoria').addEventListener('click', function(e) {
 		form1.institutosCategorias.options [num2 + 1]= null;
 	  } 
   <%int j=0;
-  while (j<arrCategorias.length){%>
+  while (j<categorias.length){%>
   
-  	nuevoValor = new Option("<%=arrCategorias[j]%>","<%=arrCategorias[j]%>","defaultSelected");
+  	nuevoValor = new Option("<%=categorias[j]%>","<%=categorias[j]%>","defaultSelected");
   	form1.institutosCategorias.options [<%=j%> + 1]= nuevoValor;
 
   	<%j++;

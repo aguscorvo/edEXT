@@ -1,8 +1,8 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorBuscarCursoOPrograma"%>
-<%@page import="datatype.DtCurso"%>
-<%@page import="datatype.DtProgFormacion"%>
-<%@ page import="java.util.ArrayList"%>
+<%@page import="publicadores.ControladorBuscarCursoOProgramaPublishService" %>
+<%@page import="publicadores.ControladorBuscarCursoOProgramaPublish" %>
+<%@page import="publicadores.ControladorBuscarCursoOProgramaPublishServiceLocator" %>
+<%@page import="publicadores.DtCurso"%>
+<%@page import="publicadores.DtProgFormacion"%>
 <%@page import="logica.funcionesAux"%>
 
 
@@ -22,17 +22,17 @@
 
 <%
 
-Fabrica fab = Fabrica.getInstancia();
-IControladorBuscarCursoOPrograma iCon = fab.getIControladorBuscarCursoOPrograma();
+ControladorBuscarCursoOProgramaPublishService cps = new ControladorBuscarCursoOProgramaPublishServiceLocator();
+ControladorBuscarCursoOProgramaPublish port = cps.getControladorBuscarCursoOProgramaPublishPort();
 
 //CURSOS
 String curso = request.getParameter("buscar");
-ArrayList<DtCurso> cursos = iCon.buscarCursos(curso);
+DtCurso[] cursos = port.buscarCursos(curso);
 
 //PROGRAMAS
 
 String programa = request.getParameter("buscar");
-ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
+DtProgFormacion[] programas = port.buscarProgramas(programa);
 
 %>
 
@@ -68,7 +68,7 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 	
 		<%
 		//los cursos se ordenan por fecha
-		cursos=iCon.ordenarCursosPorFecha(cursos);
+		cursos=port.ordenarCursosPorFecha(cursos);
 		
 		for (DtCurso c: cursos) {%>
 		<div class="card bg-dark border-secondary text-white text-center">
@@ -91,7 +91,7 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 		<form action="consultarCurso-3.jsp" method="post" id="formulario2">	
 		<%
 		//los cursos se ordenan alfabeticamente
-		cursos=iCon.ordenarCursosAlfabeticamente(cursos);
+		cursos=port.ordenarCursosAlfabeticamente(cursos);
 		
 		for (DtCurso c: cursos) {%>
 		<div class="card bg-dark border-secondary text-white text-center">
@@ -118,7 +118,7 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 		
 			<%
 			//los programas se ordenan por fecha
-			programas=iCon.ordenarProgramasPorFecha(programas);		
+			programas=port.ordenarProgramasPorFecha(programas);		
 			
 			for (DtProgFormacion pf: programas) {%>
 		 <div class="card text-center bg-dark border-secondary text-white text-center" "card bg-light mb-3">
@@ -143,7 +143,7 @@ ArrayList<DtProgFormacion> programas = iCon.buscarProgramas(programa);
 		
 		<%
 		//los programas se ordenan alfabeticamente
-		programas=iCon.ordenarProgramasAlfabeticamente(programas);		
+		programas=port.ordenarProgramasAlfabeticamente(programas);		
 		
 		for (DtProgFormacion pf: programas) {%>
 		<div class="card text-center bg-dark border-secondary text-white text-center">

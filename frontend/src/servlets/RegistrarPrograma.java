@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,9 +12,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.rpc.ServiceException;
 
-import datatype.DtEdicionExp;
-import datatype.DtProgFormacion;
+import publicadores.DtEdicionExp;
+import publicadores.DtProgFormacion;
 import excepciones.CursoRepetidoException;
 import excepciones.EdicionRepetidaException;
 import excepciones.NoExisteCursoException;
@@ -23,6 +25,12 @@ import interfaces.Fabrica;
 import interfaces.IControladorAltaEdicion;
 import interfaces.IControladorAltaProgFormacion;
 import logica.funcionesAux;
+import publicadores.ControladorAltaProgFormacionPublish;
+import publicadores.ControladorAltaProgFormacionPublishService;
+import publicadores.ControladorAltaProgFormacionPublishServiceLocator;
+import publicadores.ControladorIniciarSesionPublish;
+import publicadores.ControladorIniciarSesionPublishService;
+import publicadores.ControladorIniciarSesionPublishServiceLocator;
 
 
 @WebServlet("/RegistrarPrograma")
@@ -49,18 +57,14 @@ public class RegistrarPrograma extends HttpServlet {
 		Date fechaAlta = new Date();
 		
 		DtProgFormacion nuevoProg = new DtProgFormacion(nombre, descripcion, fechaI, fechaF, fechaAlta);
-		
-		Fabrica f = Fabrica.getInstancia();
-		IControladorAltaProgFormacion iCon = f.getIControladorAltaProgFormacion();
-		
 		RequestDispatcher rd;
 		
 		try {
-			iCon.ingresarProgFormacion(nuevoProg);
-			iCon.confirmarAltaPrograma();
+			ingresarProgFormacion(nuevoProg);
+			confirmarAltaPrograma();
 			request.setAttribute("mensaje", "El programa de formación " + nombre + " se ha creado con éxito en el sistema");
-		} catch (ProgramaRepetidoException e) {
-			request.setAttribute("mensaje", "El programa de formación '" + nombre + "' ya existe en el sistema.\nIntenta registrar el programa de formación con un nombre diferente.");
+		} catch (Exception e) {
+			request.setAttribute("mensaje", "Los datos ingresados son incorrectos.\nIntente nuevamente.");
 		}
 		
 		rd = request.getRequestDispatcher("/notificacion.jsp");
@@ -68,5 +72,18 @@ public class RegistrarPrograma extends HttpServlet {
 		
 		
 	}
-
+	
+	public void ingresarProgFormacion(DtProgFormacion aux) throws ServiceException, publicadores.ProgramaRepetidoException, RemoteException {
+		ControladorAltaProgFormacionPublishService cps = new ControladorAltaProgFormacionPublishServiceLocator();
+		ControladorAltaProgFormacionPublish port = cps.getControladorAltaProgFormacionPublishPort();
+		port.ingresarProgFormacion(aux);
+		
+	}
+	
+	public void confirmarAltaPrograma() throws RemoteException, ServiceException {
+		ControladorAltaProgFormacionPublishService cps = new ControladorAltaProgFormacionPublishServiceLocator();
+		ControladorAltaProgFormacionPublish port = cps.getControladorAltaProgFormacionPublishPort();
+		port.confirmarAltaPrograma();
+		
+	}
 }
