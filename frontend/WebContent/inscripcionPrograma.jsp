@@ -1,5 +1,6 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorInscripcionAPrograma" %>
+<%@page import="publicadores.ControladorInscripcionAProgramaPublish" %>
+<%@page import="publicadores.ControladorInscripcionAProgramaPublishService" %>
+<%@page import="publicadores.ControladorInscripcionAProgramaPublishServiceLocator" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -7,9 +8,10 @@
 <html>
 <head>
 
-<%Fabrica fab = Fabrica.getInstancia();
-IControladorInscripcionAPrograma iCon = fab.getIControladorInscripcionAPrograma();
-String [] programas= iCon.getProgramas();
+<%
+ControladorInscripcionAProgramaPublishService cps = new ControladorInscripcionAProgramaPublishServiceLocator();
+ControladorInscripcionAProgramaPublish port = cps.getControladorInscripcionAProgramaPublishPort();
+String [] programas= port.getProgramas();
 
 %>
 
