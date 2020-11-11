@@ -1,5 +1,7 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorAltaEdicion" %>
+<%@page import="publicadores.ControladorAltaEdicionPublish" %>
+<%@page import="publicadores.ControladorAltaEdicionPublishService" %>
+<%@page import="publicadores.ControladorAltaEdicionPublishServiceLocator" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,9 +16,11 @@
 
 <body>
 <%
-Fabrica fab = Fabrica.getInstancia();
-IControladorAltaEdicion iCon = fab.getIControladorAltaEdicion();
-String [] institutos= iCon.getInstitutos();
+
+ControladorAltaEdicionPublishService cps = new ControladorAltaEdicionPublishServiceLocator();
+ControladorAltaEdicionPublish port = cps.getControladorAltaEdicionPublishPort();
+
+String [] institutos= port.getInstitutos();
 
 %>
 
