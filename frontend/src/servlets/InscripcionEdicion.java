@@ -50,7 +50,7 @@ public class InscripcionEdicion extends HttpServlet {
 		try {
 			ingresarEstudiante(nick, fecha);
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
+			System.out.println("entre a e1");
 			e1.printStackTrace();
 		}
 		
@@ -58,42 +58,48 @@ public class InscripcionEdicion extends HttpServlet {
 		try {
 			ingresarCurso(curso);
 		} catch (Exception e2) {
+			System.out.println("entre a e2");
 			request.setAttribute("mensaje", "Los datos ingresados son incorrectos.\nIntente nuevamente.");
 		}
 	    
 		RequestDispatcher rd;
 		try {
-			ei = chequearEstudianteEdicion();
+			ei = chequearEstudianteEdicion(); // si el estudiante no se inscribio salta a la excepcion (e5), nunca entra al if de null
 			if (ei == null) {
 				try {
 					confirmarInscripcionAEdicion();
+					request.setAttribute("mensaje", "Tu inscripción a la edición " + edi + " se ha efectuado con éxito.");
+
 				} catch (Exception e3) {
-					// TODO Auto-generated catch block
+					System.out.println("entre a e3");
 					e3.printStackTrace();
 				}
-				request.setAttribute("mensaje", "Tu inscripción a la edición " + edi + " se ha efectuado con éxito.");
 			}
 			else {
 				if (ei == EstadoInscripcion.RECHAZADO){
+					//no está entrando acá, si la inscripcion tiene estado RECHAZADO (en bd) entra a INSCRIPTO.
 					try {
 						confirmarInscripcionAEdicion();
-					} catch (Exception e4) {
-						// TODO Auto-generated catch block
+						request.setAttribute("mensaje", "Tu inscripción a la edición " + edi + " se ha efectuado con éxito.");
+
+					} catch (ServiceException e4) {
+						System.out.println("entre a e4");
 						e4.printStackTrace();
 					}
-					request.setAttribute("mensaje", "Tu inscripción a la edición " + edi + " se ha efectuado con éxito.");
 				}
 				else {
 					if (ei == EstadoInscripcion.INSCRIPTO) {
-						request.setAttribute("mensaje", "Error al procesar. Ya te has inscripto con anterioridad a la edición " + edi + ".");
+						//entra correctamente
+						request.setAttribute("mensaje", "Error al procesar. Ya te has inscripto con anterioridad a la edición." + edi + ".");
 					}
 					else if (ei == EstadoInscripcion.ACEPTADO) {
-						request.setAttribute("mensaje", "Error al procesar. Ya te has inscripto con anterioridad y has sido aceptado en la edición" + edi + ".");
+						//entra correctamente
+						request.setAttribute("mensaje", "Error al procesar. Ya te has inscripto con anterioridad y has sido aceptado en la edición." + edi + ".");
 					}
 				}
 			}
 		} catch (Exception e5) {
-			// TODO Auto-generated catch block
+			System.out.println("entre a e5");
 			e5.printStackTrace();
 		}		
 		
