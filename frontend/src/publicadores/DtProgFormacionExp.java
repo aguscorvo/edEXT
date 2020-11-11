@@ -14,15 +14,15 @@ public class DtProgFormacionExp  extends publicadores.DtProgFormacion  implement
     }
 
     public DtProgFormacionExp(
-           java.lang.String desc,
            java.lang.String nombre,
+           java.lang.String desc,
            java.util.Date fechaAlta,
            java.util.Date fechaF,
            java.util.Date fechaI,
            java.lang.String[] cursos) {
         super(
-            desc,
             nombre,
+            desc,
             fechaAlta,
             fechaF,
             fechaI);

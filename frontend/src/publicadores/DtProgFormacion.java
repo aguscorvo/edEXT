@@ -18,14 +18,14 @@ public class DtProgFormacion  extends publicadores.DtProgFormacionMin  implement
     }
 
     public DtProgFormacion(
-           java.lang.String desc,
            java.lang.String nombre,
+           java.lang.String desc,
            java.util.Date fechaAlta,
            java.util.Date fechaF,
            java.util.Date fechaI) {
         super(
-            desc,
-            nombre);
+            nombre,
+            desc);
         this.fechaAlta = fechaAlta;
         this.fechaF = fechaF;
         this.fechaI = fechaI;

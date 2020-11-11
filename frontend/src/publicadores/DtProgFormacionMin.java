@@ -16,8 +16,8 @@ public class DtProgFormacionMin  implements java.io.Serializable {
     }
 
     public DtProgFormacionMin(
-           java.lang.String desc,
-           java.lang.String nombre) {
+           java.lang.String nombre,
+           java.lang.String desc) {
            this.desc = desc;
            this.nombre = nombre;
     }
