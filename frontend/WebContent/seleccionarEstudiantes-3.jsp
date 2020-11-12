@@ -1,5 +1,6 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorSeleccionarEstudiantes" %>
+<%@page import="publicadores.ControladorSeleccionarEstudiantesPublish" %>
+<%@page import="publicadores.ControladorSeleccionarEstudiantesPublishService" %>
+<%@page import="publicadores.ControladorSeleccionarEstudiantesPublishServiceLocator" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -7,14 +8,16 @@
 <html>
 <head>
 
-<%Fabrica fab = Fabrica.getInstancia();
+<%
+
+ControladorSeleccionarEstudiantesPublishService cps = new ControladorSeleccionarEstudiantesPublishServiceLocator();
+ControladorSeleccionarEstudiantesPublish port = cps.getControladorSeleccionarEstudiantesPublishPort();
 
 String curso = request.getParameter("curso");
 String docente = (String) session.getAttribute("tipoUsuarioLogueado");
-IControladorSeleccionarEstudiantes iCon = fab.getIControladorSeleccionarEstudiantes();
-String edicion = iCon.ingresarCurso(curso, docente);
-String datos = iCon.obtenerDatosBasicosEd();
-String [] estudiantes= iCon.getEstudiantes();
+String edicion = port.ingresarCurso(curso, docente);
+String datos = port.obtenerDatosBasicosEd();
+String [] estudiantes= port.getEstudiantes();
 
 %>
 

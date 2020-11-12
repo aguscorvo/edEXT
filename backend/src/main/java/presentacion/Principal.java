@@ -36,6 +36,7 @@ import publicadores.ControladorInscripcionAEdicionPublish;
 import publicadores.ControladorInscripcionAProgramaPublish;
 import publicadores.ControladorListarAceptadosPublish;
 import publicadores.ControladorSeguirUsuariosPublish;
+import publicadores.ControladorSeleccionarEstudiantesPublish;
 
 import javax.swing.JMenu;
 import java.awt.event.ActionListener;
@@ -108,6 +109,10 @@ public class Principal {
 		cpListarAceptados.publicar();
 		ControladorConsultaEdicionPublish cpConsultarEdicion = new ControladorConsultaEdicionPublish();
 		cpConsultarEdicion.publicar();
+		ControladorSeleccionarEstudiantesPublish cpSeleccionarEstudiantes = new ControladorSeleccionarEstudiantesPublish();
+		cpSeleccionarEstudiantes.publicar();
+		
+		
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("joaquin");
 		System.out.println("Conexion creada");

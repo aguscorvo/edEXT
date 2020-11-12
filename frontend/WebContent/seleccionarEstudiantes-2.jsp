@@ -1,5 +1,6 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorSeleccionarEstudiantes" %>
+<%@page import="publicadores.ControladorSeleccionarEstudiantesPublish" %>
+<%@page import="publicadores.ControladorSeleccionarEstudiantesPublishService" %>
+<%@page import="publicadores.ControladorSeleccionarEstudiantesPublishServiceLocator" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -7,11 +8,14 @@
 <html>
 <head>
 
-<%Fabrica fab = Fabrica.getInstancia();
+<%
+
+ControladorSeleccionarEstudiantesPublishService cps = new ControladorSeleccionarEstudiantesPublishServiceLocator();
+ControladorSeleccionarEstudiantesPublish port = cps.getControladorSeleccionarEstudiantesPublishPort();
 
 String inst = request.getParameter("instituto");
-IControladorSeleccionarEstudiantes iCon = fab.getIControladorSeleccionarEstudiantes();
-String [] cursos= iCon.ingresarInstituto(inst);
+
+String [] cursos= port.ingresarInstituto(inst);
 
 %>
 
