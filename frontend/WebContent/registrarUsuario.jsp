@@ -23,6 +23,8 @@ String [] institutos= port.getInstitutos();
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.theme.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
 
 <title>Registro de usuario</title>
 </head>
@@ -34,8 +36,8 @@ String [] institutos= port.getInstitutos();
   
   <h6 style="color:white";>&nbsp Datos básicos:</h6>
   <div class="form-group">
-    <input type="text" name= "nick" class="form-control" placeholder="Nick" required >
-  </div>
+    <input type="text" name= "nick" id="nick" class="form-control" placeholder="Nick" required >
+  </div><p id="nickServletResponse" style="color:grey"></p>  
   <div class="form-group">
     <input type="text" name= "nombre" class="form-control" placeholder="Nombre" required >
   </div>
@@ -43,8 +45,8 @@ String [] institutos= port.getInstitutos();
     <input type="text" name= "apellido" class="form-control" placeholder="Apellido" required>
   </div>
   <div class="form-group">
-    <input type="email" name= "email" class="form-control" id="exampleInputEmail1" placeholder="Correo electrónico" required>
-  </div>
+    <input type="email" name= "email" class="form-control" id="email" placeholder="Correo electrónico" required>
+  </div><div id="emailServletResponse" style="color:grey"></div>
   <div class="form-group">
     <input type="password" name= "pass1" class="form-control" id="exampleInputPassword1" placeholder="Ingresar contraseña" required>
   </div>
@@ -110,12 +112,16 @@ document.getElementById('estudiante').addEventListener('click', function(e) {
 
 </script>
 
+
+
 </form>
 </div>
 </div>
 
 <%@include file="/footer.jsp"%>
 <%@include file="/calendario.jsp"%>
+<script src="js/registrarUsuario.js"></script>
+
 
 
 

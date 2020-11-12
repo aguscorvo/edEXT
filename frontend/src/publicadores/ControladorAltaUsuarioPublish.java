@@ -12,6 +12,8 @@ public interface ControladorAltaUsuarioPublish extends java.rmi.Remote {
     public void ingresarDtEstudianteFrontEnd(publicadores.DtEstudiante arg0) throws java.rmi.RemoteException, publicadores.UsuarioRepetidoExceptionNick, publicadores.UsuarioRepetidoExceptionMail;
     public void ingresarDtDocenteFrontEnd(publicadores.DtDocente arg0) throws java.rmi.RemoteException, publicadores.UsuarioRepetidoExceptionNick, publicadores.UsuarioRepetidoExceptionMail;
     public void cancelarAltaUsuario() throws java.rmi.RemoteException;
+    public boolean existeUsuarioNick(java.lang.String arg0) throws java.rmi.RemoteException;
+    public boolean existeUsuarioCorreo(java.lang.String arg0) throws java.rmi.RemoteException;
     public java.lang.String[] getInstitutos() throws java.rmi.RemoteException;
     public void ingresarDtUsuario(publicadores.DtUsuario arg0) throws java.rmi.RemoteException, publicadores.UsuarioRepetidoException;
     public void confirmarAltaUsuario() throws java.rmi.RemoteException, publicadores.NoExisteInstitutoException;

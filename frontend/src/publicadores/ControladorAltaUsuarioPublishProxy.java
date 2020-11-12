@@ -86,5 +86,17 @@ public class ControladorAltaUsuarioPublishProxy implements publicadores.Controla
     controladorAltaUsuarioPublish.confirmarAltaUsuario();
   }
   
+  public boolean existeUsuarioNick(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (controladorAltaUsuarioPublish == null)
+      _initControladorAltaUsuarioPublishProxy();
+    return controladorAltaUsuarioPublish.existeUsuarioNick(arg0);
+  }
+  
+  public boolean existeUsuarioCorreo(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (controladorAltaUsuarioPublish == null)
+      _initControladorAltaUsuarioPublishProxy();
+    return controladorAltaUsuarioPublish.existeUsuarioCorreo(arg0);
+  }
+  
   
 }

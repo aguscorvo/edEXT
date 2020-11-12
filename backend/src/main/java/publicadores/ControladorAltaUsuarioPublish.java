@@ -82,5 +82,15 @@ public class ControladorAltaUsuarioPublish {
 		public String[] getInstitutos() {
 			return icon.getInstitutos();
 		}
+		
+		@WebMethod
+		public boolean existeUsuarioNick(String nick) {
+			return icon.existeUsuarioNick(nick);
+		}
+		
+		@WebMethod
+		public boolean existeUsuarioCorreo(String correo) {
+			return icon.existeUsuarioCorreo(correo);
+		}
 
 }

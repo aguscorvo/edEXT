@@ -86,7 +86,7 @@ public class ControladorAltaUsuario implements IControladorAltaUsuario {
 	
 	public void cancelarAltaUsuario(){};
 	
-public String[] getInstitutos(){
+	public String[] getInstitutos(){
 		
 		ManejadorInstituto mi = ManejadorInstituto.getInstancia();		
 		
@@ -101,6 +101,20 @@ public String[] getInstitutos(){
 		}
 		return arrInstitutos;		
 		
+	}
+	
+	public boolean existeUsuarioNick(String nick) {
+		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
+		if (mu.existeUsuarioNick(nick))
+			return true;
+		else return false;
+	}
+	
+	public boolean existeUsuarioCorreo(String correo) {
+		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
+		if (mu.existeUsuarioCorreo(correo))
+			return true;
+		else return false;
 	}
 	
 }

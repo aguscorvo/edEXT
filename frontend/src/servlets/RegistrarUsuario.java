@@ -33,7 +33,47 @@ public class RegistrarUsuario extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+    	String nick = request.getParameter("nick").trim();
+    	String correo = request.getParameter("email").trim();
+
+    	ControladorAltaUsuarioPublishService cps = new ControladorAltaUsuarioPublishServiceLocator();
+    	ControladorAltaUsuarioPublish port=null;
+		try {
+			port = cps.getControladorAltaUsuarioPublishPort();
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
+    	
+    	String respuestaNick= "";
+    	String respuestaCorreo= "";
+    	
+		response.setContentType("text/plain");
+		response.getWriter().write("");
+
+    	//VERIFICO NICK
+		if(nick == null || "".equals(nick)){
+			respuestaNick = "";
+			response.getWriter().write(respuestaNick);
+		}else if (port.existeUsuarioNick(nick)) {
+			respuestaNick = "El nick está en uso";
+			response.getWriter().write(respuestaNick);
+		}else if (!port.existeUsuarioNick(nick)) {
+			respuestaNick = "El nick está disponible";
+			response.getWriter().write(respuestaNick);
+		}
+		
+		//VERIFICO CORREO
+		if(correo == null || "".equals(correo)){
+			respuestaCorreo = "";
+			response.getWriter().write(respuestaCorreo);
+		}else if (port.existeUsuarioCorreo(correo)) {
+			respuestaCorreo = "El correo está en uso";
+			response.getWriter().write(respuestaCorreo);
+		}else if (!port.existeUsuarioCorreo(correo)) {
+			respuestaCorreo = "El correo está disponible";
+			response.getWriter().write(respuestaCorreo);
+		}
+				
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -89,9 +129,7 @@ public class RegistrarUsuario extends HttpServlet {
 	public void ingresarDtDocenteFrontEnd(DtDocente dt) throws ServiceException, UsuarioRepetidoExceptionNick, UsuarioRepetidoExceptionMail, RemoteException {
 		ControladorAltaUsuarioPublishService cps = new ControladorAltaUsuarioPublishServiceLocator();
 		ControladorAltaUsuarioPublish port = cps.getControladorAltaUsuarioPublishPort();
-		port.ingresarDtDocenteFrontEnd(dt);
-
-		
+		port.ingresarDtDocenteFrontEnd(dt);		
 	}
 	
 	public void ingresarDtEstudianteFrontEnd(DtEstudiante dt) throws ServiceException, UsuarioRepetidoExceptionNick, UsuarioRepetidoExceptionMail, RemoteException {
@@ -104,6 +142,5 @@ public class RegistrarUsuario extends HttpServlet {
 		ControladorAltaUsuarioPublishService cps = new ControladorAltaUsuarioPublishServiceLocator();
 		ControladorAltaUsuarioPublish port = cps.getControladorAltaUsuarioPublishPort();
 		port.confirmarAltaUsuario();
-
 	}
 }

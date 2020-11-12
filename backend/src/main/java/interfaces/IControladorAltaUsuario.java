@@ -15,4 +15,6 @@ public interface IControladorAltaUsuario {
 	public void confirmarAltaUsuario() throws NoExisteInstitutoException;
 	public void cancelarAltaUsuario();
 	public String[] getInstitutos();
+	public boolean existeUsuarioNick(String nick);
+	public boolean existeUsuarioCorreo(String correo);
 }
