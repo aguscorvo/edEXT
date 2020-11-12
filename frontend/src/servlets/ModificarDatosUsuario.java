@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -10,11 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.rpc.ServiceException;
 
-import datatype.DtUsuario;
-import interfaces.Fabrica;
-import interfaces.IControladorModificarDatosUsuario;
-import logica.funcionesAux;
+import publicadores.ControladorModificarDatosUsuarioPublish;
+import publicadores.ControladorModificarDatosUsuarioPublishService;
+import publicadores.ControladorModificarDatosUsuarioPublishServiceLocator;
+import publicadores.DtUsuario;
+import publicadores.funcionesAux;
 
 
 @WebServlet("/ModificarDatosUsuario")
@@ -38,11 +41,14 @@ public class ModificarDatosUsuario extends HttpServlet {
 		String fecha= request.getParameter("fechaNacimiento2");
 		Date fechaNac= funcionesAux.convertirADate(fecha);
 		
-		Fabrica fabrica = Fabrica.getInstancia();
-		IControladorModificarDatosUsuario iCon = fabrica.getIControladorModificarDatosUsuario();
 		
-		DtUsuario dt= iCon.seleccionarUsuario(nick);
-		DtUsuario nuevoDt = new DtUsuario (nick, nombre, apellido, dt.getCorreo(), fechaNac, password);		
+		DtUsuario dt = new DtUsuario();
+		try {
+			dt = seleccionarUsuario(nick);
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
+		DtUsuario nuevoDt = new DtUsuario (apellido, dt.getCorreo(), fechaNac, nick, nombre, password);		
 		
 		HttpSession s = request.getSession();
 		s.setAttribute("nombre", nombre);
@@ -50,7 +56,11 @@ public class ModificarDatosUsuario extends HttpServlet {
 		s.setAttribute("password", password);
 		s.setAttribute("fechaNac", fechaNac);
 		
-		iCon.modificarDatosUsuario(nuevoDt);
+		try {
+			modificarDatosUsuario(nuevoDt);
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
 		
 		RequestDispatcher rd;		
 		request.setAttribute("mensaje", "Los datos del usuario "+ nick + " se han modificado exitosamente.");							
@@ -58,4 +68,20 @@ public class ModificarDatosUsuario extends HttpServlet {
 		rd.forward(request, response);
 	}
 
+	public DtUsuario seleccionarUsuario(String nick) throws RemoteException, ServiceException{
+		
+		ControladorModificarDatosUsuarioPublishService cps = new ControladorModificarDatosUsuarioPublishServiceLocator();
+		ControladorModificarDatosUsuarioPublish port = cps.getControladorModificarDatosUsuarioPublishPort();
+		return port.seleccionarUsuario(nick);
+
+	}
+
+	public void modificarDatosUsuario(DtUsuario nuevoDt) throws RemoteException, ServiceException{
+		
+		ControladorModificarDatosUsuarioPublishService cps = new ControladorModificarDatosUsuarioPublishServiceLocator();
+		ControladorModificarDatosUsuarioPublish port = cps.getControladorModificarDatosUsuarioPublishPort();
+		port.modificarDatosUsuario(nuevoDt);
+
+	}
+	
 }

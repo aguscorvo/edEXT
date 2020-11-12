@@ -1,10 +1,3 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorModificarDatosUsuario" %>
-<%@page import="logica.funcionesAux" %>
-<%@page import="java.util.Date" %>
-
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,16 +17,12 @@
 <body>
 
 
-<%Fabrica fab = Fabrica.getInstancia();
-IControladorModificarDatosUsuario iCon = fab.getIControladorModificarDatosUsuario();
-
+<%
 //Consigo datos del usuario logueado
 HttpSession s = request.getSession();
 String nick = (String) s.getAttribute("nick");
 String nombre = (String) s.getAttribute("nombre");
 String apellido = (String) s.getAttribute("apellido");
-Date fecha = (Date) s.getAttribute("fechaNac");
-String fechaNac = funcionesAux.convertirAString(fecha);
 String password = (String) s.getAttribute("password");
 
 %>

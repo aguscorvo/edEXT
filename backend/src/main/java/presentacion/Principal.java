@@ -35,6 +35,7 @@ import publicadores.ControladorIniciarSesionPublish;
 import publicadores.ControladorInscripcionAEdicionPublish;
 import publicadores.ControladorInscripcionAProgramaPublish;
 import publicadores.ControladorListarAceptadosPublish;
+import publicadores.ControladorModificarDatosUsuarioPublish;
 import publicadores.ControladorSeguirUsuariosPublish;
 import publicadores.ControladorSeleccionarEstudiantesPublish;
 
@@ -111,6 +112,8 @@ public class Principal {
 		cpConsultarEdicion.publicar();
 		ControladorSeleccionarEstudiantesPublish cpSeleccionarEstudiantes = new ControladorSeleccionarEstudiantesPublish();
 		cpSeleccionarEstudiantes.publicar();
+		ControladorModificarDatosUsuarioPublish cpModificar = new ControladorModificarDatosUsuarioPublish();
+		cpModificar.publicar();
 		
 		
 		
