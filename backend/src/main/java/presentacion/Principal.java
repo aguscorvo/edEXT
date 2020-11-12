@@ -35,6 +35,7 @@ import publicadores.ControladorIniciarSesionPublish;
 import publicadores.ControladorInscripcionAEdicionPublish;
 import publicadores.ControladorInscripcionAProgramaPublish;
 import publicadores.ControladorListarAceptadosPublish;
+import publicadores.ControladorListarResultadosInscripcionesPublish;
 import publicadores.ControladorModificarDatosUsuarioPublish;
 import publicadores.ControladorSeguirUsuariosPublish;
 import publicadores.ControladorSeleccionarEstudiantesPublish;
@@ -114,7 +115,8 @@ public class Principal {
 		cpSeleccionarEstudiantes.publicar();
 		ControladorModificarDatosUsuarioPublish cpModificar = new ControladorModificarDatosUsuarioPublish();
 		cpModificar.publicar();
-		
+		ControladorListarResultadosInscripcionesPublish cpListarResultados = new ControladorListarResultadosInscripcionesPublish();
+		cpListarResultados.publicar();
 		
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("joaquin");

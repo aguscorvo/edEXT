@@ -1,5 +1,6 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorListarResultadosInscripciones" %>
+<%@page import="publicadores.ControladorListarResultadosInscripcionesPublish" %>
+<%@page import="publicadores.ControladorListarResultadosInscripcionesPublishService" %>
+<%@page import="publicadores.ControladorListarResultadosInscripcionesPublishServiceLocator" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -8,14 +9,15 @@
 <head>
 
 <%
-	Fabrica fab = Fabrica.getInstancia();
+
+ControladorListarResultadosInscripcionesPublishService cps = new ControladorListarResultadosInscripcionesPublishServiceLocator();
+ControladorListarResultadosInscripcionesPublish port = cps.getControladorListarResultadosInscripcionesPublishPort();
 
 String estudiante = (String) session.getAttribute("nick");
-IControladorListarResultadosInscripciones iCon = fab.getIControladorListarResultadosInscripciones();
 
-String pendientes = iCon.inscripcionesPendientes(estudiante);
-String rechazadas = iCon.inscripcionesRechazadas(estudiante);
-String aceptadas = iCon.inscripcionesAceptadas(estudiante);
+String pendientes = port.inscripcionesPendientes(estudiante);
+String rechazadas = port.inscripcionesRechazadas(estudiante);
+String aceptadas = port.inscripcionesAceptadas(estudiante);
 
 %>
 
