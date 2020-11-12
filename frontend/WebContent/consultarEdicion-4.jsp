@@ -1,17 +1,19 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorConsultaEdicion" %>
-
+<%@page import="publicadores.ControladorConsultaEdicionPublishService" %>
+<%@page import="publicadores.ControladorConsultaEdicionPublish" %>
+<%@page import="publicadores.ControladorConsultaEdicionPublishServiceLocator" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 
-<%Fabrica fab = Fabrica.getInstancia();
-IControladorConsultaEdicion iCon = fab.getIControladorConsultaEdicion();
+<%
+ControladorConsultaEdicionPublishService cps = new ControladorConsultaEdicionPublishServiceLocator();
+ControladorConsultaEdicionPublish port = cps.getControladorConsultaEdicionPublishPort();
+
 String edicion = request.getParameter("edicion");
-String datos = iCon.obtenerDatosBasicosEd(edicion);
-String docentes= iCon.getDocentesAsignados(edicion);
+String datos = port.obtenerDatosBasicosEd(edicion);
+String docentes= port.getDocentesAsignados(edicion);
 
 %>
 

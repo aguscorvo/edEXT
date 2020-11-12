@@ -1,5 +1,3 @@
-<%@page import="interfaces.IControladorConsultaCurso"%>
-<%@page import="interfaces.Fabrica" %>
 <%@page import="publicadores.ControladorConsultaCursoPublishService" %>
 <%@page import="publicadores.ControladorConsultaCursoPublish" %>
 <%@page import="publicadores.ControladorConsultaCursoPublishServiceLocator" %>

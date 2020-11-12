@@ -1,7 +1,8 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorConsultaCurso"%>
-<%@page import="datatype.DtEdicion"%>
-<%@page import="datatype.DtProgFormacionExp"%>
+<%@page import="publicadores.ControladorConsultaCursoPublishService" %>
+<%@page import="publicadores.ControladorConsultaCursoPublish" %>
+<%@page import="publicadores.ControladorConsultaCursoPublishServiceLocator" %>
+<%@page import="publicadores.DtEdicion"%>
+<%@page import="publicadores.DtProgFormacionExp"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -18,8 +19,8 @@
 <body>
 
 <%
-Fabrica fab = Fabrica.getInstancia();
-IControladorConsultaCurso iCon = fab.getIControladorConsultaCurso();
+ControladorConsultaCursoPublishService cps = new ControladorConsultaCursoPublishServiceLocator();
+ControladorConsultaCursoPublish port = cps.getControladorConsultaCursoPublishPort();
 
 //verifico si se seleccinó edición o programa
 String tipo= request.getParameter("tipoListarPor");
@@ -27,13 +28,13 @@ String datos =null;
 
 if (tipo.equals("edicion")){
 	String edicion= request.getParameter("edicionPrograma");
-	DtEdicion dtEdicion = iCon.seleccionarEdicion(edicion);
-	datos = iCon.obtenerDatosEdicion(dtEdicion);	
+	DtEdicion dtEdicion = port.seleccionarEdicion(edicion);
+	datos = port.obtenerDatosEdicion(dtEdicion);	
 }
 else if (tipo.equals("programa")){
 	String programa = request.getParameter("edicionPrograma");
-	DtProgFormacionExp dtPrograma = iCon.seleccionarProgFormacion(programa);
-	datos = iCon.obtenerDatosPrograma(dtPrograma);
+	DtProgFormacionExp dtPrograma = port.seleccionarProgFormacion(programa);
+	datos = port.obtenerDatosPrograma(dtPrograma);
 }
 
 %>

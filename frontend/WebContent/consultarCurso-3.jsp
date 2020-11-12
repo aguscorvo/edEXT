@@ -1,6 +1,8 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorConsultaCurso"%>
-<%@page import="datatype.DtCursoExp"%>
+<%@page import="publicadores.ControladorConsultaCursoPublishService" %>
+<%@page import="publicadores.ControladorConsultaCursoPublish" %>
+<%@page import="publicadores.ControladorConsultaCursoPublishServiceLocator" %>
+
+<%@page import="publicadores.DtCursoExp"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -17,19 +19,20 @@
 <body>
 
 <%
-Fabrica fab = Fabrica.getInstancia();
-IControladorConsultaCurso iCon = fab.getIControladorConsultaCurso();
+
+ControladorConsultaCursoPublishService cps = new ControladorConsultaCursoPublishServiceLocator();
+ControladorConsultaCursoPublish port = cps.getControladorConsultaCursoPublishPort();
 String curso = request.getParameter("curso");
 
 //se obtienen datos del curso seleccionado
-DtCursoExp dtCurso = iCon.seleccionarCurso(curso);
-String datosCurso = iCon.obtenerDatosCurso(dtCurso);
-String [] previas = iCon.getPrevias(curso);
-String [] categorias = iCon.getCategorias(curso);
+DtCursoExp dtCurso = port.seleccionarCurso(curso);
+String datosCurso = port.obtenerDatosCurso(dtCurso);
+String [] previas = port.getPrevias(curso);
+String [] categorias = port.getCategorias(curso);
 
 //se obtienen las ediciones/programas en las/los que está el curso
-String [] ediciones = iCon.getEdiciones(curso);
-String [] programas = iCon.getPFs(curso);
+String [] ediciones = port.getEdiciones(curso);
+String [] programas = port.getPFs(curso);
 %>
 
 <div class="row">
