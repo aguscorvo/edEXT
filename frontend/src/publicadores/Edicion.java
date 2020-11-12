@@ -10,11 +10,11 @@ package publicadores;
 public class Edicion  implements java.io.Serializable {
     private int cupo;
 
-    private java.util.Date fechaF;
+    private java.util.Calendar fechaF;
 
-    private java.util.Date fechaI;
+    private java.util.Calendar fechaI;
 
-    private java.util.Date fechaPub;
+    private java.util.Calendar fechaPub;
 
     private publicadores.InscripcionEd[] inscripcionesEd;
 
@@ -25,9 +25,9 @@ public class Edicion  implements java.io.Serializable {
 
     public Edicion(
            int cupo,
-           java.util.Date fechaF,
-           java.util.Date fechaI,
-           java.util.Date fechaPub,
+           java.util.Calendar fechaF,
+           java.util.Calendar fechaI,
+           java.util.Calendar fechaPub,
            publicadores.InscripcionEd[] inscripcionesEd,
            java.lang.String nombreEd) {
            this.cupo = cupo;
@@ -64,7 +64,7 @@ public class Edicion  implements java.io.Serializable {
      * 
      * @return fechaF
      */
-    public java.util.Date getFechaF() {
+    public java.util.Calendar getFechaF() {
         return fechaF;
     }
 
@@ -74,7 +74,7 @@ public class Edicion  implements java.io.Serializable {
      * 
      * @param fechaF
      */
-    public void setFechaF(java.util.Date fechaF) {
+    public void setFechaF(java.util.Calendar fechaF) {
         this.fechaF = fechaF;
     }
 
@@ -84,7 +84,7 @@ public class Edicion  implements java.io.Serializable {
      * 
      * @return fechaI
      */
-    public java.util.Date getFechaI() {
+    public java.util.Calendar getFechaI() {
         return fechaI;
     }
 
@@ -94,7 +94,7 @@ public class Edicion  implements java.io.Serializable {
      * 
      * @param fechaI
      */
-    public void setFechaI(java.util.Date fechaI) {
+    public void setFechaI(java.util.Calendar fechaI) {
         this.fechaI = fechaI;
     }
 
@@ -104,7 +104,7 @@ public class Edicion  implements java.io.Serializable {
      * 
      * @return fechaPub
      */
-    public java.util.Date getFechaPub() {
+    public java.util.Calendar getFechaPub() {
         return fechaPub;
     }
 
@@ -114,7 +114,7 @@ public class Edicion  implements java.io.Serializable {
      * 
      * @param fechaPub
      */
-    public void setFechaPub(java.util.Date fechaPub) {
+    public void setFechaPub(java.util.Calendar fechaPub) {
         this.fechaPub = fechaPub;
     }
 

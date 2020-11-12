@@ -44,10 +44,10 @@ public class ControladorAltaEdicionPublishProxy implements publicadores.Controla
     return controladorAltaEdicionPublish;
   }
   
-  public java.lang.String[] ingresarInstituto(java.lang.String arg0) throws java.rmi.RemoteException, publicadores.NoExisteInstitutoException{
+  public java.lang.String[] getCursosNueva(java.lang.String arg0) throws java.rmi.RemoteException{
     if (controladorAltaEdicionPublish == null)
       _initControladorAltaEdicionPublishProxy();
-    return controladorAltaEdicionPublish.ingresarInstituto(arg0);
+    return controladorAltaEdicionPublish.getCursosNueva(arg0);
   }
   
   public java.lang.String[] getCursos(publicadores.Instituto arg0) throws java.rmi.RemoteException{
@@ -56,16 +56,16 @@ public class ControladorAltaEdicionPublishProxy implements publicadores.Controla
     return controladorAltaEdicionPublish.getCursos(arg0);
   }
   
+  public java.lang.String[] ingresarInstituto(java.lang.String arg0) throws java.rmi.RemoteException, publicadores.NoExisteInstitutoException{
+    if (controladorAltaEdicionPublish == null)
+      _initControladorAltaEdicionPublishProxy();
+    return controladorAltaEdicionPublish.ingresarInstituto(arg0);
+  }
+  
   public java.lang.String[] getInstitutos() throws java.rmi.RemoteException{
     if (controladorAltaEdicionPublish == null)
       _initControladorAltaEdicionPublishProxy();
     return controladorAltaEdicionPublish.getInstitutos();
-  }
-  
-  public java.lang.String[] getDocentes() throws java.rmi.RemoteException{
-    if (controladorAltaEdicionPublish == null)
-      _initControladorAltaEdicionPublishProxy();
-    return controladorAltaEdicionPublish.getDocentes();
   }
   
   public void seleccionarCurso(java.lang.String arg0) throws java.rmi.RemoteException, publicadores.NoExisteCursoException{
@@ -102,6 +102,12 @@ public class ControladorAltaEdicionPublishProxy implements publicadores.Controla
     if (controladorAltaEdicionPublish == null)
       _initControladorAltaEdicionPublishProxy();
     return controladorAltaEdicionPublish.getInstituto(arg0);
+  }
+  
+  public java.lang.String[] getDocentes() throws java.rmi.RemoteException{
+    if (controladorAltaEdicionPublish == null)
+      _initControladorAltaEdicionPublishProxy();
+    return controladorAltaEdicionPublish.getDocentes();
   }
   
   

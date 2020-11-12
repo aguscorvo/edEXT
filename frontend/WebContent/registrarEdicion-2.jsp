@@ -1,6 +1,7 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorAltaEdicion" %>
-<%@page import="logica.Instituto" %>
+<%@page import="publicadores.ControladorAltaEdicionPublishService" %>
+<%@page import="publicadores.ControladorAltaEdicionPublish" %>
+<%@page import="publicadores.ControladorAltaEdicionPublishServiceLocator" %>
+
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -20,16 +21,17 @@
 
 <body>
 <%
-Fabrica fab = Fabrica.getInstancia();
-IControladorAltaEdicion iCon = fab.getIControladorAltaEdicion();
+
+ControladorAltaEdicionPublishService cps = new ControladorAltaEdicionPublishServiceLocator();
+ControladorAltaEdicionPublish port = cps.getControladorAltaEdicionPublishPort();
+
 
 //devuelvo cursos según el instituto elegido anteriormente
 String nombreInstituto = request.getParameter("instituto");
-Instituto instituto = iCon.getInstituto(nombreInstituto);
-String [] cursos= iCon.getCursos(instituto);
+String [] cursos= port.getCursosNueva(nombreInstituto);
 
 //devuelvo docentes registrados en el sistema
-String [] docentes= iCon.getDocentes();
+String [] docentes= port.getDocentes();
 
 %>
 

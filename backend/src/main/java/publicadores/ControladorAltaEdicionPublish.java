@@ -109,4 +109,9 @@ public class ControladorAltaEdicionPublish {
 		
 	}
 	
+	@WebMethod
+	public String [] getCursosNueva(String instituto) {//agregada por ultimo
+		return icon.getCursosNueva(instituto);
+	}
+
 }

@@ -17,6 +17,7 @@ public interface IControladorAltaEdicion {
 	public Instituto getInstituto(String nombre);
 	public String[] getInstitutos();
 	public String[] getCursos(Instituto nombre);	
+	public String [] getCursosNueva(String instituto);//agregada por ultimo
 	public boolean existeInstituto(String nombre);	
 	public String [] getDocentes();
 }

@@ -121,6 +121,19 @@ public class ControladorAltaEdicion implements IControladorAltaEdicion{
 		return arrCursos;
 	}
 	
+	public String [] getCursosNueva(String instituto) { //agregada por ultimo
+		ManejadorInstituto mI = ManejadorInstituto.getInstancia();
+		inst=mI.getInstituto(instituto);
+		List<Curso> cursos= new ArrayList<Curso>(inst.getCursos());
+		String [] arrCursos= new String [cursos.size()];
+		int i=0;
+		for(Curso c: cursos) {
+			arrCursos[i]=c.getNombre();
+			i++;
+		}
+		return arrCursos;
+	}
+	
 	public String [] getDocentes() {
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
 		List <Usuario> usuarios = mU.getUsuarios();
