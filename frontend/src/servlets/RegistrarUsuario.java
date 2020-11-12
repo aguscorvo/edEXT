@@ -80,6 +80,7 @@ public class RegistrarUsuario extends HttpServlet {
 		//VERIFICO CONTRASEÑAS
 		if(pass1.equals(pass2)) {
 			respuestaContrasenia="";
+			response.getWriter().write(respuestaContrasenia);
 		}else {
 			respuestaContrasenia="Las contraseñas deben coincidir";
 			response.getWriter().write(respuestaContrasenia);
