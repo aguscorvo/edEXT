@@ -48,11 +48,12 @@ String [] institutos= port.getInstitutos();
     <input type="email" name= "email" class="form-control" id="email" placeholder="Correo electrónico" required>
   </div><div id="emailServletResponse" style="color:grey"></div>
   <div class="form-group">
-    <input type="password" name= "pass1" class="form-control" id="exampleInputPassword1" placeholder="Ingresar contraseña" required>
+    <input type="password" name= "pass1" class="form-control" id="pass1" placeholder="Ingresar contraseña" required>
   </div>
   <div class="form-group">
-    <input type="password" name= "pass2" class="form-control" id="exampleInputPassword2" placeholder="Confirmar contraseña" required>
-  </div>
+    <input type="password" name= "pass2" class="form-control" id="pass2" placeholder="Confirmar contraseña" required>
+  </div> <p id="passwordServletResponse" style="color:grey"></p>
+  
    
   <!-- segunda opcion Fecha  -->    
   <div class="form-group">

@@ -35,6 +35,8 @@ public class RegistrarUsuario extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String nick = request.getParameter("nick").trim();
     	String correo = request.getParameter("email").trim();
+    	String pass1 = request.getParameter("pass1");
+		String pass2 = request.getParameter("pass2");
 
     	ControladorAltaUsuarioPublishService cps = new ControladorAltaUsuarioPublishServiceLocator();
     	ControladorAltaUsuarioPublish port=null;
@@ -46,6 +48,7 @@ public class RegistrarUsuario extends HttpServlet {
     	
     	String respuestaNick= "";
     	String respuestaCorreo= "";
+    	String respuestaContrasenia="";
     	
 		response.setContentType("text/plain");
 		response.getWriter().write("");
@@ -73,7 +76,14 @@ public class RegistrarUsuario extends HttpServlet {
 			respuestaCorreo = "El correo está disponible";
 			response.getWriter().write(respuestaCorreo);
 		}
-				
+		
+		//VERIFICO CONTRASEÑAS
+		if(pass1.equals(pass2)) {
+			respuestaContrasenia="";
+		}else {
+			respuestaContrasenia="Las contraseñas deben coincidir";
+			response.getWriter().write(respuestaContrasenia);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
