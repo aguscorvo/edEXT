@@ -62,22 +62,34 @@ public class ControladorInscripcionAEdicionPublishProxy implements publicadores.
     return controladorInscripcionAEdicionPublish.getCursosPorCategoria(arg0);
   }
   
+  public boolean tieneInscripcion() throws java.rmi.RemoteException{
+    if (controladorInscripcionAEdicionPublish == null)
+      _initControladorInscripcionAEdicionPublishProxy();
+    return controladorInscripcionAEdicionPublish.tieneInscripcion();
+  }
+  
   public publicadores.EstadoInscripcion chequearEstudianteEdicion() throws java.rmi.RemoteException{
     if (controladorInscripcionAEdicionPublish == null)
       _initControladorInscripcionAEdicionPublishProxy();
     return controladorInscripcionAEdicionPublish.chequearEstudianteEdicion();
   }
   
+  public java.lang.String[] getCursos(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (controladorInscripcionAEdicionPublish == null)
+      _initControladorInscripcionAEdicionPublishProxy();
+    return controladorInscripcionAEdicionPublish.getCursos(arg0);
+  }
+  
+  public java.lang.String ingresarCurso(java.lang.String arg0) throws java.rmi.RemoteException, publicadores.NoExisteEdicionVigenteException{
+    if (controladorInscripcionAEdicionPublish == null)
+      _initControladorInscripcionAEdicionPublishProxy();
+    return controladorInscripcionAEdicionPublish.ingresarCurso(arg0);
+  }
+  
   public java.lang.String[] ingresarInstituto(java.lang.String arg0) throws java.rmi.RemoteException{
     if (controladorInscripcionAEdicionPublish == null)
       _initControladorInscripcionAEdicionPublishProxy();
     return controladorInscripcionAEdicionPublish.ingresarInstituto(arg0);
-  }
-  
-  public java.lang.String[] getInstitutos() throws java.rmi.RemoteException{
-    if (controladorInscripcionAEdicionPublish == null)
-      _initControladorInscripcionAEdicionPublishProxy();
-    return controladorInscripcionAEdicionPublish.getInstitutos();
   }
   
   public void cancelarInscripcionAEdicion() throws java.rmi.RemoteException{
@@ -104,16 +116,10 @@ public class ControladorInscripcionAEdicionPublishProxy implements publicadores.
     return controladorInscripcionAEdicionPublish.getEstudiantes(arg0);
   }
   
-  public java.lang.String[] getCursos(java.lang.String arg0) throws java.rmi.RemoteException{
+  public java.lang.String[] getInstitutos() throws java.rmi.RemoteException{
     if (controladorInscripcionAEdicionPublish == null)
       _initControladorInscripcionAEdicionPublishProxy();
-    return controladorInscripcionAEdicionPublish.getCursos(arg0);
-  }
-  
-  public java.lang.String ingresarCurso(java.lang.String arg0) throws java.rmi.RemoteException, publicadores.NoExisteEdicionVigenteException{
-    if (controladorInscripcionAEdicionPublish == null)
-      _initControladorInscripcionAEdicionPublishProxy();
-    return controladorInscripcionAEdicionPublish.ingresarCurso(arg0);
+    return controladorInscripcionAEdicionPublish.getInstitutos();
   }
   
   

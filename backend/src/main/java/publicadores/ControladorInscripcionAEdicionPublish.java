@@ -22,9 +22,6 @@ public class ControladorInscripcionAEdicionPublish {
 	private IControladorInscripcionAEdicion icon;
 	private WebServiceConfiguracion configuracion;
 	private Endpoint endpoint;
-	private String edicion;
-	private String nick;
-	private Date fecha;
 
 	public ControladorInscripcionAEdicionPublish() {
 		fabrica = Fabrica.getInstancia();
@@ -105,6 +102,11 @@ public class ControladorInscripcionAEdicionPublish {
 	@WebMethod
 	public EstadoInscripcion chequearEstudianteEdicion() {
 		return icon.chequearEstudianteEdicion();
+	}
+	
+	@WebMethod
+	public boolean tieneInscripcion () {
+		return icon.tieneInscripcion();
 	}
 	
 }

@@ -137,6 +137,21 @@ public class ControladorInscripcionAEdicion implements IControladorInscripcionAE
 		
 	}
 	
+	public boolean tieneInscripcion () {
+		boolean tiene = false;
+		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
+		Usuario auxUsuario = mu.getUsuario(nick);
+		if (auxUsuario instanceof Estudiante) {
+			Estudiante auxEstudiante = ((Estudiante) auxUsuario);
+			ManejadorEdicion me = ManejadorEdicion.getInstancia();
+			InscripcionEd inscripcion = auxEstudiante.getInscEd(edicion);
+			if (inscripcion != null){
+				tiene = true;
+			}
+		}
+		return tiene;
+	}
+	
 	public EstadoInscripcion chequearEstudianteEdicion() {
 		
 		EstadoInscripcion e = null;

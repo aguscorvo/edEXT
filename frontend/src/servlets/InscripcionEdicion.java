@@ -64,8 +64,9 @@ public class InscripcionEdicion extends HttpServlet {
 	    
 		RequestDispatcher rd;
 		try {
-			ei = chequearEstudianteEdicion(); // si el estudiante no se inscribio salta a la excepcion (e5), nunca entra al if de null
-			if (ei == null) {
+			boolean tiene = tieneInscripcion();
+			//ei = chequearEstudianteEdicion(); // si el estudiante no se inscribio salta a la excepcion (e5), nunca entra al if de null
+			if (!tiene) {
 				try {
 					confirmarInscripcionAEdicion();
 					request.setAttribute("mensaje", "Tu inscripción a la edición " + edi + " se ha efectuado con éxito.");
@@ -76,6 +77,7 @@ public class InscripcionEdicion extends HttpServlet {
 				}
 			}
 			else {
+				ei = chequearEstudianteEdicion();
 				if (ei == EstadoInscripcion.RECHAZADO){
 					//no está entrando acá, si la inscripcion tiene estado RECHAZADO (en bd) entra a INSCRIPTO.
 					try {
@@ -132,5 +134,9 @@ public class InscripcionEdicion extends HttpServlet {
 		port.confirmarInscripcionAEdicion();		
 	}
 	
-	
+	public boolean tieneInscripcion() throws RemoteException, ServiceException{
+		ControladorInscripcionAEdicionPublishService cps = new ControladorInscripcionAEdicionPublishServiceLocator();
+		ControladorInscripcionAEdicionPublish port = cps.getControladorInscripcionAEdicionPublishPort();
+		return port.tieneInscripcion();		
+	}
 }

@@ -18,5 +18,6 @@ public interface IControladorInscripcionAEdicion {
 	public String[] getCursos(String instituto);
 	public String [] getEstudiantes(String edicion);
 	public EstadoInscripcion chequearEstudianteEdicion();
+	public boolean tieneInscripcion ();
 
 }
