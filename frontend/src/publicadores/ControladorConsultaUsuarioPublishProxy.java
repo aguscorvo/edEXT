@@ -50,6 +50,12 @@ public class ControladorConsultaUsuarioPublishProxy implements publicadores.Cont
     return controladorConsultaUsuarioPublish.getEdicionesInscRechazadas(arg0);
   }
   
+  public java.lang.String[] getProgramasNueva(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (controladorConsultaUsuarioPublish == null)
+      _initControladorConsultaUsuarioPublishProxy();
+    return controladorConsultaUsuarioPublish.getProgramasNueva(arg0);
+  }
+  
   public java.lang.String tipoUsuarioSeleccionado(java.lang.String arg0) throws java.rmi.RemoteException{
     if (controladorConsultaUsuarioPublish == null)
       _initControladorConsultaUsuarioPublishProxy();
@@ -74,34 +80,10 @@ public class ControladorConsultaUsuarioPublishProxy implements publicadores.Cont
     return controladorConsultaUsuarioPublish.obtenerDatosPrograma(arg0);
   }
   
-  public java.lang.String[] getProgramas(publicadores.DtUsuario arg0) throws java.rmi.RemoteException{
-    if (controladorConsultaUsuarioPublish == null)
-      _initControladorConsultaUsuarioPublishProxy();
-    return controladorConsultaUsuarioPublish.getProgramas(arg0);
-  }
-  
-  public publicadores.DtProgFormacionExp seleccionarPrograma(java.lang.String arg0) throws java.rmi.RemoteException{
-    if (controladorConsultaUsuarioPublish == null)
-      _initControladorConsultaUsuarioPublishProxy();
-    return controladorConsultaUsuarioPublish.seleccionarPrograma(arg0);
-  }
-  
-  public java.lang.String obtenerDatosEdicion(publicadores.DtEdicion arg0) throws java.rmi.RemoteException{
-    if (controladorConsultaUsuarioPublish == null)
-      _initControladorConsultaUsuarioPublishProxy();
-    return controladorConsultaUsuarioPublish.obtenerDatosEdicion(arg0);
-  }
-  
   public java.lang.String[] getEdiciones(publicadores.DtUsuario arg0) throws java.rmi.RemoteException{
     if (controladorConsultaUsuarioPublish == null)
       _initControladorConsultaUsuarioPublishProxy();
     return controladorConsultaUsuarioPublish.getEdiciones(arg0);
-  }
-  
-  public java.lang.String obtenerDatosUsuario(publicadores.DtUsuario arg0) throws java.rmi.RemoteException{
-    if (controladorConsultaUsuarioPublish == null)
-      _initControladorConsultaUsuarioPublishProxy();
-    return controladorConsultaUsuarioPublish.obtenerDatosUsuario(arg0);
   }
   
   public publicadores.DtUsuario seleccionarUsuario(java.lang.String arg0) throws java.rmi.RemoteException{
@@ -114,6 +96,36 @@ public class ControladorConsultaUsuarioPublishProxy implements publicadores.Cont
     if (controladorConsultaUsuarioPublish == null)
       _initControladorConsultaUsuarioPublishProxy();
     return controladorConsultaUsuarioPublish.getUsuarios();
+  }
+  
+  public java.lang.String obtenerDatosUsuario(publicadores.DtUsuario arg0) throws java.rmi.RemoteException{
+    if (controladorConsultaUsuarioPublish == null)
+      _initControladorConsultaUsuarioPublishProxy();
+    return controladorConsultaUsuarioPublish.obtenerDatosUsuario(arg0);
+  }
+  
+  public publicadores.DtProgFormacionExp seleccionarPrograma(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (controladorConsultaUsuarioPublish == null)
+      _initControladorConsultaUsuarioPublishProxy();
+    return controladorConsultaUsuarioPublish.seleccionarPrograma(arg0);
+  }
+  
+  public java.lang.String[] getProgramas(publicadores.DtUsuario arg0) throws java.rmi.RemoteException{
+    if (controladorConsultaUsuarioPublish == null)
+      _initControladorConsultaUsuarioPublishProxy();
+    return controladorConsultaUsuarioPublish.getProgramas(arg0);
+  }
+  
+  public java.lang.String obtenerDatosEdicion(publicadores.DtEdicion arg0) throws java.rmi.RemoteException{
+    if (controladorConsultaUsuarioPublish == null)
+      _initControladorConsultaUsuarioPublishProxy();
+    return controladorConsultaUsuarioPublish.obtenerDatosEdicion(arg0);
+  }
+  
+  public java.lang.String[] getEdicionesInscRechazadasNueva(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (controladorConsultaUsuarioPublish == null)
+      _initControladorConsultaUsuarioPublishProxy();
+    return controladorConsultaUsuarioPublish.getEdicionesInscRechazadasNueva(arg0);
   }
   
   

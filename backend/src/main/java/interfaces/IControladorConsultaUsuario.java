@@ -12,7 +12,9 @@ public interface IControladorConsultaUsuario {
 	public String obtenerDatosPrograma(DtProgFormacionExp programa);
 	public String [] getEdiciones(DtUsuario usuario);
 	public String [] getEdicionesInscRechazadas(DtUsuario usuario);
+	public String [] getEdicionesInscRechazadasNueva(String estudiante);
 	public String[] getProgramas(DtUsuario usuario);
+	public String [] getProgramasNueva(String estudiante);
 	public String tipoUsuarioSeleccionado(String nick);
 	public String getEstudiantesAceptadosAEdicion(String edicion);
 }

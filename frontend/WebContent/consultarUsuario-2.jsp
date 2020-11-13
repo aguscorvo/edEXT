@@ -61,10 +61,10 @@ String [] edicionesRechazadas = null;
 
 if (tipo.equals("estudiante") ){
 	//programas asociados al estudiante seleccionado
-	programas = port.getProgramas(dtUsuario);
+	programas = port.getProgramasNueva(dtUsuario.getNick());
 	
 	if (consultaPorUsuarioLogueado){ 				 //si es estudiante y consulta por su propio perfil
-		edicionesRechazadas = port.getEdicionesInscRechazadas(dtUsuario);
+		edicionesRechazadas = port.getEdicionesInscRechazadasNueva(dtUsuario.getNick());
 	}
 	
 }

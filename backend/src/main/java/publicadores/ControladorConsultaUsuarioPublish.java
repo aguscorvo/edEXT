@@ -103,4 +103,12 @@ public class ControladorConsultaUsuarioPublish {
 		return icon.getEstudiantesAceptadosAEdicion(edicion);
 	}
 	
+	public String [] getProgramasNueva(String estudiante) {
+		return icon.getProgramasNueva(estudiante);
+	}
+	
+	public String [] getEdicionesInscRechazadasNueva(String estudiante) {
+		return icon.getEdicionesInscRechazadasNueva(estudiante);
+	}
+	
 }

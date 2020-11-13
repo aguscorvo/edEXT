@@ -262,11 +262,59 @@ public class ControladorConsultaUsuario implements IControladorConsultaUsuario{
 			
 			return cadenaEst;
 		}
-	
 
-			
+	
+	public String[] getProgramasNueva(String estudiante) {
 		
+		String [] arrVacio = {""};
+	
+		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
+		Usuario u = mu.getUsuario(estudiante);
+		if (u instanceof Estudiante) {
+			List<InscripcionPF> ipfs = ((Estudiante) u).getInscripcionesPF();
+			if(!ipfs.isEmpty()) {
+				String [] programas = new String[ipfs.size()];
+				int i = 0;
+				for(InscripcionPF ipf: ipfs) {
+					programas[i]= ipf.getProgFormacion().getNombre();
+					i++;
+				}
+				return programas;			
+			}
+			
+		}
+		return arrVacio;
+	}
+
+	public String[] getEdicionesInscRechazadasNueva(String estudiante) {
+		String [] arrVacio = {""};
+		
+		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
+		Usuario u = mu.getUsuario(estudiante);
+		if (u instanceof Estudiante) {
+			List<InscripcionEd> ies = ((Estudiante) u).getInscripcionesEd();
+			if(!ies.isEmpty()) {
+		
+				List<String> edStr = new ArrayList<String>();
+				for(InscripcionEd ie: ies) {
+					if(ie.getEstado() == EstadoInscripcion.RECHAZADO)
+						edStr.add(ie.getEdicion().getNombreEd());
+				}
+				if(!edStr.isEmpty()) {
+					String [] edicionesRech = new String[edStr.size()];
+					int i = 0;
+					for(String s: edStr) {
+						edicionesRech[i] = s;
+					}
+					return edicionesRech;
+				}
+			
+			}
+		}
+		return arrVacio;
+	}
 }
+
 	
 
 
