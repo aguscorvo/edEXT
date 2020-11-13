@@ -54,7 +54,7 @@ if (s.getAttribute("nick") != null && usuario.equals(s.getAttribute("nick").toSt
 }
 
 //ediciones asociadas al usuario seleccionado
-String [] ediciones = port.getEdiciones(dtUsuario);
+String [] ediciones = port.getEdicionesNueva(dtUsuario.getNick());
 
 String [] programas = null;
 String [] edicionesRechazadas = null;

@@ -128,5 +128,11 @@ public class ControladorConsultaUsuarioPublishProxy implements publicadores.Cont
     return controladorConsultaUsuarioPublish.getEdicionesInscRechazadasNueva(arg0);
   }
   
+  public java.lang.String[] getEdicionesNueva(java.lang.String arg0) throws java.rmi.RemoteException{
+    if (controladorConsultaUsuarioPublish == null)
+      _initControladorConsultaUsuarioPublishProxy();
+    return controladorConsultaUsuarioPublish.getEdicionesNueva(arg0);
+  }
+  
   
 }

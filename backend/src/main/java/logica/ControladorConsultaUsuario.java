@@ -305,6 +305,7 @@ public class ControladorConsultaUsuario implements IControladorConsultaUsuario{
 					int i = 0;
 					for(String s: edStr) {
 						edicionesRech[i] = s;
+						i++;
 					}
 					return edicionesRech;
 				}
@@ -313,8 +314,37 @@ public class ControladorConsultaUsuario implements IControladorConsultaUsuario{
 		}
 		return arrVacio;
 	}
-}
 
+	@Override
+	public String[] getEdicionesNueva(String usuario) {
+		
+		List<String> ediciones = new ArrayList<String>();
+		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
+		Usuario u = mu.getUsuario(usuario);
+		
+		if(u instanceof Docente) {
+			for(Edicion e: ((Docente) u).getEdiciones()) {
+				ediciones.add(e.getNombreEd());
+			}
+		}
+		if(u instanceof Estudiante) {
+			for(InscripcionEd ie: ((Estudiante) u).getInscripcionesEd()) {
+				ediciones.add(ie.getEdicion().getNombreEd());
+			}
+		}
+		String [] arrVacio = {""};
+		if(!ediciones.isEmpty()) {
+			String [] edis = new String[ediciones.size()];
+			int i = 0;
+			for (String s: ediciones) {
+				edis[i] = s;
+				i++;
+			}
+			return edis;
+		}
+		else
+			return arrVacio;
+			
+	}
 	
-
-
+}

@@ -103,12 +103,19 @@ public class ControladorConsultaUsuarioPublish {
 		return icon.getEstudiantesAceptadosAEdicion(edicion);
 	}
 	
+	@WebMethod
 	public String [] getProgramasNueva(String estudiante) {
 		return icon.getProgramasNueva(estudiante);
 	}
 	
+	@WebMethod
 	public String [] getEdicionesInscRechazadasNueva(String estudiante) {
 		return icon.getEdicionesInscRechazadasNueva(estudiante);
+	}
+	
+	@WebMethod
+	public String [] getEdicionesNueva(String usuario) {
+		return icon.getEdicionesNueva(usuario);
 	}
 	
 }
