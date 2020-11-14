@@ -1,5 +1,6 @@
-<%@page import="interfaces.Fabrica" %>
-<%@page import="interfaces.IControladorAgregarCursoAPF" %>
+<%@page import="publicadores.ControladorAgregarCursoAPFPublishService" %>
+<%@page import="publicadores.ControladorAgregarCursoAPFPublish" %>
+<%@page import="publicadores.ControladorAgregarCursoAPFPublishServiceLocator" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -7,10 +8,11 @@
 <html>
 <head>
 
-<%Fabrica fab = Fabrica.getInstancia();
-IControladorAgregarCursoAPF iCon = fab.getIControladorAgregarCursoAPF();
-String [] programas= iCon.getProgramas();
-String [] cursos = iCon.getCursos();
+<%
+ControladorAgregarCursoAPFPublishService cps = new ControladorAgregarCursoAPFPublishServiceLocator();
+ControladorAgregarCursoAPFPublish port = cps.getControladorAgregarCursoAPFPublishPort();
+String [] programas= port.getProgramas();
+String [] cursos = port.getCursos();
 %>
 
 <meta charset="UTF-8">

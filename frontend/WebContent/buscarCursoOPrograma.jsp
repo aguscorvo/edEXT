@@ -3,7 +3,7 @@
 <%@page import="publicadores.ControladorBuscarCursoOProgramaPublishServiceLocator" %>
 <%@page import="publicadores.DtCurso"%>
 <%@page import="publicadores.DtProgFormacion"%>
-<%@page import="logica.funcionesAux"%>
+<%@page import="publicadores.funcionesAux"%>
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"

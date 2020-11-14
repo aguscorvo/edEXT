@@ -16,15 +16,7 @@ import javax.xml.rpc.ServiceException;
 
 import publicadores.DtEdicionExp;
 import publicadores.DtProgFormacion;
-import excepciones.CursoRepetidoException;
-import excepciones.EdicionRepetidaException;
-import excepciones.NoExisteCursoException;
-import excepciones.NoExisteInstitutoException;
-import excepciones.ProgramaRepetidoException;
-import interfaces.Fabrica;
-import interfaces.IControladorAltaEdicion;
-import interfaces.IControladorAltaProgFormacion;
-import logica.funcionesAux;
+import publicadores.funcionesAux;
 import publicadores.ControladorAltaProgFormacionPublish;
 import publicadores.ControladorAltaProgFormacionPublishService;
 import publicadores.ControladorAltaProgFormacionPublishServiceLocator;

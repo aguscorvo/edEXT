@@ -14,11 +14,12 @@
     
   <dependencies>
   	
+  	<!-- .jar del backend
   	<dependency>
   	<groupId>el_trio_dinamico</groupId>
 	 <artifactId>edext</artifactId>
 	 <version>0.0.1-SNAPSHOT</version>
-  	</dependency>  	
+  	</dependency>  	-->
   	 	
   	
     <dependency>
