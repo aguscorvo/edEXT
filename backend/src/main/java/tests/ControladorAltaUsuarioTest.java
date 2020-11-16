@@ -1,6 +1,9 @@
 package tests;
 
+import static org.junit.Assert.assertArrayEquals;
+
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -19,6 +22,7 @@ import excepciones.UsuarioRepetidoExceptionNick;
 import interfaces.Fabrica;
 import interfaces.IControladorAltaInstituto;
 import interfaces.IControladorAltaUsuario;
+import logica.Instituto;
 import logica.ManejadorInstituto;
 import logica.ManejadorUsuario;
 import logica.Usuario;
@@ -81,6 +85,15 @@ public class ControladorAltaUsuarioTest {
 	@Test
 	public void test_6_getInstitutos() {
 		String [] institutos= iCon.getInstitutos();
+		ManejadorInstituto mI = ManejadorInstituto.getInstancia();
+		List<Instituto> listaInstitutos = mI.getInstitutos();
+		String [] arrDelManejador = new String[listaInstitutos.size()];
+		int i=0;
+		for (Instituto instituto: listaInstitutos) {
+			arrDelManejador[i]= instituto.getNombre();
+			i++;
+		}
+		assertArrayEquals("Los arreglos no son iguales", arrDelManejador, institutos);
 		
 	}
 	
