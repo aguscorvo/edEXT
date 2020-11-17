@@ -8,7 +8,8 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({  ControladorSeguirUsuariosTest.class, ControladorSeleccionarEstudiantesTest.class, 
 				ControladorListarResultadosInscripcionesTest.class, ControladorAltaCursoTest.class,
 				ControladorModificarDatosUsuarioTest.class, ControladorAltaInstitutoTest.class,
-				ControladorAltaCategoriaTest.class})
+				ControladorAltaCategoriaTest.class, ControladorConsultarProgFormacionTest.class, 
+				ControladorAltaUsuarioTest.class})
 public class AllTests {
 
 }

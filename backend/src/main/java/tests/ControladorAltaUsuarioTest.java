@@ -39,14 +39,14 @@ public class ControladorAltaUsuarioTest {
 	
 	@BeforeClass
 	public static void inicializarTest() throws InstitutoRepetidaException {
-		iConAltaInstituto.ingresarInstituto("institutoTest");
+		iConAltaInstituto.ingresarInstituto("institutoTest2");
 		iConAltaInstituto.confirmarAltaInstituto();
 		
 	}
 	
 	@Test
 	public void test_1_ingresarDtUsuarioyConfirmarOK() throws UsuarioRepetidoException, NoExisteInstitutoException  {	
-		DtDocente aux = new DtDocente("nickTest", "nombreTest", "apellidoTest", "correoTest", fechaTest, "passwordTest", "institutoTest");
+		DtDocente aux = new DtDocente("nickTest", "nombreTest", "apellidoTest", "correoTest", fechaTest, "passwordTest", "institutoTest2");
 		iCon.ingresarDtUsuario(aux);
 		iCon.confirmarAltaUsuario();
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
@@ -76,7 +76,7 @@ public class ControladorAltaUsuarioTest {
 	
 	@Test
 	public void test_4_ingresarDtDocenteFrontEndyConfirmarOK() throws UsuarioRepetidoExceptionNick, UsuarioRepetidoExceptionMail, NoExisteInstitutoException {
-		DtDocente auxDocente = new DtDocente("nickTest4", "nombreTest", "apellidoTest", "correoTest4", fechaTest, "passwordTest", "institutoTest");
+		DtDocente auxDocente = new DtDocente("nickTest4", "nombreTest", "apellidoTest", "correoTest4", fechaTest, "passwordTest", "institutoTest2");
 		iCon.ingresarDtDocenteFrontEnd(auxDocente);
 		iCon.confirmarAltaUsuario();
 		ManejadorUsuario mU = ManejadorUsuario.getInstancia();
@@ -166,7 +166,7 @@ public class ControladorAltaUsuarioTest {
 	
 	@Test(expected = UsuarioRepetidoExceptionNick.class)
 	public void test_2_ingresarDtDocenteFrontEndERRORNick() throws UsuarioRepetidoExceptionNick, UsuarioRepetidoExceptionMail{
-		DtDocente auxDocenteErrorNick = new DtDocente ("nickTest","nombreTest", "apellidoTest", "correoTest100", fechaTest, "passwordTest", "institutoTest");
+		DtDocente auxDocenteErrorNick = new DtDocente ("nickTest","nombreTest", "apellidoTest", "correoTest100", fechaTest, "passwordTest", "institutoTest2");
 		iCon.ingresarDtDocenteFrontEnd(auxDocenteErrorNick);
 	}
 	
