@@ -141,7 +141,7 @@ public class ControladorSeleccionarEstudiantes implements IControladorSelecciona
 		return arrEstudiantes;
 	}
 	
-	public void ordenarEstPorPrioridad (String[] estudiantes) {
+	/*public void ordenarEstPorPrioridad (String[] estudiantes) {
 		
 		 ManejadorUsuario mu = ManejadorUsuario.getInstancia();
 		 String aux_elem;
@@ -172,10 +172,10 @@ public class ControladorSeleccionarEstudiantes implements IControladorSelecciona
 		         }
 		     }
 		 }
-	}
+	}*/
 	
 
-	public void ordenarEstPorFechaInsc (String[] estudiantes) {
+	/*public void ordenarEstPorFechaInsc (String[] estudiantes) {
 		
 		 ManejadorUsuario mu = ManejadorUsuario.getInstancia();
 		 String aux_elem;
@@ -206,11 +206,13 @@ public class ControladorSeleccionarEstudiantes implements IControladorSelecciona
 		         }
 		     }
 		 }
-	}
+	}*/
 	
 	public EstadoInscripcion [] getEstadosSegunEstudiantes (String [] estudiantes) {
-		
-		Usuario u;
+		EstadoInscripcion [] estados = new EstadoInscripcion [0];
+		return estados;
+	}	
+		/*Usuario u;
 		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
 		
 		if (estudiantes.length == 0)
@@ -228,7 +230,7 @@ public class ControladorSeleccionarEstudiantes implements IControladorSelecciona
 			return estados;	
 		}
 	
-	}
+	}*/
 
 	public void confirmarSeleccionarEstudiantes (String [] estudiantes, EstadoInscripcion ei, String edi) {
 		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
