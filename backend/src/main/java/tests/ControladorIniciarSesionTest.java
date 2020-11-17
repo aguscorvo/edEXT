@@ -45,7 +45,7 @@ public class ControladorIniciarSesionTest {
 	}
 	
 	@Test
-	public void Test_1_IniciarSesionOK() throws NoExisteUsuarioException, ContraseniaIncorrectaException {
+	public void Test_1_IniciarSesionNickOK() throws NoExisteUsuarioException, ContraseniaIncorrectaException {
 		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
 		Boolean existe = mu.existeUsuarioNick("joako");
 		assertTrue(existe);
@@ -55,16 +55,32 @@ public class ControladorIniciarSesionTest {
 		iConIni.iniciarSesion("joako", "j");
 		
 	}
+	
+	@Test
+	public void Test_2_IniciarSesionCorreoOK() throws NoExisteUsuarioException, ContraseniaIncorrectaException {
+		ManejadorUsuario mu = ManejadorUsuario.getInstancia();
+		Boolean existe = mu.existeUsuarioCorreo("j@gmail.com");
+		assertTrue(existe);
+		Usuario aux = mu.getUsuario("joako");
+		String pass = aux.getPassword();
+		assertEquals("j",pass);
+		iConIni.iniciarSesion("j@gmail.com","j");
+
+		
+	}
+	
 	@Test(expected = NoExisteUsuarioException.class)
-	public void Test_2_IniciarSesionERRORUno() throws NoExisteUsuarioException, ContraseniaIncorrectaException {
+	public void Test_3_IniciarSesionERRORUno() throws NoExisteUsuarioException, ContraseniaIncorrectaException {
 		iConIni.iniciarSesion("pepito", "contrasenia");
 		
 	}
 	
 	@Test(expected = ContraseniaIncorrectaException.class)
-	public void Test_3_IniciarSesionERRORDos() throws NoExisteUsuarioException, ContraseniaIncorrectaException {
+	public void Test_4_IniciarSesionERRORDos() throws NoExisteUsuarioException, ContraseniaIncorrectaException {
 		iConIni.iniciarSesion("joako","contrasenia");
 	}
+	
+	
 	
 	
 }

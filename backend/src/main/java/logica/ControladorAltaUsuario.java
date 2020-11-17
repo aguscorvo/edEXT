@@ -26,7 +26,7 @@ public class ControladorAltaUsuario implements IControladorAltaUsuario {
 		if(mu.existeUsuarioNick(usuario.getNick())) {
 			throw new UsuarioRepetidoException ("Ya existe un usuario con nick '" + usuario.getNick() + "' registrado en el sistema.");
 		}
-		this.usuario= usuario;			
+		this.usuario= usuario;		
 	}
 		
 	public void ingresarDtUsuarioFrontEnd(DtUsuario usuario) throws UsuarioRepetidoExceptionNick, UsuarioRepetidoExceptionMail{
