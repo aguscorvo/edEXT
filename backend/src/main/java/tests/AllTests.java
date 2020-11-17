@@ -6,7 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({  ControladorSeguirUsuariosTest.class, ControladorSeleccionarEstudiantesTest.class, 
-				ControladorListarResultadosInscripcionesTest.class})
+				ControladorListarResultadosInscripcionesTest.class, ControladorAltaCursoTest.class})
 public class AllTests {
 
 }
