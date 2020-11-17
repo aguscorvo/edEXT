@@ -1,6 +1,7 @@
 package tests;
 
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
@@ -62,21 +63,19 @@ public class ControladorSeguirUsuariosTest {
 		
 	}
 	
-	@SuppressWarnings("deprecation")
 	@Test
 	public void Test_4_ArrayCorrecto1() {
 		ics.seguirUsuario("jorgito", "pepito");
 		String [] seguidos = ics.getUsuariosSeguidos("jorgito");
 		String [] seguidosReal = {"pepito"};
-		assertEquals(seguidos, seguidosReal);
+		assertArrayEquals(seguidos, seguidosReal);
 	}
 	
-	@SuppressWarnings("deprecation")
 	@Test
 	public void Test_5_ArrayCorrecto2() {
 		String [] noSeguidos = ics.getUsuariosNoSeguidos("jorgito");
 		String [] noSeguidosReal = new String[0];
-		assertEquals(noSeguidos, noSeguidosReal);
+		assertArrayEquals(noSeguidos, noSeguidosReal);
 	}
 	
 	

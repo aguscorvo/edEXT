@@ -1,7 +1,7 @@
 package tests;
 
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -73,21 +73,19 @@ public class ControladorSeleccionarEstudiantesTest {
 		assertNotNull(institutos);
 	}
 	
-	@SuppressWarnings("deprecation")
 	@Test
 	public void Test_2_CursosOK() {
 		String [] cursos = ics.ingresarInstituto("Robots");
 		String [] cursosReal= {"Cocina"};
-		assertEquals(cursos, cursosReal);
+		assertArrayEquals(cursos, cursosReal);
 
 	}
 	
-	@SuppressWarnings("deprecation")
 	@Test
 	public void Test_3_CursosOK() {
 		String [] cursos = ics.ingresarInstituto("Robots");
 		String [] cursosReal= {"Cocina"};
-		assertEquals(cursos, cursosReal);
+		assertArrayEquals(cursos, cursosReal);
 
 	}
 	
@@ -141,10 +139,5 @@ public class ControladorSeleccionarEstudiantesTest {
 		assertTrue(es);
 	}
 	
-	/*
-	
-	public EstadoInscripcion [] getEstadosSegunEstudiantes (String [] estudiantes);
-
-	*/
 	
 }

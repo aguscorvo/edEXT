@@ -19,7 +19,6 @@ import excepciones.UsuarioRepetidoException;
 import interfaces.Fabrica;
 import interfaces.IControladorAltaUsuario;
 import interfaces.IControladorIniciarSesion;
-import logica.ManejadorCurso;
 import logica.ManejadorUsuario;
 import logica.Usuario;
 
