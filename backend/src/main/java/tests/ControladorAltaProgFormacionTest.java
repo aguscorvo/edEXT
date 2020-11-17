@@ -24,11 +24,11 @@ public class ControladorAltaProgFormacionTest {
 	@Test
 	public void Test_1_ingresarProgFormacionOK() throws ProgramaRepetidoException{
 		Date fecha = new Date();
-		DtProgFormacion programa = new DtProgFormacion("programaPrueba","es una prueba",fecha,fecha,fecha);
+		DtProgFormacion programa = new DtProgFormacion("programaPrueba3","es una prueba",fecha,fecha,fecha);
 		iCon.ingresarProgFormacion(programa);
 		iCon.confirmarAltaPrograma();
 		ManejadorProgFormacion mpf = ManejadorProgFormacion.getInstancia();
-		Boolean existe = mpf.existeProgFormacion("programaPrueba");
+		Boolean existe = mpf.existeProgFormacion("programaPrueba3");
 		assertTrue(existe);
 
 	};
@@ -36,7 +36,7 @@ public class ControladorAltaProgFormacionTest {
 	@Test(expected = ProgramaRepetidoException.class)
 	public void Test_2_ingresarProgFormacionERROR() throws ProgramaRepetidoException{
 		Date fecha = new Date();
-		DtProgFormacion programa = new DtProgFormacion("programaPrueba","es una prueba",fecha,fecha,fecha);
+		DtProgFormacion programa = new DtProgFormacion("programaPrueba3","es una prueba",fecha,fecha,fecha);
 		iCon.ingresarProgFormacion(programa);
 		iCon.confirmarAltaPrograma();
 

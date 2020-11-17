@@ -106,7 +106,7 @@ public class ControladorIniciarSesionTest {
 	
 	@Test(expected = NoExisteUsuarioException.class)
 	public void Test_3_IniciarSesionERRORUno() throws NoExisteUsuarioException, ContraseniaIncorrectaException {
-		iConIni.iniciarSesion("pepito", "contrasenia");
+		iConIni.iniciarSesion("asd", "contrasenia");
 		
 	}
 	
