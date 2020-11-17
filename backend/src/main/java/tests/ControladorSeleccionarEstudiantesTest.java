@@ -3,7 +3,6 @@ package tests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -83,6 +82,7 @@ public class ControladorSeleccionarEstudiantesTest {
 
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Test
 	public void Test_3_CursosOK() {
 		String [] cursos = ics.ingresarInstituto("Robots");
@@ -106,15 +106,21 @@ public class ControladorSeleccionarEstudiantesTest {
 
 	@Test
 	public void Test_5_ConfirmarOK_() throws NoExisteEdicionVigenteException, NoEsProfesorDeEdicionVigenteException {
-		String edicionReal = "Cocina20";
 		String edicion = ics.ingresarCurso("Cocina", "docente");
-		assertEquals(edicionReal, edicion);
 		iciae.ingresarCurso("Cocina");
 		Date fecha = new Date();
 		iciae.ingresarEstudiante("luquita", fecha);
 		iciae.confirmarInscripcionAEdicion();
 		String [] estudiantes = ics.getEstudiantes();
-		ics.confirmarSeleccionarEstudiantes(estudiantes, EstadoInscripcion.ACEPTADO, "Cocina20");
+		ics.confirmarSeleccionarEstudiantes(estudiantes, EstadoInscripcion.ACEPTADO, edicion);
+		Boolean ok = true;
+		EstadoInscripcion [] estados = ics.getEstadosSegunEstudiantes(estudiantes);
+		for (int i=0; i<estados.length; i++) {
+			if (estados[i]!=EstadoInscripcion.ACEPTADO) {
+				ok = false;
+			}
+		}
+		assertTrue(ok);
 	}
 	
 	@Test
