@@ -36,6 +36,22 @@ public class ManejadorUsuario {
 		return auxUsuario;
 	}
 	
+	public Usuario getUsuarioPorCorreo(String correo) {
+		
+		Conexion c = Conexion.getInstancia();
+		EntityManager em= c.getEntityManager();
+		Query query = em.createQuery("SELECT u FROM Usuario as u WHERE u.correo LIKE: correoIngresado").setParameter("correoIngresado", correo);
+		Usuario auxUsuario = (Usuario) query.getSingleResult();		
+		return auxUsuario;
+	}
+	/*
+	 * Query query = em.createQuery("SELECT u FROM Usuario as u WHERE u.correo LIKE: correoIngresado").setParameter("correoIngresado", correo);
+			@SuppressWarnings("unchecked")
+			List <Usuario> resultado = (List<Usuario>) query.getResultList();
+	 */
+	
+	
+	
 	public List<Usuario> getUsuarios(){
 		
 		Conexion c = Conexion.getInstancia();
