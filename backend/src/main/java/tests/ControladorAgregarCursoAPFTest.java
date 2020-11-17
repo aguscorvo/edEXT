@@ -1,5 +1,6 @@
 package tests;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -65,45 +66,42 @@ public class ControladorAgregarCursoAPFTest {
 		
 	}
 	
-	@SuppressWarnings("deprecation")
 	@Test
 	public void Test_1_ProgramasNotNull() throws ProgramaRepetidoException {
 		String[] programasBase = iConCursoAPF.getProgramas();
 		String[] programas = {"programaPrueba"};
-		assertEquals(programasBase, programas);
+		assertArrayEquals(programasBase, programas);
 		
 	}
 	
-	@SuppressWarnings("deprecation")
 	@Test
 	public void Test_2_cursosNotNull() {
 		String[] cursosBase = iConCursoAPF.getCursos();
 		String[] cursos = {"cursoPrueba"};
-		assertEquals(cursosBase, cursos);
+		assertArrayEquals(cursosBase, cursos);
 	}
 	
 	@Test
-	public void Test_3_seleccionarProgramaOK() {
-		ManejadorProgFormacion mpf = ManejadorProgFormacion.getInstancia();
-		ProgFormacion prog = mpf.getProgFormacion("programaPrueba");
-		assertNotNull(prog);
+	public void Test_3_seleccionarCursoOK() throws CursoEnPFRepetidoException {
+		
 		iConCursoAPF.seleccionarPrograma("programaPrueba");
-	}
-	
-	@Test
-	public void Test_4_seleccionarCursoOK() throws CursoEnPFRepetidoException {
+		iConCursoAPF.seleccionarCurso("cursoPrueba");
 		ManejadorCurso mc = ManejadorCurso.getInstancia();
 		Curso aux = mc.getCurso("cursoPrueba");
 		List<ProgFormacion> progs = aux.getProgramas();
-		Boolean vacia = progs.isEmpty();
-		assertTrue(vacia);
-		iConCursoAPF.seleccionarCurso("cursoPrueba");
-		
+		Boolean esta = false;
+		for(ProgFormacion pf: progs) {
+			if(pf.getNombre().equals("programaPrueba"))
+				esta = true;
+		}
+		assertTrue(esta);
 	}
 	
 	@Test(expected = CursoEnPFRepetidoException.class)
-	public void Test_5_seleccionarCursoERROR() throws CursoEnPFRepetidoException {
+	public void Test_4_seleccionarCursoERROR() throws CursoEnPFRepetidoException {
+		iConCursoAPF.seleccionarPrograma("programaPrueba");
 		iConCursoAPF.seleccionarCurso("cursoPrueba");
+		
 	}
 	
 

@@ -1,6 +1,7 @@
 package tests;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
@@ -24,11 +25,12 @@ public class ControladorAltaProgFormacionTest {
 	public void Test_1_ingresarProgFormacionOK() throws ProgramaRepetidoException{
 		Date fecha = new Date();
 		DtProgFormacion programa = new DtProgFormacion("programaPrueba","es una prueba",fecha,fecha,fecha);
-		ManejadorProgFormacion mpf = ManejadorProgFormacion.getInstancia();
-		Boolean existe = mpf.existeProgFormacion("programaPrueba");
-		assertFalse(existe);
 		iCon.ingresarProgFormacion(programa);
 		iCon.confirmarAltaPrograma();
+		ManejadorProgFormacion mpf = ManejadorProgFormacion.getInstancia();
+		Boolean existe = mpf.existeProgFormacion("programaPrueba");
+		assertTrue(existe);
+
 	};
 	
 	@Test(expected = ProgramaRepetidoException.class)
