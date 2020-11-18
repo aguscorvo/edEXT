@@ -37,21 +37,6 @@ public class ManejadorEdicion {
 		
 	}
 	
-	public List<Edicion> getEdiciones(){
-		Conexion c = Conexion.getInstancia();
-		EntityManager em= c.getEntityManager();
-		
-		Query query = em.createQuery("SELECT e FROM Edicion i");
-		@SuppressWarnings("unchecked")
-		List<Edicion> listaEds = (List<Edicion>) query.getResultList();
-		
-		ArrayList<Edicion> aRetornar = new ArrayList<>();
-		for(Edicion e: listaEds) {
-			aRetornar.add(e);
-		}
-		return aRetornar;
-	}
-	
 	
 	public boolean existeEdicion(String nombre){
 				

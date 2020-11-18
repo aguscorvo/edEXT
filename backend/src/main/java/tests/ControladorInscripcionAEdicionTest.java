@@ -300,8 +300,7 @@ public class ControladorInscripcionAEdicionTest {
 		for(String e: estudiantes) {
 			if (e.equals("estudiante451"))
 				test=true;
-		}
-					
+		}					
 		assertTrue(test);
 	}
 			

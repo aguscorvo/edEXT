@@ -1,6 +1,7 @@
 package tests;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ import logica.Edicion;
 import logica.Instituto;
 import logica.ManejadorCategoria;
 import logica.ManejadorCurso;
+import logica.ManejadorEdicion;
 import logica.ManejadorInstituto;
 import logica.funcionesAux;
 
@@ -63,8 +65,9 @@ public class ControladorConsultaEdicionTest {
 		iConAltaInstituto.ingresarInstituto("instituto144");
 		iConAltaInstituto.confirmarAltaInstituto();		
 		
-		//se crea categoria
-		iConAltaCategoria.ingresarCategoria("categoria7u46");	
+		//se crean categorias
+		iConAltaCategoria.ingresarCategoria("categoria7u46");
+		iConAltaCategoria.ingresarCategoria("categoriaSinCursos");			
 		
 		//se crean dos cursos
 		List<String> categorias = new ArrayList<String>();
@@ -250,8 +253,7 @@ public class ControladorConsultaEdicionTest {
 	public void test_7_getCursosPorCategoria() {
 		String[] cursos = iConConEd.getCursosPorCategoria("categoria7u46");
 		String [] cursosOK = {"curso75754", "curso_2"};
-		assertArrayEquals(cursosOK,cursos);
-		
+		assertArrayEquals(cursosOK,cursos);		
 	}
 	
 	@Test
@@ -273,13 +275,49 @@ public class ControladorConsultaEdicionTest {
 					i++;
 				}
 			}
-		}
-		
-		assertArrayEquals(arrEdicionesCurso, ediciones);
-
-		
+		}		
+		assertArrayEquals(arrEdicionesCurso, ediciones);		
 	}
 	
+	@Test
+	public void test_9_getDocentesAsignados() {
+		String docentes = iConConEd.getDocentesAsignados("edicion1_12132");
+		Boolean test=false;
+		if(docentes.contains("Pepito")) {
+			test=true;
+		}
+		assertTrue(test);
+	}
+	
+	@Test
+	public void test_10_obtenerDatosBasicosEd() {		
+		String datos = iConConEd.obtenerDatosBasicosEd("edicion1_12132");
+		ManejadorEdicion mE = ManejadorEdicion.getInstancia();
+		Edicion edicionTest = mE.getEdicion("edicion1_12132");
+		Boolean test=false;
+		if(datos.contains(edicionTest.getNombreEd()) && datos.contains(funcionesAux.convertirAString(edicionTest.getFechaI())) &&
+				datos.contains(funcionesAux.convertirAString(edicionTest.getFechaF())) && datos.contains(Integer.toString(edicionTest.getCupo())) && 
+				datos.contains(funcionesAux.convertirAString(edicionTest.getFechaPub())) ){
+			test=true;
+		}		
+		assertTrue(test);
+	}
+	
+	@Test
+	public void test_11_getDatosEdicion() {
+		DtEdicion edicion = iConConEd.ingresarEdicion("edicion1_12132");
+		edicion.setCupo(777);
+		iConConEd.setDatosEdicion(edicion);
+		DtEdicion edicionATestear = iConConEd.getDatosEdicion();
+		assertEquals(777, edicionATestear.getCupo());	
+	}
+	
+	@Test
+	public void test_12_getCursosPorCategoriaVacio() {
+		String[] cursos = iConConEd.getCursosPorCategoria("categoriaSinCursos");
+		String [] cursosOK = {""};
+		assertArrayEquals(cursosOK,cursos);		
+	}
 	
 	
 	
