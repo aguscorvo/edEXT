@@ -13,7 +13,7 @@ import logica.ControladorConsultaEdicion;
 	ControladorAltaCategoriaTest.class, ControladorConsultarProgFormacionTest.class, ControladorAltaUsuarioTest.class, 
 
 	ControladorIniciarSesionTest.class, ControladorAltaEdicionTest.class, ControladorBuscarCursoOProgramaTest.class, 
-	ControladorConsultaUsuarioTest.class})
+	ControladorConsultaUsuarioTest.class, ControladorConsultaCursoTest.class, ControladorConsultaEdicionTest.class})
 public class AllTests {
 
 }
