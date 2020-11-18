@@ -54,7 +54,6 @@ public class ManejadorProgFormacion {
 		return aRetornar;
 	}
 	
-	public void removerProgFormacion(ProgFormacion progFormacion){}
 	
 	public boolean existeProgFormacion(String nombre){
 		Conexion c = Conexion.getInstancia();

@@ -67,65 +67,65 @@ public class ControladorConsultaCursoTest {
 	public static void inicializar() throws InstitutoRepetidaException, CategoriaRepetidaException, NoExisteInstitutoException, CursoRepetidoException, NoExisteCursoException, ProgramaRepetidoException, CursoEnPFRepetidoException, EdicionRepetidaException, UsuarioRepetidoException {
 		
 		//se crea instituto				
-		iConAltaInstituto.ingresarInstituto("institutoNombreTest");
+		iConAltaInstituto.ingresarInstituto("institutoNombreTest456");
 		iConAltaInstituto.confirmarAltaInstituto();		
 		
 		//se crea categoria
-		iConAltaCategoria.ingresarCategoria("categoriaTest");	
+		iConAltaCategoria.ingresarCategoria("categoriaTest123");	
 		
 		//se crean dos cursos
 		List<String> categorias = new ArrayList<String>();
 		List<String> previas1 = new ArrayList<String>();
-		categorias.add("categoriaTest");
+		categorias.add("categoriaTest123");
 		Date fecha = new Date();
-		DtCurso auxCurso = new DtCurso ("cursoNombreTest", "cursoDescTest", 0, 0, 0, fecha, "cursoUrlTest", previas1, categorias);
-		iConAltaCurso.ingresarCurso("institutoNombreTest", auxCurso);
+		DtCurso auxCurso = new DtCurso ("curso1NombreTest", "cursoDescTest", 0, 0, 0, fecha, "cursoUrlTest", previas1, categorias);
+		iConAltaCurso.ingresarCurso("institutoNombreTest456", auxCurso);
 		iConAltaCurso.confirmarAltaCurso();	
 		
 		List<String> previas2 = new ArrayList<String>();
-		previas2.add("cursoNombreTest");
-		DtCurso auxCurso2 = new DtCurso ("curso2NombreTest", "curso2DescTest", 0, 0, 0, fecha, "curso2UrlTest", previas2, categorias);
-		iConAltaCurso.ingresarCurso("institutoNombreTest", auxCurso2);
+		previas2.add("curso1NombreTest");
+		DtCurso auxCurso2 = new DtCurso ("curso2_NombreTest", "curso2DescTest", 0, 0, 0, fecha, "curso2UrlTest", previas2, categorias);
+		iConAltaCurso.ingresarCurso("institutoNombreTest456", auxCurso2);
 		iConAltaCurso.confirmarAltaCurso();
 		
 		//se crea un docente
 		Date fechaNac = new Date();
-		DtDocente auxDocente = new DtDocente("docente","Pepito","Rodriguez","d@gmail.com",fechaNac,"d","institutoNombreTest");
+		DtDocente auxDocente = new DtDocente("docente75454","Pepito","Rodriguez","d123",fechaNac,"d","institutoNombreTest456");
 		iConAltaUs.ingresarDtUsuario(auxDocente);
 		iConAltaUs.confirmarAltaUsuario();
 		
 		
 		//se crean ediciones
-		iConAltaEd.ingresarInstituto("institutoNombreTest");
-		iConAltaEd.seleccionarCurso("cursoNombreTest");
+		iConAltaEd.ingresarInstituto("institutoNombreTest456");
+		iConAltaEd.seleccionarCurso("curso1NombreTest");
 		Date fechaEd = new Date();
 		List<String> docentes = new ArrayList<String>();
-		docentes.add("docente");
+		docentes.add("docente75454");
 		DtEdicionExp auxDt1 = new DtEdicionExp("edicion1CursoNombreTest",fechaEd,fechaEd,1,fechaEd,docentes);
 		iConAltaEd.ingresarDtEdicion(auxDt1);
 		iConAltaEd.confirmarAltaEdicion();
 		
-		iConAltaEd.ingresarInstituto("institutoNombreTest");
-		iConAltaEd.seleccionarCurso("curso2NombreTest");
+		iConAltaEd.ingresarInstituto("institutoNombreTest456");
+		iConAltaEd.seleccionarCurso("curso2_NombreTest");
 		DtEdicionExp auxDt2 = new DtEdicionExp("edicion2CursoNombreTest",fechaEd,fechaEd,1,fechaEd,docentes);
 		iConAltaEd.ingresarDtEdicion(auxDt2);
 		iConAltaEd.confirmarAltaEdicion();
 
 		//se crean programas
-		DtProgFormacion pf1 = new DtProgFormacion ("prog1Nombre", "prog1Desc", fecha, fecha, fecha);
-		DtProgFormacion pf2 = new DtProgFormacion ("prog2Nombre", "prog2Desc", fecha, fecha, fecha);
+		DtProgFormacion pf1 = new DtProgFormacion ("prog123Nombre", "prog1Desc", fecha, fecha, fecha);
+		DtProgFormacion pf2 = new DtProgFormacion ("prog754Nombre", "prog2Desc", fecha, fecha, fecha);
 		iConAltaPrograma.ingresarProgFormacion(pf1);
 		iConAltaPrograma.confirmarAltaPrograma();
 		iConAltaPrograma.ingresarProgFormacion(pf2);
 		iConAltaPrograma.confirmarAltaPrograma();		
 		
 		//se agregan cursos a programas
-		iConAgregarCursoAPF.seleccionarPrograma("prog1Nombre");
-		iConAgregarCursoAPF.seleccionarCurso("cursoNombreTest");
-		iConAgregarCursoAPF.seleccionarPrograma("prog1Nombre");
-		iConAgregarCursoAPF.seleccionarCurso("curso2NombreTest");
-		iConAgregarCursoAPF.seleccionarPrograma("prog2Nombre");
-		iConAgregarCursoAPF.seleccionarCurso("curso2NombreTest");	
+		iConAgregarCursoAPF.seleccionarPrograma("prog123Nombre");
+		iConAgregarCursoAPF.seleccionarCurso("curso1NombreTest");
+		iConAgregarCursoAPF.seleccionarPrograma("prog123Nombre");
+		iConAgregarCursoAPF.seleccionarCurso("curso2_NombreTest");
+		iConAgregarCursoAPF.seleccionarPrograma("prog754Nombre");
+		iConAgregarCursoAPF.seleccionarCurso("curso2_NombreTest");	
 	}
 
 	@Test
@@ -145,21 +145,9 @@ public class ControladorConsultaCursoTest {
 
 	@Test
 	public void test_2_getCursosPorCategoria() {
-		String[] cursos = iConConCur.getCursosPorCategoria("categoriaTest");
-		ManejadorCurso mc = ManejadorCurso.getInstancia();
-		List<Curso> cursosManejador = mc.getCursos();
-		String[] CursosPorCategoriaManejador = new String[cursosManejador.size()];
-		int i = 0;
-		for(Curso c: cursosManejador) {
-			List<Categoria> categorias = c.getCategorias();
-			for(Categoria cat: categorias) {
-				if(cat.getNombreCategoria().equals("categoriaTest")) {
-					CursosPorCategoriaManejador[i] = c.getNombre();
-					i++;
-				}
-			}
-		}
-		assertArrayEquals(CursosPorCategoriaManejador,cursos);
+		String[] cursos = iConConCur.getCursosPorCategoria("categoriaTest123");
+		String [] cursosOK = {"curso1NombreTest", "curso2_NombreTest"};
+		assertArrayEquals(cursosOK,cursos);
 		
 	}
 	
@@ -180,13 +168,13 @@ public class ControladorConsultaCursoTest {
 	
 	 @Test
 	 public void test_4_ingresarInstituto() {
-		 String[] cursos = iConConCur.ingresarInstituto("institutoNombreTest");
+		 String[] cursos = iConConCur.ingresarInstituto("institutoNombreTest456");
 		 ManejadorInstituto mi = ManejadorInstituto.getInstancia();
 		 List<Instituto> institutosManejador = mi.getInstitutos();
 		 String[] arrCursosDeInstitutoManejador = null;
 		 int i = 0;
 		 for(Instituto ins: institutosManejador){
-			 if(ins.getNombre().equals("institutoNombreTest")) {
+			 if(ins.getNombre().equals("institutoNombreTest456")) {
 				 List<Curso> cursosInstituto = ins.getCursos();
 				 arrCursosDeInstitutoManejador = new String[cursosInstituto.size()];
 
@@ -204,7 +192,7 @@ public class ControladorConsultaCursoTest {
 	 @Test
 	 public void test_5_seleccionarCurso() {
 		 
-		 DtCursoExp auxDt = iConConCur.seleccionarCurso("cursoNombreTest");
+		 DtCursoExp auxDt = iConConCur.seleccionarCurso("curso1NombreTest");
 		 String datosCurso = iConConCur.obtenerDatosCurso(auxDt);
 		 
 		 Boolean test = false; 
@@ -242,7 +230,7 @@ public class ControladorConsultaCursoTest {
 	@Test
 	public void test_7_seleccionarProgFormacion() {
 		
-		DtProgFormacionExp aux = iConConCur.seleccionarProgFormacion("prog1Nombre");
+		DtProgFormacionExp aux = iConConCur.seleccionarProgFormacion("prog123Nombre");
 		String datosPF = iConConCur.obtenerDatosPrograma(aux);
 		
 		Boolean test = false; 
@@ -258,22 +246,22 @@ public class ControladorConsultaCursoTest {
 	
 	@Test
 	public void test_8_getPreviasVacia() {		
-		String[] previas = iConConCur.getPrevias("cursoNombreTest");
+		String[] previas = iConConCur.getPrevias("curso1NombreTest");
 		String [] previasOk = {""};		
 		assertArrayEquals(previasOk, previas);
 	}
 	
 	@Test
 	public void test_8_getPrevias() {
-		String[] previas = iConConCur.getPrevias("curso2NombreTest");
-		String [] previasOk = {"cursoNombreTest"};		
+		String[] previas = iConConCur.getPrevias("curso2_NombreTest");
+		String [] previasOk = {"curso1NombreTest"};		
 		assertArrayEquals(previasOk, previas);
 	}
 	
 	@Test
 	public void test_9_getCategorias() {
 		
-		String[] categorias = iConConCur.getCategorias("cursoNombreTest");
+		String[] categorias = iConConCur.getCategorias("curso1NombreTest");
 		
 		ManejadorCurso mc = ManejadorCurso.getInstancia();
 		List<Curso> cursosManejador = mc.getCursos();
@@ -281,7 +269,7 @@ public class ControladorConsultaCursoTest {
 		
 		int i = 0;
 		for(Curso c: cursosManejador) {
-			if(c.getNombre().equals("cursoNombreTest")) {
+			if(c.getNombre().equals("curso1NombreTest")) {
 				List<Categoria> catsCurso = c.getCategorias();
 				arrCategoriasCurso = new String[catsCurso.size()];
 				for(Categoria cat: catsCurso) {
@@ -296,7 +284,7 @@ public class ControladorConsultaCursoTest {
 	@Test
 	public void test_10_getEdiciones() {
 		
-		String[] ediciones = iConConCur.getEdiciones("cursoNombreTest");
+		String[] ediciones = iConConCur.getEdiciones("curso1NombreTest");
 		
 		ManejadorCurso mc = ManejadorCurso.getInstancia();
 		List<Curso> cursosManejador = mc.getCursos();
@@ -304,7 +292,7 @@ public class ControladorConsultaCursoTest {
 		
 		int i=0;
 		for(Curso c: cursosManejador) {
-			if(c.getNombre().equals("cursoNombreTest")) {
+			if(c.getNombre().equals("curso1NombreTest")) {
 				List<Edicion> edicionesCurso = c.getEdiciones();
 				arrEdicionesCurso = new String[edicionesCurso.size()];
 				for(Edicion e: edicionesCurso) {
@@ -322,7 +310,7 @@ public class ControladorConsultaCursoTest {
 	@Test
 	public void test_11_getPFs() {
 		
-		String[] programas = iConConCur.getPFs("cursoNombreTest");
+		String[] programas = iConConCur.getPFs("curso1NombreTest");
 		
 		ManejadorCurso mc = ManejadorCurso.getInstancia();
 		List<Curso> cursosManejador = mc.getCursos();
@@ -330,7 +318,7 @@ public class ControladorConsultaCursoTest {
 		
 		int i = 0;
 		for(Curso c: cursosManejador) {
-			if(c.getNombre().equals("cursoNombreTest")) {
+			if(c.getNombre().equals("curso1NombreTest")) {
 				List<ProgFormacion> programasCurso = c.getProgramas();
 				arrProgramasCurso = new String[programasCurso.size()];
 				for(ProgFormacion pf: programasCurso) {

@@ -97,19 +97,23 @@ public class ControladorConsultaUsuarioTest {
 		DtCurso auxCurso3 = new DtCurso ("curso3_asdasda", "desc", 1, 1, 1, fecha, "url", listaVacia, listaVacia);
 		iConAltaCurso.ingresarCurso("instituto456345", auxCurso3);
 		iConAltaCurso.confirmarAltaCurso();
-		//creo tres ediciones		
+		//creo tres ediciones	
+		String fechaI = "15/11/2020";
+		String fechaF = "01/01/2021";
+		Date fechaInicio = funcionesAux.convertirADate(fechaI);
+		Date fechaFin = funcionesAux.convertirADate(fechaF);
 		iConAltaEdicion.seleccionarCurso("curso1_asdasd");
 		List<String> docentes = new ArrayList<String>();
 		docentes.add("docente457457");
-		DtEdicionExp auxEdicion1 = new DtEdicionExp ("edicion1_12312", fecha, fecha, 1, fecha, docentes);
+		DtEdicionExp auxEdicion1 = new DtEdicionExp ("edicion1_12312", fechaInicio, fechaFin, 1, fecha, docentes);
 		iConAltaEdicion.ingresarDtEdicion(auxEdicion1);
 		iConAltaEdicion.confirmarAltaEdicion();
 		iConAltaEdicion.seleccionarCurso("curso2_asdas");
-		DtEdicionExp auxEdicion2 = new DtEdicionExp ("edicion2_12312", fecha, fecha, 1, fecha, docentes);
+		DtEdicionExp auxEdicion2 = new DtEdicionExp ("edicion2_12312", fechaInicio, fechaFin, 1, fecha, docentes);
 		iConAltaEdicion.ingresarDtEdicion(auxEdicion2);
 		iConAltaEdicion.confirmarAltaEdicion();
 		iConAltaEdicion.seleccionarCurso("curso3_asdasda");
-		DtEdicionExp auxEdicion3 = new DtEdicionExp ("edicion3_12312", fecha, fecha, 1, fecha, docentes);
+		DtEdicionExp auxEdicion3 = new DtEdicionExp ("edicion3_12312", fechaInicio, fechaFin, 1, fecha, docentes);
 		iConAltaEdicion.ingresarDtEdicion(auxEdicion3);
 		iConAltaEdicion.confirmarAltaEdicion();
 		//creo pf

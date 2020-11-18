@@ -68,7 +68,6 @@ public class ManejadorUsuario {
 		return aRetornar;
 	}
 	
-	public void removerUsuario(Usuario usuario){}
 	
 	public boolean existeUsuarioNick(String nick){
 

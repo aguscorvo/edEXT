@@ -2,6 +2,7 @@ package tests;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -110,8 +111,12 @@ public class ControladorListarAceptadosTest {
 	@Test
 	public void getInstitutos() {
 		String [] institutos = iCon.getInstitutos();
-		String [] institutosTest = {"instituto123124"};
-		assertArrayEquals(institutosTest, institutos);
+		Boolean test=false;
+		for (String i: institutos) {
+			if (i.equals("instituto123124"))
+				test=true;
+		}
+		assertTrue(test);
 	}
 	
 	@Test

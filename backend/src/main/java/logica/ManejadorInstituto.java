@@ -53,7 +53,6 @@ public class ManejadorInstituto {
 		return aRetornar;
 		
 	}
-	public void removerInstituto(Instituto instituto){}
 	
 	public boolean existeInstituto(String nombre){
 				

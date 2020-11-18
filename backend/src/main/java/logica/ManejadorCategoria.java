@@ -56,9 +56,6 @@ public class ManejadorCategoria {
 		
 	}
 	
-	
-	public void removerCategoria(Categoria categoria){}
-
 	public boolean existeCategoria(String nombre){
 		
 		Conexion c = Conexion.getInstancia();

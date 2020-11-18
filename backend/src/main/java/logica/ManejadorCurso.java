@@ -55,8 +55,6 @@ public class ManejadorCurso {
 		
 	}
 	
-	
-	public void removerCurso(Curso curso){}
 
 	public boolean existeCurso(String nombre){
 		

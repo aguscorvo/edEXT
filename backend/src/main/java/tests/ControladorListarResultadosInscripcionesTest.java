@@ -26,6 +26,7 @@ import excepciones.NoExisteEdicionVigenteException;
 import excepciones.NoExisteInstitutoException;
 import excepciones.UsuarioRepetidoException;
 import interfaces.*;
+import logica.funcionesAux;
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -48,6 +49,10 @@ public class ControladorListarResultadosInscripcionesTest {
 		icai.ingresarInstituto("Robots2");
 		icai.confirmarAltaInstituto();
 		Date fecha = new Date();
+		String fechaI = "15/11/2020";
+		String fechaF = "01/01/2021";
+		Date fechaInicio = funcionesAux.convertirADate(fechaI);
+		Date fechaFin = funcionesAux.convertirADate(fechaF);
 		List <String> previas = new ArrayList<String>();
 		List <String> categorias = new ArrayList<String>();
 		DtCurso curso = new DtCurso("CocinaDos", "A", 2, 2, 2, fecha, "http://gg.com", previas, categorias);
@@ -58,7 +63,7 @@ public class ControladorListarResultadosInscripcionesTest {
 		icau.confirmarAltaUsuario();
 		List <String> docentes = new ArrayList<String>();
 		docentes.add("paty");
-		DtEdicionExp edicion = new DtEdicionExp("CocinaDos20", fecha, fecha, 1, fecha, docentes);
+		DtEdicionExp edicion = new DtEdicionExp("CocinaDos20", fechaInicio, fechaFin, 1, fecha, docentes);
 		icae.seleccionarCurso("CocinaDos");
 		icae.ingresarDtEdicion(edicion);
 		icae.confirmarAltaEdicion();
