@@ -83,6 +83,7 @@ public class ControladorConsultaCursoTest {
 		iConAltaCurso.confirmarAltaCurso();	
 		
 		List<String> previas2 = new ArrayList<String>();
+		previas2.add("cursoNombreTest");
 		DtCurso auxCurso2 = new DtCurso ("curso2NombreTest", "curso2DescTest", 0, 0, 0, fecha, "curso2UrlTest", previas2, categorias);
 		iConAltaCurso.ingresarCurso("institutoNombreTest", auxCurso2);
 		iConAltaCurso.confirmarAltaCurso();
@@ -212,12 +213,7 @@ public class ControladorConsultaCursoTest {
 				 && datosCurso.contains(Integer.toString(auxDt.getCantHoras())) 
 				 && datosCurso.contains(Integer.toString(auxDt.getCreditos())) 
 				 && datosCurso.contains(funcionesAux.convertirAString(auxDt.getFechaR())) 
-				 && datosCurso.contains(auxDt.getUrl()) 
-				 && datosCurso.contains((CharSequence) auxDt.getPrevias()) 
-				 && datosCurso.contains((CharSequence) auxDt.getCategorias())
-				 && datosCurso.contains((CharSequence) auxDt.getEdiciones())
-				 && datosCurso.contains((CharSequence) auxDt.getEdiciones())
-				 && datosCurso.contains((CharSequence) auxDt.getProgramas())) {
+				 && datosCurso.contains(auxDt.getUrl()) ) {
 			 test = true;
 		 }else test = false;
 		 
@@ -253,8 +249,7 @@ public class ControladorConsultaCursoTest {
 		if(datosPF.contains(aux.getNombre()) && datosPF.contains(aux.getDesc())
 				&& datosPF.contains(funcionesAux.convertirAString(aux.getFechaI()))
 				&& datosPF.contains(funcionesAux.convertirAString(aux.getFechaF()))
-				&& datosPF.contains(funcionesAux.convertirAString(aux.getFechaAlta()))
-				&& datosPF.contains((CharSequence) aux.getCursos())) {
+				&& datosPF.contains(funcionesAux.convertirAString(aux.getFechaAlta()))) {
 			test = true;
 		} else test = false;
 		
@@ -262,28 +257,17 @@ public class ControladorConsultaCursoTest {
 	}
 	
 	@Test
-	public void test_8_getPrevias() {
-		
+	public void test_8_getPreviasVacia() {		
 		String[] previas = iConConCur.getPrevias("cursoNombreTest");
-		
-		ManejadorCurso mc = ManejadorCurso.getInstancia();
-		List<Curso> cursosManejador = mc.getCursos();
-		String[] arrPreviasCurso = null;
-		
-		int i=0;
-		for(Curso c: cursosManejador) {
-			if(c.getNombre().equals("cursoNombreTest")) {
-				List<Curso> previasCurso = c.getMisPrevias();
-				arrPreviasCurso = new String[previasCurso.size()];
-
-				for(Curso p: previasCurso) {
-					arrPreviasCurso[i] = p.getNombre();
-					i++;
-				}
-			}
-		}
-		assertArrayEquals(arrPreviasCurso, previas);
-
+		String [] previasOk = {""};		
+		assertArrayEquals(previasOk, previas);
+	}
+	
+	@Test
+	public void test_8_getPrevias() {
+		String[] previas = iConConCur.getPrevias("curso2NombreTest");
+		String [] previasOk = {"cursoNombreTest"};		
+		assertArrayEquals(previasOk, previas);
 	}
 	
 	@Test
