@@ -9,7 +9,8 @@ import org.junit.runners.Suite.SuiteClasses;
 	ControladorAltaProgFormacionTest.class,ControladorSeleccionarEstudiantesTest.class, ControladorListarResultadosInscripcionesTest.class, 
 	ControladorAltaCursoTest.class, ControladorModificarDatosUsuarioTest.class, ControladorAltaInstitutoTest.class, 
 	ControladorAltaCategoriaTest.class, ControladorConsultarProgFormacionTest.class, ControladorAltaUsuarioTest.class, 
-	ControladorIniciarSesionTest.class, ControladorAltaEdicionTest.class, ControladorBuscarCursoOProgramaTest.class})
+	ControladorIniciarSesionTest.class, ControladorAltaEdicionTest.class, ControladorBuscarCursoOProgramaTest.class, ControladorAltaEdicionTest.class, 
+	ControladorConsultaCursoTest.class, ControladorConsultaEdicionTest.class, })
 public class AllTests {
 
 }
