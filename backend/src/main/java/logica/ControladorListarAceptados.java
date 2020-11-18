@@ -69,7 +69,8 @@ public class ControladorListarAceptados implements IControladorListarAceptados{
 			
 			for(Edicion e: edicionesCurso) {
 				
-				if(((fechaActual.compareTo(e.getFechaI()) <0 )) & (fechaActual.compareTo(e.getFechaF()) >= 0))
+				if((((fechaActual.compareTo(e.getFechaI()) <0 )) && (fechaActual.compareTo(e.getFechaF()) >= 0)) ||
+						((fechaActual.compareTo(e.getFechaI()) >0 ) && (fechaActual.compareTo(e.getFechaF()) > 0)))
 					throw new NoExisteEdicionVigenteException("El curso '" + curso + "' no tiene una edición vigente.");	
 				
 				else {
